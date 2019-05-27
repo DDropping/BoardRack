@@ -1,9 +1,10 @@
-//User account model:
-//username, email, password, [likedposts], [messageThreads], isShaper, isShop, date
+//Shaper account model:
+//username, email, password, [messageThreads], isShaper, isShop, date
+//add later: country, state, zip, address, hoursOfOperation, contactPhoneNumber, contactEmail, avgTurnAroudTime, boards[{}]
 
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
+const ShaperSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true
@@ -17,12 +18,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  likedPosts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'post'
-    }
-  ],
   messageThreads: [
     {
       type: Schema.Types.ObjectId,
@@ -35,4 +30,4 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
-module.exports = User = mongoose.model('user', UserSchema);
+module.exports = User = mongoose.model('shaper', ShaperSchema);
