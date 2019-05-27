@@ -1,4 +1,4 @@
-//Message account model:
+//Message details model:
 //postID, messageThreads[{}]
 
 const mongoose = require('mongoose');
@@ -28,4 +28,4 @@ const MessageSchema = new mongoose.Schema({
   ]
 });
 
-module.exports = User = mongoose.model('message', MessageSchema);
+module.exports = Message = mongoose.model('message', MessageSchema);

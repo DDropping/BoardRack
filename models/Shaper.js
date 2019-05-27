@@ -30,4 +30,4 @@ const ShaperSchema = new mongoose.Schema({
   }
 });
 
-module.exports = User = mongoose.model('shaper', ShaperSchema);
+module.exports = Shaper = mongoose.model('shaper', ShaperSchema);

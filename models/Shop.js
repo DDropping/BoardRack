@@ -1,4 +1,4 @@
-//Shaper account model:
+//Shop account model:
 //username, email, password, address, storeHours, contactInfo, [messageThreads], date, posts
 //add later:
 
@@ -76,10 +76,12 @@ const ShopSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  posts: {
-    type: Schema.Types.ObjectId,
-    ref: 'post'
-  }
+  posts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'post'
+    }
+  ]
 });
 
-module.exports = User = mongoose.model('shop', ShopSchema);
+module.exports = Shop = mongoose.model('shop', ShopSchema);
