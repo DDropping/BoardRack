@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const MessageSchema = new mongoose.Schema({
   postId: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'post'
     }
   ],

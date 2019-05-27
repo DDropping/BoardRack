@@ -1,4 +1,4 @@
-//middleware checks if header contains a token and validates it
+//middleware to check if header contains a token >> then validates it
 
 const jwt = require('jsonwebtoken');
 const config = require('config');

@@ -1,4 +1,4 @@
-//Database connection
+//Connection to MongoDB
 
 const mongoose = require('mongoose');
 const config = require('config');

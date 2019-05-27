@@ -1,5 +1,5 @@
 //Post details model:
-//new, title, price, shpaer, model, boardType, condition, waterTight, dimensions, location, discription
+//new, title, price, shpaer, model, boardType, condition, waterTight, dimensions, location, discription, author
 //add later: potos []
 
 const mongoose = require('mongoose');
@@ -76,6 +76,10 @@ const PostSchema = new mongoose.Schema({
   discription: {
     type: String,
     required: true
+  },
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'users'
   }
 });
 
