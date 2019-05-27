@@ -1,0 +1,31 @@
+{
+  "name": "boardshack",
+  "version": "1.0.0",
+  "description": "new/used surfboard classifieds",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DDropping/BoardShack.git"
+  },
+  "author": "David Dropping",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DDropping/BoardShack/issues"
+  },
+  "homepage": "https://github.com/DDropping/BoardShack#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.1.0",
+    "express": "^4.17.1",
+    "express-validator": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.11"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.19.1"
+  }
+}
