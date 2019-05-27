@@ -29,10 +29,7 @@ const UserSchema = new mongoose.Schema({
       ref: 'message'
     }
   ],
-  date: {
-    type: Date,
-    default: Date.now
-  }
+  date: { type: Date, default: Date.now }
 });
 
 module.exports = User = mongoose.model('user', UserSchema);
