@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb://localhost/BoardRack"
+  "mongoURI": "mongodb://localhost/BoardRack",
+  "jwtSecret": "kdn$rj42mfl5&4nn0d%"
 }

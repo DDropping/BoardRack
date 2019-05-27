@@ -19,13 +19,13 @@ const UserSchema = new mongoose.Schema({
   },
   likedPosts: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'post'
     }
   ],
   messageThreads: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'message'
     }
   ],
