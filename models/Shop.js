@@ -1,5 +1,5 @@
 //Shop account model:
-//username, email, password, address, storeHours, contactInfo, [messageThreads], date, posts
+//username, email, password, address, storeHours, website, contactInfo, [messageThreads], date, posts
 //add later:
 
 const mongoose = require('mongoose');
@@ -57,6 +57,9 @@ const ShopSchema = new mongoose.Schema({
     saturday: {
       type: String
     }
+  },
+  website: {
+    type: String
   },
   contactInfo: {
     contactEmail: {

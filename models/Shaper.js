@@ -1,6 +1,6 @@
 //Shaper account model:
-//username, email, password, [messageThreads], isShaper, isShop, date
-//add later: country, state, zip, address, hoursOfOperation, contactPhoneNumber, contactEmail, avgTurnAroudTime, boards[{}]
+//username, email, password, address, storeHours, website, [contactInfo], [messageThreads], isShaper, isShop, date
+//add later: avgTurnAroudTime, boards[{}]
 
 const mongoose = require('mongoose');
 
@@ -17,6 +17,57 @@ const ShaperSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  address: {
+    country: {
+      type: String
+    },
+    state: {
+      type: String
+    },
+    city: {
+      type: String
+    },
+    zip: {
+      type: String
+    },
+    address: {
+      type: String
+    }
+  },
+  storeHours: {
+    sunday: {
+      type: String
+    },
+    monday: {
+      type: String
+    },
+    tuesday: {
+      type: String
+    },
+    wednesday: {
+      type: String
+    },
+    thursday: {
+      type: String
+    },
+    friday: {
+      type: String
+    },
+    saturday: {
+      type: String
+    }
+  },
+  website: {
+    type: String
+  },
+  contactInfo: {
+    contactEmail: {
+      type: String
+    },
+    contactPhone: {
+      type: String
+    }
   },
   messageThreads: [
     {
