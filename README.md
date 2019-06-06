@@ -1,6 +1,6 @@
 # BOARDRACK
 Classified Advertisement Website for New / Used / Custom Suftboards  
-Built Using The Mern (MongoDB, Express.js, React/Redux, Node.js) Stack
+Built Using The Mern Stack (MongoDB, Express.js, React/Redux, Node.js)
 
 ## Authors
 
