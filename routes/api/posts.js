@@ -25,4 +25,9 @@ router.get('/', async (req, res) => {
   }
 });
 
+// @route   POST api/posts/create
+// @desc    Create a new post
+// @access  Public
+router.post('/', async (req, res) => {});
+
 module.exports = router;
