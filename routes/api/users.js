@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator/check');
+const auth = require('../../middleware/auth');
 
 const User = require('../../models/User');
 
@@ -70,5 +71,22 @@ router.post(
     }
   }
 );
+
+// @route   GET api/users/profile
+// @desc    Get current users profile
+// @access  Public
+router.get('/profile', auth, async (req, res) => {
+  try {
+    const userProfile = await User.findById(req.user.id).select('-password');
+    res.json(userProfile);
+
+    if (!userProfile) {
+      return res.status(400).json({ msg: 'This user does not exist ' });
+    }
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 module.exports = router;
