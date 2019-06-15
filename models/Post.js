@@ -5,7 +5,7 @@
 const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema({
-  isNew: {
+  isNewBoard: {
     type: Boolean,
     required: true
   },
@@ -19,63 +19,63 @@ const PostSchema = new mongoose.Schema({
   },
   shaper: {
     type: String,
-    required: true
+    required: false
   },
   model: {
     type: String,
-    required: true
+    required: false
   },
   boardType: {
     type: String,
-    required: true
+    required: false
   },
   condition: {
     type: String,
-    required: true
+    required: false
   },
   isWaterTight: {
     type: Boolean,
-    required: true
+    required: false
   },
   dimensions: {
     height: {
       type: Number,
-      required: true
+      required: false
     },
     width: {
       type: Number,
-      required: true
+      required: false
     },
     depth: {
       type: Number,
-      required: true
+      required: false
     },
     volume: {
       type: Number,
-      required: true
+      required: false
     }
   },
   location: {
     country: {
       type: String,
-      required: true
+      required: false
     },
     state: {
       type: String,
-      required: true
+      required: false
     },
     city: {
       type: String,
-      required: true
+      required: false
     },
     zip: {
       type: String,
-      required: true
+      required: false
     }
   },
   discription: {
     type: String,
-    required: true
+    required: false
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
