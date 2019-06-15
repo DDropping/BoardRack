@@ -6,24 +6,6 @@ const { check, validationResult } = require('express-validator/check');
 const Post = require('../../models/Post');
 const User = require('../../models/User');
 
-// @route   GET api/posts/postID  ***NEEDS WORK / NOT FINISHED / NEEDS TO BE TESTED***
-// @desc    Get selected post
-// @access  Public
-// router.get('/', async (req, res) => {
-//   try {
-//     const post = await Post.findOne(req.post.id).populate('user', ['username']);
-
-//     if (!post) {
-//       return res.status(400).json({ msg: 'There is no post with this id' });
-//     }
-
-//     res.json(post);
-//   } catch (err) {
-//     console.error(err.message);
-//     res.status(500).send('Server Error');
-//   }
-// });
-
 // @route   POST api/posts
 // @desc    Create a post
 // @access  Public
@@ -104,5 +86,30 @@ router.post(
     }
   }
 );
+
+// @route   GET api/posts/:id  ***NEEDS WORK / NOT FINISHED / NEEDS TO BE TESTED***
+// @desc    Get selected post
+// @access  Public
+router.get('/:id', async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id).populate(
+      'user',
+      'username'
+    );
+    console.log(post);
+
+    if (!post) {
+      return res.status(400).json({ msg: 'There is no post with this id' });
+    }
+
+    res.json(post);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Post not found' });
+    }
+    res.status(500).send('Server Error');
+  }
+});
 
 module.exports = router;
