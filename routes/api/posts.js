@@ -157,7 +157,7 @@ router.post(
     if (zip) postFields.location.zip = zip;
 
     try {
-      let post = await Post.findById(req.params.id);
+      let post = await Post.findById(req.params.id); //need to handle catch if post DNE
 
       if (post) {
         // Update

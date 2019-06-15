@@ -25,6 +25,7 @@ GET  retreive shaper details
   
 ~~POST create board listing~~  
 POST delete board listing  
+~~POST update board listing~~ Needs more testing  
 ~~GET  retrieve specific board listing~~  
 GET  retrieve all board listings  
 GET  retrieve filtered board listings  
