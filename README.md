@@ -11,9 +11,9 @@
 ~~POST create user~~   
 POST remove user / all user posts  
 ~~GET  retreive user details~~  
-~~Login User~~  
+~~POST Login User~~  
 
-~~Authenticate User~~  
+~~POST Authenticate User~~  
   
 POST create shop  
 POST remove shop / all shop posts  
