@@ -50,7 +50,7 @@ const PostSchema = new mongoose.Schema({
       type: Number,
       required: true
     },
-    voluem: {
+    volume: {
       type: Number,
       required: true
     }
