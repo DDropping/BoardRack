@@ -5,7 +5,7 @@
 const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema({
-  new: {
+  isNew: {
     type: Boolean,
     required: true
   },
@@ -33,7 +33,7 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  waterTight: {
+  isWaterTight: {
     type: Boolean,
     required: true
   },
