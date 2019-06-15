@@ -9,20 +9,20 @@ const User = require('../../models/User');
 // @route   GET api/posts/postID  ***NEEDS WORK / NOT FINISHED / NEEDS TO BE TESTED***
 // @desc    Get selected post
 // @access  Public
-router.get('/', async (req, res) => {
-  try {
-    const post = await Post.findOne(req.post.id).populate('user', ['username']);
+// router.get('/', async (req, res) => {
+//   try {
+//     const post = await Post.findOne(req.post.id).populate('user', ['username']);
 
-    if (!post) {
-      return res.status(400).json({ msg: 'There is no post with this id' });
-    }
+//     if (!post) {
+//       return res.status(400).json({ msg: 'There is no post with this id' });
+//     }
 
-    res.json(post);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
-});
+//     res.json(post);
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send('Server Error');
+//   }
+// });
 
 // @route   POST api/posts
 // @desc    Create a post
@@ -32,12 +32,12 @@ router.post(
   [
     auth,
     [
-      check('title', 'Title is required')
+      (check('title', 'Title is required')
         .not()
         .isEmpty(),
       check('price', 'Price is required')
         .not()
-        .isEmpty()
+        .isEmpty())
     ]
   ],
   async (req, res) => {
@@ -47,7 +47,7 @@ router.post(
     }
 
     const {
-      isNew,
+      isNewBoard,
       title,
       price,
       shaper,
@@ -69,7 +69,7 @@ router.post(
     //build post object
     const postFields = {};
     postFields.user = req.user.id;
-    if (isNew) postFields.isNew = isNew;
+    if (isNewBoard) postFields.isNewBoard = isNewBoard;
     if (title) postFields.title = title;
     if (price) postFields.price = price;
     if (shaper) postFields.shaper = shaper;
@@ -79,14 +79,14 @@ router.post(
     if (isWaterTight) postFields.isWaterTight = isWaterTight;
     if (description) postFields.description = description;
 
-    //build dimensions object
+    // //build dimensions object
     postFields.dimensiosn = {};
     if (height) postFields.dimensions.height = height;
     if (width) postFields.dimensions.width = width;
     if (depth) postFields.dimensions.depth = depth;
     if (volume) postFields.dimensions.volume = volume;
 
-    //build location object
+    // //build location object
     postFields.location = {};
     if (country) postFields.location.country = country;
     if (state) postFields.location.state = state;
@@ -94,8 +94,19 @@ router.post(
     if (zip) postFields.location.zip = zip;
 
     try {
+      //update doesnt work correcty
+      // let post = await Post.findOne({ user: req.user.id });
+      // if (post) {
+      //   post = await Post.findOneAndUpdate(
+      //     { user: req.user.id },
+      //     { $set: postFields },
+      //     { new: true }
+      //   );
+      //   return res.json(post);
+      // }
+
       let post = new Post(postFields);
-      await Post.save();
+      await post.save();
       res.json(post);
     } catch (err) {
       console.error(err.message);
