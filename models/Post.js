@@ -39,19 +39,19 @@ const PostSchema = new mongoose.Schema({
   },
   dimensions: {
     height: {
-      type: Number,
+      type: String,
       required: false
     },
     width: {
-      type: Number,
+      type: String,
       required: false
     },
     depth: {
-      type: Number,
+      type: String,
       required: false
     },
     volume: {
-      type: Number,
+      type: String,
       required: false
     }
   },
@@ -77,7 +77,7 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  author: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   }
