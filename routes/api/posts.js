@@ -87,8 +87,8 @@ router.post(
   }
 );
 
-// @route   GET api/posts/:id  ***NEEDS WORK / NOT FINISHED / NEEDS TO BE TESTED***
-// @desc    Get selected post
+// @route   GET api/posts/:id
+// @desc    Get specific post
 // @access  Public
 router.get('/:id', async (req, res) => {
   try {
