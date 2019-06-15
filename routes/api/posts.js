@@ -80,7 +80,7 @@ router.post(
     if (description) postFields.description = description;
 
     // //build dimensions object
-    postFields.dimensiosn = {};
+    postFields.dimensions = {};
     if (height) postFields.dimensions.height = height;
     if (width) postFields.dimensions.width = width;
     if (depth) postFields.dimensions.depth = depth;
@@ -94,20 +94,10 @@ router.post(
     if (zip) postFields.location.zip = zip;
 
     try {
-      //update doesnt work correcty
-      // let post = await Post.findOne({ user: req.user.id });
-      // if (post) {
-      //   post = await Post.findOneAndUpdate(
-      //     { user: req.user.id },
-      //     { $set: postFields },
-      //     { new: true }
-      //   );
-      //   return res.json(post);
-      // }
-
       let post = new Post(postFields);
       await post.save();
       res.json(post);
+      console.log(post);
     } catch (err) {
       console.error(err.message);
       re.status(500).send('Server Error');
