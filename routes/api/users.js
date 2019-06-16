@@ -96,6 +96,22 @@ router.get('/me', auth, async (req, res) => {
 // @access  Public
 router.get('/', async (req, res) => {
   try {
+    const profiles = await User.find().select(
+      '-password -email -messageThreads'
+    );
+    res.json(profiles);
+  } catch (err) {
+    console.err(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+//***** NEEDS TO BE SECURED ********
+// @route   GET api/users/isUser
+// @desc    Get all users
+// @access  Public
+router.get('/isUser', async (req, res) => {
+  try {
     const profiles = await User.find({ isUser: 'true' }).select(
       '-password -email -messageThreads'
     );
