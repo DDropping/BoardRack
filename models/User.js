@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   email: {
     type: String,
@@ -17,19 +18,181 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  likedPosts: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'post'
-    }
-  ],
-  messageThreads: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'message'
-    }
-  ],
-  date: { type: Date, default: Date.now }
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  isUser: {
+    type: Boolean,
+    default: false,
+    required: true
+  },
+  isShop: {
+    type: Boolean,
+    default: false,
+    required: true
+  },
+  isShaper: {
+    type: Boolean,
+    default: false,
+    required: true
+  },
+
+  //user account (likedPost, messageThreads, posts)
+  userInfo: {
+    likedPosts: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'post'
+      }
+    ],
+    messageThreads: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'message'
+      }
+    ],
+    posts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'post'
+      }
+    ]
+  },
+
+  //shop account (address, storeHours, website, contactInfo, messageThreads, posts)
+  shopInfo: {
+    address: {
+      country: {
+        type: String
+      },
+      state: {
+        type: String
+      },
+      city: {
+        type: String
+      },
+      zip: {
+        type: String
+      },
+      address: {
+        type: String
+      }
+    },
+    storeHours: {
+      sunday: {
+        type: String
+      },
+      monday: {
+        type: String
+      },
+      tuesday: {
+        type: String
+      },
+      wednesday: {
+        type: String
+      },
+      thursday: {
+        type: String
+      },
+      friday: {
+        type: String
+      },
+      saturday: {
+        type: String
+      }
+    },
+    website: {
+      type: String
+    },
+    contactInfo: {
+      contactEmail: {
+        type: String
+      },
+      contactPhone: {
+        type: String
+      }
+    },
+    messageThreads: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'message'
+      }
+    ],
+    posts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'post'
+      }
+    ]
+  },
+
+  //shaper account (address, storeHours, website, contactInfo, messageThreads, posts)
+  shaperInfo: {
+    address: {
+      country: {
+        type: String
+      },
+      state: {
+        type: String
+      },
+      city: {
+        type: String
+      },
+      zip: {
+        type: String
+      },
+      address: {
+        type: String
+      }
+    },
+    storeHours: {
+      sunday: {
+        type: String
+      },
+      monday: {
+        type: String
+      },
+      tuesday: {
+        type: String
+      },
+      wednesday: {
+        type: String
+      },
+      thursday: {
+        type: String
+      },
+      friday: {
+        type: String
+      },
+      saturday: {
+        type: String
+      }
+    },
+    website: {
+      type: String
+    },
+    contactInfo: {
+      contactEmail: {
+        type: String
+      },
+      contactPhone: {
+        type: String
+      }
+    },
+    messageThreads: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'message'
+      }
+    ],
+    posts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'post'
+      }
+    ]
+  }
 });
 
 module.exports = User = mongoose.model('user', UserSchema);
