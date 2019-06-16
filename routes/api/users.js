@@ -73,10 +73,10 @@ router.post(
   }
 );
 
-// @route   GET api/users/profile
+// @route   GET api/users/me
 // @desc    Get current users profile
 // @access  Public
-router.get('/profile/me', auth, async (req, res) => {
+router.get('/me', auth, async (req, res) => {
   try {
     const userProfile = await User.findById(req.user.id).select('-password');
     res.json(userProfile);
@@ -86,6 +86,22 @@ router.get('/profile/me', auth, async (req, res) => {
     }
   } catch (err) {
     console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+//***** NEEDS TO BE SECURED ********
+// @route   GET api/users
+// @desc    Get all users
+// @access  Public
+router.get('/', async (req, res) => {
+  try {
+    const profiles = await User.find({ isUser: 'true' }).select(
+      '-password -email -messageThreads'
+    );
+    res.json(profiles);
+  } catch (err) {
+    console.err(err.message);
     res.status(500).send('Server Error');
   }
 });
