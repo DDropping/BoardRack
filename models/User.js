@@ -54,7 +54,7 @@ const UserSchema = new mongoose.Schema({
     ],
     posts: [
       {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'post'
       }
     ]
@@ -115,13 +115,13 @@ const UserSchema = new mongoose.Schema({
     },
     messageThreads: [
       {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'message'
       }
     ],
     posts: [
       {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'post'
       }
     ]
@@ -182,13 +182,13 @@ const UserSchema = new mongoose.Schema({
     },
     messageThreads: [
       {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'message'
       }
     ],
     posts: [
       {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'post'
       }
     ]
