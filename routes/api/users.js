@@ -138,4 +138,20 @@ router.get('/isShop', async (req, res) => {
   }
 });
 
+//***** NEEDS TO BE SECURED ********
+// @route   GET api/users/isShaper
+// @desc    Get all shapers
+// @access  Public
+router.get('/isShaper', async (req, res) => {
+  try {
+    const profiles = await User.find({ isShaper: 'true' }).select(
+      '-password -email -messageThreads'
+    );
+    res.json(profiles);
+  } catch (err) {
+    console.err(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
