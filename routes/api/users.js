@@ -76,7 +76,7 @@ router.post(
 // @route   GET api/users/profile
 // @desc    Get current users profile
 // @access  Public
-router.get('/profile', auth, async (req, res) => {
+router.get('/profile/me', auth, async (req, res) => {
   try {
     const userProfile = await User.findById(req.user.id).select('-password');
     res.json(userProfile);
