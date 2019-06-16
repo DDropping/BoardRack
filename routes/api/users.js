@@ -122,4 +122,20 @@ router.get('/isUser', async (req, res) => {
   }
 });
 
+//***** NEEDS TO BE SECURED ********
+// @route   GET api/users/isShop
+// @desc    Get all shops
+// @access  Public
+router.get('/isShop', async (req, res) => {
+  try {
+    const profiles = await User.find({ isShop: 'true' }).select(
+      '-password -email -messageThreads'
+    );
+    res.json(profiles);
+  } catch (err) {
+    console.err(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
