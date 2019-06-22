@@ -114,7 +114,7 @@ router.get('/', async (req, res) => {
 // @access  Public
 router.get('/isUser', async (req, res) => {
   try {
-    const profiles = await User.find({ isUser: 'true' }).select(
+    const profiles = await User.find({ userType: 'user' }).select(
       '-password -email -messageThreads'
     );
     res.json(profiles);
