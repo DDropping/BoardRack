@@ -131,7 +131,7 @@ router.get('/isUser', async (req, res) => {
 // @access  Public
 router.get('/isShop', async (req, res) => {
   try {
-    const profiles = await User.find({ isShop: 'true' }).select(
+    const profiles = await User.find({ userType: 'shop' }).select(
       '-password -email -messageThreads'
     );
     res.json(profiles);
