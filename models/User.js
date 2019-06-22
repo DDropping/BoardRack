@@ -22,19 +22,9 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  isUser: {
-    type: Boolean,
-    default: false,
-    required: true
-  },
-  isShop: {
-    type: Boolean,
-    default: false,
-    required: true
-  },
-  isShaper: {
-    type: Boolean,
-    default: false,
+  userType: {
+    type: String,
+    default: 'user',
     required: true
   },
 

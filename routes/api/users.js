@@ -75,7 +75,7 @@ router.post(
 
 // @route   GET api/users/me
 // @desc    Get current users profile
-// @access  Public
+// @access  Private
 router.get('/me', auth, async (req, res) => {
   try {
     const userProfile = await User.findById(req.user.id).select('-password');
@@ -91,6 +91,7 @@ router.get('/me', auth, async (req, res) => {
 });
 
 //***** NEEDS TO BE SECURED ********
+//does not include posts, can use populate to add in
 // @route   GET api/users
 // @desc    Get all users
 // @access  Public
@@ -107,6 +108,7 @@ router.get('/', async (req, res) => {
 });
 
 //***** NEEDS TO BE SECURED ********
+//does not include posts, can use populate to add in
 // @route   GET api/users/isUser
 // @desc    Get all users
 // @access  Public
@@ -123,6 +125,7 @@ router.get('/isUser', async (req, res) => {
 });
 
 //***** NEEDS TO BE SECURED ********
+//does not include posts, can use populate to add in
 // @route   GET api/users/isShop
 // @desc    Get all shops
 // @access  Public
@@ -139,6 +142,7 @@ router.get('/isShop', async (req, res) => {
 });
 
 //***** NEEDS TO BE SECURED ********
+//does not include posts, can use populate to add in
 // @route   GET api/users/isShaper
 // @desc    Get all shapers
 // @access  Public
