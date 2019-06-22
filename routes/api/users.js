@@ -148,7 +148,7 @@ router.get('/isShop', async (req, res) => {
 // @access  Public
 router.get('/isShaper', async (req, res) => {
   try {
-    const profiles = await User.find({ isShaper: 'true' }).select(
+    const profiles = await User.find({ userType: 'shaper' }).select(
       '-password -email -messageThreads'
     );
     res.json(profiles);
