@@ -97,58 +97,7 @@ router.get('/me', auth, async (req, res) => {
 // @access  Public
 router.get('/', async (req, res) => {
   try {
-    const profiles = await User.find().select(
-      '-password -email -messageThreads'
-    );
-    res.json(profiles);
-  } catch (err) {
-    console.err(err.message);
-    res.status(500).send('Server Error');
-  }
-});
-
-//***** NEEDS TO BE SECURED ********
-//does not include posts, can use populate to add in
-// @route   GET api/users/isUser
-// @desc    Get all users
-// @access  Public
-router.get('/isUser', async (req, res) => {
-  try {
     const profiles = await User.find({ userType: 'user' }).select(
-      '-password -email -messageThreads'
-    );
-    res.json(profiles);
-  } catch (err) {
-    console.err(err.message);
-    res.status(500).send('Server Error');
-  }
-});
-
-//***** NEEDS TO BE SECURED ********
-//does not include posts, can use populate to add in
-// @route   GET api/users/isShop
-// @desc    Get all shops
-// @access  Public
-router.get('/isShop', async (req, res) => {
-  try {
-    const profiles = await User.find({ userType: 'shop' }).select(
-      '-password -email -messageThreads'
-    );
-    res.json(profiles);
-  } catch (err) {
-    console.err(err.message);
-    res.status(500).send('Server Error');
-  }
-});
-
-//***** NEEDS TO BE SECURED ********
-//does not include posts, can use populate to add in
-// @route   GET api/users/isShaper
-// @desc    Get all shapers
-// @access  Public
-router.get('/isShaper', async (req, res) => {
-  try {
-    const profiles = await User.find({ userType: 'shaper' }).select(
       '-password -email -messageThreads'
     );
     res.json(profiles);
