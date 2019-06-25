@@ -1,3 +1,8 @@
+//Routes for api/posts
+// - POST api/posts (create a new post)
+// - POST api/posts/update/:id (update an existing post)
+// - GET api/posts/:id (retrieve post given id)
+
 const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
