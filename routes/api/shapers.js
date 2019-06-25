@@ -1,3 +1,6 @@
+//Routes for api/shapers
+// - GET api/shapers (retrieve all shaper profiles)
+
 const express = require('express');
 const router = express.Router();
 
