@@ -1,6 +1,7 @@
 //Routes for api/accounts
 // - GET api/accounts (retrieve all account profiles)
 // - GET api/myAccount (retrieve current user account given JWT)
+// - GET api/accounts/:user_id (retrieve user given user ID)
 // - POST api/accounts (create a new account with username, email, password, userType)
 
 const express = require('express');
@@ -40,6 +41,23 @@ router.get('/myAccount', auth, async (req, res) => {
 
     if (!userProfile) {
       return res.status(400).json({ msg: 'This user does not exist ' });
+    }
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   GET api/accounts/:user_id
+// @desc    Get profile by user_id
+// @access  public
+router.get('/:user_id', async (req, res) => {
+  try {
+    const Profile = await User.findById(req.params.user_id).select('-password');
+    res.json(Profile);
+
+    if (!Profile) {
+      return res.status(400).json({ msg: 'This profile does not exist ' });
     }
   } catch (err) {
     console.error(err.message);
