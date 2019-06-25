@@ -1,3 +1,6 @@
+//Routes for api/shops
+// - GET api/shops (retrieve all shop profiles)
+
 const express = require('express');
 const router = express.Router();
 

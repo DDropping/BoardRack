@@ -1,5 +1,5 @@
 //Routes for api/users
-// - GET api/accounts (retrieve all account profiles)
+// - GET api/users (retrieve all users profiles)
 
 const express = require('express');
 const router = express.Router();
