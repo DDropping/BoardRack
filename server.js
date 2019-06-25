@@ -12,12 +12,13 @@ app.use(express.json({ extended: false }));
 app.get('/', (req, res) => res.send('API running'));
 
 //define routes
+app.use('/api/accounts', require('./routes/api/accounts'));
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/shops', require('./routes/api/shops'));
+app.use('/api/shapers', require('./routes/api/shapers'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/messages', require('./routes/api/messages'));
-app.use('/api/shapers', require('./routes/api/shapers'));
-app.use('/api/shops', require('./routes/api/shops'));
 
 const PORT = process.env.PORT || 5000;
 
