@@ -1,3 +1,7 @@
+//Routes for api/accounts
+// - GET api/accounts (retrieve all account profiles)
+// - POST api/accounts (create a new account with username, email, password, userType)
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
