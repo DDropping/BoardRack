@@ -8,24 +8,29 @@
 
 
 ## Todo - routes
-~~POST create user~~   
-POST remove user / all user posts  
-~~GET  retreive user details~~  
-~~POST Login User~~  
+#### Accounts
+- [x] GET api/accounts (retrieve all account profiles)
+- [x] GET api/myAccount (retrieve current user account given JWT)
+- [x] GET api/accounts/:user_id (retrieve user given user ID)
+- [x] POST api/accounts (create a new account with username, email, password, userType)
+- [ ] POST api/myAccount/delete (remove current signed in users account and all posts associated with the account)
 
-~~POST Authenticate User~~  
-  
-POST create shop  
-POST remove shop / all shop posts  
-GET  retreive shop details  
-  
-POST create shaper  
-POST remove shaper / all shaper posts  
-GET  retreive shaper details  
-  
-~~POST create board listing~~  
-POST delete board listing  
-~~POST update board listing~~ Needs more testing  
-~~GET  retrieve specific board listing~~  
-GET  retrieve all board listings  
-GET  retrieve filtered board listings  
+#### Users
+- [x] GET api/users (retrieve all users profiles)
+
+#### Shops
+- [x] GET api/shops (retrieve all shop profiles)
+
+#### Shapers
+- [x] GET api/shapers (retrieve all shaper profiles)
+
+#### Auth
+- [x] GET api/auth (get user info)
+- [x] POST api/auth (Login user / get jwt token)
+
+#### Posts
+- [x] POST api/posts (create a new post)
+- [x] POST api/posts/update/:id (update an existing post)
+- [x] GET api/posts/:id (retrieve post given id)
+- [ ] GET api/posts (retrieve all posts)
+- [ ] Get api/posts/fitred (retrieve posts from a filted search)
