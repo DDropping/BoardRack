@@ -1,3 +1,6 @@
+// @route   GET api/auth (get user info)
+// @route   POST api/auth (Login user / get jwt token)
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
