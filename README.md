@@ -34,3 +34,8 @@
 - [x] GET api/posts/:id (retrieve post given id)
 - [ ] GET api/posts (retrieve all posts)
 - [ ] Get api/posts/fitred (retrieve posts from a filted search)
+- [ ] POST api/posts/delete/:id (delete a post given the post ID)
+
+## Middlewares
+- [x] auth (check if jwt is a valid jwt)
+- [ ] authPostOwnership (check if a post is owned by the logged in account)
