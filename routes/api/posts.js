@@ -190,7 +190,6 @@ router.get('/:id', async (req, res) => {
       'user',
       'username'
     );
-    console.log(post);
 
     if (!post) {
       return res.status(400).json({ msg: 'There is no post with this id' });
@@ -202,6 +201,24 @@ router.get('/:id', async (req, res) => {
     if (err.kind === 'ObjectId') {
       return res.status(404).json({ msg: 'Post not found' });
     }
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   GET api/posts/:id
+// @desc    Get specific post
+// @access  Public
+router.get('/', async (req, res) => {
+  try {
+    const post = await Post.find({}).populate('user', 'username');
+
+    if (!post) {
+      return res.status(400).json({ msg: 'There is no posts' });
+    }
+
+    res.json(post);
+  } catch (err) {
+    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
