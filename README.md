@@ -33,7 +33,7 @@
 - [x] POST api/posts/update/:id (update an existing post)
 - [x] GET api/posts/:id (retrieve post given id)
 - [ ] GET api/posts (retrieve all posts)
-- [ ] Get api/posts/fitred (retrieve posts from a filted search)
+- [ ] GET api/posts/fitred (retrieve posts from a filted search)
 - [ ] POST api/posts/delete/:id (delete a post given the post ID)
 
 ## Middlewares
