@@ -13,6 +13,7 @@ const { check, validationResult } = require('express-validator/check');
 const auth = require('../../middleware/auth');
 
 const User = require('../../models/User');
+const Post = require('../../models/Post');
 
 //***** NEEDS TO BE SECURED ********
 //does not include posts, can use populate to add in
@@ -129,5 +130,22 @@ router.post(
     }
   }
 );
+
+// @route   DELETE api/accounts/myAccount
+// @desc    Delete user account and associated posts
+// @access  Private
+router.delete('/myAccount', auth, async (req, res) => {
+  try {
+    //remove posts associated with account
+    await Post.deleteMany({ user: req.user.id });
+    //remove account
+    await User.findOneAndRemove({ _id: req.user.id });
+
+    res.json({ msg: 'Account Deleted' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 module.exports = router;
