@@ -162,17 +162,16 @@ router.post(
     if (zip) postFields.location.zip = zip;
 
     try {
-      let post = await Post.findById(req.params.id); //need to handle catch if post DNE
+      let post = await Post.findById({ _id: req.params.id }); //need to handle catch if post DNE
 
       if (post) {
         // Update
-        post = await Post.findOneAndUpdate(
-          req.param.id,
+        post = await Post.findByIdAndUpdate(
+          req.params.id,
           { $set: postFields },
           { new: true }
         );
 
-        await post.save();
         return res.json(post);
       }
     } catch (err) {
