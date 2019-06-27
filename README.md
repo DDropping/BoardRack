@@ -13,7 +13,7 @@
 - [x] GET api/myAccount (retrieve current user account given JWT)
 - [x] GET api/accounts/:user_id (retrieve user given user ID)
 - [x] POST api/accounts (create a new account with username, email, password, userType)
-- [ ] POST api/myAccount/delete (remove current signed in users account and all posts associated with the account)
+- [x] DELETE api/myAccount (remove current signed in users account and all posts associated with the account)
 
 #### Users
 - [x] GET api/users (retrieve all users profiles)
@@ -34,8 +34,7 @@
 - [x] GET api/posts/:id (retrieve post given id)
 - [ ] GET api/posts (retrieve all posts)
 - [ ] GET api/posts/fitred (retrieve posts from a filted search)
-- [ ] POST api/posts/delete/:id (delete a post given the post ID)
+- [ ] DELETE api/posts/delete/:id (delete a post given the post ID)
 
 ## Middlewares
 - [x] auth (check if jwt is a valid jwt)
-- [ ] authPostOwnership (check if a post is owned by the logged in account)
