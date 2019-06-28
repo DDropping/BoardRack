@@ -163,18 +163,24 @@ router.post(
     if (zip) postFields.location.zip = zip;
 
     try {
-      let post = await Post.findById({ _id: req.params.id }); //need to handle catch if post DNE
+      let post = await Post.findById({ _id: req.params.id });
 
-      if (post) {
-        // Update
-        post = await Post.findByIdAndUpdate(
-          req.params.id,
-          { $set: postFields },
-          { new: true }
-        );
-
-        return res.json(post);
+      if (!post) {
+        res.status(404).json('Post Not Found');
       }
+
+      if (post.user.toString() !== req.user.id) {
+        return res.status(400).json({ msg: 'User Not Authorized' });
+      }
+
+      // Update
+      post = await Post.findByIdAndUpdate(
+        req.params.id,
+        { $set: postFields },
+        { new: true }
+      );
+
+      return res.json(post);
     } catch (err) {
       console.error(err.message);
       re.status(500).send('Server Error');
