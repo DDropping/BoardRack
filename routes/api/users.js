@@ -7,13 +7,17 @@ const auth = require('../../middleware/auth');
 
 const User = require('../../models/User');
 
-//***** NEEDS TO BE SECURED ********
 //does not include posts, can use populate to add in
 // @route   GET api/users
 // @desc    Get all users
-// @access  Public
+// @access  Protected (only Admin)
 router.get('/', async (req, res) => {
   try {
+    //check if admin
+    if (req.user.userType !== 'admin') {
+      return res.status(400).json('User Not Authorized');
+    }
+    //get profiles
     const profiles = await User.find({ userType: 'user' }).select(
       '-password -email -messageThreads'
     );

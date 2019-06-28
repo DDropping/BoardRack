@@ -137,7 +137,7 @@ router.post(
 
 // @route   DELETE api/accounts/myAccount
 // @desc    Delete user account and associated posts
-// @access  Private
+// @access  Protected (only owner of account - JWT)
 router.delete('/myAccount', auth, async (req, res) => {
   try {
     //remove posts associated with account
