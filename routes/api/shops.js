@@ -4,7 +4,6 @@
 const express = require('express');
 const router = express.Router();
 
-//***** NEEDS TO BE SECURED ********
 //does not include posts, can use populate to add in
 // @route   GET api/shops
 // @desc    Get all shops
