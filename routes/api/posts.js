@@ -224,13 +224,20 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @TODO    Add authentication to ensure only user can delete
+// @TODO    Allow admin to delete post
 // @route   DELETE api/posts/delete/:id
 // @desc    Delete specific post
 // @access  Private
 router.delete('/delete/:postId', auth, async (req, res) => {
   try {
-    await Post.findByIdAndRemove(req.params.postId);
+    const post = await Post.findById(req.params.postId);
+    if (!post) {
+      return res.status(404).json({ msg: 'Post Not Found' });
+    }
+    if (post.user.toString() !== req.user.id) {
+      return res.status(400).json({ msg: 'User Not Authorized' });
+    }
+    await post.remove();
     res.json('Post Deleted');
   } catch (err) {
     console.error(err.message);
