@@ -2,6 +2,7 @@
 // - POST api/posts (create a new post)
 // - POST api/posts/update/:id (update an existing post)
 // - GET api/posts/:id (retrieve post given id)
+// - GET api/posts (retrieve all posts)
 
 const express = require('express');
 const router = express.Router();
@@ -205,7 +206,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// @route   GET api/posts/:id
+// @route   GET api/posts
 // @desc    Get specific post
 // @access  Public
 router.get('/', async (req, res) => {

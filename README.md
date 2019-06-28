@@ -32,7 +32,7 @@
 - [x] POST api/posts (create a new post)
 - [x] POST api/posts/update/:id (update an existing post)
 - [x] GET api/posts/:id (retrieve post given id)
-- [ ] GET api/posts (retrieve all posts)
+- [x] GET api/posts (retrieve all posts)
 - [ ] GET api/posts/fitred (retrieve posts from a filted search)
 - [ ] DELETE api/posts/delete/:id (delete a post given the post ID)
 
