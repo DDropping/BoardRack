@@ -84,7 +84,7 @@ const PostSchema = new mongoose.Schema({
   likes: [
     {
       user: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
       }
     }
@@ -92,13 +92,13 @@ const PostSchema = new mongoose.Schema({
   messages: [
     {
       user: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
       },
       conversation: [
         {
           user: {
-            type: Mongoose.Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'user'
           },
           text: {
