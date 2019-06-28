@@ -15,19 +15,22 @@ const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 const Post = require('../../models/Post');
 
-//***** NEEDS TO BE SECURED ********
-//does not include posts, can use populate to add in
 // @route   GET api/accounts
-// @desc    Get all registered accounts
-// @access  Public
-router.get('/', async (req, res) => {
+// @desc    Get all registered accounts (does not include posts, can use populate to add in)
+// @access  Protected (Admin only)
+router.get('/', auth, async (req, res) => {
   try {
+    //check if admin
+    if (req.user.userType !== 'admin') {
+      return res.status(400).json('User Not Authorized');
+    }
+    //get profiles
     const profiles = await User.find().select(
       '-password -email -messageThreads'
     );
     res.json(profiles);
   } catch (err) {
-    console.err(err.message);
+    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
@@ -111,7 +114,8 @@ router.post(
 
       const payload = {
         user: {
-          id: user.id
+          id: user.id,
+          userType: user.userType
         }
       };
 

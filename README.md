@@ -34,7 +34,7 @@
 - [x] GET api/posts/:id (retrieve post given id)
 - [x] GET api/posts (retrieve all posts)
 - [ ] GET api/posts/fitred (retrieve posts from a filted search)
-- [ ] DELETE api/posts/delete/:id (delete a post given the post ID)
+- [x] DELETE api/posts/delete/:id (delete a post given the post ID)
 
 ## Middlewares
 - [x] auth (check if jwt is a valid jwt)
