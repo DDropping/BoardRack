@@ -3,6 +3,7 @@
 // - POST api/posts/update/:id (update an existing post)
 // - GET api/posts/:id (retrieve post given id)
 // - GET api/posts (retrieve all posts)
+// - DELETE api/posts/delete/:postId (delete post given id)
 
 const express = require('express');
 const router = express.Router();
@@ -93,7 +94,7 @@ router.post(
   }
 );
 
-// @route   POST api/posts/update/:id ***might not be secure, need to test if anyone can change or just the origional poster***
+// @route   POST api/posts/update/:id
 // @desc    Update a post
 // @access  Private
 router.post(
