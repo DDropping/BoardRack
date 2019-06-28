@@ -224,4 +224,18 @@ router.get('/', async (req, res) => {
   }
 });
 
+// @TODO    Add authentication to ensure only user can delete
+// @route   DELETE api/posts/delete/:id
+// @desc    Delete specific post
+// @access  Private
+router.delete('/delete/:postId', auth, async (req, res) => {
+  try {
+    await Post.findByIdAndRemove(req.params.postId);
+    res.json('Post Deleted');
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
