@@ -37,7 +37,7 @@ router.get('/', auth, async (req, res) => {
 
 // @route   GET api/accounts/myAccount
 // @desc    Get current users profile
-// @access  Private
+// @access  Protected
 router.get('/myAccount', auth, async (req, res) => {
   try {
     const userProfile = await User.findById(req.user.id).select('-password');
@@ -54,7 +54,7 @@ router.get('/myAccount', auth, async (req, res) => {
 
 // @route   GET api/accounts/:user_id
 // @desc    Get profile by user_id
-// @access  public
+// @access  Public
 router.get('/:user_id', async (req, res) => {
   try {
     const Profile = await User.findById(req.params.user_id).select('-password');

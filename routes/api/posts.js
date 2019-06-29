@@ -16,7 +16,7 @@ const User = require('../../models/User');
 
 // @route   POST api/posts
 // @desc    Create a post
-// @access  Private
+// @access  Protected
 router.post(
   '/',
   [
@@ -97,7 +97,7 @@ router.post(
 
 // @route   POST api/posts/update/:id
 // @desc    Update a post
-// @access  Private
+// @access  Protected
 router.post(
   '/update/:id',
   [
@@ -215,7 +215,7 @@ router.get('/postId/:id', async (req, res) => {
 });
 
 // @route   GET api/posts
-// @desc    Get specific post
+// @desc    Get all post
 // @access  Public
 router.get('/', async (req, res) => {
   try {
@@ -283,7 +283,7 @@ router.get('/filter', async (req, res) => {
 // @TODO    Allow admin to delete post
 // @route   DELETE api/posts/delete/:id
 // @desc    Delete specific post
-// @access  Private
+// @access  Protected (Owner only)
 router.delete('/delete/:postId', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.postId);
