@@ -3,6 +3,7 @@
 // - POST api/posts/update/:id (update an existing post)
 // - GET api/posts/postId/:id (retrieve post given id)
 // - GET api/posts (retrieve all posts)
+// - GET api/posts/filter (retrieve filtered posts)
 // - DELETE api/posts/delete/:postId (delete post given id)
 
 const express = require('express');
