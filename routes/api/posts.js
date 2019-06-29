@@ -237,47 +237,52 @@ router.get('/', async (req, res) => {
 // @desc    Get filtered posts
 // @access  Public
 router.get('/filter', async (req, res) => {
-  const {
-    isNewBoard,
-    title,
-    price,
-    shaper,
-    model,
-    boardType,
-    condition,
-    isWaterTight,
-    height,
-    width,
-    depth,
-    volume,
-    country,
-    state,
-    city,
-    zip,
-    description
-  } = req.body;
+  try {
+    const {
+      isNewBoard,
+      title,
+      price,
+      shaper,
+      model,
+      boardType,
+      condition,
+      isWaterTight,
+      height,
+      width,
+      depth,
+      volume,
+      country,
+      state,
+      city,
+      zip,
+      description
+    } = req.body;
 
-  const filters = {};
-  if (isNewBoard) filters.isNewBoard = isNewBoard;
-  if (description) filters.description = description;
-  if (title) filters.title = title;
-  if (price) filters.price = price;
-  if (shaper) filters.shaper = shaper;
-  if (model) filters.model = model;
-  if (boardType) filters.boardType = boardType;
-  if (condition) filters.condition = condition;
-  if (isWaterTight) filters.isWaterTight = isWaterTight;
-  if (height) filters.height = height;
-  if (width) filters.width = width;
-  if (depth) filters.depth = depth;
-  if (volume) filters.volume = volume;
-  if (country) filters.country = country;
-  if (state) filters.state = state;
-  if (city) filters.city = city;
-  if (zip) filters.zip = zip;
+    const filters = {};
+    if (isNewBoard) filters.isNewBoard = isNewBoard;
+    if (description) filters.description = description;
+    if (title) filters.title = title;
+    if (price) filters.price = price;
+    if (shaper) filters.shaper = shaper;
+    if (model) filters.model = model;
+    if (boardType) filters.boardType = boardType;
+    if (condition) filters.condition = condition;
+    if (isWaterTight) filters.isWaterTight = isWaterTight;
+    if (height) filters.height = height;
+    if (width) filters.width = width;
+    if (depth) filters.depth = depth;
+    if (volume) filters.volume = volume;
+    if (country) filters.country = country;
+    if (state) filters.state = state;
+    if (city) filters.city = city;
+    if (zip) filters.zip = zip;
 
-  const posts = await Post.find(filters);
-  res.json(posts);
+    const posts = await Post.find(filters).populate('user', 'username');
+    res.json(posts);
+  } catch {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 });
 
 // @TODO    Allow admin to delete post
