@@ -192,7 +192,7 @@ router.post(
 // @route   GET api/posts/:id
 // @desc    Get specific post
 // @access  Public
-router.get('/:id', async (req, res) => {
+router.get('/specificPost/:id', async (req, res) => {
   try {
     const post = await Post.findById(req.params.id).populate(
       'user',
@@ -207,7 +207,7 @@ router.get('/:id', async (req, res) => {
   } catch (err) {
     console.error(err.message);
     if (err.kind === 'ObjectId') {
-      return res.status(404).json({ msg: 'Post not found' });
+      return res.status(404).json({ msg: 'Post Not Found' });
     }
     res.status(500).send('Server Error');
   }
@@ -231,11 +231,52 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @route   GET api/posts
+//TODO      Check if in filters{} the json formats should be like if(height) filters.dimensions.height = height
+// @route   GET api/posts/filter
 // @desc    Get filtered posts
 // @access  Public
 router.get('/filter', async (req, res) => {
-  const posts = await Post.find();
+  const {
+    isNewBoard,
+    title,
+    price,
+    shaper,
+    model,
+    boardType,
+    condition,
+    isWaterTight,
+    height,
+    width,
+    depth,
+    volume,
+    country,
+    state,
+    city,
+    zip,
+    description
+  } = req.body;
+
+  const filters = {};
+  if (isNewBoard) filters.isNewBoard = isNewBoard;
+  if (description) filters.description = description;
+  if (title) filters.title = title;
+  if (price) filters.price = price;
+  if (shaper) filters.shaper = shaper;
+  if (model) filters.model = model;
+  if (boardType) filters.boardType = boardType;
+  if (condition) filters.condition = condition;
+  if (isWaterTight) filters.isWaterTight = isWaterTight;
+  if (height) filters.height = height;
+  if (width) filters.width = width;
+  if (depth) filters.depth = depth;
+  if (volume) filters.volume = volume;
+  if (country) filters.country = country;
+  if (state) filters.state = state;
+  if (city) filters.city = city;
+  if (zip) filters.zip = zip;
+
+  const posts = await Post.find(filters);
+  res.json(posts);
 });
 
 // @TODO    Allow admin to delete post
