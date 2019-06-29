@@ -1,7 +1,7 @@
 //Routes for api/posts
 // - POST api/posts (create a new post)
 // - POST api/posts/update/:id (update an existing post)
-// - GET api/posts/:id (retrieve post given id)
+// - GET api/posts/postId/:id (retrieve post given id)
 // - GET api/posts (retrieve all posts)
 // - DELETE api/posts/delete/:postId (delete post given id)
 
@@ -189,10 +189,10 @@ router.post(
   }
 );
 
-// @route   GET api/posts/:id
+// @route   GET api/posts/postId/:id
 // @desc    Get specific post
 // @access  Public
-router.get('/specificPost/:id', async (req, res) => {
+router.get('/postId/:id', async (req, res) => {
   try {
     const post = await Post.findById(req.params.id).populate(
       'user',
