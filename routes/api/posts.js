@@ -231,6 +231,13 @@ router.get('/', async (req, res) => {
   }
 });
 
+// @route   GET api/posts
+// @desc    Get filtered posts
+// @access  Public
+router.get('/filter', async (req, res) => {
+  const posts = await Post.find();
+});
+
 // @TODO    Allow admin to delete post
 // @route   DELETE api/posts/delete/:id
 // @desc    Delete specific post
@@ -238,9 +245,11 @@ router.get('/', async (req, res) => {
 router.delete('/delete/:postId', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.postId);
+    //check if post exists
     if (!post) {
       return res.status(404).json({ msg: 'Post Not Found' });
     }
+    //check if user === post author
     if (post.user.toString() !== req.user.id) {
       return res.status(400).json({ msg: 'User Not Authorized' });
     }
