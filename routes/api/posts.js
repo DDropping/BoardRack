@@ -308,4 +308,11 @@ router.delete('/delete/:postId', auth, async (req, res) => {
   }
 });
 
+// @route   PUT api/posts/like/:id
+// @desc    Delete specific post
+// @access  Protected
+router.put('/like/:id', auth, async (req, res) => {
+  await Post.findById(req.params.id);
+});
+
 module.exports = router;
