@@ -31,8 +31,8 @@
 #### Posts
 - [x] POST api/posts (create a new post)
 - [x] POST api/posts/update/:id (update an existing post)
-- [ ] POST api/posts/like/:id (add like to a post)
-- [ ] POST api/posts/unlike/:id (unlike a post)
+- [x] POST api/posts/like/:id (add like to a post)
+- [x] POST api/posts/unlike/:id (unlike a post)
 - [x] GET api/posts/:id (retrieve post given id)
 - [x] GET api/posts (retrieve all posts)
 - [x] GET api/posts/fitred (retrieve posts from a filted search)
