@@ -88,34 +88,6 @@ const PostSchema = new mongoose.Schema({
         ref: 'user'
       }
     }
-  ],
-  messages: [
-    {
-      user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
-      },
-      conversation: [
-        {
-          user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'user'
-          },
-          text: {
-            type: String,
-            required: true
-          },
-          date: {
-            type: Date,
-            default: Date.now
-          }
-        }
-      ],
-      date: {
-        type: Date,
-        default: Date.now
-      }
-    }
   ]
 });
 
