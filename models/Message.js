@@ -8,6 +8,12 @@ const MessageSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'post'
   },
+  ownerId: {
+    type: String
+  },
+  senderId: {
+    type: String
+  },
   messageThreads: [
     {
       mFrom: {
