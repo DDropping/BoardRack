@@ -14,7 +14,7 @@ const MessageSchema = new mongoose.Schema({
   senderId: {
     type: String
   },
-  messageThreads: [
+  messageThread: [
     {
       mFrom: {
         type: String,
@@ -24,7 +24,7 @@ const MessageSchema = new mongoose.Schema({
         type: String,
         required: true
       },
-      date: {
+      timeSent: {
         type: Date,
         default: Date.now
       }
