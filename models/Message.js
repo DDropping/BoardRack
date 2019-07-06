@@ -29,7 +29,11 @@ const MessageSchema = new mongoose.Schema({
         default: Date.now
       }
     }
-  ]
+  ],
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 module.exports = Message = mongoose.model('message', MessageSchema);
