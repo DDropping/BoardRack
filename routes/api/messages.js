@@ -40,9 +40,13 @@ router.post('/openThread/:postId', auth, async (req, res) => {
 // @desc    Add message to thread
 // @access  Private
 // search message db with threadID
-router.get('/addMessage/:threadId', auth, async (req, res) => {
+router.put('/addMessage/:threadId', auth, async (req, res) => {
   try {
     const message = await Message.findById(req.params.threadId);
+    message.messageThread.unshift({
+      mFrom: req.user.id,
+      message: req.body.messageBody
+    });
     res.json(message);
   } catch (err) {
     console.error(err.message);
