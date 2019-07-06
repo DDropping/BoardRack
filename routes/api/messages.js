@@ -36,13 +36,13 @@ router.post('/openThread/:postId', auth, async (req, res) => {
   }
 });
 
-// @route   PUT api/messages/openMessages/:threadId
+// @route   PUT api/messages/addMessages/:threadId
 // @desc    Add message to thread
 // @access  Private
 // search message db with threadID
-router.put('/addMessage', auth, async (req, res) => {
+router.get('/addMessage/:threadId', auth, async (req, res) => {
   try {
-    const message = await Message.findById({ id: '5d21268094f4370820cf927e' });
+    const message = await Message.findById(req.params.threadId);
     res.json(message);
   } catch (err) {
     console.error(err.message);
@@ -53,7 +53,7 @@ router.put('/addMessage', auth, async (req, res) => {
 // @route   GET api/messages/allMessages
 // @desc    Get all message threads
 // @access  Private (admin only)
-router.get('/allMessages', async (req, res) => {
+router.get('/allMessages', auth, async (req, res) => {
   //check if admin
   if (req.user.userType !== 'admin') {
     return res.status(400).json('User Not Authorized');
