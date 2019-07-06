@@ -6,11 +6,11 @@ const User = require('../../models/User');
 const Post = require('../../models/Post');
 const Message = require('../../models/Message');
 
-// @route   GET api/messages/openMessages
+// @route   POST api/messages/openMessages
 // @desc    Create message thread
 // @access  Private
 
-// @route   GET api/messages/openMessages
+// @route   PUt api/messages/openMessages
 // @desc    Add message to thread
 // @access  Private
 module.exports = router;
