@@ -28,7 +28,7 @@ router.post('/openThread/:postId', auth, async (req, res) => {
     messageFields.authorId = req.body.authorId;
 
     let message = new Message(messageFields);
-    await message.save;
+    await message.save();
     res.json(message);
   } catch (err) {
     console.error(err.message);
@@ -36,8 +36,35 @@ router.post('/openThread/:postId', auth, async (req, res) => {
   }
 });
 
-// @route   PUt api/messages/openMessages/:threadId
+// @route   PUT api/messages/openMessages/:threadId
 // @desc    Add message to thread
 // @access  Private
 // search message db with threadID
+router.put('/addMessage', auth, async (req, res) => {
+  try {
+    const message = await Message.findById({ id: '5d21268094f4370820cf927e' });
+    res.json(message);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json('Server Error');
+  }
+});
+
+// @route   GET api/messages/allMessages
+// @desc    Get all message threads
+// @access  Private (admin only)
+router.get('/allMessages', async (req, res) => {
+  //check if admin
+  if (req.user.userType !== 'admin') {
+    return res.status(400).json('User Not Authorized');
+  }
+  try {
+    const message = await Message.find({});
+    res.json(message);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json('Server Error');
+  }
+});
+
 module.exports = router;
