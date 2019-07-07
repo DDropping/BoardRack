@@ -49,6 +49,10 @@ router.put(
     ]
   ],
   async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     try {
       const message = await Message.findById(req.params.threadId);
       message.messageThread.unshift({
@@ -56,6 +60,18 @@ router.put(
         message: req.body.messageBody
       });
       message.save();
+      //add messageThred id to user profiles
+      if (message.messageThread.length !== 1) {
+        //console.log(message.userId);
+        await User.findByIdAndUpdate(message.userId, {
+          $push: { messageThreads: req.params.threadId }
+        });
+        console.log('message saved to user');
+        await User.findByIdAndUpdate(message.authorId, {
+          $push: { messageThreads: req.params.threadId }
+        });
+        console.log('message saved to author');
+      }
       res.json(message);
     } catch (err) {
       console.error(err.message);
