@@ -7,6 +7,21 @@ const Post = require('../../models/Post');
 const Message = require('../../models/Message');
 const { check, validationResult } = require('express-validator/check');
 
+// @route   GET api/messages/
+// @desc    Retrieve all messages user is involved in
+// @access  Private
+router.get('/', auth, async (req, res) => {
+  try {
+    const messageList = await Message.find({
+      $or: [{ userId: req.user.id }, { authorId: req.user.id }]
+    });
+    res.json(messageList);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json('Server Error');
+  }
+});
+
 // @route   POST api/messages/openMessages/:postId
 // @desc    Create message thread
 // @access  Private
