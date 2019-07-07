@@ -36,12 +36,6 @@ const UserSchema = new mongoose.Schema({
         ref: 'post'
       }
     ],
-    messageThreads: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'message'
-      }
-    ],
     posts: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -103,12 +97,6 @@ const UserSchema = new mongoose.Schema({
         type: String
       }
     },
-    messageThreads: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'message'
-      }
-    ],
     posts: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -170,12 +158,6 @@ const UserSchema = new mongoose.Schema({
         type: String
       }
     },
-    messageThreads: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'message'
-      }
-    ],
     posts: [
       {
         type: mongoose.Schema.Types.ObjectId,
