@@ -8,7 +8,13 @@ const MessageSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'post'
   },
-  messageThreads: [
+  authorId: {
+    type: String
+  },
+  userId: {
+    type: String
+  },
+  messageThread: [
     {
       mFrom: {
         type: String,
@@ -18,12 +24,16 @@ const MessageSchema = new mongoose.Schema({
         type: String,
         required: true
       },
-      date: {
+      timeSent: {
         type: Date,
         default: Date.now
       }
     }
-  ]
+  ],
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 module.exports = Message = mongoose.model('message', MessageSchema);
