@@ -47,12 +47,6 @@ const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'post'
       }
-    ],
-    posts: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'post'
-      }
     ]
   },
 
@@ -108,13 +102,7 @@ const UserSchema = new mongoose.Schema({
       contactPhone: {
         type: String
       }
-    },
-    posts: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'post'
-      }
-    ]
+    }
   },
 
   //shaper account (address, storeHours, website, contactInfo, messageThreads, posts)
