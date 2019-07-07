@@ -5,13 +5,11 @@ const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 const Post = require('../../models/Post');
 const Message = require('../../models/Message');
+const { check, validationResult } = require('express-validator/check');
 
 // @route   POST api/messages/openMessages/:postId
 // @desc    Create message thread
 // @access  Private
-//get postID, get userID, search msg db for match
-//if not exist, create new thread w/ postID userID autherID
-//get the message threadID
 router.post('/openThread/:postId', auth, async (req, res) => {
   try {
     const msgThread = await Message.findOne({
@@ -40,19 +38,30 @@ router.post('/openThread/:postId', auth, async (req, res) => {
 // @desc    Add message to thread
 // @access  Private
 // search message db with threadID
-router.put('/addMessage/:threadId', auth, async (req, res) => {
-  try {
-    const message = await Message.findById(req.params.threadId);
-    message.messageThread.unshift({
-      mFrom: req.user.id,
-      message: req.body.messageBody
-    });
-    res.json(message);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json('Server Error');
+router.put(
+  '/addMessage/:threadId',
+  [
+    auth,
+    [
+      check('messageBody', 'Message is required')
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    try {
+      const message = await Message.findById(req.params.threadId);
+      message.messageThread.unshift({
+        mFrom: req.user.id,
+        message: req.body.messageBody
+      });
+      res.json(message);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).json('Server Error');
+    }
   }
-});
+);
 
 // @route   GET api/messages/allMessages
 // @desc    Get all message threads
