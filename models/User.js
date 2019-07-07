@@ -27,6 +27,18 @@ const UserSchema = new mongoose.Schema({
     default: 'user',
     required: true
   },
+  messageThreads: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'message'
+    }
+  ],
+  posts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'post'
+    }
+  ],
 
   //user account (likedPost, messageThreads, posts)
   userInfo: {
@@ -157,13 +169,7 @@ const UserSchema = new mongoose.Schema({
       contactPhone: {
         type: String
       }
-    },
-    posts: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'post'
-      }
-    ]
+    }
   }
 });
 
