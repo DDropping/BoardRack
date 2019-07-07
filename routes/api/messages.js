@@ -55,6 +55,7 @@ router.put(
         mFrom: req.user.id,
         message: req.body.messageBody
       });
+      message.save();
       res.json(message);
     } catch (err) {
       console.error(err.message);
