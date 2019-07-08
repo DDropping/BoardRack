@@ -1,11 +1,15 @@
 import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/layout/home';
 import './App.css';
 
 const App = () => {
   return (
-    <Fragment>
-      <h1>App</h1>
-    </Fragment>
+    <Router>
+      <Fragment>
+        <Route exact path='/' component={Home} />
+      </Fragment>
+    </Router>
   );
 };
 
