@@ -5,6 +5,8 @@
 // - GET api/posts (retrieve all posts)
 // - GET api/posts/filter (retrieve filtered posts)
 // - DELETE api/posts/delete/:postId (delete post given id)
+// @route   PUT api/posts/like/:id (like post)
+// @route   PUT api/posts/unlike/:id (like post)
 
 const express = require('express');
 const router = express.Router();
@@ -287,7 +289,7 @@ router.get('/filter', async (req, res) => {
 
 // @TODO    Allow admin to delete post
 // @route   DELETE api/posts/delete/:id
-// @desc    Delete specific post
+// @desc    Delete specific post | remove post from posts collection
 // @access  Protected (Owner only)
 router.delete('/delete/:postId', auth, async (req, res) => {
   try {
@@ -308,8 +310,9 @@ router.delete('/delete/:postId', auth, async (req, res) => {
   }
 });
 
+//TODO save postid to user's liked posts array
 // @route   PUT api/posts/like/:id
-// @desc    Like a specific post
+// @desc    Like a specific post | add userId to post like[], add postId to user likedPosts[]
 // @access  Private
 router.put('/like/:id', auth, async (req, res) => {
   try {
@@ -332,8 +335,9 @@ router.put('/like/:id', auth, async (req, res) => {
   }
 });
 
+//TODO remove postid to user's liked posts array
 // @route   PUT api/posts/unlike/:id
-// @desc    Unlike a specific post
+// @desc    Unlike a specific post | remove userId from post like[], remove postId from uses likePosts[]
 // @access  Private
 router.put('/unlike/:id', auth, async (req, res) => {
   try {

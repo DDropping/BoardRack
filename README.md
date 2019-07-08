@@ -38,5 +38,12 @@
 - [x] GET api/posts/fitred (retrieve posts from a filted search)
 - [x] DELETE api/posts/delete/:id (delete a post given the post ID)
 
+#### Messages
+- [x] GET api/messages/allMessages (ADMIN only: get all messages)
+- [x] GET api/messages/ (get all messages associated with user)
+- [x] POST api/messages/openMessages/:postId (create new message thread)
+- [x] PUT api/messages/addMessages/:threadId (add new message)
+
+
 ## Middlewares
 - [x] auth (check if jwt is a valid jwt)
