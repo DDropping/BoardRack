@@ -13,17 +13,17 @@ class NavBar extends Component {
       >
         <Menu.Item key="mail">
           <Icon type="mail" />
-          Navigation One
+          Messages
         </Menu.Item>
         <Menu.Item key="app" disabled>
           <Icon type="appstore" />
-          Navigation Two
+          Posts
         </Menu.Item>
         <SubMenu
           title={
             <span className="submenu-title-wrapper">
               <Icon type="setting" />
-              Navigation Three - Submenu
+              Profile
             </span>
           }
         >
