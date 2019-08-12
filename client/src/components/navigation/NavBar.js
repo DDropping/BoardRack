@@ -6,11 +6,7 @@ const { SubMenu } = Menu;
 class NavBar extends Component {
   render() {
     return (
-      <Menu
-        onClick={this.handleClick}
-        selectedKeys={[this.state.current]}
-        mode="horizontal"
-      >
+      <Menu>
         <Menu.Item key="mail">
           <Icon type="mail" />
           Messages
