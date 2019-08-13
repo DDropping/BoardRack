@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux';
-
-const tempReducer = (state, action) => {
-  return 'Hello';
-};
+import alert from './alert';
 
 export default combineReducers({
-  tempReducer
+  tempReducer,
+  alert
 });
