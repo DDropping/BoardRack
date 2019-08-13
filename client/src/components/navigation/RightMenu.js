@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { Menu } from 'antd';
+import { Link } from 'react-router-dom';
+
 class RightMenu extends Component {
   render() {
     return (
       <Menu mode="horizontal">
         <Menu.Item key="home">
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </Menu.Item>
         <Menu.Item key="login">
-          <a href="/">Login</a>
+          <Link to="/">Login</Link>
         </Menu.Item>
         <Menu.Item key="register">
-          <a href="/">Register</a>
+          <Link to="/">Register</Link>
         </Menu.Item>
       </Menu>
     );

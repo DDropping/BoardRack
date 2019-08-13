@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './navbar.css';
+import { Drawer, Button } from 'antd';
 import SearchBar from './SearchBar';
 import RightMenu from './RightMenu';
-import { Drawer, Button } from 'antd';
+import './navbar.css';
 
 class NavBar extends Component {
   state = {
