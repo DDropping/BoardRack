@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 
-class DrawerMenu extends Component {
+class RightMenuDrawer extends Component {
   render() {
     return (
       <Menu>
@@ -19,4 +19,4 @@ class DrawerMenu extends Component {
     );
   }
 }
-export default DrawerMenu;
+export default RightMenuDrawer;
