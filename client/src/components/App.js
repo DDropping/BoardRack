@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './navigation/NavBar';
+import Navbar from './navbar/Navbar';
 
 const App = ({ children }) => {
   return (
