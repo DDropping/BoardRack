@@ -82,7 +82,9 @@
   .barsMenu {
     display: inline-block;
   }
-  .searchBar,
+  .searchBar {
+    width: 80%;
+  }
   .rightMenu {
     display: none;
   }

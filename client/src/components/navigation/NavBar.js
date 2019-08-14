@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Drawer, Button } from 'antd';
 import SearchBar from './SearchBar';
 import RightMenu from './RightMenu';
+import DrawerMenu from './DrawerMenu';
 import './navbar.css';
 
 class NavBar extends Component {
@@ -46,8 +47,7 @@ class NavBar extends Component {
             onClose={this.onClose}
             visible={this.state.visible}
           >
-            <SearchBar />
-            <RightMenu />
+            <DrawerMenu />
           </Drawer>
         </div>
       </nav>
