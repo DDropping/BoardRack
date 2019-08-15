@@ -7,11 +7,14 @@ import store from './store';
 import App from './components/App';
 import Home from './components/Home';
 
+import TestComponent from './components/auth/Register';
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <App>
         <Route path="/" exact component={Home} />
+        <Route path="/test" exact component={TestComponent} />
       </App>
     </BrowserRouter>
   </Provider>,
