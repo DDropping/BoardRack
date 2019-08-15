@@ -1,20 +1,7 @@
-import { OPEN_MODAL, CLOSE_MODAL, TOGGLE_MODAL } from './types';
+import { TOGGLE_MODAL } from './types';
 
-export const openModal = () => dispatch => {
+export const toggleRegisterModal = () => dispatch => {
   dispatch({
-    type: OPEN_MODAL
-  });
-};
-
-export const closeModal = () => dispatch => {
-  dispatch({
-    type: CLOSE_MODAL
-  });
-};
-
-export const toggleModal = modal_id => dispatch => {
-  dispatch({
-    type: TOGGLE_MODAL,
-    payload: modal_id
+    type: TOGGLE_MODAL
   });
 };

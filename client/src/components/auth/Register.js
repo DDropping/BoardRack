@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Modal, Button } from 'antd';
-import { openModal, closeModal, toggleModal } from '../../actions/modal';
+import { toggleRegisterModal } from '../../actions/modal';
 
 const Register = props => {
   return (
     <div>
-      <Button type="primary" onClick={props.toggleModal}>
+      <Button type="primary" onClick={props.toggleRegisterModal}>
         Open Modal
       </Button>
       <Modal
-        title="Basic Modal"
+        title="Register Modal"
         visible={props.visible}
-        onOk={props.toggleModal}
-        onCancel={props.toggleModal}
+        onOk={props.toggleRegisterModal}
+        onCancel={props.toggleRegisterModal}
       >
         <p>Some contents...</p>
         <p>Some contents...</p>
@@ -26,11 +26,11 @@ const Register = props => {
 
 const mapStateToProps = state => {
   return {
-    visible: state.modal.visible
+    visible: state.registerModal.visible
   };
 };
 
 export default connect(
   mapStateToProps,
-  { openModal, closeModal, toggleModal }
+  { toggleRegisterModal }
 )(Register);
