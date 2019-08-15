@@ -1,4 +1,4 @@
-import { OPEN_MODAL, CLOSE_MODAL } from '../actions/types';
+import { OPEN_MODAL, CLOSE_MODAL, TOGGLE_MODAL } from '../actions/types';
 
 const initialState = {
   visible: false,
@@ -16,6 +16,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         visible: false
+      };
+    case TOGGLE_MODAL:
+      return {
+        ...state,
+        visible: !state.visible
       };
     default:
       return state;

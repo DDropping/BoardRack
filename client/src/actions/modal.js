@@ -1,4 +1,4 @@
-import { OPEN_MODAL, CLOSE_MODAL } from './types';
+import { OPEN_MODAL, CLOSE_MODAL, TOGGLE_MODAL } from './types';
 
 export const openModal = () => dispatch => {
   dispatch({
@@ -9,5 +9,12 @@ export const openModal = () => dispatch => {
 export const closeModal = () => dispatch => {
   dispatch({
     type: CLOSE_MODAL
+  });
+};
+
+export const toggleModal = modal_id => dispatch => {
+  dispatch({
+    type: TOGGLE_MODAL,
+    payload: modal_id
   });
 };

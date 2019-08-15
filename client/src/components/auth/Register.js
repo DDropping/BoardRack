@@ -1,41 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Modal, Button } from 'antd';
-import { openModal, closeModal } from '../../actions/modal';
+import { openModal, closeModal, toggleModal } from '../../actions/modal';
 
 const Register = props => {
-  //   state = { visible: false };
-
-  //   showModal = () => {
-  //     this.setState({
-  //       visible: true
-  //     });
-  //   };
-
-  //   handleOk = e => {
-  //     console.log(e);
-  //     this.setState({
-  //       visible: false
-  //     });
-  //   };
-
-  //   handleCancel = e => {
-  //     console.log(e);
-  //     this.setState({
-  //       visible: false
-  //     });
-  //   };
-
   return (
     <div>
-      <Button type="primary" onClick={props.openModal}>
+      <Button type="primary" onClick={props.toggleModal}>
         Open Modal
       </Button>
       <Modal
         title="Basic Modal"
         visible={props.visible}
-        onOk={props.closeModal}
-        onCancel={props.closeModal}
+        onOk={props.toggleModal}
+        onCancel={props.toggleModal}
       >
         <p>Some contents...</p>
         <p>Some contents...</p>
@@ -54,5 +32,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { openModal, closeModal }
+  { openModal, closeModal, toggleModal }
 )(Register);
