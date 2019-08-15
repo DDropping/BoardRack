@@ -1,7 +1,7 @@
 import { TOGGLE_REGISTER_MODAL } from '../../actions/types';
 
 const initialState = {
-  visible: false,
+  isVisible: false,
   isLoading: false
 };
 
@@ -10,7 +10,7 @@ export default function(state = initialState, action) {
     case TOGGLE_REGISTER_MODAL:
       return {
         ...state,
-        visible: !state.visible
+        isVisible: !state.isVisible
       };
     default:
       return state;

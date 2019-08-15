@@ -18,6 +18,7 @@ const Navbar = props => {
           Register
         </Menu.Item>
       </Menu>
+
       <RegisterModal />
       <LoginModal />
     </div>

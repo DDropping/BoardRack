@@ -8,7 +8,7 @@ const Register = props => {
     <div>
       <Modal
         title="Register"
-        visible={props.visible}
+        visible={props.isVisible}
         onOk={props.toggleRegisterModal}
         onCancel={props.toggleRegisterModal}
       >
@@ -22,7 +22,7 @@ const Register = props => {
 
 const mapStateToProps = state => {
   return {
-    visible: state.registerModal.visible
+    isVisible: state.registerModal.isVisible
   };
 };
 
