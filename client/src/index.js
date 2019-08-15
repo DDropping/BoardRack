@@ -7,7 +7,7 @@ import store from './store';
 import App from './components/App';
 import Home from './components/Home';
 
-import TestComponent from './components/auth/Register';
+import TestComponent from './components/navbar/RegisterModal';
 
 ReactDOM.render(
   <Provider store={store}>

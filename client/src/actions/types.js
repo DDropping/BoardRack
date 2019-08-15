@@ -1,4 +1,4 @@
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
 
-export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const TOGGLE_REGISTER_MODAL = 'TOGGLE_REGISTER_MODAL';

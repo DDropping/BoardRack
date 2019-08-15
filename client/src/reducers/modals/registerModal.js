@@ -1,4 +1,4 @@
-import { TOGGLE_MODAL } from '../../actions/types';
+import { TOGGLE_REGISTER_MODAL } from '../../actions/types';
 
 const initialState = {
   visible: false,
@@ -7,7 +7,7 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case TOGGLE_MODAL:
+    case TOGGLE_REGISTER_MODAL:
       return {
         ...state,
         visible: !state.visible
