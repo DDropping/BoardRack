@@ -1,7 +1,7 @@
 .logo {
   width: 170px;
   float: left;
-  padding-bottom: 20px;
+  padding: 10px 0px 20px 10px;
 }
 
 .navItems {
@@ -11,9 +11,9 @@
 
 .ant-menu-horizontal {
   border-bottom: none;
+  padding-bottom: 20px;
 }
 
 .ant-menu-item {
   float: right;
-  padding-bottom: 20px;
 }
