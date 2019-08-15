@@ -1,0 +1,19 @@
+.logo {
+  width: 170px;
+  float: left;
+  padding-bottom: 20px;
+}
+
+.navItems {
+  float: right;
+  width: calc(100% - 170px);
+}
+
+.ant-menu-horizontal {
+  border-bottom: none;
+}
+
+.ant-menu-item {
+  float: right;
+  padding-bottom: 20px;
+}
