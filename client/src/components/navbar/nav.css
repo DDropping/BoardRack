@@ -1,22 +1,21 @@
 .logo {
-  width: 170px;
-  float: left;
-  padding: 10px 0px 20px 10px;
+  width: 170px; /* width of the logo */
+  float: left; /* keep logo positioned to the left */
+  padding: 10px 0px 20px 10px; /* add padding to top, right, bottom, left */
 }
 .clear {
-  clear: both;
+  clear: both; /* fix to make other <div>s NOT overlap a div that is floated */
 }
 
 .navItems {
-  float: right;
-  width: calc(100% - 170px);
+  float: right; /* floats the div that holds the nav items to the right */
+  width: calc(
+    100% - 170px
+  ); /* make navitems span the rest of the horizontal space next to logo */
 }
 
-.ant-menu-horizontal {
-  border-bottom: none;
-  padding-bottom: 20px;
-}
-
-.ant-menu-item {
-  float: right;
+.navItemsInside {
+  border-bottom: none; /* remove the default bottom border from antd */
+  padding-bottom: 20px; /* add space in between navbar and elements below */
+  float: right; /* floats the nav items to the right */
 }
