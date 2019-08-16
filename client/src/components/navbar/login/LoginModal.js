@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'antd';
 import { toggleLoginModal } from '../../../actions/loginModal';
+import LoginForm from './LoginForm';
 
 const LoginModal = props => {
   return (
@@ -11,10 +12,9 @@ const LoginModal = props => {
         visible={props.isVisible}
         onOk={props.toggleLoginModal}
         onCancel={props.toggleLoginModal}
+        footer={null}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <LoginForm />
       </Modal>
     </div>
   );
