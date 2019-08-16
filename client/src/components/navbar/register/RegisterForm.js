@@ -4,45 +4,47 @@ import { compose } from 'redux';
 import { Link } from 'react-router-dom';
 import { Form, Icon, Input, Button } from 'antd';
 import { reduxForm, Field } from 'redux-form';
-import { SelectField, TextField } from 'redux-form-antd';
+import { TextField } from 'redux-form-antd';
 import { changeToLoginModal } from '../../../actions/registerModal';
 
 const RegisterForm = props => {
   return (
-    <form>
-      <fieldset>
-        <Field
-          name="email"
-          component={TextField}
-          prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          size="large"
-          placeholder="Email"
-        />
-      </fieldset>
+    <Form>
+      {/* FIX: force antd to load input style */}
+      <Input style={{ display: 'none' }} />
+      <Field
+        name="email"
+        component={TextField}
+        prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+        placeholder="Email"
+        size="large"
+      />
       <Field
         name="username"
         component={TextField}
         prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-        size="large"
         placeholder="Username"
+        size="large"
       />
       <Field
         name="password"
+        type="password"
         component={TextField}
         prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-        size="large"
-        type="password"
         placeholder="Password"
+        size="large"
       />
       <Field
         name="confirmPassword"
+        type="text"
         component={TextField}
         prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-        size="large"
-        type="password"
         placeholder="Confirm Password"
+        size="large"
       />
-      <small>By clicking Register, you agree to our Terms and Service.</small>
+      <small style={{ color: 'rgba(0,0,0,.50)' }}>
+        By clicking Register, you agree to our Terms and Service.
+      </small>
       <Button
         type="primary"
         size="large"
@@ -52,11 +54,13 @@ const RegisterForm = props => {
       >
         Register
       </Button>
-      <div style={{ paddingTop: '20px' }}>
-        Already have an account?
-        <Link onClick={props.changeToLoginModal}>Log In</Link>
+      <div style={{ marginTop: '20px' }}>
+        Already have an account?{' '}
+        <Link to="/" onClick={props.changeToLoginModal}>
+          Log In
+        </Link>
       </div>
-    </form>
+    </Form>
   );
 };
 
