@@ -18,6 +18,7 @@ const RegisterForm = props => {
         prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
         placeholder="Email"
         size="large"
+        required
       />
       <Field
         name="username"
@@ -25,6 +26,7 @@ const RegisterForm = props => {
         prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
         placeholder="Username"
         size="large"
+        required
       />
       <Field
         name="password"
@@ -33,6 +35,7 @@ const RegisterForm = props => {
         prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
         placeholder="Password"
         size="large"
+        required
       />
       <Field
         name="confirmPassword"
@@ -41,6 +44,7 @@ const RegisterForm = props => {
         prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
         placeholder="Confirm Password"
         size="large"
+        required
       />
       <small style={{ color: 'rgba(0,0,0,.50)' }}>
         By clicking Register, you agree to our Terms and Service.

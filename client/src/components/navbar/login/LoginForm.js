@@ -45,7 +45,9 @@ const LoginForm = props => {
       </Button>
       <div style={{ paddingTop: '20px' }}>
         Don't have and account yet?{' '}
-        <Link onClick={props.changeToRegisterModal}>register now!</Link>
+        <Link to="" onClick={props.changeToRegisterModal}>
+          register now!
+        </Link>
       </div>
     </Form>
   );
