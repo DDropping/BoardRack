@@ -16,8 +16,8 @@ const LoginForm = props => {
         <Form.Item>
           <Input
             size="large"
-            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            placeholder="Username"
+            prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+            placeholder="Email"
           />
         </Form.Item>
         <Form.Item>
@@ -37,13 +37,15 @@ const LoginForm = props => {
         <Form.Item>
           <Button
             type="primary"
+            size="large"
             htmlType="submit"
             className="login-form-button"
             style={{ width: '100%' }}
           >
             Log in
           </Button>
-          Or <Link onClick={props.changeToRegisterModal}>register now!</Link>
+          Don't have and account yet?{' '}
+          <Link onClick={props.changeToRegisterModal}>register now!</Link>
         </Form.Item>
       </Form>
     </div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Modal, Input } from 'antd';
+import { Modal } from 'antd';
 import { toggleRegisterModal } from '../../../actions/registerModal';
+import RegisterForm from './RegisterForm';
 
 const Register = props => {
   return (
@@ -11,9 +12,9 @@ const Register = props => {
         visible={props.isVisible}
         onOk={props.toggleRegisterModal}
         onCancel={props.toggleRegisterModal}
+        footer={null}
       >
-        <Input placeholder="Username..." />
-        <Input placeholder="Password..." />
+        <RegisterForm />
       </Modal>
     </div>
   );
