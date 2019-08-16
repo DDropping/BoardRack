@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="navItems">
         <NavItems />
       </div>
-      <div class="clear" />
+      <div className="clear" />
     </span>
   );
 };
