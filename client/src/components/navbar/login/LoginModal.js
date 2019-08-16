@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'antd';
-import { toggleLoginModal } from '../../actions/loginModal';
+import { toggleLoginModal } from '../../../actions/loginModal';
 
 const LoginModal = props => {
   return (

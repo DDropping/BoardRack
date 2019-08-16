@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Modal } from 'antd';
-import { toggleRegisterModal } from '../../actions/registerModal';
+import { Modal, Input } from 'antd';
+import { toggleRegisterModal } from '../../../actions/registerModal';
 
 const Register = props => {
   return (
@@ -12,9 +12,8 @@ const Register = props => {
         onOk={props.toggleRegisterModal}
         onCancel={props.toggleRegisterModal}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <Input placeholder="Username..." />
+        <Input placeholder="Password..." />
       </Modal>
     </div>
   );

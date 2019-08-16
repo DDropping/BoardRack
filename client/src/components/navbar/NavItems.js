@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Menu } from 'antd';
 import { toggleRegisterModal } from '../../actions/registerModal';
 import { toggleLoginModal } from '../../actions/loginModal';
-import RegisterModal from './RegisterModal';
-import LoginModal from './LoginModal';
+import RegisterModal from './register/RegisterModal';
+import LoginModal from './login/LoginModal';
 
 const Navbar = props => {
   return (
