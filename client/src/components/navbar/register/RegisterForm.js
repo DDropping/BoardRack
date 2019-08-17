@@ -12,7 +12,7 @@ import { AInput } from '../../formAntComponents';
 class RegisterForm extends Component {
   onSubmit = formProps => {
     console.log(formProps);
-    //this.props.registerUser(formProps);
+    this.props.registerUser(formProps);
   };
 
   render() {
