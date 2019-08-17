@@ -1,45 +1,58 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { Link } from 'react-router-dom';
-import { Form, Icon, Input, Button } from 'antd';
-import { changeToLoginModal } from '../../../actions/registerModal';
+import { Form, Icon, Button } from 'antd';
+import { reduxForm, Field } from 'redux-form';
 
-const RegisterForm = props => {
-  return (
-    <Form>
-      <Form.Item>
-        <Input
-          size="large"
+import { changeToLoginModal } from '../../../actions/registerModal';
+import { registerUser } from '../../../actions/auth';
+import { AInput } from '../../formAntComponents';
+
+class RegisterForm extends Component {
+  onSubmit = formProps => {
+    console.log(formProps);
+    this.props.registerUser(formProps);
+  };
+
+  render() {
+    const { handleSubmit } = this.props;
+    return (
+      <Form onSubmit={handleSubmit(this.onSubmit)}>
+        {/* FIX: force antd to load input style */}
+        <Field
+          name="email"
+          component={AInput}
           prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
           placeholder="Email"
-        />
-      </Form.Item>
-      <Form.Item>
-        <Input
           size="large"
+        />
+        <Field
+          name="username"
+          component={AInput}
           prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          type="password"
           placeholder="Username"
-        />
-      </Form.Item>
-      <Form.Item>
-        <Input
           size="large"
-          prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+        />
+        <Field
+          name="password"
           type="password"
+          component={AInput}
+          prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
           placeholder="Password"
-        />
-      </Form.Item>
-      <Form.Item>
-        <Input
           size="large"
-          prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          type="password"
-          placeholder="Confirm Password"
         />
-      </Form.Item>
-      <Form.Item>
-        <small>By clicking Register, you agree to our Terms and Service.</small>
+        <Field
+          name="confirmPassword"
+          type="password"
+          component={AInput}
+          prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+          placeholder="Confirm Password"
+          size="large"
+        />
+        <small style={{ color: 'rgba(0,0,0,.50)' }}>
+          By clicking Register, you agree to our Terms and Service.
+        </small>
         <Button
           type="primary"
           size="large"
@@ -49,14 +62,21 @@ const RegisterForm = props => {
         >
           Register
         </Button>
-        Already have an account?{' '}
-        <Link onClick={props.changeToLoginModal}>Log In</Link>
-      </Form.Item>
-    </Form>
-  );
-};
+        <div style={{ marginTop: '20px' }}>
+          Already have an account?{' '}
+          <Link to="/" onClick={this.props.changeToLoginModal}>
+            Log In
+          </Link>
+        </div>
+      </Form>
+    );
+  }
+}
 
-export default connect(
-  null,
-  { changeToLoginModal }
+export default compose(
+  connect(
+    null,
+    { changeToLoginModal, registerUser }
+  ),
+  reduxForm({ form: 'register' })
 )(RegisterForm);
