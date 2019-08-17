@@ -6,6 +6,7 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { reduxForm, Field } from 'redux-form';
 import { TextField } from 'redux-form-antd';
 
+import { AInput } from '../../formAntComponents';
 import {
   toggleLoginModal,
   changeToRegisterModal
@@ -24,14 +25,14 @@ class LoginForm extends Component {
         <Input style={{ display: 'none' }} />
         <Field
           name="email"
-          component={TextField}
+          component={AInput}
           prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
           placeholder="Email"
           size="large"
         />
         <Field
           name="password"
-          component={TextField}
+          component={AInput}
           prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
           placeholder="Email"
           size="large"
