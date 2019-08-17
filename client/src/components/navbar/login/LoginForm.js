@@ -4,7 +4,6 @@ import { compose } from 'redux';
 import { Link } from 'react-router-dom';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { reduxForm, Field } from 'redux-form';
-import { TextField } from 'redux-form-antd';
 
 import { AInput } from '../../formAntComponents';
 import {
@@ -34,7 +33,7 @@ class LoginForm extends Component {
           name="password"
           component={AInput}
           prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          placeholder="Email"
+          placeholder="Password"
           size="large"
         />
         <Checkbox>Remember me</Checkbox>
