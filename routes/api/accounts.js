@@ -81,6 +81,15 @@ router.post(
       .isEmpty(),
     check('email', 'Please include a valid email').isEmail(),
     check('password', 'Please enter a password with 6 or more characters')
+      .isLength({ min: 6 })
+      .custom((value, { req, loc, path }) => {
+        if (value !== req.body.confirmPassword) {
+          // trow error if passwords do not match
+          throw new Error('Passwords do not match');
+        } else {
+          return value;
+        }
+      })
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -92,9 +101,9 @@ router.post(
     try {
       let user = await User.findOne({ email });
       if (user) {
-        return res
-          .status(400)
-          .json({ errors: [{ msg: 'User already exists' }] });
+        return res.status(400).json({
+          errors: [{ msg: 'Email is already associated with an account' }]
+        });
       }
 
       user = new User({
