@@ -17,13 +17,12 @@ class RegisterForm extends Component {
 
   render() {
     const { handleSubmit } = this.props;
-    const errors = this.props.errorMessage.map(error => {
+    const errors = this.props.registrationErrors.map(error => {
       return <li>{error}</li>;
     });
     return (
       <Form onSubmit={handleSubmit(this.onSubmit)}>
         {/* FIX: force antd to load input style */}
-        <ul style={{ color: 'red' }}>{errors}</ul>
         <Field
           name="email"
           component={AInput}
@@ -54,6 +53,7 @@ class RegisterForm extends Component {
           placeholder="Confirm Password"
           size="large"
         />
+        <ul style={{ color: 'red' }}>{errors}</ul>
         <small style={{ color: 'rgba(0,0,0,.50)' }}>
           By clicking Register, you agree to our Terms and Service.
         </small>
@@ -80,7 +80,7 @@ class RegisterForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    errorMessage: state.auth.errorMessage,
+    registrationErrors: state.auth.registrationErrors,
     registerButton: state.auth.registerButton,
     isRegisterButtonLoading: state.auth.isRegisterButtonLoading
   };

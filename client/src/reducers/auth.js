@@ -1,6 +1,6 @@
 import {
   AUTH_USER,
-  AUTH_ERROR,
+  REGISTRATION_ERROR,
   TOGGLE_REGISTER_BUTTON_LOADING,
   CLEAR_ERRORS
 } from '../actions/types';
@@ -8,8 +8,8 @@ import {
 const INITIAL_STATE = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
-  errorMessage: [],
-  registerButton: 'success',
+  user: null,
+  registrationErrors: [],
   isRegisterButtonLoading: false
 };
 
@@ -20,9 +20,9 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         authenticated: action.payload
       };
-    case AUTH_ERROR:
+    case REGISTRATION_ERROR:
       return {
-        errorMessage: [...state.errorMessage, action.payload]
+        registrationErrors: [...state.registrationErrors, action.payload]
       };
     case TOGGLE_REGISTER_BUTTON_LOADING:
       return {
@@ -32,7 +32,7 @@ export default function(state = INITIAL_STATE, action) {
     case CLEAR_ERRORS:
       return {
         ...state,
-        errorMessage: []
+        registrationErrors: []
       };
     default:
       return state;

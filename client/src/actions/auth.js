@@ -2,7 +2,7 @@ import axios from 'axios';
 import setAuthToken from '../util/setAuthToken';
 import {
   AUTH_USER,
-  AUTH_ERROR,
+  REGISTRATION_ERROR,
   TOGGLE_REGISTER_BUTTON_LOADING,
   CLEAR_ERRORS,
   TOGGLE_REGISTER_MODAL
@@ -44,6 +44,7 @@ export const registerUser = ({
 
     //successful registration
     dispatch({ type: AUTH_USER, payload: response.data.token });
+    dispatch({ type: CLEAR_ERRORS });
     dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
     dispatch({ type: TOGGLE_REGISTER_MODAL });
   } catch (e) {
@@ -51,7 +52,7 @@ export const registerUser = ({
     const errors = e.response.data.errors;
     if (errors) {
       errors.forEach(error =>
-        dispatch({ type: AUTH_ERROR, payload: error.msg })
+        dispatch({ type: REGISTRATION_ERROR, payload: error.msg })
       );
     }
 
