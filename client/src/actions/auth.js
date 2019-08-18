@@ -3,7 +3,8 @@ import {
   AUTH_USER,
   AUTH_ERROR,
   TOGGLE_REGISTER_BUTTON_LOADING,
-  CLEAR_ERRORS
+  CLEAR_ERRORS,
+  TOGGLE_REGISTER_MODAL
 } from './types';
 
 export const registerUser = ({
@@ -34,9 +35,12 @@ export const registerUser = ({
       config
     );
 
+    //successful registration
     dispatch({ type: AUTH_USER, payload: response.data.token });
     dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
+    dispatch({ type: TOGGLE_REGISTER_MODAL });
   } catch (e) {
+    //failed registration
     const errors = e.response.data.errors;
     if (errors) {
       errors.forEach(error =>

@@ -8,7 +8,7 @@ import {
 const INITIAL_STATE = {
   authenticated: '',
   errorMessage: [],
-  registerButton: 'primary',
+  registerButton: 'success',
   isRegisterButtonLoading: false
 };
 
