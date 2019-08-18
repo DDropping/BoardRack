@@ -6,7 +6,8 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  authenticated: '',
+  token: localStorage.getItem('token'),
+  isAuthenticated: null,
   errorMessage: [],
   registerButton: 'success',
   isRegisterButtonLoading: false

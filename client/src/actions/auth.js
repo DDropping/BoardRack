@@ -1,4 +1,5 @@
 import axios from 'axios';
+import setAuthToken from '../util/setAuthToken';
 import {
   AUTH_USER,
   AUTH_ERROR,
@@ -6,6 +7,12 @@ import {
   CLEAR_ERRORS,
   TOGGLE_REGISTER_MODAL
 } from './types';
+
+export const loadUser = () => dispatch => {
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+};
 
 export const registerUser = ({
   username,
