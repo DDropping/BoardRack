@@ -20,6 +20,7 @@ class RegisterForm extends Component {
     return (
       <Form onSubmit={handleSubmit(this.onSubmit)}>
         {/* FIX: force antd to load input style */}
+        <div style={{ color: 'red' }}>{this.props.errorMessage}</div>
         <Field
           name="email"
           component={AInput}
@@ -54,7 +55,8 @@ class RegisterForm extends Component {
           By clicking Register, you agree to our Terms and Service.
         </small>
         <Button
-          type="primary"
+          type={this.props.registerButton}
+          loading={this.props.isRegisterButtonLoading}
           size="large"
           htmlType="submit"
           className="login-form-button"
@@ -73,9 +75,17 @@ class RegisterForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    errorMessage: state.auth.errorMessage,
+    registerButton: state.auth.registerButton,
+    isRegisterButtonLoading: state.auth.isRegisterButtonLoading
+  };
+};
+
 export default compose(
   connect(
-    null,
+    mapStateToProps,
     { changeToLoginModal, registerUser }
   ),
   reduxForm({ form: 'register' })
