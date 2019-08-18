@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_ERROR, TOGGLE_REGISTER_BUTTON_LOADING } from './types';
+import {
+  AUTH_USER,
+  AUTH_ERROR,
+  TOGGLE_REGISTER_BUTTON_LOADING,
+  CLEAR_ERRORS
+} from './types';
 
 export const registerUser = ({
   username,
@@ -31,10 +36,9 @@ export const registerUser = ({
     dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
   } catch (e) {
     const errors = e.response.data.errors;
-    dispatch({
-      type: AUTH_ERROR,
-      payload: 'hi'
-    });
+    dispatch({ type: CLEAR_ERRORS });
+    errors.forEach(error => dispatch({ type: AUTH_ERROR, payload: error.msg }));
+
     dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
   }
 };

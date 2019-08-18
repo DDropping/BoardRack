@@ -1,12 +1,13 @@
 import {
   AUTH_USER,
   AUTH_ERROR,
-  TOGGLE_REGISTER_BUTTON_LOADING
+  TOGGLE_REGISTER_BUTTON_LOADING,
+  CLEAR_ERRORS
 } from '../actions/types';
 
 const INITIAL_STATE = {
   authenticated: '',
-  errorMessage: '',
+  errorMessage: [],
   registerButton: 'primary',
   isRegisterButtonLoading: false
 };
@@ -20,13 +21,17 @@ export default function(state = INITIAL_STATE, action) {
       };
     case AUTH_ERROR:
       return {
-        ...state,
-        errorMessage: action.payload
+        errorMessage: [...state.errorMessage, action.payload]
       };
     case TOGGLE_REGISTER_BUTTON_LOADING:
       return {
         ...state,
         isRegisterButtonLoading: action.payload
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        errorMessage: []
       };
     default:
       return state;

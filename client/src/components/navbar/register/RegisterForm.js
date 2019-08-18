@@ -17,10 +17,13 @@ class RegisterForm extends Component {
 
   render() {
     const { handleSubmit } = this.props;
+    const errors = this.props.errorMessage.map(error => {
+      return <li>{error}</li>;
+    });
     return (
       <Form onSubmit={handleSubmit(this.onSubmit)}>
         {/* FIX: force antd to load input style */}
-        <div style={{ color: 'red' }}>{this.props.errorMessage}</div>
+        <ul style={{ color: 'red' }}>{errors}</ul>
         <Field
           name="email"
           component={AInput}
@@ -55,7 +58,7 @@ class RegisterForm extends Component {
           By clicking Register, you agree to our Terms and Service.
         </small>
         <Button
-          type={this.props.registerButton}
+          type="primary"
           loading={this.props.isRegisterButtonLoading}
           size="large"
           htmlType="submit"

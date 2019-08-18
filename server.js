@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/DB');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -9,6 +10,7 @@ connectDB();
 
 //init middleware
 app.use(express.json({ extended: false }));
+app.use(bodyParser.json({ type: '*/*' }));
 app.use(
   cors({
     origin: 'http://localhost:3000'
