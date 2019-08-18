@@ -12,7 +12,8 @@ export const registerUser = ({
   password,
   confirmPassword
 }) => async dispatch => {
-  //Change Register button to loading
+  //Clear errors Change Register button to loading
+  dispatch({ type: CLEAR_ERRORS });
   dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: true });
 
   //set headers for request
@@ -37,8 +38,11 @@ export const registerUser = ({
     dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
   } catch (e) {
     const errors = e.response.data.errors;
-    dispatch({ type: CLEAR_ERRORS });
-    errors.forEach(error => dispatch({ type: AUTH_ERROR, payload: error.msg }));
+    if (errors) {
+      errors.forEach(error =>
+        dispatch({ type: AUTH_ERROR, payload: error.msg })
+      );
+    }
 
     dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
   }
