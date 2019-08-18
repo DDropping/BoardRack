@@ -9,7 +9,8 @@ import {
 export const registerUser = ({
   username,
   email,
-  password
+  password,
+  confirmPassword
 }) => async dispatch => {
   //Change Register button to loading
   dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: true });
@@ -22,7 +23,7 @@ export const registerUser = ({
   };
 
   //stringify the form items
-  const body = JSON.stringify({ username, email, password });
+  const body = JSON.stringify({ username, email, password, confirmPassword });
 
   //post new account to DB
   try {
