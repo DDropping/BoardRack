@@ -14,6 +14,7 @@ import {
   AUTH_ERROR
 } from './types';
 
+/*********** LOAD USER ***********/
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -28,7 +29,7 @@ export const loadUser = () => async dispatch => {
   }
 };
 
-// Register a user
+/*********** REGISTER USER ***********/
 export const registerUser = ({
   username,
   email,
@@ -78,7 +79,7 @@ export const registerUser = ({
   }
 };
 
-// Login a user
+/*********** LOGIN USER ***********/
 export const loginUser = ({ email, password }) => async dispatch => {
   //Clear errors Change Register button to loading
   dispatch({ type: CLEAR_ERRORS });
