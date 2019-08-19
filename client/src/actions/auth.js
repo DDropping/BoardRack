@@ -11,7 +11,8 @@ import {
   TOGGLE_REGISTER_MODAL,
   TOGGLE_LOGIN_MODAL,
   USER_LOADED,
-  AUTH_ERROR
+  AUTH_ERROR,
+  DEAUTH_USER
 } from './types';
 
 /*********** LOAD USER ***********/
@@ -118,4 +119,11 @@ export const loginUser = ({ email, password }) => async dispatch => {
     dispatch({ type: AUTH_USER_FAIL });
     dispatch({ type: TOGGLE_LOGIN_BUTTON_LOADING, payload: false });
   }
+};
+
+/*********** LOGOUT USER ***********/
+export const logoutUser = () => dispatch => {
+  dispatch({
+    type: DEAUTH_USER
+  });
 };
