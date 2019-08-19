@@ -58,8 +58,6 @@ export const registerUser = ({
       config
     );
 
-    localStorage.setItem('token', res.data.token);
-
     //successful registration
     dispatch({ type: AUTH_USER, payload: res.data.token });
     dispatch({ type: CLEAR_ERRORS });
@@ -102,8 +100,6 @@ export const loginUser = ({ email, password }) => async dispatch => {
       body,
       config
     );
-
-    localStorage.setItem('token', res.data.token);
 
     //successful registration
     dispatch({ type: AUTH_USER, payload: res.data.token });

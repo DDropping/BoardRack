@@ -32,7 +32,6 @@ export default function(state = INITIAL_STATE, action) {
         user: action.payload
       };
     case AUTH_USER:
-      console.log('setting token in local storage');
       localStorage.setItem('token', action.payload);
       return {
         ...state,
