@@ -76,10 +76,10 @@ router.get('/:user_id', async (req, res) => {
 router.post(
   '/',
   [
-    check('username', 'Name is required')
+    check('email', 'Please include a valid email').isEmail(),
+    check('username', 'Username is required')
       .not()
       .isEmpty(),
-    check('email', 'Please include a valid email').isEmail(),
     check(
       'password',
       'Please enter a password with 6 or more characters'
@@ -91,13 +91,20 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { username, email, password, userType } = req.body;
+    const { username, email, password, confirmPassword, userType } = req.body;
+
+    if (password !== confirmPassword) {
+      return res.status(400).json({
+        errors: [{ msg: 'Passwords do not match' }]
+      });
+    }
+
     try {
       let user = await User.findOne({ email });
       if (user) {
-        return res
-          .status(400)
-          .json({ errors: [{ msg: 'User already exists' }] });
+        return res.status(400).json({
+          errors: [{ msg: 'Email is already associated with an account' }]
+        });
       }
 
       user = new User({
