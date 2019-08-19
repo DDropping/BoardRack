@@ -80,7 +80,6 @@ class RegisterForm extends Component {
 const mapStateToProps = state => {
   return {
     registrationErrors: state.auth.registrationErrors,
-    registerButton: state.auth.registerButton,
     isRegisterButtonLoading: state.auth.isRegisterButtonLoading
   };
 };

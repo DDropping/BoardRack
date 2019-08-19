@@ -74,6 +74,7 @@ export const registerUser = ({
   }
 };
 
+/************************************/
 // Login a user
 export const loginUser = ({ email, password }) => async dispatch => {
   //Clear errors Change Register button to loading
