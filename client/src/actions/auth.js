@@ -3,8 +3,8 @@ import setAuthToken from '../util/setAuthToken';
 import {
   AUTH_USER,
   //AUTH_USER_FAIL,
-  REGISTRATION_ERROR,
-  TOGGLE_REGISTER_BUTTON_LOADING,
+  ADD_AUTH_ERROR,
+  TOGGLE_AUTH_LOADING,
   CLEAR_ERRORS,
   TOGGLE_REGISTER_MODAL,
   USER_LOADED,
@@ -34,7 +34,7 @@ export const registerUser = ({
 }) => async dispatch => {
   //Clear errors Change Register button to loading
   dispatch({ type: CLEAR_ERRORS });
-  dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: true });
+  dispatch({ type: TOGGLE_AUTH_LOADING, payload: true });
 
   //set headers for request
   const config = {
@@ -59,17 +59,61 @@ export const registerUser = ({
     //successful registration
     dispatch({ type: AUTH_USER, payload: res.data.token });
     dispatch({ type: CLEAR_ERRORS });
-    dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
+    dispatch({ type: TOGGLE_AUTH_LOADING, payload: false });
     dispatch({ type: TOGGLE_REGISTER_MODAL });
   } catch (e) {
     //failed registration
     const errors = e.response.data.errors;
     if (errors) {
       errors.forEach(error =>
-        dispatch({ type: REGISTRATION_ERROR, payload: error.msg })
+        dispatch({ type: ADD_AUTH_ERROR, payload: error.msg })
       );
     }
 
-    dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
+    dispatch({ type: TOGGLE_AUTH_LOADING, payload: false });
+  }
+};
+
+// Login a user
+export const loginUser = ({ email, password }) => async dispatch => {
+  //Clear errors Change Register button to loading
+  dispatch({ type: CLEAR_ERRORS });
+  dispatch({ type: TOGGLE_AUTH_LOADING, payload: true });
+
+  //set headers for request
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  //stringify the form items
+  const body = JSON.stringify({ email, password });
+
+  //post new account to DB
+  try {
+    const res = await axios.post(
+      'http://localhost:5000/api/accounts',
+      body,
+      config
+    );
+
+    localStorage.setItem('token', res.data.token);
+
+    //successful registration
+    // dispatch({ type: AUTH_USER, payload: res.data.token });
+    // dispatch({ type: CLEAR_ERRORS });
+    // dispatch({ type: TOGGLE_AUTH_LOADING, payload: false });
+    // dispatch({ type: TOGGLE_REGISTER_MODAL });
+  } catch (e) {
+    //failed registration
+    const errors = e.response.data.errors;
+    if (errors) {
+      errors.forEach(error =>
+        dispatch({ type: ADD_AUTH_ERROR, payload: error.msg })
+      );
+    }
+
+    // dispatch({ type: TOGGLE_AUTH_LOADING, payload: false });
   }
 };
