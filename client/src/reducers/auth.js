@@ -1,8 +1,8 @@
 import {
   AUTH_USER,
   AUTH_USER_FAIL,
-  ADD_AUTH_ERROR,
-  TOGGLE_AUTH_LOADING,
+  REGISTRATION_ERROR,
+  TOGGLE_REGISTER_BUTTON_LOADING,
   CLEAR_ERRORS,
   USER_LOADED,
   AUTH_ERROR
@@ -45,11 +45,11 @@ export default function(state = INITIAL_STATE, action) {
         isAuthenticated: false,
         loading: false
       };
-    case ADD_AUTH_ERROR:
+    case REGISTRATION_ERROR:
       return {
         registrationErrors: [...state.registrationErrors, action.payload]
       };
-    case TOGGLE_AUTH_LOADING:
+    case TOGGLE_REGISTER_BUTTON_LOADING:
       return {
         ...state,
         isRegisterButtonLoading: action.payload
