@@ -7,7 +7,8 @@ import {
   TOGGLE_LOGIN_BUTTON_LOADING,
   CLEAR_ERRORS,
   USER_LOADED,
-  AUTH_ERROR
+  AUTH_ERROR,
+  DEAUTH_USER
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -41,6 +42,7 @@ export default function(state = INITIAL_STATE, action) {
       };
     case AUTH_USER_FAIL:
     case AUTH_ERROR:
+    case DEAUTH_USER:
       localStorage.removeItem('token');
       return {
         ...state,
