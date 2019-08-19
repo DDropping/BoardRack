@@ -56,7 +56,7 @@ class LoginForm extends Component {
           Login
         </Button>
         <div style={{ paddingTop: '20px' }}>
-          Don't have and account yet?{' '}
+          Don't have an account yet?{' '}
           <Link to="" onClick={this.props.changeToRegisterModal}>
             register now!
           </Link>
