@@ -19,7 +19,7 @@ class LoginForm extends Component {
     let errors = null;
     if (this.props.loginErrors) {
       errors = this.props.loginErrors.map(error => {
-        return <li>{error}</li>;
+        return <li key={error}>{error}</li>;
       });
     }
     return (

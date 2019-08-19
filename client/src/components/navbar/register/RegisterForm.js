@@ -19,7 +19,7 @@ class RegisterForm extends Component {
     let errors = null;
     if (this.props.registrationErrors) {
       errors = this.props.registrationErrors.map(error => {
-        return <li>{error}</li>;
+        return <li key={error}>{error}</li>;
       });
     }
     return (
