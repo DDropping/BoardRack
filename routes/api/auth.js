@@ -6,7 +6,6 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-const { check, validationResult } = require('express-validator/check');
 
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
@@ -28,7 +27,6 @@ router.get('/', auth, async (req, res) => {
 // @desc    User Login - Authenticate user and get token
 // @access  Protected
 router.post('/', async (req, res) => {
-  const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
