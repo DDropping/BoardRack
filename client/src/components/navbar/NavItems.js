@@ -11,12 +11,18 @@ const Navbar = props => {
     <div>
       <Menu className="navItemsInside" mode="horizontal">
         <Menu.Item key="home">Home</Menu.Item>
-        <Menu.Item onClick={props.toggleLoginModal} key="login">
-          Login
-        </Menu.Item>
-        <Menu.Item onClick={props.toggleRegisterModal} key="register">
-          Register
-        </Menu.Item>
+        {props.isAuthenticated && <Menu.Item key="createPost">Post</Menu.Item>}
+        {props.isAuthenticated && <Menu.Item key="account">Account</Menu.Item>}
+        {!props.isAuthenticated && (
+          <Menu.Item onClick={props.toggleLoginModal} key="login">
+            Login
+          </Menu.Item>
+        )}
+        {!props.isAuthenticated && (
+          <Menu.Item onClick={props.toggleRegisterModal} key="register">
+            Register
+          </Menu.Item>
+        )}
       </Menu>
 
       <RegisterModal />
@@ -25,7 +31,13 @@ const Navbar = props => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.isAuthenticated
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { toggleRegisterModal, toggleLoginModal }
 )(Navbar);
