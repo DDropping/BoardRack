@@ -19,7 +19,3 @@
   padding-bottom: 20px; /* add space in between navbar and elements below */
   float: right; /* floats the nav items to the right */
 }
-
-.ant-menu-item-selected {
-  border-bottom: none;
-}
