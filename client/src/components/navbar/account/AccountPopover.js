@@ -1,7 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Avatar, Button } from 'antd';
 
-const AccountPopover = () => {
+import { logoutUser } from '../../../actions/auth';
+
+const AccountPopover = props => {
   return (
     <div style={{ width: '300px' }}>
       <Avatar
@@ -24,7 +27,7 @@ const AccountPopover = () => {
         <Button style={{ marginBottom: '10px' }} size="large" block>
           Messages
         </Button>
-        <Button size="large" block>
+        <Button onClick={props.logoutUser} size="large" block>
           Logout
         </Button>
       </div>
@@ -32,4 +35,7 @@ const AccountPopover = () => {
   );
 };
 
-export default AccountPopover;
+export default connect(
+  null,
+  { logoutUser }
+)(AccountPopover);
