@@ -53,7 +53,7 @@ class LoginForm extends Component {
           className="login-form-button"
           style={{ width: '100%' }}
         >
-          Log in
+          Login
         </Button>
         <div style={{ paddingTop: '20px' }}>
           Don't have and account yet?{' '}
