@@ -6,18 +6,22 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { reduxForm, Field } from 'redux-form';
 
 import { AInput } from '../../formAntComponents';
-import {
-  toggleLoginModal,
-  changeToRegisterModal
-} from '../../../actions/loginModal';
+import { changeToRegisterModal } from '../../../actions/loginModal';
+import { loginUser } from '../../../actions/auth';
 
 class LoginForm extends Component {
   onSubmit = formProps => {
-    console.log(formProps);
+    this.props.loginUser(formProps);
   };
 
   render() {
     const { handleSubmit } = this.props;
+    let errors = null;
+    if (this.props.loginErrors) {
+      errors = this.props.loginErrors.map(error => {
+        return <li>{error}</li>;
+      });
+    }
     return (
       <Form onSubmit={handleSubmit(this.onSubmit)}>
         {/* FIX: force antd to load input style */}
@@ -36,6 +40,8 @@ class LoginForm extends Component {
           placeholder="Password"
           size="large"
         />
+        <ul style={{ color: 'red' }}>{errors}</ul>
+
         <Checkbox>Remember me</Checkbox>
         <Link to="" className="login-form-forgot" style={{ float: 'right' }}>
           Forgot password
@@ -60,10 +66,17 @@ class LoginForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    loginErrors: state.auth.loginErrors,
+    isLoginButtonLoading: state.auth.isLoginButtonLoading
+  };
+};
+
 export default compose(
   connect(
-    null,
-    { toggleLoginModal, changeToRegisterModal }
+    mapStateToProps,
+    { changeToRegisterModal, loginUser }
   ),
   reduxForm({ form: 'login' })
 )(LoginForm);

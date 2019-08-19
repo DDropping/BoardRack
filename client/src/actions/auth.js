@@ -4,9 +4,12 @@ import {
   AUTH_USER,
   //AUTH_USER_FAIL,
   REGISTRATION_ERROR,
+  LOGIN_ERROR,
   TOGGLE_REGISTER_BUTTON_LOADING,
+  TOGGLE_LOGIN_BUTTON_LOADING,
   CLEAR_ERRORS,
   TOGGLE_REGISTER_MODAL,
+  TOGGLE_LOGIN_MODAL,
   USER_LOADED,
   AUTH_ERROR
 } from './types';
@@ -77,8 +80,8 @@ export const registerUser = ({
 // Login a user
 export const loginUser = ({ email, password }) => async dispatch => {
   //Clear errors Change Register button to loading
-  // dispatch({ type: CLEAR_ERRORS });
-  // dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: true });
+  dispatch({ type: CLEAR_ERRORS });
+  dispatch({ type: TOGGLE_LOGIN_BUTTON_LOADING, payload: true });
 
   //set headers for request
   const config = {
@@ -93,7 +96,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
   //post new account to DB
   try {
     const res = await axios.post(
-      'http://localhost:5000/api/accounts',
+      'http://localhost:5000/api/auth',
       body,
       config
     );
@@ -101,19 +104,19 @@ export const loginUser = ({ email, password }) => async dispatch => {
     localStorage.setItem('token', res.data.token);
 
     //successful registration
-    // dispatch({ type: AUTH_USER, payload: res.data.token });
-    // dispatch({ type: CLEAR_ERRORS });
-    // dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
-    // dispatch({ type: TOGGLE_REGISTER_MODAL });
+    dispatch({ type: AUTH_USER, payload: res.data.token });
+    dispatch({ type: CLEAR_ERRORS });
+    dispatch({ type: TOGGLE_LOGIN_BUTTON_LOADING, payload: false });
+    dispatch({ type: TOGGLE_LOGIN_MODAL });
   } catch (e) {
     //failed registration
     const errors = e.response.data.errors;
     if (errors) {
       errors.forEach(error =>
-        dispatch({ type: REGISTRATION_ERROR, payload: error.msg })
+        dispatch({ type: LOGIN_ERROR, payload: error.msg })
       );
     }
 
-    // dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
+    dispatch({ type: TOGGLE_LOGIN_BUTTON_LOADING, payload: false });
   }
 };

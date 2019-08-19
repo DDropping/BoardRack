@@ -16,9 +16,12 @@ class RegisterForm extends Component {
 
   render() {
     const { handleSubmit } = this.props;
-    const errors = this.props.registrationErrors.map(error => {
-      return <li>{error}</li>;
-    });
+    let errors = null;
+    if (this.props.registrationErrors) {
+      errors = this.props.registrationErrors.map(error => {
+        return <li>{error}</li>;
+      });
+    }
     return (
       <Form onSubmit={handleSubmit(this.onSubmit)}>
         {/* FIX: force antd to load input style */}

@@ -2,7 +2,9 @@ import {
   AUTH_USER,
   AUTH_USER_FAIL,
   REGISTRATION_ERROR,
+  LOGIN_ERROR,
   TOGGLE_REGISTER_BUTTON_LOADING,
+  TOGGLE_LOGIN_BUTTON_LOADING,
   CLEAR_ERRORS,
   USER_LOADED,
   AUTH_ERROR
@@ -15,7 +17,9 @@ const INITIAL_STATE = {
   user: null,
 
   registrationErrors: [],
-  isRegisterButtonLoading: false
+  loginErrors: [],
+  isRegisterButtonLoading: false,
+  isLoginButtonLoading: false
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -49,15 +53,25 @@ export default function(state = INITIAL_STATE, action) {
       return {
         registrationErrors: [...state.registrationErrors, action.payload]
       };
+    case LOGIN_ERROR:
+      return {
+        loginErrors: [...state.loginErrors, action.payload]
+      };
     case TOGGLE_REGISTER_BUTTON_LOADING:
       return {
         ...state,
         isRegisterButtonLoading: action.payload
       };
+    case TOGGLE_LOGIN_BUTTON_LOADING:
+      return {
+        ...state,
+        isLoginButtonLoading: action.payload
+      };
     case CLEAR_ERRORS:
       return {
         ...state,
-        registrationErrors: []
+        registrationErrors: [],
+        loginErrors: []
       };
     default:
       return state;
