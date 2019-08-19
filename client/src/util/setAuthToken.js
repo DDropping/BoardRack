@@ -1,3 +1,6 @@
+//Add JWT token to global header if one exists in local storage
+//and send with every request
+
 import axios from 'axios';
 
 const setAuthToken = token => {

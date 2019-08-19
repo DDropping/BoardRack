@@ -92,6 +92,7 @@ router.post(
     }
 
     const { username, email, password, confirmPassword, userType } = req.body;
+
     if (password !== confirmPassword) {
       return res.status(400).json({
         errors: [{ msg: 'Passwords do not match' }]
