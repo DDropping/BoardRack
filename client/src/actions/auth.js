@@ -2,7 +2,7 @@ import axios from 'axios';
 import setAuthToken from '../util/setAuthToken';
 import {
   AUTH_USER,
-  //AUTH_USER_FAIL,
+  AUTH_USER_FAIL,
   REGISTRATION_ERROR,
   LOGIN_ERROR,
   TOGGLE_REGISTER_BUTTON_LOADING,
@@ -73,6 +73,7 @@ export const registerUser = ({
       );
     }
 
+    dispatch({ type: AUTH_USER_FAIL });
     dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
   }
 };
@@ -117,6 +118,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
       );
     }
 
+    dispatch({ type: AUTH_USER_FAIL });
     dispatch({ type: TOGGLE_LOGIN_BUTTON_LOADING, payload: false });
   }
 };
