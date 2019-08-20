@@ -27,7 +27,7 @@ const NavItemsDrawer = props => {
           </Menu.Item>
           {props.isAuthenticated && (
             <Menu.Item key="createPost">
-              <Icon type="plus-circle" style={{ color: 'rgba(0,0,0,.50)' }} />
+              <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
               Create Post
             </Menu.Item>
           )}

@@ -34,13 +34,30 @@ const Navbar = props => {
               size={200}
               icon="user"
             />
-            <Menu.Item key="myAccount">My Account</Menu.Item>
-            <Menu.Item key="myPosts">My Posts</Menu.Item>
+            <Menu.Item key="createPost">
+              <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
+              Create Post
+            </Menu.Item>
+            <Menu.Item key="myAccount">
+              <Icon type="user" style={{ color: 'rgba(0,0,0,.50)' }} />
+              My Account
+            </Menu.Item>
+            <Menu.Item key="myPosts">
+              <Icon type="form" style={{ color: 'rgba(0,0,0,.50)' }} />
+              My Posts
+            </Menu.Item>
 
-            <Menu.Item key="myMessages">My Messages</Menu.Item>
-            <Menu.Item key="myFavorites">My Favorites</Menu.Item>
+            <Menu.Item key="myMessages">
+              <Icon type="mail" style={{ color: 'rgba(0,0,0,.50)' }} />
+              My Messages
+            </Menu.Item>
+            <Menu.Item key="myFavorites">
+              <Icon type="star" style={{ color: 'rgba(0,0,0,.50)' }} />
+              My Favorites
+            </Menu.Item>
             <Menu.Divider />
             <Menu.Item onClick={props.toggleLogoutModal} key="logout">
+              <Icon type="logout" style={{ color: 'rgba(0,0,0,.50)' }} />
               Logout
             </Menu.Item>
           </Menu.SubMenu>
