@@ -10,6 +10,7 @@ import {
   CLEAR_ERRORS,
   TOGGLE_REGISTER_MODAL,
   TOGGLE_LOGIN_MODAL,
+  TOGGLE_LOGOUT_MODAL,
   USER_LOADED,
   AUTH_ERROR,
   DEAUTH_USER
@@ -125,5 +126,8 @@ export const loginUser = ({ email, password }) => async dispatch => {
 export const logoutUser = () => dispatch => {
   dispatch({
     type: DEAUTH_USER
+  });
+  dispatch({
+    type: TOGGLE_LOGOUT_MODAL
   });
 };
