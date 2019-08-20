@@ -11,6 +11,7 @@ import {
   TOGGLE_REGISTER_MODAL,
   TOGGLE_LOGIN_MODAL,
   TOGGLE_LOGOUT_MODAL,
+  CLOSE_NAV_DRAWER,
   USER_LOADED,
   AUTH_ERROR,
   DEAUTH_USER
@@ -65,6 +66,7 @@ export const registerUser = ({
     dispatch({ type: CLEAR_ERRORS });
     dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
     dispatch({ type: TOGGLE_REGISTER_MODAL });
+    dispatch({ type: CLOSE_NAV_DRAWER });
   } catch (e) {
     //failed registration
     const errors = e.response.data.errors;
@@ -108,6 +110,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
     dispatch({ type: CLEAR_ERRORS });
     dispatch({ type: TOGGLE_LOGIN_BUTTON_LOADING, payload: false });
     dispatch({ type: TOGGLE_LOGIN_MODAL });
+    dispatch({ type: CLOSE_NAV_DRAWER });
   } catch (e) {
     //failed registration
     const errors = e.response.data.errors;
@@ -124,10 +127,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
 
 /*********** LOGOUT USER ***********/
 export const logoutUser = () => dispatch => {
-  dispatch({
-    type: DEAUTH_USER
-  });
-  dispatch({
-    type: TOGGLE_LOGOUT_MODAL
-  });
+  dispatch({ type: DEAUTH_USER });
+  dispatch({ type: TOGGLE_LOGOUT_MODAL });
+  dispatch({ type: CLOSE_NAV_DRAWER });
 };

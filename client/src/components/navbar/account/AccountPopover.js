@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Avatar, Button } from 'antd';
 
-import { logoutUser } from '../../../actions/auth';
+import { toggleLogoutModal } from '../../../actions/modal_logout';
 
 const AccountPopover = props => {
   return (
@@ -27,7 +27,7 @@ const AccountPopover = props => {
         <Button style={{ marginBottom: '10px' }} size="large" block>
           Messages
         </Button>
-        <Button onClick={props.logoutUser} size="large" block>
+        <Button onClick={props.toggleLogoutModal} size="large" block>
           Logout
         </Button>
       </div>
@@ -37,5 +37,5 @@ const AccountPopover = props => {
 
 export default connect(
   null,
-  { logoutUser }
+  { toggleLogoutModal }
 )(AccountPopover);
