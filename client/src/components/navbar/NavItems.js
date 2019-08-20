@@ -6,10 +6,7 @@ import { toggleRegisterModal } from '../../actions/registerModal';
 import { toggleLoginModal } from '../../actions/loginModal';
 import { toggleNavDrawer } from '../../actions/drawer_nav';
 import { toggleLogoutModal } from '../../actions/modal_logout';
-import RegisterModal from './register/RegisterModal';
-import LoginModal from './login/LoginModal';
 import AccountPopover from './account/AccountPopover';
-import LogoutModal from './logout/logoutModal';
 
 const Navbar = props => {
   return (
@@ -46,10 +43,6 @@ const Navbar = props => {
           <Icon type="menu" />
         </Button>
       </div>
-
-      <RegisterModal />
-      <LoginModal />
-      <LogoutModal />
     </div>
   );
 };

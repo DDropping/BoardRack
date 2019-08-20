@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Modal, Result, Button } from 'antd';
+
 import { toggleLogoutModal } from '../../../actions/modal_logout';
 import { logoutUser } from '../../../actions/auth';
 
