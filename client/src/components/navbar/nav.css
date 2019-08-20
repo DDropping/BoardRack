@@ -26,6 +26,10 @@
   float: right;
 }
 
+.ant-drawer-body {
+  padding: 0px;
+}
+
 @media (max-width: 540px) {
   .navigationItems {
     display: none;
