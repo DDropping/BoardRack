@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Menu, Icon, Drawer } from 'antd';
 
@@ -22,37 +23,49 @@ const NavItemsDrawer = props => {
       >
         <Menu>
           <Menu.Item key="home">
-            <Icon type="home" style={{ color: 'rgba(0,0,0,.50)' }} />
-            Home
+            <Link to="/">
+              <Icon type="home" style={{ color: 'rgba(0,0,0,.50)' }} />
+              Home
+            </Link>
           </Menu.Item>
           {props.isAuthenticated && (
             <Menu.Item key="createPost">
-              <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
-              Create Post
+              <Link to="/CreatePost">
+                <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
+                Create Post
+              </Link>
             </Menu.Item>
           )}
           {props.isAuthenticated && (
             <Menu.Item key="myAccount">
-              <Icon type="user" style={{ color: 'rgba(0,0,0,.50)' }} />
-              My Account
+              <Link to="/Account">
+                <Icon type="user" style={{ color: 'rgba(0,0,0,.50)' }} />
+                My Account
+              </Link>
             </Menu.Item>
           )}
           {props.isAuthenticated && (
             <Menu.Item key="myPosts">
-              <Icon type="form" style={{ color: 'rgba(0,0,0,.50)' }} />
-              My Posts
+              <Link to="/Account">
+                <Icon type="form" style={{ color: 'rgba(0,0,0,.50)' }} />
+                My Posts
+              </Link>
             </Menu.Item>
           )}
           {props.isAuthenticated && (
             <Menu.Item key="myMessages">
-              <Icon type="mail" style={{ color: 'rgba(0,0,0,.50)' }} />
-              My Messages
+              <Link to="/Account">
+                <Icon type="mail" style={{ color: 'rgba(0,0,0,.50)' }} />
+                My Messages
+              </Link>
             </Menu.Item>
           )}
           {props.isAuthenticated && (
             <Menu.Item key="myFavorites">
-              <Icon type="star" style={{ color: 'rgba(0,0,0,.50)' }} />
-              My Favorites
+              <Link to="/Account">
+                <Icon type="star" style={{ color: 'rgba(0,0,0,.50)' }} />
+                My Favorites
+              </Link>
             </Menu.Item>
           )}
           {!props.isAuthenticated && (
