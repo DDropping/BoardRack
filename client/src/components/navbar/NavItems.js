@@ -4,6 +4,7 @@ import { Menu, Popover, Button, Icon } from 'antd';
 
 import { toggleRegisterModal } from '../../actions/registerModal';
 import { toggleLoginModal } from '../../actions/loginModal';
+import { toggleNavDrawer } from '../../actions/drawer_nav';
 import RegisterModal from './register/RegisterModal';
 import LoginModal from './login/LoginModal';
 import AccountPopover from './account/AccountPopover';
@@ -39,7 +40,7 @@ const Navbar = props => {
       </Menu>
 
       <div className="drawerButton">
-        <Button>
+        <Button onClick={props.toggleNavDrawer}>
           <Icon type="menu" />
         </Button>
       </div>
@@ -58,5 +59,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { toggleRegisterModal, toggleLoginModal }
+  { toggleRegisterModal, toggleLoginModal, toggleNavDrawer }
 )(Navbar);
