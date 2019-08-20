@@ -5,9 +5,11 @@ import { Menu, Popover, Button, Icon } from 'antd';
 import { toggleRegisterModal } from '../../actions/registerModal';
 import { toggleLoginModal } from '../../actions/loginModal';
 import { toggleNavDrawer } from '../../actions/drawer_nav';
+import { toggleLogoutModal } from '../../actions/modal_logout';
 import RegisterModal from './register/RegisterModal';
 import LoginModal from './login/LoginModal';
 import AccountPopover from './account/AccountPopover';
+import LogoutModal from './logout/logoutModal';
 
 const Navbar = props => {
   return (
@@ -47,6 +49,7 @@ const Navbar = props => {
 
       <RegisterModal />
       <LoginModal />
+      <LogoutModal />
     </div>
   );
 };
@@ -59,5 +62,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { toggleRegisterModal, toggleLoginModal, toggleNavDrawer }
+  { toggleRegisterModal, toggleLoginModal, toggleLogoutModal, toggleNavDrawer }
 )(Navbar);

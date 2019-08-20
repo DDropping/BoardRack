@@ -1,6 +1,6 @@
 import { TOGGLE_LOGOUT_MODAL, TOGGLE_LOGOUT_LOADING } from './types';
 
-export const toggleLogout = () => dispatch => {
+export const toggleLogoutModal = () => dispatch => {
   dispatch({
     type: TOGGLE_LOGOUT_MODAL
   });

@@ -5,6 +5,7 @@ import auth from './auth';
 import alert from './alert';
 import registerModal from './modals/registerModal';
 import loginModal from './modals/loginModal';
+import logoutModal from './modals/logoutModal';
 import navDrawer from './drawers/navDrawer';
 
 export default combineReducers({
@@ -13,5 +14,6 @@ export default combineReducers({
   alert,
   registerModal,
   loginModal,
-  navDrawer
+  navDrawer,
+  logoutModal
 });

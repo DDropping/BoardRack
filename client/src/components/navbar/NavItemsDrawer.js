@@ -5,8 +5,10 @@ import { Menu, Icon, Drawer } from 'antd';
 import { toggleNavDrawer } from '../../actions/drawer_nav';
 import { toggleRegisterModal } from '../../actions/registerModal';
 import { toggleLoginModal } from '../../actions/loginModal';
-import RegisterModal from './register/RegisterModal';
-import LoginModal from './login/LoginModal';
+import {
+  toggleLogoutModal,
+  toggleLogoutLoading
+} from '../../actions/modal_logout';
 
 const NavItemsDrawer = props => {
   return (
@@ -67,7 +69,7 @@ const NavItemsDrawer = props => {
           )}
           {props.isAuthenticated && <Menu.Divider />}
           {props.isAuthenticated && (
-            <Menu.Item key="logout">
+            <Menu.Item onClick={props.toggleLogoutModal} key="logout">
               <Icon type="logout" style={{ color: 'rgba(0,0,0,.50)' }} />
               Logout
             </Menu.Item>
@@ -87,5 +89,11 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { toggleRegisterModal, toggleLoginModal, toggleNavDrawer }
+  {
+    toggleRegisterModal,
+    toggleLoginModal,
+    toggleNavDrawer,
+    toggleLogoutModal,
+    toggleLogoutLoading
+  }
 )(NavItemsDrawer);
