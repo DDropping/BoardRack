@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Menu, Button, Icon, Avatar } from 'antd';
+import { Menu, Button, Icon } from 'antd';
 
+import AccountAvatar from './AccountAvatar';
 import { toggleRegisterModal } from '../../actions/registerModal';
 import { toggleLoginModal } from '../../actions/loginModal';
 import { toggleNavDrawer } from '../../actions/drawer_nav';
@@ -24,16 +25,7 @@ const Navbar = props => {
               </span>
             }
           >
-            <Avatar
-              style={{
-                marginBottom: '10px',
-                marginTop: '10px',
-                marginLeft: '50px',
-                marginRight: '50px'
-              }}
-              size={200}
-              icon="user"
-            />
+            <AccountAvatar />
             <Menu.Item key="createPost">
               <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
               Create Post
