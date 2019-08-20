@@ -25,7 +25,6 @@ export const loadUser = () => async dispatch => {
 
   try {
     const res = await axios.get('http://localhost:5000/api/auth');
-
     dispatch({ type: USER_LOADED, payload: res.data });
     //extra dispatch to force rerender so navbar can grab user.username
   } catch (err) {
@@ -63,6 +62,7 @@ export const registerUser = ({
 
     //successful registration
     dispatch({ type: AUTH_USER, payload: res.data.token });
+    dispatch(loadUser());
     dispatch({ type: CLEAR_ERRORS });
     dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
     dispatch({ type: TOGGLE_REGISTER_MODAL });
@@ -107,6 +107,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
 
     //successful login
     dispatch({ type: AUTH_USER, payload: res.data.token });
+    dispatch(loadUser());
     dispatch({ type: CLEAR_ERRORS });
     dispatch({ type: TOGGLE_LOGIN_BUTTON_LOADING, payload: false });
     dispatch({ type: TOGGLE_LOGIN_MODAL });
