@@ -9,7 +9,9 @@ export default function(state = initialState, action) {
     case TOGGLE_NAV_DRAWER:
       return {
         ...state,
-        isVisible: !isVisible
+        isVisible: !state.isVisible
       };
+    default:
+      return state;
   }
 }
