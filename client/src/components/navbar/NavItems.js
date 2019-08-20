@@ -15,7 +15,9 @@ const Navbar = props => {
         <Menu.Item onClick={props.toggleLogoutModal} key="home">
           Home
         </Menu.Item>
-        {props.isAuthenticated && <Menu.Item key="createPost">Post</Menu.Item>}
+        {props.isAuthenticated && (
+          <Menu.Item key="createPost">Create Post</Menu.Item>
+        )}
         {props.isAuthenticated && (
           <Menu.SubMenu
             title={
