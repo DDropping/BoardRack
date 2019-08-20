@@ -76,8 +76,11 @@ router.get('/:user_id', async (req, res) => {
 router.post(
   '/',
   [
-    check('email', 'Please include a valid email').isEmail(),
-    check('username', 'Username is required')
+    check('email', 'Please include a valid email')
+      .isEmail()
+      .normalizeEmail(),
+    check('username', 'Username between 3-16 characters is required')
+      .isLength({ min: 3, max: 16 })
       .not()
       .isEmpty(),
     check(
