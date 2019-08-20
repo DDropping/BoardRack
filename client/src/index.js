@@ -5,13 +5,20 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import store from './store';
 import App from './components/App';
-import Home from './components/Home';
+import Home from './components/home/Home';
+import AccountOverview from './components/account/AccountOverview';
+import CreatePost from './components/createPost/CreatePost';
+
+import TestComponent from './components/navbar/register/RegisterModal';
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <App>
         <Route path="/" exact component={Home} />
+        <Route path="/test" exact component={TestComponent} />
+        <Route path="/Account" exact component={AccountOverview} />
+        <Route path="/CreatePost" exact component={CreatePost} />
       </App>
     </BrowserRouter>
   </Provider>,

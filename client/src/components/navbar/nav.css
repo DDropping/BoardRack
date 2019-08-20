@@ -1,0 +1,43 @@
+.logo {
+  width: 170px; /* width of the logo */
+  float: left; /* keep logo positioned to the left */
+  padding: 10px 0px 20px 10px; /* add padding to top, right, bottom, left */
+}
+.clear {
+  clear: both; /* fix to make other <div>s NOT overlap a div that is floated */
+}
+
+.navItems {
+  float: right; /* floats the div that holds the nav items to the right */
+  width: calc(
+    100% - 170px
+  ); /* make navitems span the rest of the horizontal space next to logo */
+}
+
+.navigationItems {
+  border-bottom: none; /* remove the default bottom border from antd */
+  padding-bottom: 20px; /* add space in between navbar and elements below */
+  float: right; /* floats the nav items to the right */
+}
+
+.drawerButton {
+  margin-top: 10px;
+  margin-right: 10px;
+  float: right;
+}
+
+.ant-drawer-body {
+  padding: 0px;
+}
+
+@media (max-width: 540px) {
+  .navigationItems {
+    display: none;
+  }
+}
+
+@media (min-width: 541px) {
+  .drawerButton {
+    display: none;
+  }
+}
