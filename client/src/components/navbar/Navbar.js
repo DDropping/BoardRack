@@ -1,6 +1,8 @@
 import React from 'react';
-import NavItems from './NavItems';
 import { Link } from 'react-router-dom';
+
+import NavItems from './NavItems';
+import NavItemsDrawer from './NavItemsDrawer';
 import './nav.css';
 
 const Navbar = () => {
@@ -16,6 +18,7 @@ const Navbar = () => {
       </div>
       <div className="navItems">
         <NavItems />
+        <NavItemsDrawer />
       </div>
       <div className="clear" />
     </span>
