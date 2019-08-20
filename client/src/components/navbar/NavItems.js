@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Menu, Popover, Button, Icon } from 'antd';
+import { Menu, Button, Icon, Avatar } from 'antd';
 
 import { toggleRegisterModal } from '../../actions/registerModal';
 import { toggleLoginModal } from '../../actions/loginModal';
 import { toggleNavDrawer } from '../../actions/drawer_nav';
 import { toggleLogoutModal } from '../../actions/modal_logout';
-import AccountPopover from './account/AccountPopover';
 
 const Navbar = props => {
   return (
@@ -17,16 +16,34 @@ const Navbar = props => {
         </Menu.Item>
         {props.isAuthenticated && <Menu.Item key="createPost">Post</Menu.Item>}
         {props.isAuthenticated && (
-          <Menu.Item key="account">
-            <Popover
-              placement="bottomRight"
-              content={<AccountPopover />}
-              trigger="click"
-              style={{ padding: '10px', margin: '-10px' }}
-            >
-              Account
-            </Popover>
-          </Menu.Item>
+          <Menu.SubMenu
+            title={
+              <span className="submenu-title-wrapper">
+                <Icon type="user" />
+                Account
+              </span>
+            }
+          >
+            <Avatar
+              style={{
+                marginBottom: '10px',
+                marginTop: '10px',
+                marginLeft: '50px',
+                marginRight: '50px'
+              }}
+              size={200}
+              icon="user"
+            />
+            <Menu.Item key="myAccount">My Account</Menu.Item>
+            <Menu.Item key="myPosts">My Posts</Menu.Item>
+
+            <Menu.Item key="myMessages">My Messages</Menu.Item>
+            <Menu.Item key="myFavorites">My Favorites</Menu.Item>
+            <Menu.Divider />
+            <Menu.Item onClick={props.toggleLogoutModal} key="logout">
+              Logout
+            </Menu.Item>
+          </Menu.SubMenu>
         )}
 
         {!props.isAuthenticated && (
