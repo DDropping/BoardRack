@@ -20,7 +20,7 @@ const Navbar = props => {
             title={
               <span className="submenu-title-wrapper">
                 <Icon type="user" />
-                Account
+                {props.username}
               </span>
             }
           >
@@ -85,9 +85,16 @@ const Navbar = props => {
 };
 
 const mapStateToProps = state => {
-  return {
-    isAuthenticated: state.auth.isAuthenticated
-  };
+  if (state.auth.isAuthenticated) {
+    return {
+      isAuthenticated: state.auth.isAuthenticated,
+      username: state.auth.user.username
+    };
+  } else {
+    return {
+      isAuthenticated: state.auth.isAuthenticated
+    };
+  }
 };
 
 export default connect(
