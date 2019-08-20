@@ -22,14 +22,14 @@ const NavItemsDrawer = props => {
         style={{ padding: '0px !important' }}
       >
         <Menu>
-          <Menu.Item key="home">
+          <Menu.Item onClick={props.toggleNavDrawer} key="home">
             <Link to="/">
               <Icon type="home" style={{ color: 'rgba(0,0,0,.50)' }} />
               Home
             </Link>
           </Menu.Item>
           {props.isAuthenticated && (
-            <Menu.Item key="createPost">
+            <Menu.Item onClick={props.toggleNavDrawer} key="createPost">
               <Link to="/CreatePost">
                 <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
                 Create Post
@@ -37,7 +37,7 @@ const NavItemsDrawer = props => {
             </Menu.Item>
           )}
           {props.isAuthenticated && (
-            <Menu.Item key="myAccount">
+            <Menu.Item onClick={props.toggleNavDrawer} key="myAccount">
               <Link to="/Account">
                 <Icon type="user" style={{ color: 'rgba(0,0,0,.50)' }} />
                 My Account
@@ -45,7 +45,7 @@ const NavItemsDrawer = props => {
             </Menu.Item>
           )}
           {props.isAuthenticated && (
-            <Menu.Item key="myPosts">
+            <Menu.Item onClick={props.toggleNavDrawer} key="myPosts">
               <Link to="/Account">
                 <Icon type="form" style={{ color: 'rgba(0,0,0,.50)' }} />
                 My Posts
@@ -53,7 +53,7 @@ const NavItemsDrawer = props => {
             </Menu.Item>
           )}
           {props.isAuthenticated && (
-            <Menu.Item key="myMessages">
+            <Menu.Item onClick={props.toggleNavDrawer} key="myMessages">
               <Link to="/Account">
                 <Icon type="mail" style={{ color: 'rgba(0,0,0,.50)' }} />
                 My Messages
@@ -61,7 +61,7 @@ const NavItemsDrawer = props => {
             </Menu.Item>
           )}
           {props.isAuthenticated && (
-            <Menu.Item key="myFavorites">
+            <Menu.Item onClick={props.toggleNavDrawer} key="myFavorites">
               <Link to="/Account">
                 <Icon type="star" style={{ color: 'rgba(0,0,0,.50)' }} />
                 My Favorites
