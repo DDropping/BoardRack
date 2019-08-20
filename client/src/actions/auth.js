@@ -27,6 +27,7 @@ export const loadUser = () => async dispatch => {
     const res = await axios.get('http://localhost:5000/api/auth');
 
     dispatch({ type: USER_LOADED, payload: res.data });
+    //extra dispatch to force rerender so navbar can grab user.username
   } catch (err) {
     dispatch({ type: AUTH_ERROR });
   }
@@ -42,7 +43,6 @@ export const registerUser = ({
   //Clear errors Change Register button to loading
   dispatch({ type: CLEAR_ERRORS });
   dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: true });
-
   //set headers for request
   const config = {
     headers: {
@@ -105,7 +105,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
       config
     );
 
-    //successful registration
+    //successful login
     dispatch({ type: AUTH_USER, payload: res.data.token });
     dispatch({ type: CLEAR_ERRORS });
     dispatch({ type: TOGGLE_LOGIN_BUTTON_LOADING, payload: false });

@@ -61,7 +61,7 @@ class RegisterForm extends Component {
         </small>
         <Button
           type="primary"
-          loading={this.props.isRegisterButtonLoading}
+          loading={this.props.isLoading}
           size="large"
           htmlType="submit"
           className="login-form-button"
@@ -83,7 +83,7 @@ class RegisterForm extends Component {
 const mapStateToProps = state => {
   return {
     registrationErrors: state.auth.registrationErrors,
-    isRegisterButtonLoading: state.auth.isRegisterButtonLoading
+    isLoading: state.registerModal.isLoading
   };
 };
 

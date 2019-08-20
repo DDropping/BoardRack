@@ -35,6 +35,7 @@ class LoginForm extends Component {
         />
         <Field
           name="password"
+          type="password"
           component={AInput}
           prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
           placeholder="Password"
@@ -48,6 +49,7 @@ class LoginForm extends Component {
         </Link>
         <Button
           type="primary"
+          loading={this.props.isLoading}
           size="large"
           htmlType="submit"
           className="login-form-button"
@@ -69,7 +71,7 @@ class LoginForm extends Component {
 const mapStateToProps = state => {
   return {
     loginErrors: state.auth.loginErrors,
-    isLoginButtonLoading: state.auth.isLoginButtonLoading
+    isLoading: state.loginModal.isLoading
   };
 };
 

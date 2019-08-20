@@ -80,9 +80,8 @@ router.post(
       .isEmail()
       .normalizeEmail(),
     check('username', 'Username between 3-16 characters is required')
-      .isLength({ min: 3, max: 16 })
-      .not()
-      .isEmpty(),
+      .isLength({ min: 3 })
+      .isLength({ max: 16 }),
     check(
       'password',
       'Please enter a password with 6 or more characters'

@@ -85,7 +85,7 @@ const Navbar = props => {
 };
 
 const mapStateToProps = state => {
-  if (state.auth.isAuthenticated) {
+  if (state.auth.user) {
     return {
       isAuthenticated: state.auth.isAuthenticated,
       username: state.auth.user.username

@@ -3,15 +3,13 @@ import {
   AUTH_USER_FAIL,
   REGISTRATION_ERROR,
   LOGIN_ERROR,
-  TOGGLE_REGISTER_BUTTON_LOADING,
-  TOGGLE_LOGIN_BUTTON_LOADING,
   CLEAR_ERRORS,
   USER_LOADED,
   AUTH_ERROR,
   DEAUTH_USER
 } from '../actions/types';
 
-const INITIAL_STATE = {
+const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
   loading: true,
@@ -23,7 +21,7 @@ const INITIAL_STATE = {
   isLoginButtonLoading: false
 };
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case USER_LOADED:
       return {
@@ -48,7 +46,8 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         token: null,
         isAuthenticated: false,
-        loading: false
+        loading: false,
+        user: null
       };
     case REGISTRATION_ERROR:
       return {
@@ -57,16 +56,6 @@ export default function(state = INITIAL_STATE, action) {
     case LOGIN_ERROR:
       return {
         loginErrors: [...state.loginErrors, action.payload]
-      };
-    case TOGGLE_REGISTER_BUTTON_LOADING:
-      return {
-        ...state,
-        isRegisterButtonLoading: action.payload
-      };
-    case TOGGLE_LOGIN_BUTTON_LOADING:
-      return {
-        ...state,
-        isLoginButtonLoading: action.payload
       };
     case CLEAR_ERRORS:
       return {
