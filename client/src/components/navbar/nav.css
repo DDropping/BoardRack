@@ -22,5 +22,18 @@
 
 .drawerButton {
   margin-top: 10px;
+  margin-right: 10px;
   float: right;
+}
+
+@media (max-width: 540px) {
+  .navigationItems {
+    display: none;
+  }
+}
+
+@media (min-width: 541px) {
+  .drawerButton {
+    display: none;
+  }
 }
