@@ -1,7 +1,8 @@
 import {TOGGLE_LOGOUT_MODAL} from '../../actions/types';
 
 const initialState = {
-    isVisible = false
+    isVisible = false,
+    isLoading = false
 }
 
 export default function(state=initialState, action){
@@ -10,6 +11,11 @@ export default function(state=initialState, action){
             return{
                 ...state,
                 isVisible= !state.isVisible
+            }
+        case TOGGLE_LOGOUT_LOADING:
+            return{
+                ...state,
+                isLoading = action.payload
             }
         default:
             return state
