@@ -17,16 +17,23 @@ const LogoutModal = props => {
         zIndex={1100}
       >
         <Result
-          title="Are you sure you want to Logout?"
+          title="Are you sure?"
+          style={{ padding: 0 }}
           extra={[
             <Button
               onClick={props.toggleLogoutModal}
               type="primary"
               key="console"
+              size="large"
             >
               Cancel
             </Button>,
-            <Button onClick={props.logoutUser} key="buy">
+            <Button
+              onClick={props.logoutUser}
+              type="default"
+              key="buy"
+              size="large"
+            >
               Logout
             </Button>
           ]}
