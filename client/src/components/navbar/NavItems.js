@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Menu, Button, Icon } from 'antd';
 
 import AccountAvatar from './AccountAvatar';
@@ -28,29 +29,40 @@ const Navbar = props => {
             }
           >
             <AccountAvatar />
-            <Menu.Item key="createPost">
-              <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
-              Create Post
-            </Menu.Item>
-            <Menu.Item key="myAccount">
-              <Icon type="user" style={{ color: 'rgba(0,0,0,.50)' }} />
-              My Account
-            </Menu.Item>
-            <Menu.Item key="myPosts">
-              <Icon type="form" style={{ color: 'rgba(0,0,0,.50)' }} />
-              My Posts
+            <Menu.Item key="subCreatePost">
+              <Link to="/CreatePost">
+                <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
+                Create Post
+              </Link>
             </Menu.Item>
 
-            <Menu.Item key="myMessages">
-              <Icon type="mail" style={{ color: 'rgba(0,0,0,.50)' }} />
-              My Messages
+            <Menu.Item key="subMyAccount">
+              <Link to="/Account">
+                <Icon type="user" style={{ color: 'rgba(0,0,0,.50)' }} />
+                My Account
+              </Link>
             </Menu.Item>
-            <Menu.Item key="myFavorites">
-              <Icon type="star" style={{ color: 'rgba(0,0,0,.50)' }} />
-              My Favorites
+            <Menu.Item key="subMyPosts">
+              <Link to="/Account">
+                <Icon type="form" style={{ color: 'rgba(0,0,0,.50)' }} />
+                My Posts
+              </Link>
+            </Menu.Item>
+
+            <Menu.Item key="subMyMessages">
+              <Link to="/Account">
+                <Icon type="mail" style={{ color: 'rgba(0,0,0,.50)' }} />
+                My Messages
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="subMyFavorites">
+              <Link to="/Account">
+                <Icon type="star" style={{ color: 'rgba(0,0,0,.50)' }} />
+                My Favorites
+              </Link>
             </Menu.Item>
             <Menu.Divider />
-            <Menu.Item onClick={props.toggleLogoutModal} key="logout">
+            <Menu.Item onClick={props.toggleLogoutModal} key="subLogout">
               <Icon type="logout" style={{ color: 'rgba(0,0,0,.50)' }} />
               Logout
             </Menu.Item>
