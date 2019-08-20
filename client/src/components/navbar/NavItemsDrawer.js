@@ -20,55 +20,55 @@ const NavItemsDrawer = props => {
       >
         <Menu>
           <Menu.Item key="home">
-            <Icon type="home" style={{ color: 'rgba(0,0,0,.25)' }} />
+            <Icon type="home" style={{ color: 'rgba(0,0,0,.50)' }} />
             Home
           </Menu.Item>
           {props.isAuthenticated && (
             <Menu.Item key="createPost">
-              <Icon type="plus-circle" style={{ color: 'rgba(0,0,0,.25)' }} />
+              <Icon type="plus-circle" style={{ color: 'rgba(0,0,0,.50)' }} />
               Create Post
             </Menu.Item>
           )}
           {props.isAuthenticated && (
             <Menu.Item key="myAccount">
-              <Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />
+              <Icon type="user" style={{ color: 'rgba(0,0,0,.50)' }} />
               My Account
             </Menu.Item>
           )}
           {props.isAuthenticated && (
             <Menu.Item key="myPosts">
-              <Icon type="form" style={{ color: 'rgba(0,0,0,.25)' }} />
+              <Icon type="form" style={{ color: 'rgba(0,0,0,.50)' }} />
               My Posts
             </Menu.Item>
           )}
           {props.isAuthenticated && (
             <Menu.Item key="myMessages">
-              <Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />
+              <Icon type="mail" style={{ color: 'rgba(0,0,0,.50)' }} />
               My Messages
             </Menu.Item>
           )}
           {props.isAuthenticated && (
             <Menu.Item key="myFavorites">
-              <Icon type="star" style={{ color: 'rgba(0,0,0,.25)' }} />
+              <Icon type="star" style={{ color: 'rgba(0,0,0,.50)' }} />
               My Favorites
             </Menu.Item>
           )}
           {props.isAuthenticated && (
             <Menu.Item key="logout">
-              <Icon type="logout" style={{ color: 'rgba(0,0,0,.25)' }} />
+              <Icon type="logout" style={{ color: 'rgba(0,0,0,.50)' }} />
               Logout
             </Menu.Item>
           )}
 
           {!props.isAuthenticated && (
             <Menu.Item onClick={props.toggleLoginModal} key="login">
-              <Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />
+              <Icon type="user" style={{ color: 'rgba(0,0,0,.50)' }} />
               Login
             </Menu.Item>
           )}
           {!props.isAuthenticated && (
             <Menu.Item onClick={props.toggleRegisterModal} key="register">
-              <Icon type="user-add" style={{ color: 'rgba(0,0,0,.25)' }} />
+              <Icon type="user-add" style={{ color: 'rgba(0,0,0,.50)' }} />
               Register
             </Menu.Item>
           )}
