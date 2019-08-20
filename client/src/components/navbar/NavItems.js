@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Menu, Popover } from 'antd';
+import { Menu, Popover, Button, Icon } from 'antd';
 
 import { toggleRegisterModal } from '../../actions/registerModal';
 import { toggleLoginModal } from '../../actions/loginModal';
@@ -11,7 +11,7 @@ import AccountPopover from './account/AccountPopover';
 const Navbar = props => {
   return (
     <div>
-      <Menu className="navItemsInside" mode="horizontal">
+      <Menu className="navigationItems" mode="horizontal">
         <Menu.Item key="home">Home</Menu.Item>
         {props.isAuthenticated && <Menu.Item key="createPost">Post</Menu.Item>}
         {props.isAuthenticated && (
@@ -37,6 +37,12 @@ const Navbar = props => {
           </Menu.Item>
         )}
       </Menu>
+
+      <div className="drawerButton">
+        <Button>
+          <Icon type="menu" />
+        </Button>
+      </div>
 
       <RegisterModal />
       <LoginModal />

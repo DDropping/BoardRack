@@ -14,8 +14,13 @@
   ); /* make navitems span the rest of the horizontal space next to logo */
 }
 
-.navItemsInside {
+.navigationItems {
   border-bottom: none; /* remove the default bottom border from antd */
   padding-bottom: 20px; /* add space in between navbar and elements below */
   float: right; /* floats the nav items to the right */
+}
+
+.drawerButton {
+  margin-top: 10px;
+  float: right;
 }
