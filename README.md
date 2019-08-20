@@ -1,6 +1,27 @@
 # BOARDRACK
 ### Classified Advertisement Website for New / Used / Custom Suftboards  
-#### Built Using The Mern Stack (MongoDB, Express.js, React/Redux, Node.js)
+#### Built Using The Mern Stack (MongoDB, Express.js, React/Redux, Node.js) with Ant design UI framework
+
+## Dependencies
+### Frontend
+- axios: ^0.19.0,
+- moment: ^2.24.0,
+- react: ^16.8.6,
+- react-dom: ^16.8.6,
+- react-moment: ^0.9.2,
+- react-redux: ^7.1.0,
+- react-router-dom: ^5.0.1,
+- react-scripts: 3.0.1,
+- redux: ^4.0.1,
+- redux-devtools-extension: ^2.13.8,
+- redux-thunk: ^2.3.0
+### Backend
+- bcryptjs: ^2.4.3,
+- config: ^3.1.0,
+- express: ^4.17.1,
+- express-validator: ^5.3.1,
+- jsonwebtoken: ^8.5.1,
+- mongoose: ^5.5.11
 
 ## Authors
 
