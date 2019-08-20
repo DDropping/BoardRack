@@ -53,13 +53,6 @@ const NavItemsDrawer = props => {
               My Favorites
             </Menu.Item>
           )}
-          {props.isAuthenticated && (
-            <Menu.Item key="logout">
-              <Icon type="logout" style={{ color: 'rgba(0,0,0,.50)' }} />
-              Logout
-            </Menu.Item>
-          )}
-
           {!props.isAuthenticated && (
             <Menu.Item onClick={props.toggleLoginModal} key="login">
               <Icon type="user" style={{ color: 'rgba(0,0,0,.50)' }} />
@@ -70,6 +63,13 @@ const NavItemsDrawer = props => {
             <Menu.Item onClick={props.toggleRegisterModal} key="register">
               <Icon type="user-add" style={{ color: 'rgba(0,0,0,.50)' }} />
               Register
+            </Menu.Item>
+          )}
+          {props.isAuthenticated && <Menu.Divider />}
+          {props.isAuthenticated && (
+            <Menu.Item key="logout">
+              <Icon type="logout" style={{ color: 'rgba(0,0,0,.50)' }} />
+              Logout
             </Menu.Item>
           )}
         </Menu>
