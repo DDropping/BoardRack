@@ -13,6 +13,7 @@ const Register = props => {
         onOk={props.toggleRegisterModal}
         onCancel={props.toggleRegisterModal}
         footer={null}
+        zIndex={1100}
       >
         <RegisterForm />
       </Modal>

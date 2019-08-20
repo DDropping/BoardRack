@@ -14,6 +14,7 @@ const LogoutModal = props => {
         onOk={props.toggleLogoutModal}
         onCancel={props.toggleLogoutModal}
         footer={null}
+        zIndex={1100}
       >
         <Result
           title="Are you sure you want to Logout?"

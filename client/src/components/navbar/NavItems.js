@@ -12,7 +12,9 @@ const Navbar = props => {
   return (
     <div>
       <Menu className="navigationItems" mode="horizontal">
-        <Menu.Item key="home">Home</Menu.Item>
+        <Menu.Item onClick={props.toggleLogoutModal} key="home">
+          Home
+        </Menu.Item>
         {props.isAuthenticated && <Menu.Item key="createPost">Post</Menu.Item>}
         {props.isAuthenticated && (
           <Menu.Item key="account">
@@ -20,6 +22,7 @@ const Navbar = props => {
               placement="bottomRight"
               content={<AccountPopover />}
               trigger="click"
+              style={{ padding: '10px', margin: '-10px' }}
             >
               Account
             </Popover>

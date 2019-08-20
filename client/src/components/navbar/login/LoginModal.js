@@ -13,6 +13,7 @@ const LoginModal = props => {
         onOk={props.toggleLoginModal}
         onCancel={props.toggleLoginModal}
         footer={null}
+        zIndex={1100}
       >
         <LoginForm />
       </Modal>
