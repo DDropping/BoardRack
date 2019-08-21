@@ -6,7 +6,7 @@ import setAuthToken from '../util/setAuthToken';
 import RegisterModal from './navbar/register/RegisterModal';
 import LoginModal from './navbar/login/LoginModal';
 import LogoutModal from './navbar/logout/logoutModal';
-import ResultModal from './presentationalComponent/ResultModal';
+import ResultModal from './util/ResultModal';
 import { loadUser } from '../actions/auth';
 
 if (localStorage.token) {
