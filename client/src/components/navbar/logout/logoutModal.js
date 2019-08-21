@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Modal, Result, Button } from 'antd';
 
-import { toggleLogoutModal } from '../../../actions/modal_logout';
+import { toggleLogoutModal } from '../../../actions/modals/logoutModal';
 import { logoutUser } from '../../../actions/auth';
 
 const LogoutModal = props => {

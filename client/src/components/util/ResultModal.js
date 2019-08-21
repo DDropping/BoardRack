@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Result, Modal } from 'antd';
 
-import { closeResultModal } from '../../actions/modal_result';
+import { closeResultModal } from '../../actions/modals/resultModal';
 
 const ResultModal = props => {
   return (

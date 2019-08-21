@@ -3,7 +3,7 @@ import {
   CLOSE_RESULT_MODAL,
   LOAD_RESULT_MODAL_DATA,
   RESET_RESULT_MODAL_DATA
-} from './types';
+} from '../types';
 
 export const loadResultModalData = (status, title, subTitle) => dispatch => {
   dispatch({
