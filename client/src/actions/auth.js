@@ -68,6 +68,13 @@ export const registerUser = ({
     dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
     dispatch({ type: TOGGLE_REGISTER_MODAL });
     dispatch({ type: CLOSE_NAV_DRAWER });
+    dispatch(
+      loadResultModalData(
+        'success',
+        'Regestration Successful!',
+        'You are now Logged In'
+      )
+    );
   } catch (e) {
     //failed registration
     const errors = e.response.data.errors;
@@ -113,6 +120,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
     dispatch({ type: TOGGLE_LOGIN_BUTTON_LOADING, payload: false });
     dispatch({ type: TOGGLE_LOGIN_MODAL });
     dispatch({ type: CLOSE_NAV_DRAWER });
+    dispatch(loadResultModalData('success', 'You are now Logged In'));
   } catch (e) {
     //failed registration
     const errors = e.response.data.errors;
