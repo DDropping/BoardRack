@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Form, Icon, Button } from 'antd';
 import { reduxForm, Field } from 'redux-form';
 
-import { changeToLoginModal } from '../../../actions/registerModal';
+import { changeToLoginModal } from '../../../actions/modals/registerModal';
 import { registerUser } from '../../../actions/auth';
 import { AInput } from '../../formAntComponents';
 

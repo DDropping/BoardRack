@@ -1,4 +1,4 @@
-import { TOGGLE_LOGIN_MODAL, TOGGLE_REGISTER_MODAL } from './types';
+import { TOGGLE_LOGIN_MODAL, TOGGLE_REGISTER_MODAL } from '../types';
 
 export const toggleLoginModal = () => dispatch => {
   dispatch({

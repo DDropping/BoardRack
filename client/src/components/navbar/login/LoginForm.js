@@ -6,7 +6,7 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { reduxForm, Field } from 'redux-form';
 
 import { AInput } from '../../formAntComponents';
-import { changeToRegisterModal } from '../../../actions/loginModal';
+import { changeToRegisterModal } from '../../../actions/modals/loginModal';
 import { loginUser } from '../../../actions/auth';
 
 class LoginForm extends Component {

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { Menu, Button, Icon } from 'antd';
 
 import AccountAvatar from './AccountAvatar';
-import { toggleRegisterModal } from '../../actions/registerModal';
-import { toggleLoginModal } from '../../actions/loginModal';
-import { toggleNavDrawer } from '../../actions/drawer_nav';
-import { toggleLogoutModal } from '../../actions/modal_logout';
+import { toggleRegisterModal } from '../../actions/modals/registerModal';
+import { toggleLoginModal } from '../../actions/modals/loginModal';
+import { toggleNavDrawer } from '../../actions/drawers/navDrawer';
+import { toggleLogoutModal } from '../../actions/modals/logoutModal';
 
 const Navbar = props => {
   return (

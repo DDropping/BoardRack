@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Menu, Icon, Drawer } from 'antd';
 
-import { toggleNavDrawer } from '../../actions/drawer_nav';
-import { toggleRegisterModal } from '../../actions/registerModal';
-import { toggleLoginModal } from '../../actions/loginModal';
+import { toggleNavDrawer } from '../../actions/drawers/navDrawer';
+import { toggleRegisterModal } from '../../actions/modals/registerModal';
+import { toggleLoginModal } from '../../actions/modals/loginModal';
 import {
   toggleLogoutModal,
   toggleLogoutLoading
-} from '../../actions/modal_logout';
+} from '../../actions/modals/logoutModal';
 
 const NavItemsDrawer = props => {
   return (
