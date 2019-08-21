@@ -24,7 +24,7 @@ const App = ({ children }) => {
       <RegisterModal />
       <LoginModal />
       <LogoutModal />
-      <ResulModal />
+      <ResultModal />
       {children}
     </div>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Home = () => {
+const Home = props => {
   return (
     <div>
       <div>Home Page</div>
@@ -8,4 +9,7 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default connect(
+  null,
+  null
+)(Home);

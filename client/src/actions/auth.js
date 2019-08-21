@@ -16,6 +16,7 @@ import {
   AUTH_ERROR,
   DEAUTH_USER
 } from './types';
+import { loadResultModalData } from './modal_result';
 
 /*********** LOAD USER ***********/
 export const loadUser = () => async dispatch => {
@@ -131,4 +132,5 @@ export const logoutUser = () => dispatch => {
   dispatch({ type: DEAUTH_USER });
   dispatch({ type: TOGGLE_LOGOUT_MODAL });
   dispatch({ type: CLOSE_NAV_DRAWER });
+  dispatch(loadResultModalData('success', 'You are now Logged Out'));
 };

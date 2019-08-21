@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Result, Modal } from 'antd';
 
+import { closeResultModal } from '../../actions/modal_result';
+
 const ResultModal = props => {
   return (
     <Modal
@@ -13,20 +15,29 @@ const ResultModal = props => {
     >
       <Result
         status={props.status}
-        title={props.titleText}
-        subTitle={props.subTitleText}
+        title={props.title}
+        subTitle={props.subTitle}
       />
     </Modal>
   );
 };
 
 const mapStateToProps = state => {
-    return{
-    status = state.resultModal.status,
-    isVisible = state.resultModal.isVisible,
-    title = state.resultModal.title,
-    subTitle = state.result.subTitle
-    }
-}
+  if (state.resultModal.status !== '') {
+    return {
+      status: state.resultModal.status,
+      isVisible: state.resultModal.isVisible,
+      title: state.resultModal.title,
+      subTitle: state.resultModal.subTitle
+    };
+  } else {
+    return {
+      isVisible: state.resultModal.isVisible
+    };
+  }
+};
 
-export default connect(mapStateToProps, {closeResultModal})(ResultModal);
+export default connect(
+  mapStateToProps,
+  { closeResultModal }
+)(ResultModal);
