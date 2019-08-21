@@ -12,7 +12,7 @@ const ResultModal = props => {
       zIndex={1100}
     >
       <Result
-        status="success"
+        status={props.status}
         title={props.titleText}
         subTitle={props.subTitleText}
       />
@@ -21,12 +21,12 @@ const ResultModal = props => {
 };
 
 const mapStateToProps = state => {
-  (isVisible = state.resultModal.isVisible),
-    (title = state.resultModal.title),
-    (subTitle = state.result.subTitle);
-};
+    return{
+    status = state.resultModal.status,
+    isVisible = state.resultModal.isVisible,
+    title = state.resultModal.title,
+    subTitle = state.result.subTitle
+    }
+}
 
-export default connect(
-  mapStateToProps,
-  { closeResultModal }
-)(ResultModal);
+export default connect(mapStateToProps, {closeResultModal})(ResultModal);
