@@ -56,7 +56,7 @@ export const registerUser = ({
   //post new account to DB
   try {
     const res = await axios.post(
-      'http://localhost:5000/api/accounts',
+      'http://104.248.186.12/:5000/api/accounts',
       body,
       config
     );
