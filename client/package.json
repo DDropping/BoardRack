@@ -26,7 +26,7 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "deploy-production": "react-scripts build && rm -r /var/www/boardrack.org/html/* && cp -r ./build/* /var/www/boardrack.org/html"
+    "deploy-production": "react-app-rewired build && rm -r /var/www/boardrack.org/html/* && cp -r ./build/* /var/www/boardrack.org/html"
   },
   "eslintConfig": {
     "extends": "react-app"
