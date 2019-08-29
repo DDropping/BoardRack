@@ -12,7 +12,7 @@ import {
 const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
-  loading: true,
+  isLoading: true,
   user: null,
 
   registrationErrors: [],
@@ -28,7 +28,7 @@ export default function(state = initialState, action) {
         ...state,
         user: action.payload,
         isAuthenticated: true,
-        loading: false
+        isLoading: false
       };
     case AUTH_USER:
       localStorage.setItem('token', action.payload);
@@ -36,7 +36,7 @@ export default function(state = initialState, action) {
         ...state,
         ...action.payload,
         isAuthenticated: true,
-        loading: false
+        isLoading: false
       };
     case AUTH_USER_FAIL:
     case AUTH_ERROR:
@@ -46,7 +46,7 @@ export default function(state = initialState, action) {
         ...state,
         token: null,
         isAuthenticated: false,
-        loading: false,
+        isLoading: false,
         user: null
       };
     case REGISTRATION_ERROR:
