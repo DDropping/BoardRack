@@ -11,11 +11,7 @@ connectDB();
 //init middleware
 app.use(express.json({ extended: true }));
 app.use(bodyParser.json({ type: '*/*' }));
-app.use(
-  cors({
-    origin: 'http://localhost:3000'
-  })
-);
+app.use(cors());
 
 app.get('/', (req, res) => res.send('API running'));
 
