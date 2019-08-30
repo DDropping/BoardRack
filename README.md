@@ -8,19 +8,20 @@
 
 ### From /BoardRack
 
-    `"start": "node server"`
-    `"server": "nodemon server"`
-    `"client": "npm start --prefix client"`
-    `"dev": "concurrently \"npm run server\" \"npm run client\""`
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
 
 ### From /BoardRack/client
 
-    `"start": "react-app-rewired start"`
-    `"build": "react-app-rewired build"`
-    `"test": "react-app-rewired test"`
-    `"eject": "react-scripts eject"`
-    `"deploy-production": "react-app-rewired build && rm -r /var/www/boardrack.org/html/* && cp -r ./build/* /var/www/boardrack.org/html"`
-    deploy-production must be ran from remote server in ~/BoardRack/client directory
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "deploy-production": "react-app-rewired build && rm -r /var/www/boardrack.org/html/* && cp -r ./build/* /var/www/boardrack.org/html"
+
+    //deploy-production must be ran from remote server in ~/BoardRack/client directory
 
 ## Dependencies
 
