@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb://157.230.204.140:27017/BoardRack",
+  "mongoURI": "mongodb://boardrack:BR457api&!@157.230.204.140:27017/BoardRack",
   "jwtSecret": "kdn$rj42mfl5&4nn0d%"
 }
