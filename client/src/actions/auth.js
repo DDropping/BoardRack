@@ -25,7 +25,7 @@ export const loadUser = () => async dispatch => {
   }
 
   try {
-    const res = await axios.get('http://localhost:5000/api/auth');
+    const res = await axios.get('http://104.248.186.12:5000/api/auth');
     dispatch({ type: USER_LOADED, payload: res.data });
     //extra dispatch to force rerender so navbar can grab user.username
   } catch (err) {
@@ -108,7 +108,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
   //post new account to DB
   try {
     const res = await axios.post(
-      'http://localhost:5000/api/auth',
+      'http://104.248.186.12:5000/api/auth',
       body,
       config
     );
