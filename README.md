@@ -6,6 +6,10 @@ If need to make public, check config/default.json (DB admin uName/pwd visible)
 
 #### Built Using MongoDB, Express.js, React/Redux, Node.js with Ant design UI framework
 
+## Production checklist
+
+- Change db location in config/DB.js
+
 ## Scripts
 
 ### From /BoardRack
