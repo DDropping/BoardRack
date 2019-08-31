@@ -25,7 +25,7 @@ export const loadUser = () => async dispatch => {
   }
 
   try {
-    const res = await axios.get('http://104.248.186.12:5000/api/auth');
+    const res = await axios.get('/api/auth');
     dispatch({ type: USER_LOADED, payload: res.data });
     //extra dispatch to force rerender so navbar can grab user.username
   } catch (err) {
@@ -55,11 +55,7 @@ export const registerUser = ({
 
   //post new account to DB
   try {
-    const res = await axios.post(
-      'http://104.248.186.12:5000/api/accounts',
-      body,
-      config
-    );
+    const res = await axios.post('/api/accounts', body, config);
 
     //successful registration
     dispatch({ type: AUTH_USER, payload: res.data.token });
@@ -107,11 +103,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
 
   //post new account to DB
   try {
-    const res = await axios.post(
-      'http://104.248.186.12:5000/api/auth',
-      body,
-      config
-    );
+    const res = await axios.post('/api/auth', body, config);
 
     //successful login
     dispatch({ type: AUTH_USER, payload: res.data.token });
