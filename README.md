@@ -9,6 +9,7 @@ If need to make public, check config/default.json (DB admin uName/pwd visible)
 ## Production checklist
 
 - Change db location in config/DB.js
+- Change proxy in client/package.json (not sure if this is actually required)
 
 ## Scripts
 
