@@ -11,10 +11,17 @@ If need to make public, check config/default.json (DB admin uName/pwd visible)
 - Change db location in config/DB.js
 - Change proxy in client/package.json (not sure if this is actually required)
 
+## How to run (deployed in production)
+
+- Start express server with pm2 with `$ npm start pro` or `$ pm2 start server.js --env production`
+- Start react client with `$ npm run deploy-production` or build react app with `$ react-app-rewired build`, remove current build from nginx selected folder with `$ rm -r /var/www/boardrack.org/html/*`, move current build to nginx folder with `$ cp -r ./build/* /var/www/boardrack.org/html`
+- Change location of mongo database from /config/DB.js
+
 ## Scripts
 
 ### From /BoardRack
 
+    "prod": "NODE_ENV=production pm2 start server.js",
     "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
