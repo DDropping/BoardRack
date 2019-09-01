@@ -4,6 +4,7 @@
   "description": "new/used surfboard classifieds",
   "main": "server.js",
   "scripts": {
+    "prod": "NODE_ENV=production pm2 start server.js",
     "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
