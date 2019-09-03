@@ -1,8 +1,50 @@
-# BOARDRACK
+# BOARDRACK (PRIVATE)
 
 ### Classified Advertisement Website for New / Used / Custom Suftboards
 
 #### Built Using MongoDB, Express.js, React/Redux, Node.js with Ant design UI framework
+
+\*\*\* If need to make public, check config/default.json (DB admin uName/pwd visible)
+
+## Production checklist
+
+- Change db location in config/DB.js
+- Change proxy in client/package.json (not sure if this is actually required)
+
+## How to run (deployed in production)
+
+- Start express server with pm2 with `$ npm start pro` or `$ pm2 start server.js --env production`
+- Start react client with `$ npm run deploy-production` or build react app with `$ react-app-rewired build`, remove current build from nginx selected folder with `$ rm -r /var/www/boardrack.org/html/*`, move current build to nginx folder with `$ cp -r ./build/* /var/www/boardrack.org/html`
+- Change location of mongo database from /config/DB.js
+
+### SSH Commands
+
+- `$ sudo nginx` start nginx server
+- `$ sudo nginx -s stop` stop nginx server
+- `$ pm2 status` check status of pm2 processess
+- `$ pm2 start server.js --env production` start express api server in production
+- `$ pm2 stop 0` stop pm2 process with id == 0
+- `$ pm2 delete 0` delete pm2 process with id == 0
+
+## Scripts
+
+### From /BoardRack
+
+    "prod": "NODE_ENV=production pm2 start server.js",
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+
+### From /BoardRack/client
+
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "deploy-production": "react-app-rewired build && rm -r /var/www/boardrack.org/html/* && cp -r ./build/* /var/www/boardrack.org/html"
+
+    //deploy-production must be ran from remote server in ~/BoardRack/client directory
 
 ## Dependencies
 

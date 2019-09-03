@@ -13,11 +13,13 @@ const Navbar = props => {
   return (
     <div>
       <Menu className="navigationItems" mode="horizontal">
-        <Menu.Item onClick={props.toggleLogoutModal} key="home">
-          Home
+        <Menu.Item key="home">
+          <Link to="/">Home</Link>
         </Menu.Item>
         {props.isAuthenticated && (
-          <Menu.Item key="createPost">Create Post</Menu.Item>
+          <Menu.Item key="createPost">
+            <Link to="/CreatePost">Create Post</Link>
+          </Menu.Item>
         )}
         {props.isAuthenticated && (
           <Menu.SubMenu
