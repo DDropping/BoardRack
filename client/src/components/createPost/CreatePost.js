@@ -1,7 +1,6 @@
 import React from 'react';
 import { Divider } from 'antd';
 
-import { AInput, ASelect, ACheckbox } from '../formAntComponents';
 import './createPost.css';
 
 const CreatePost = () => {
