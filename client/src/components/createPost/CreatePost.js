@@ -1,10 +1,15 @@
 import React from 'react';
+import { Divider } from 'antd';
+
+import { AInput, ASelect, ACheckbox } from '../formAntComponents';
 import './createPost.css';
 
 const CreatePost = () => {
   return (
     <div className="wrapper">
-      <div>Create Post Page</div>
+      <Divider>
+        <h2>Create Post</h2>
+      </Divider>
     </div>
   );
 };
