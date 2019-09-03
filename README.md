@@ -1,10 +1,10 @@
 # BOARDRACK (PRIVATE)
 
-If need to make public, check config/default.json (DB admin uName/pwd visible)
-
 ### Classified Advertisement Website for New / Used / Custom Suftboards
 
 #### Built Using MongoDB, Express.js, React/Redux, Node.js with Ant design UI framework
+
+\*\*\* If need to make public, check config/default.json (DB admin uName/pwd visible)
 
 ## Production checklist
 
