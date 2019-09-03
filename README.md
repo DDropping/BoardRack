@@ -22,7 +22,9 @@
 - `$ sudo nginx` start nginx server
 - `$ sudo nginx -s stop` stop nginx server
 - `$ pm2 status` check status of pm2 processess
-- `$ pm2 start server.js` start express api server
+- `$ pm2 start server.js --env production` start express api server in production
+- `$ pm2 stop 0` stop pm2 process with id == 0
+- `$ pm2 delete 0` delete pm2 process with id == 0
 
 ## Scripts
 
