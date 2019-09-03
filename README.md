@@ -17,6 +17,13 @@ If need to make public, check config/default.json (DB admin uName/pwd visible)
 - Start react client with `$ npm run deploy-production` or build react app with `$ react-app-rewired build`, remove current build from nginx selected folder with `$ rm -r /var/www/boardrack.org/html/*`, move current build to nginx folder with `$ cp -r ./build/* /var/www/boardrack.org/html`
 - Change location of mongo database from /config/DB.js
 
+### SSH Commands
+
+- `$ sudo nginx` start nginx server
+- `$ sudo nginx -s stop` stop nginx server
+- `$ pm2 status` check status of pm2 processess
+- `$ pm2 start server.js` start express api server
+
 ## Scripts
 
 ### From /BoardRack
