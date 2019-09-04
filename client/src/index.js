@@ -22,12 +22,6 @@ ReactDOM.render(
         <Route path="/test" exact component={TestComponent} />
         <Route path="/Account" exact component={AccountOverview} />
         <Route path="/CreatePost" component={CreatePost} />
-        <Route path="/CreatePost/AddDetails" component={AddDetails} />
-        <Route
-          path="/CreatePost/AdditionalDetails"
-          component={AdditionalDetails}
-        />
-        <Route path="/CreatePost/ConfirmPost" component={ConfirmPost} />
       </App>
     </BrowserRouter>
   </Provider>,
