@@ -3,6 +3,7 @@ import { Divider, Row, Col, Typography } from 'antd';
 
 import './createPost.css';
 import CreatePostForm from './CreatePostForm';
+import PostSteps from './PostSteps';
 
 const CreatePost = () => {
   return (
@@ -12,14 +13,7 @@ const CreatePost = () => {
           Create Post
         </Typography.Title>
       </Divider>
-      <Row>
-        <Col xs={24} sm={24} md={14}>
-          <CreatePostForm />
-        </Col>
-        <Col xs={24} sm={24} md={10}>
-          IMAGES
-        </Col>
-      </Row>
+      <PostSteps />
     </div>
   );
 };

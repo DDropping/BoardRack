@@ -11,9 +11,7 @@ const CreatePostForm = () => {
     <Form>
       <Row>
         <Col xs={5} sm={4}>
-          <h3 type="primary" style={{ textAlign: 'center' }}>
-            Title:
-          </h3>
+          <h3 style={{ textAlign: 'center' }}>Title:</h3>
         </Col>
         <Col xs={19} sm={19}>
           <Field
