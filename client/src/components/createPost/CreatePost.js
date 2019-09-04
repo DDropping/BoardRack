@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Divider, Row, Col, Typography } from 'antd';
+import { Divider, Typography } from 'antd';
 
 import './createPost.css';
-import CreatePostForm from './CreatePostForm';
 import PostSteps from './PostSteps';
 import AddDetails from './AddDetails';
 import AdditionalDetails from './AdditionalDetails';

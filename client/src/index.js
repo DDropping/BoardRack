@@ -8,10 +8,6 @@ import App from './components/App';
 import Home from './components/home/Home';
 import AccountOverview from './components/account/AccountOverview';
 import CreatePost from './components/createPost/CreatePost';
-import AddDetails from './components/createPost/AddDetails';
-import AdditionalDetails from './components/createPost/AdditionalDetails';
-import ConfirmPost from './components/createPost/ConfirmPost';
-
 import TestComponent from './components/navbar/register/RegisterModal';
 
 ReactDOM.render(

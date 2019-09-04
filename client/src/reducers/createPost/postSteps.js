@@ -10,14 +10,14 @@ const INITIAL_STATE = {
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case CHANGE_POST_STEP:
-      if (action.payload == 0) {
+      if (action.payload === 0) {
         return {
           currentStep: action.payload,
           isStepOneVisible: true,
           isStepTwoVisible: false,
           isStepThreeVisible: false
         };
-      } else if (action.payload == 1) {
+      } else if (action.payload === 1) {
         return {
           currentStep: action.payload,
           isStepOneVisible: false,
@@ -32,9 +32,6 @@ export default function(state = INITIAL_STATE, action) {
           isStepThreeVisible: true
         };
       }
-      return {
-        currentStep: action.payload
-      };
     default:
       return state;
   }
