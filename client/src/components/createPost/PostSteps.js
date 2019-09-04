@@ -9,10 +9,22 @@ const { Step } = Steps;
 const PostSteps = props => {
   return (
     <div>
-      <Steps current={props.currentStep} onChange={props.changePostStep}>
-        <Step title="Step 1" description="This is a description." />
-        <Step title="Step 2" description="This is a description." />
-        <Step title="Step 3" description="This is a description." />
+      <Steps
+        type="navigation"
+        size="default"
+        current={props.currentStep}
+        onChange={props.changePostStep}
+        style={{ marginBottom: '20px' }}
+      >
+        <Step title="Start a New Post" description="Add photos and details" />
+        <Step
+          title="Additional Details"
+          description="Add more details to help your post be seen"
+        />
+        <Step
+          title="Confirm and Publish"
+          description="Publish your post to the world"
+        />
       </Steps>
     </div>
   );
