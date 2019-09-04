@@ -12,10 +12,17 @@ const CreatePostButtons = props => {
         margin: '0 auto'
       }}
     >
-      <Button type="danger">Cancel</Button>
+      <Button type="danger" ghost>
+        Cancel
+      </Button>
       <div style={{ float: 'right' }}>
         {!props.isStepOneVisible && (
-          <Button onClick={props.clickPrevious} type="primary" ghost>
+          <Button
+            onClick={props.clickPrevious}
+            style={{ marginRight: '5px' }}
+            type="primary"
+            ghost
+          >
             <Icon type="left" />
             Previous
           </Button>

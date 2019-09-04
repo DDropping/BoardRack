@@ -11,7 +11,9 @@ import CreatePostButtons from './CreatePostButtons';
 const CreatePost = props => {
   return (
     <div className="wrapper">
-      <PostSteps />
+      <div className="showSteps">
+        <PostSteps />
+      </div>
 
       {props.isStepOneVisible && <AddDetails />}
       {props.isStepTwoVisible && <AdditionalDetails />}
