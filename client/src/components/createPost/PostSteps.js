@@ -1,36 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Steps } from 'antd';
 
 const { Step } = Steps;
 
-const PostSteps = () => {
+const onChange = current => {
+  console.log('onChange:', current);
+};
+
+const PostSteps = props => {
   return (
     <div>
-      <Steps
-        type="navigation"
-        size="small"
-        //current={current}
-        //onChange={this.onChange}
-        //style={stepStyle}
-      >
-        <Step
-          title="Create New Post"
-          status="process"
-          description="Add the required details"
-        />
-        <Step
-          title="Additional Details"
-          status="wait"
-          description="The more details, the easier it's to find"
-        />
-        <Step
-          title="Publish"
-          status="wait"
-          description="Publish your post to the world"
-        />
+      <Steps current={props.currentStep} onChange={onChange}>
+        <Step title="Step 1" description="This is a description." />
+        <Step title="Step 2" description="This is a description." />
+        <Step title="Step 3" description="This is a description." />
       </Steps>
     </div>
   );
 };
 
-export default PostSteps;
+const mapStateToProps = state => {
+  return {
+    currentStep: state.postSteps.currentStep
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(PostSteps);
