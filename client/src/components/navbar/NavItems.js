@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Menu, Button, Icon, Divider } from 'antd';
+import { Menu, Button, Icon } from 'antd';
 
 import AccountAvatar from './AccountAvatar';
 import { toggleRegisterModal } from '../../actions/modals/registerModal';
@@ -16,13 +16,11 @@ const Navbar = props => {
         <Menu.Item key="home">
           <Link to="/">Home</Link>
         </Menu.Item>
-        <Divider type="vertical" />
         {props.isAuthenticated && (
           <Menu.Item key="createPost">
             <Link to="/CreatePost">Create Post</Link>
           </Menu.Item>
         )}
-        {props.isAuthenticated && <Divider type="vertical" />}
         {props.isAuthenticated && (
           <Menu.SubMenu
             title={
@@ -78,7 +76,6 @@ const Navbar = props => {
             Login
           </Menu.Item>
         )}
-        {!props.isAuthenticated && <Divider type="vertical" />}
 
         {!props.isAuthenticated && (
           <Menu.Item onClick={props.toggleRegisterModal} key="register">
