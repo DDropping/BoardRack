@@ -6,6 +6,7 @@ import PostSteps from './PostSteps';
 import AddDetails from './AddDetails';
 import AdditionalDetails from './AdditionalDetails';
 import ConfirmPost from './ConfirmPost';
+import CreatePostButtons from './CreatePostButtons';
 
 const CreatePost = props => {
   return (
@@ -15,6 +16,8 @@ const CreatePost = props => {
       {props.isStepOneVisible && <AddDetails />}
       {props.isStepTwoVisible && <AdditionalDetails />}
       {props.isStepThreeVisible && <ConfirmPost />}
+
+      <CreatePostButtons />
     </div>
   );
 };
