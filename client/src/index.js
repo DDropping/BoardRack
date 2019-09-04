@@ -8,6 +8,9 @@ import App from './components/App';
 import Home from './components/home/Home';
 import AccountOverview from './components/account/AccountOverview';
 import CreatePost from './components/createPost/CreatePost';
+import AddDetails from './components/createPost/AddDetails';
+import AdditionalDetails from './components/createPost/AdditionalDetails';
+import ConfirmPost from './components/createPost/ConfirmPost';
 
 import TestComponent from './components/navbar/register/RegisterModal';
 
@@ -18,7 +21,13 @@ ReactDOM.render(
         <Route path="/" exact component={Home} />
         <Route path="/test" exact component={TestComponent} />
         <Route path="/Account" exact component={AccountOverview} />
-        <Route path="/CreatePost" exact component={CreatePost} />
+        <Route path="/CreatePost" component={CreatePost} />
+        <Route path="/CreatePost/AddDetails" component={AddDetails} />
+        <Route
+          path="/CreatePost/AdditionalDetails"
+          component={AdditionalDetails}
+        />
+        <Route path="/CreatePost/ConfirmPost" component={ConfirmPost} />
       </App>
     </BrowserRouter>
   </Provider>,
