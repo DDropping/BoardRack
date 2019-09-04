@@ -7,7 +7,7 @@ import AddDetailsPhotos from './AddDetailsPhotos';
 const AddDetails = () => {
   return (
     <Row>
-      <Col xs={24} sm={12}>
+      <Col xs={24} sm={12} md={11}>
         <Divider>
           <Typography.Title level={3} type="secondary">
             Add the basic details
@@ -15,7 +15,8 @@ const AddDetails = () => {
         </Divider>
         <AddDetailsInfo />
       </Col>
-      <Col xs={24} sm={12}>
+      <Col xs={0} sm={2} md={2} />
+      <Col xs={24} sm={10} md={11}>
         <Divider>
           <Typography.Title level={3} type="secondary">
             Add photos

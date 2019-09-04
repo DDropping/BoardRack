@@ -10,10 +10,10 @@ const AddDetailsInfo = () => {
   return (
     <Form>
       <Row>
-        <Col xs={5} sm={4}>
+        <Col xs={5} sm={7} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Title:</h3>
         </Col>
-        <Col xs={19} sm={18}>
+        <Col xs={19} sm={15} md={16} lg={17}>
           <Field
             name="title"
             component={AInput}
@@ -24,7 +24,7 @@ const AddDetailsInfo = () => {
       </Row>
 
       <Row>
-        <Col xs={5} sm={4}>
+        <Col xs={5} sm={7} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Price:</h3>
         </Col>
         <Col xs={19} sm={6}>
@@ -39,10 +39,10 @@ const AddDetailsInfo = () => {
       </Row>
 
       <Row>
-        <Col xs={5} sm={4}>
-          <h3 style={{ textAlign: 'center' }}>Shape:</h3>
+        <Col xs={5} sm={7} md={6} lg={5}>
+          <h3 style={{ textAlign: 'center' }}>Type:</h3>
         </Col>
-        <Col xs={19} sm={18}>
+        <Col xs={19} sm={15} md={16} lg={17}>
           <Field
             name="boardType"
             component={ASelect}
@@ -62,10 +62,10 @@ const AddDetailsInfo = () => {
       </Row>
 
       <Row>
-        <Col xs={5} sm={4}>
+        <Col xs={5} sm={7} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Condition:</h3>
         </Col>
-        <Col xs={19} sm={18}>
+        <Col xs={19} sm={15} md={16} lg={17}>
           <Field
             name="condition"
             component={ASelect}

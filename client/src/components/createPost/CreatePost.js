@@ -11,11 +11,6 @@ import ConfirmPost from './ConfirmPost';
 const CreatePost = props => {
   return (
     <div className="wrapper">
-      <Divider>
-        <Typography.Title level={2} type="secondary">
-          Create Post
-        </Typography.Title>
-      </Divider>
       <PostSteps />
 
       {props.isStepOneVisible && <AddDetails />}
