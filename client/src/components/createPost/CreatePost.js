@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Divider, Typography } from 'antd';
 
 import './createPost.css';
 import PostSteps from './PostSteps';

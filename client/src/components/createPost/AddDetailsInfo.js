@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import { Form, Icon, Button, Row, Col, Select, Divider, Input } from 'antd';
+import { Form, Row, Col, Select } from 'antd';
 
-import { AInput, ASelect, ACheckbox } from '../formAntComponents';
+import { AInput, ASelect } from '../formAntComponents';
 
 const AddDetailsInfo = () => {
   return (
