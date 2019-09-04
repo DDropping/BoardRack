@@ -20,11 +20,11 @@ const App = ({ children }) => {
 
   return (
     <div>
-      {/* <Navbar />
+      <Navbar />
       <RegisterModal />
       <LoginModal />
       <LogoutModal />
-      <ResultModal /> */}
+      <ResultModal />
       {children}
     </div>
   );
