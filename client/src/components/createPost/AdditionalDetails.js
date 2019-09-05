@@ -9,6 +9,16 @@ import AdditionalDetailsOpinion from './AdditionalDetailsOpinion';
 const AdditionalDetails = () => {
   return (
     <div>
+      <div
+        style={{
+          maxWidth: '600px',
+          margin: 'auto',
+          color: 'rgba(0,0,0,.50)'
+        }}
+      >
+        *Additional details are recommended but not required. The more
+        information provided, the more likely your board will be seen
+      </div>
       <Row>
         <Col xs={24} sm={12} md={11}>
           <Divider>
@@ -28,7 +38,6 @@ const AdditionalDetails = () => {
           <AdditionalDetailsFins />
         </Col>
       </Row>
-
       <Row>
         <Col xs={24} sm={12} md={11}>
           <Divider>

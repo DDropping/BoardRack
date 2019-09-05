@@ -8,14 +8,13 @@ const { Step } = Steps;
 
 const PostSteps = props => {
   return (
-    <div style={{ marginBottom: '40px' }}>
+    <div style={{ marginBottom: !props.isStepTwoVisible ? '40px' : '0' }}>
       <Steps
         type="navigation"
         size="large"
         current={props.currentStep}
         onChange={props.changePostStep}
         style={{
-          marginBottom: '20px',
           maxWidth: '700px',
           margin: 'auto'
         }}
@@ -30,7 +29,8 @@ const PostSteps = props => {
 
 const mapStateToProps = state => {
   return {
-    currentStep: state.postSteps.currentStep
+    currentStep: state.postSteps.currentStep,
+    isStepTwoVisible: state.postSteps.isStepTwoVisible
   };
 };
 
