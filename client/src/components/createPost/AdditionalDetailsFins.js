@@ -43,7 +43,7 @@ const AdditionalDetailsFins = () => {
       </Row>
 
       <Row>
-        <Col xs={6} sm={7} md={6} lg={5}>
+        <Col xs={6} sm={7} md={7} lg={7}>
           <h3 style={{ textAlign: 'center' }}>System:</h3>
         </Col>
         <Col xs={18} sm={15} md={16} lg={17}>

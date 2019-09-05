@@ -33,19 +33,19 @@ const AdditionalDetails = () => {
         <Col xs={24} sm={12} md={11}>
           <Divider>
             <Typography.Title level={3} type="secondary">
-              Construction
+              Your Opinion
             </Typography.Title>
           </Divider>
-          <AdditionalDetailsConstruction />
+          <AdditionalDetailsOpinion />
         </Col>
         <Col xs={0} sm={2} md={2} />
         <Col xs={24} sm={10} md={11}>
           <Divider>
             <Typography.Title level={3} type="secondary">
-              Your Opinion
+              Construction
             </Typography.Title>
           </Divider>
-          <AdditionalDetailsOpinion />
+          <AdditionalDetailsConstruction />
         </Col>
       </Row>
     </div>
