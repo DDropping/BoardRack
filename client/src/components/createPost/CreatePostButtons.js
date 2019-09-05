@@ -1,15 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { reduxForm } from 'redux-form';
-import { Button, Icon, Form } from 'antd';
+import { Button, Icon } from 'antd';
 
 import { clickNext, clickPrevious } from '../../actions/createPost/postSteps';
 
 const CreatePostButtons = props => {
-  const onSubmit = formProps => {
-    console.log(formProps);
-  };
   return (
     <div
       style={{
@@ -52,10 +47,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default compose(
-  connect(
-    mapStateToProps,
-    { clickNext, clickPrevious }
-  ),
-  reduxForm({ form: 'createPost', destroyOnUnmount: false })
+export default connect(
+  mapStateToProps,
+  { clickNext, clickPrevious }
 )(CreatePostButtons);

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm } from 'redux-form';
-import { Button, Icon, Form } from 'antd';
+import { Button, Form } from 'antd';
 
 const ConfirmPost = props => {
   const onSubmit = formProps => {
