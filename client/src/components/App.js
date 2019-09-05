@@ -7,7 +7,6 @@ import RegisterModal from './navbar/register/RegisterModal';
 import LoginModal from './navbar/login/LoginModal';
 import LogoutModal from './navbar/logout/logoutModal';
 import ResultModal from './util/ResultModal';
-import Footer from './footer/footer';
 import { loadUser } from '../actions/auth';
 
 if (localStorage.token) {
@@ -27,7 +26,6 @@ const App = ({ children }) => {
       <LogoutModal />
       <ResultModal />
       {children}
-      <Footer />
     </div>
   );
 };
