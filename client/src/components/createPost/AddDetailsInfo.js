@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import { Form, Row, Col, Select } from 'antd';
 
-import { AInput, ASelect } from '../formAntComponents';
+import { AInput, ASelect, ATextarea } from '../formAntComponents';
 
 const AddDetailsInfo = props => {
   return (
@@ -78,6 +78,20 @@ const AddDetailsInfo = props => {
             <Select.Option value="Heavily Used">Heavily Used</Select.Option>
             <Select.Option value="Thrashed">Thrashed</Select.Option>
           </Field>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col xs={0} sm={7} md={6} lg={5}>
+          <h3 style={{ textAlign: 'center' }}>Description:</h3>
+        </Col>
+        <Col xs={24} sm={15} md={16} lg={17}>
+          <Field
+            name="description"
+            component={ATextarea}
+            placeholder="Description..."
+            style={{ height: '150px' }}
+          />
         </Col>
       </Row>
     </Form>
