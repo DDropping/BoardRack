@@ -7,13 +7,8 @@ import { Form, Row, Col, Select, Button } from 'antd';
 import { AInput, ASelect } from '../formAntComponents';
 
 const AddDetailsInfo = props => {
-  const onSubmit = formProps => {
-    console.log('hello world');
-    console.log(formProps);
-  };
-
   return (
-    <Form onSubmit={props.handleSubmit(onSubmit)}>
+    <Form>
       <Row>
         <Col xs={6} sm={7} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Title:</h3>
@@ -85,7 +80,6 @@ const AddDetailsInfo = props => {
           </Field>
         </Col>
       </Row>
-      <Button htmlType="submit">Submit</Button>
     </Form>
   );
 };

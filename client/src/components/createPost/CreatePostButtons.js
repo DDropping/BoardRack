@@ -1,10 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Icon } from 'antd';
+import { compose } from 'redux';
+import { reduxForm } from 'redux-form';
+import { Button, Icon, Form } from 'antd';
 
 import { clickNext, clickPrevious } from '../../actions/createPost/postSteps';
 
 const CreatePostButtons = props => {
+  const onSubmit = formProps => {
+    console.log(formProps);
+  };
   return (
     <div
       style={{
@@ -34,7 +39,6 @@ const CreatePostButtons = props => {
             <Icon type="right" />
           </Button>
         )}
-        {props.isStepThreeVisible && <Button type="primary">Publish</Button>}
       </div>
     </div>
   );
@@ -48,7 +52,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { clickNext, clickPrevious }
+export default compose(
+  connect(
+    mapStateToProps,
+    { clickNext, clickPrevious }
+  ),
+  reduxForm({ form: 'createPost', destroyOnUnmount: false })
 )(CreatePostButtons);
