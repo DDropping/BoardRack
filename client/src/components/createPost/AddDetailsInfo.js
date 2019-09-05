@@ -2,13 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import { Form, Row, Col, Select } from 'antd';
+import { Form, Row, Col, Select, Button } from 'antd';
 
 import { AInput, ASelect } from '../formAntComponents';
 
-const AddDetailsInfo = () => {
+const AddDetailsInfo = props => {
+  const onSubmit = formProps => {
+    console.log('hello world');
+    console.log(formProps);
+  };
+
   return (
-    <Form>
+    <Form onSubmit={props.handleSubmit(onSubmit)}>
       <Row>
         <Col xs={6} sm={7} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Title:</h3>
@@ -80,6 +85,7 @@ const AddDetailsInfo = () => {
           </Field>
         </Col>
       </Row>
+      <Button htmlType="submit">Submit</Button>
     </Form>
   );
 };
@@ -89,5 +95,5 @@ export default compose(
     null,
     null
   ),
-  reduxForm({ form: 'createPost' })
+  reduxForm({ form: 'createPost', destroyOnUnmount: false })
 )(AddDetailsInfo);

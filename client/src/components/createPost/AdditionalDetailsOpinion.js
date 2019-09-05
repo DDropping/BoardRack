@@ -77,5 +77,5 @@ export default compose(
     null,
     null
   ),
-  reduxForm({ form: 'createPost' })
+  reduxForm({ form: 'createPost', destroyOnUnmount: false })
 )(AdditionalDetailsOpinion);

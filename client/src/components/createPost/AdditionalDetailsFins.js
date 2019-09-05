@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import { Form, Row, Col, Select } from 'antd';
+import { Form, Row, Col, Select, Input } from 'antd';
 
 import { ASelect } from '../formAntComponents';
 
@@ -42,30 +42,19 @@ const AdditionalDetailsFins = () => {
         </Col>
       </Row>
 
-      <Row>
+      <Row gutter={8}>
         <Col xs={6} sm={7} md={7} lg={7}>
-          <h3 style={{ textAlign: 'center' }}>System:</h3>
+          <h3 style={{ textAlign: 'center' }}>Fins:</h3>
         </Col>
-        <Col xs={18} sm={15} md={16} lg={17}>
-          <Field
-            name="finSystem"
-            component={ASelect}
-            size="default"
-            defaultActiveFirstOption
-          >
+        <Col xs={9} sm={8} md={8} lg={8}>
+          <Field name="finSystem" component={ASelect} size="default">
             <Select.Option value="Future">Future</Select.Option>
             <Select.Option value="FCS">FCS</Select.Option>
             <Select.Option value="FCS II">FCS II</Select.Option>
             <Select.Option value="Other">Other</Select.Option>
           </Field>
         </Col>
-      </Row>
-
-      <Row>
-        <Col xs={6} sm={7} md={7} lg={7}>
-          <h3 style={{ textAlign: 'center' }}>Setup:</h3>
-        </Col>
-        <Col xs={18} sm={15} md={16} lg={17}>
+        <Col xs={9} sm={8} md={8} lg={8}>
           <Field
             name="finConfiguration"
             component={ASelect}
@@ -89,5 +78,5 @@ export default compose(
     null,
     null
   ),
-  reduxForm({ form: 'createPost' })
+  reduxForm({ form: 'createPost', destroyOnUnmount: false })
 )(AdditionalDetailsFins);
