@@ -9,6 +9,7 @@ const CreatePostButtons = props => {
     <div
       style={{
         maxWidth: '750px',
+        paddingTop: '20px',
         margin: '0 auto'
       }}
     >

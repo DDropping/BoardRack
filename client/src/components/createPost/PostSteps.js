@@ -11,12 +11,12 @@ const PostSteps = props => {
     <div style={{ marginBottom: '40px' }}>
       <Steps
         type="navigation"
-        size="small"
+        size="large"
         current={props.currentStep}
         onChange={props.changePostStep}
         style={{
           marginBottom: '20px',
-          maxWidth: '600px',
+          maxWidth: '700px',
           margin: 'auto'
         }}
       >
