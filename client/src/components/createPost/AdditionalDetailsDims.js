@@ -11,10 +11,10 @@ const AdditionalDetailsDims = () => {
     <Form>
       <Input.Group size="default">
         <Row gutter={8}>
-          <Col xs={8} sm={6}>
+          <Col xs={8} sm={8} md={7} lg={6}>
             <h3 style={{ textAlign: 'center' }}>Length:</h3>
           </Col>
-          <Col xs={8} sm={6}>
+          <Col xs={8} sm={8} md={7} lg={6}>
             <Field
               name="lengthFt"
               component={AInput}
@@ -23,7 +23,7 @@ const AdditionalDetailsDims = () => {
               suffix="ft."
             />
           </Col>
-          <Col xs={8} sm={6}>
+          <Col xs={8} sm={8} md={7} lg={6}>
             <Field
               name="lengthIn"
               component={AInput}
@@ -36,10 +36,10 @@ const AdditionalDetailsDims = () => {
       </Input.Group>
 
       <Row>
-        <Col xs={8} sm={6}>
+        <Col xs={8} sm={8} md={7} lg={6}>
           <h3 style={{ textAlign: 'center' }}>Width:</h3>
         </Col>
-        <Col xs={8} sm={6}>
+        <Col xs={8} sm={8} md={7} lg={6}>
           <Field
             name="width"
             component={AInput}
@@ -51,10 +51,10 @@ const AdditionalDetailsDims = () => {
       </Row>
 
       <Row>
-        <Col xs={8} sm={6}>
+        <Col xs={8} sm={8} md={7} lg={6}>
           <h3 style={{ textAlign: 'center' }}>Depth:</h3>
         </Col>
-        <Col xs={8} sm={6}>
+        <Col xs={8} sm={8} md={7} lg={6}>
           <Field
             name="depth"
             component={AInput}
@@ -66,10 +66,10 @@ const AdditionalDetailsDims = () => {
       </Row>
 
       <Row>
-        <Col xs={8} sm={6}>
+        <Col xs={8} sm={8} md={7} lg={6}>
           <h3 style={{ textAlign: 'center' }}>Volume:</h3>
         </Col>
-        <Col xs={8} sm={6}>
+        <Col xs={8} sm={8} md={7} lg={6}>
           <Field
             name="volume"
             component={AInput}
