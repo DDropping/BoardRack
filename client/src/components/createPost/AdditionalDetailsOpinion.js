@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import { Form, Row, Col, Input } from 'antd';
+import { Form, Row, Col } from 'antd';
 
 import { AInput } from '../formAntComponents';
 
