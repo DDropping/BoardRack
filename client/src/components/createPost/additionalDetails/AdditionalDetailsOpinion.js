@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import { Form, Row, Col } from 'antd';
 
-import { AInput } from '../formAntComponents';
+import { AInput } from '../../formAntComponents';
 
 const AdditionalDetailsOpinion = () => {
   return (

@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import { Form, Row, Col, Select } from 'antd';
 
-import { ASelect } from '../formAntComponents';
+import { ASelect, AInput } from '../../formAntComponents';
 
 const AdditionalDetailsConstruction = () => {
   return (
@@ -44,6 +44,20 @@ const AdditionalDetailsConstruction = () => {
             <Select.Option value="Heavy">Heavy</Select.Option>
             <Select.Option value="Other">Other</Select.Option>
           </Field>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col xs={9} sm={9} md={8} lg={7}>
+          <h3 style={{ textAlign: 'center' }}>Contour:</h3>
+        </Col>
+        <Col xs={15} sm={15} md={16} lg={17}>
+          <Field
+            name="countour"
+            component={AInput}
+            placeholder="single to double"
+            size="default"
+          />
         </Col>
       </Row>
     </Form>

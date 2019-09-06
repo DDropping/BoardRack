@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import './createPost.css';
 import PostSteps from './PostSteps';
-import AddDetails from './AddDetails';
-import AdditionalDetails from './AdditionalDetails';
-import ConfirmPost from './ConfirmPost';
+import AddDetails from './addDetails/AddDetails';
+import AdditionalDetails from './additionalDetails/AdditionalDetails';
+import ConfirmPost from './confirmPost/ConfirmPost';
 import CreatePostButtons from './CreatePostButtons';
 
 const CreatePost = props => {

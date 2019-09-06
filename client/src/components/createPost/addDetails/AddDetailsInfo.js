@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import { Form, Row, Col, Select } from 'antd';
 
-import { AInput, ASelect, ATextarea } from '../formAntComponents';
+import { AInput, ASelect, ATextarea } from '../../formAntComponents';
 
 const AddDetailsInfo = props => {
   return (
