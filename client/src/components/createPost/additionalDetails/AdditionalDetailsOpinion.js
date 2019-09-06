@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import { Form, Row, Col } from 'antd';
+import { Form, Row, Col, Tooltip, Icon } from 'antd';
 
 import { AInput } from '../../formAntComponents';
 
@@ -22,6 +22,17 @@ const AdditionalDetailsOpinion = () => {
             suffix="ft."
           />
         </Col>
+        <Col xs={8} sm={10}>
+          <Tooltip
+            placement="topLeft"
+            title={'What size waves does your board perform well in?'}
+          >
+            <Icon
+              style={{ padding: '5px', color: '#23b0ba' }}
+              type="question-circle"
+            />
+          </Tooltip>
+        </Col>
       </Row>
 
       <Row>
@@ -36,6 +47,19 @@ const AdditionalDetailsOpinion = () => {
             size="default"
             suffix="/5"
           />
+        </Col>
+        <Col xs={8} sm={9} md={10}>
+          <Tooltip
+            placement="topLeft"
+            title={
+              'How well does your board accelerate and maintain speed through turns?'
+            }
+          >
+            <Icon
+              style={{ padding: '5px', color: '#23b0ba' }}
+              type="question-circle"
+            />
+          </Tooltip>
         </Col>
       </Row>
 
@@ -52,6 +76,17 @@ const AdditionalDetailsOpinion = () => {
             suffix="/5"
           />
         </Col>
+        <Col xs={8} sm={9} md={10}>
+          <Tooltip
+            placement="topLeft"
+            title={'How easy is your board to paddle?'}
+          >
+            <Icon
+              style={{ padding: '5px', color: '#23b0ba' }}
+              type="question-circle"
+            />
+          </Tooltip>
+        </Col>
       </Row>
 
       <Row>
@@ -66,6 +101,17 @@ const AdditionalDetailsOpinion = () => {
             size="default"
             suffix="/5"
           />
+        </Col>
+        <Col xs={8} sm={9} md={10}>
+          <Tooltip
+            placement="topLeft"
+            title={'How easy does your board move in the water?'}
+          >
+            <Icon
+              style={{ padding: '5px', color: '#23b0ba' }}
+              type="question-circle"
+            />
+          </Tooltip>
         </Col>
       </Row>
     </Form>
