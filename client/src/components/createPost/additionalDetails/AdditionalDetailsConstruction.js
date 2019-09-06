@@ -23,6 +23,8 @@ const AdditionalDetailsConstruction = () => {
             <Select.Option value="PU">PU(Fiberglass)</Select.Option>
             <Select.Option value="PE">PE(Epoxy)</Select.Option>
             <Select.Option value="EPS">EPS(Epoxy)</Select.Option>
+            <Select.Option value="Foam">Foam</Select.Option>
+            <Select.Option value="Wood">Wood</Select.Option>
             <Select.Option value="Other">Other</Select.Option>
           </Field>
         </Col>
