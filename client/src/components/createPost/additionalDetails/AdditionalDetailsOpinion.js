@@ -28,7 +28,7 @@ const AdditionalDetailsOpinion = () => {
         <Col xs={8} sm={10}>
           <h3 style={{ textAlign: 'center' }}>Drive & Speed:</h3>
         </Col>
-        <Col xs={8} sm={4}>
+        <Col xs={8} sm={5} md={4}>
           <Field
             name="drive"
             component={AInput}
@@ -43,7 +43,7 @@ const AdditionalDetailsOpinion = () => {
         <Col xs={8} sm={10}>
           <h3 style={{ textAlign: 'center' }}>Paddle Power:</h3>
         </Col>
-        <Col xs={8} sm={4}>
+        <Col xs={8} sm={5} md={4}>
           <Field
             name="paddlePower"
             component={AInput}
@@ -58,7 +58,7 @@ const AdditionalDetailsOpinion = () => {
         <Col xs={8} sm={10}>
           <h3 style={{ textAlign: 'center' }}>Movability</h3>
         </Col>
-        <Col xs={8} sm={4}>
+        <Col xs={8} sm={5} md={4}>
           <Field
             name="movability"
             component={AInput}
