@@ -6,7 +6,7 @@ const index = () => {
   return (
     <div
       style={{
-        height: '100px',
+        minHeight: '100px',
         backgroundColor: '#0058B0',
         textAlign: 'center',
         margin: '0 auto'
