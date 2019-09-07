@@ -21,9 +21,7 @@ const App = ({ children }) => {
 
   return (
     <div>
-      <div
-        style={{ minHeight: 'calc(100vh - 100px)', backgroundColor: '#f3f7f9' }}
-      >
+      <div style={{ minHeight: 'calc(100vh - 100px)' }}>
         <div
           style={{
             boxShadow: '0 0 30px #d1d1d1'
@@ -31,7 +29,9 @@ const App = ({ children }) => {
         >
           <Navbar />
         </div>
-        <div style={{ padding: '20px 0px 30px 0px' }}>
+        <div
+          style={{ backgroundColor: '#f3f7f9', padding: '20px 0px 30px 0px' }}
+        >
           <RegisterModal />
           <LoginModal />
           <LogoutModal />
