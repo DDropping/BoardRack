@@ -32,7 +32,7 @@ const App = ({ children }) => {
         >
           <Navbar />
         </div>
-        <div style={{ paddingTop: '20px' }}>
+        <div style={{ padding: '20px 0px 30px 0px' }}>
           <RegisterModal />
           <LoginModal />
           <LogoutModal />
