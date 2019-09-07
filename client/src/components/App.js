@@ -9,6 +9,7 @@ import LogoutModal from './navbar/logout/logoutModal';
 import ResultModal from './util/ResultModal';
 import Footer from './footer';
 import { loadUser } from '../actions/auth';
+import './app.css';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -21,17 +22,11 @@ const App = ({ children }) => {
 
   return (
     <div>
-      <div style={{ minHeight: 'calc(100vh - 100px)' }}>
-        <div
-          style={{
-            boxShadow: '0 0 30px #d1d1d1'
-          }}
-        >
+      <div className="wrapperApp">
+        <div className="wrapperNavbar">
           <Navbar />
         </div>
-        <div
-          style={{ backgroundColor: '#f3f7f9', padding: '20px 0px 30px 0px' }}
-        >
+        <div className="wrapperBody">
           <RegisterModal />
           <LoginModal />
           <LogoutModal />

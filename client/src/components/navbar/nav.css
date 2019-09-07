@@ -1,3 +1,7 @@
+.navbar {
+  box-shadow: 0 0.25rem 0.125rem 0 rgba(0, 0, 0, 0.075);
+}
+
 .logo {
   width: 170px; /* width of the logo */
   float: left; /* keep logo positioned to the left */
