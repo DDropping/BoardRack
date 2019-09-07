@@ -10,10 +10,10 @@ const AdditionalDetailsFins = () => {
   return (
     <Form>
       <Row>
-        <Col xs={6} sm={7} md={7} lg={7}>
+        <Col xs={6} sm={7}>
           <h3 style={{ textAlign: 'center' }}>Tail:</h3>
         </Col>
-        <Col xs={18} sm={15} md={16} lg={17}>
+        <Col xs={18} sm={16}>
           <Field
             name="Tail"
             component={ASelect}

@@ -13,7 +13,7 @@ const AdditionalDetailsOpinion = () => {
         <Col xs={8} sm={8}>
           <h3 style={{ textAlign: 'center' }}>Wave Size:</h3>
         </Col>
-        <Col xs={8} sm={6}>
+        <Col xs={8} sm={7} md={6}>
           <Field
             name="waveSize"
             component={AInput}
@@ -22,7 +22,7 @@ const AdditionalDetailsOpinion = () => {
             suffix="ft."
           />
         </Col>
-        <Col xs={8} sm={10}>
+        <Col xs={8} sm={9}>
           <Tooltip
             placement="topLeft"
             title={'What size waves does your board perform well in?'}
