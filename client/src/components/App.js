@@ -7,6 +7,7 @@ import RegisterModal from './navbar/register/RegisterModal';
 import LoginModal from './navbar/login/LoginModal';
 import LogoutModal from './navbar/logout/logoutModal';
 import ResultModal from './util/ResultModal';
+import Footer from './footer';
 import { loadUser } from '../actions/auth';
 
 if (localStorage.token) {
@@ -20,12 +21,15 @@ const App = ({ children }) => {
 
   return (
     <div>
-      <Navbar />
-      <RegisterModal />
-      <LoginModal />
-      <LogoutModal />
-      <ResultModal />
-      {children}
+      <div style={{ minHeight: 'calc(100vh - 100px)' }}>
+        <Navbar />
+        <RegisterModal />
+        <LoginModal />
+        <LogoutModal />
+        <ResultModal />
+        {children}
+      </div>
+      <Footer />
     </div>
   );
 };
