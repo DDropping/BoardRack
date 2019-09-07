@@ -3,11 +3,11 @@
 }
 
 .wrapperNavbar {
-  min-height: calc(0.25rem + 60px);
+  min-height: 63px;
 }
 
 .wrapperBody {
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - 163px);
   background-color: #f3f7f9;
   padding: 20px 0px 30px 0px;
 }
