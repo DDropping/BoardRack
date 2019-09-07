@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Typography } from 'antd';
+import { Typography } from 'antd';
 
 const index = () => {
   return (

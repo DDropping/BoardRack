@@ -1,7 +1,7 @@
 .logo {
   width: 170px; /* width of the logo */
   float: left; /* keep logo positioned to the left */
-  padding: 10px 0px 0px 10px; /* add padding to top, right, bottom, left */
+  padding: 10px; /* add padding to top, right, bottom, left */
 }
 .clear {
   clear: both; /* fix to make other <div>s NOT overlap a div that is floated */

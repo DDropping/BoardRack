@@ -8,7 +8,7 @@
 
 ## Dev Notes
 
-primary color: `#0058B0`
+primary color: `#00458a`
 secondary color: `#4878a9`
 
 ## Production checklist

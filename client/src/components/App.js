@@ -26,7 +26,6 @@ const App = ({ children }) => {
       >
         <div
           style={{
-            backgroundColor: 'white',
             boxShadow: '0 0 30px #d1d1d1'
           }}
         >
