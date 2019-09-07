@@ -28,7 +28,7 @@ const AdditionalDetailsOpinion = () => {
             title={'What size waves does your board perform well in?'}
           >
             <Icon
-              style={{ padding: '5px', color: '#23b0ba' }}
+              style={{ padding: '5px', color: '#4878a9' }}
               type="question-circle"
             />
           </Tooltip>
@@ -56,7 +56,7 @@ const AdditionalDetailsOpinion = () => {
             }
           >
             <Icon
-              style={{ padding: '5px', color: '#23b0ba' }}
+              style={{ padding: '5px', color: '#4878a9' }}
               type="question-circle"
             />
           </Tooltip>
@@ -82,7 +82,7 @@ const AdditionalDetailsOpinion = () => {
             title={'How easy is your board to paddle?'}
           >
             <Icon
-              style={{ padding: '5px', color: '#23b0ba' }}
+              style={{ padding: '5px', color: '#4878a9' }}
               type="question-circle"
             />
           </Tooltip>
@@ -108,7 +108,7 @@ const AdditionalDetailsOpinion = () => {
             title={'How easy does your board move in the water?'}
           >
             <Icon
-              style={{ padding: '5px', color: '#23b0ba' }}
+              style={{ padding: '5px', color: '#4878a9' }}
               type="question-circle"
             />
           </Tooltip>
