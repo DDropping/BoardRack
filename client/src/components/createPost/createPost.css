@@ -1,7 +1,10 @@
 .wrapper {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 10px;
+  margin-bottom: 20px;
+  padding: 20px 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.05);
 }
 
 @media (max-width: 490px) {

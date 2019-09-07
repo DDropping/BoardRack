@@ -21,13 +21,24 @@ const App = ({ children }) => {
 
   return (
     <div>
-      <div style={{ minHeight: 'calc(100vh - 100px)' }}>
-        <Navbar />
-        <RegisterModal />
-        <LoginModal />
-        <LogoutModal />
-        <ResultModal />
-        {children}
+      <div
+        style={{ minHeight: 'calc(100vh - 100px)', backgroundColor: '#f3f7f9' }}
+      >
+        <div
+          style={{
+            backgroundColor: 'white',
+            boxShadow: '0 0 30px #d1d1d1'
+          }}
+        >
+          <Navbar />
+        </div>
+        <div style={{ paddingTop: '20px' }}>
+          <RegisterModal />
+          <LoginModal />
+          <LogoutModal />
+          <ResultModal />
+          {children}
+        </div>
       </div>
       <Footer />
     </div>

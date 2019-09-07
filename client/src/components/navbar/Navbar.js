@@ -8,7 +8,7 @@ import './nav.css';
 
 const Navbar = props => {
   return (
-    <span className="navbar">
+    <span>
       <div className="logo">
         <Link to="/">
           <img
