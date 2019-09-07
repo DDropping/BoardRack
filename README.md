@@ -6,6 +6,11 @@
 
 \*\*\* If need to make public, check config/default.json (DB admin uName/pwd visible)
 
+## Dev Notes
+
+primary color: `#0058B0`
+secondary color: `#4878a9`
+
 ## Production checklist
 
 - Change db location in config/DB.js
