@@ -22,7 +22,7 @@ const AdditionalDetails = () => {
       <Row>
         <Col xs={24} sm={12} md={11}>
           <Divider>
-            <Typography.Title level={3} type="secondary">
+            <Typography.Title level={3} style={{ color: '#23b0ba' }}>
               Dimensions
             </Typography.Title>
           </Divider>
@@ -31,7 +31,7 @@ const AdditionalDetails = () => {
         <Col xs={0} sm={2} md={2} />
         <Col xs={24} sm={10} md={11}>
           <Divider>
-            <Typography.Title level={3} type="secondary">
+            <Typography.Title level={3} style={{ color: '#23b0ba' }}>
               Tail & Fins
             </Typography.Title>
           </Divider>
@@ -41,7 +41,7 @@ const AdditionalDetails = () => {
       <Row>
         <Col xs={24} sm={12} md={11}>
           <Divider>
-            <Typography.Title level={3} type="secondary">
+            <Typography.Title level={3} style={{ color: '#23b0ba' }}>
               Adv. Details
             </Typography.Title>
           </Divider>
@@ -50,7 +50,7 @@ const AdditionalDetails = () => {
         <Col xs={0} sm={2} md={2} />
         <Col xs={24} sm={10} md={11}>
           <Divider>
-            <Typography.Title level={3} type="secondary">
+            <Typography.Title level={3} style={{ color: '#23b0ba' }}>
               Your Opinion
             </Typography.Title>
           </Divider>
