@@ -13,31 +13,39 @@ const AdditionalDetailsFins = () => {
         <Col xs={6} sm={7}>
           <h3 style={{ textAlign: 'center' }}>Tail:</h3>
         </Col>
-        <Col xs={18} sm={16}>
+        <Col xs={18} sm={17}>
           <Field
             name="Tail"
             component={ASelect}
             size="default"
             defaultActiveFirstOption
           >
-            <Select.Option value="Assymetrical">Assymetrical</Select.Option>
-            <Select.Option value="Bat">Bat</Select.Option>
-            <Select.Option value="Chop">Chop</Select.Option>
-            <Select.Option value="Diamond">Diamond</Select.Option>
-            <Select.Option value="Halfcrest Moon">Halfcrest Moon</Select.Option>
-            <Select.Option value="Pin">Pin</Select.Option>
-            <Select.Option value="Rocket">Rocket</Select.Option>
-            <Select.Option value="Rounded Diamond">
-              Rounded Diamond
+            <Select.Option value="Assymetrical">
+              Assymetrical Tail
             </Select.Option>
-            <Select.Option value="Rounded Pin">Rounded Pin</Select.Option>
-            <Select.Option value="Rounded Square">Rounded Square</Select.Option>
-            <Select.Option value="Round">Round</Select.Option>
-            <Select.Option value="Square">Square</Select.Option>
-            <Select.Option value="Squash">Squash</Select.Option>
-            <Select.Option value="Star">Star</Select.Option>
-            <Select.Option value="Swallow">Swallow</Select.Option>
-            <Select.Option value="Wing Swallow">Wing Swallow</Select.Option>
+            <Select.Option value="Bat">Bat Tail</Select.Option>
+            <Select.Option value="Chop">Chop Tail</Select.Option>
+            <Select.Option value="Diamond">Diamond Tail</Select.Option>
+            <Select.Option value="Halfcrest Moon">
+              Halfcrest Moon Tail
+            </Select.Option>
+            <Select.Option value="Pin">Pin Tail</Select.Option>
+            <Select.Option value="Rocket">Rocket Tail</Select.Option>
+            <Select.Option value="Rounded Diamond">
+              Rounded Diamond Tail
+            </Select.Option>
+            <Select.Option value="Rounded Pin">Rounded Pin Tail</Select.Option>
+            <Select.Option value="Rounded Square">
+              Rounded Square Tail
+            </Select.Option>
+            <Select.Option value="Round">Round Tail</Select.Option>
+            <Select.Option value="Square">Square Tail</Select.Option>
+            <Select.Option value="Squash">Squash Tail</Select.Option>
+            <Select.Option value="Star">Star Tail</Select.Option>
+            <Select.Option value="Swallow">Swallow Tail</Select.Option>
+            <Select.Option value="Wing Swallow">
+              Wing Swallow Tail
+            </Select.Option>
           </Field>
         </Col>
       </Row>
@@ -54,7 +62,7 @@ const AdditionalDetailsFins = () => {
             <Select.Option value="Other">Other</Select.Option>
           </Field>
         </Col>
-        <Col xs={9} sm={8} md={8} lg={8}>
+        <Col xs={9} sm={9} md={9} lg={9}>
           <Field
             name="finConfiguration"
             component={ASelect}

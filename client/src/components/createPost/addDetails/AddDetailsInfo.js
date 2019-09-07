@@ -10,10 +10,10 @@ const AddDetailsInfo = props => {
   return (
     <Form>
       <Row>
-        <Col xs={6} sm={7} md={6} lg={5}>
+        <Col xs={7} sm={7} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Title:</h3>
         </Col>
-        <Col xs={18} sm={15} md={16} lg={17}>
+        <Col xs={17} sm={17} md={18} lg={19}>
           <Field
             name="title"
             component={AInput}
@@ -24,7 +24,7 @@ const AddDetailsInfo = props => {
       </Row>
 
       <Row>
-        <Col xs={6} sm={7} md={6} lg={5}>
+        <Col xs={7} sm={7} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Price:</h3>
         </Col>
         <Col xs={18} sm={6}>
@@ -39,10 +39,10 @@ const AddDetailsInfo = props => {
       </Row>
 
       <Row>
-        <Col xs={6} sm={7} md={6} lg={5}>
+        <Col xs={7} sm={7} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Type:</h3>
         </Col>
-        <Col xs={18} sm={15} md={16} lg={17}>
+        <Col xs={17} sm={17} md={18} lg={19}>
           <Field
             name="boardType"
             component={ASelect}
@@ -62,10 +62,10 @@ const AddDetailsInfo = props => {
       </Row>
 
       <Row>
-        <Col xs={6} sm={7} md={6} lg={5}>
+        <Col xs={7} sm={7} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Condition:</h3>
         </Col>
-        <Col xs={18} sm={15} md={16} lg={17}>
+        <Col xs={17} sm={17} md={18} lg={19}>
           <Field
             name="condition"
             component={ASelect}
@@ -82,10 +82,10 @@ const AddDetailsInfo = props => {
       </Row>
 
       <Row>
-        <Col xs={0} sm={7} md={6} lg={5}>
+        <Col xs={0} sm={0} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Description:</h3>
         </Col>
-        <Col xs={24} sm={15} md={16} lg={17}>
+        <Col xs={24} sm={24} md={18} lg={19}>
           <Field
             name="description"
             component={ATextarea}

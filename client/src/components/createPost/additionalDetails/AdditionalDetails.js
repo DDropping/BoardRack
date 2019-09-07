@@ -13,23 +13,15 @@ const AdditionalDetails = () => {
         style={{
           maxWidth: '600px',
           margin: 'auto',
-          color: 'rgba(0,0,0,.50)'
+          color: 'rgba(0,0,0,.50)',
+          textAlign: 'center'
         }}
       >
         *Additional details are recommended but not required. The more
-        information provided, the more likely your board will be seen
+        information provided, the more likely your board will be seen!
       </div>
       <Row>
-        <Col xs={24} sm={12} md={11}>
-          <Divider>
-            <Typography.Title level={3} style={{ color: '#4878a9' }}>
-              Dimensions
-            </Typography.Title>
-          </Divider>
-          <AdditionalDetailsDims />
-        </Col>
-        <Col xs={0} sm={2} md={2} />
-        <Col xs={24} sm={10} md={11}>
+        <Col xs={24} sm={12} md={12} className="wrapperCreatePostItem">
           <Divider>
             <Typography.Title level={3} style={{ color: '#4878a9' }}>
               Tail & Fins
@@ -37,9 +29,18 @@ const AdditionalDetails = () => {
           </Divider>
           <AdditionalDetailsFins />
         </Col>
+        <Col xs={24} sm={12} md={12} className="wrapperCreatePostItem">
+          <Divider>
+            <Typography.Title level={3} style={{ color: '#4878a9' }}>
+              Dimensions
+            </Typography.Title>
+          </Divider>
+          <AdditionalDetailsDims />
+        </Col>
       </Row>
+
       <Row>
-        <Col xs={24} sm={12} md={11}>
+        <Col xs={24} sm={12} md={12} className="wrapperCreatePostItem">
           <Divider>
             <Typography.Title level={3} style={{ color: '#4878a9' }}>
               Adv. Details
@@ -47,8 +48,7 @@ const AdditionalDetails = () => {
           </Divider>
           <AdditionalDetailsConstruction />
         </Col>
-        <Col xs={0} sm={2} md={2} />
-        <Col xs={24} sm={10} md={11}>
+        <Col xs={24} sm={12} md={12} className="wrapperCreatePostItem">
           <Divider>
             <Typography.Title level={3} style={{ color: '#4878a9' }}>
               Your Opinion

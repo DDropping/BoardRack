@@ -10,7 +10,7 @@ import CreatePostButtons from './CreatePostButtons';
 
 const CreatePost = props => {
   return (
-    <div className="wrapper">
+    <div className="wrapperCreatePost">
       <div className="showSteps">
         <PostSteps />
       </div>

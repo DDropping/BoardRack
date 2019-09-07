@@ -10,10 +10,10 @@ const AdditionalDetailsConstruction = () => {
   return (
     <Form>
       <Row>
-        <Col xs={9} sm={9} md={8} lg={7}>
+        <Col xs={9} sm={10} md={8} lg={7}>
           <h3 style={{ textAlign: 'center' }}>Construction:</h3>
         </Col>
-        <Col xs={15} sm={15} md={16} lg={17}>
+        <Col xs={15} sm={14} md={16} lg={17}>
           <Field
             name="construction"
             component={ASelect}
@@ -31,18 +31,18 @@ const AdditionalDetailsConstruction = () => {
       </Row>
 
       <Row>
-        <Col xs={9} sm={9} md={8} lg={7}>
+        <Col xs={9} sm={10} md={8} lg={7}>
           <h3 style={{ textAlign: 'center' }}>Glassing:</h3>
         </Col>
-        <Col xs={15} sm={15} md={16} lg={17}>
+        <Col xs={15} sm={14} md={16} lg={17}>
           <Field
             name="glassing"
             component={ASelect}
             size="default"
             defaultActiveFirstOption
           >
-            <Select.Option value="Standard">Standard</Select.Option>
-            <Select.Option value="Performance">Performance</Select.Option>
+            <Select.Option value="Standard">Performance</Select.Option>
+            <Select.Option value="Performance">Standard</Select.Option>
             <Select.Option value="Heavy">Heavy</Select.Option>
             <Select.Option value="Other">Other</Select.Option>
           </Field>
@@ -50,10 +50,10 @@ const AdditionalDetailsConstruction = () => {
       </Row>
 
       <Row>
-        <Col xs={9} sm={9} md={8} lg={7}>
+        <Col xs={9} sm={10} md={8} lg={7}>
           <h3 style={{ textAlign: 'center' }}>Contour:</h3>
         </Col>
-        <Col xs={15} sm={15} md={16} lg={17}>
+        <Col xs={15} sm={14} md={16} lg={17}>
           <Field
             name="countour"
             component={AInput}

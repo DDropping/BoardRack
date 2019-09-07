@@ -7,19 +7,18 @@ import AddDetailsPhotos from './AddDetailsPhotos';
 const AddDetails = () => {
   return (
     <Row>
-      <Col xs={24} sm={12} md={11}>
+      <Col xs={24} sm={12} md={12} className="wrapperCreatePostItem">
         <Divider>
           <Typography.Title level={3} style={{ color: '#4878a9' }}>
-            Add the basic details
+            Basic Details
           </Typography.Title>
         </Divider>
         <AddDetailsInfo />
       </Col>
-      <Col xs={0} sm={2} md={2} />
-      <Col xs={24} sm={10} md={11}>
+      <Col xs={24} sm={12} md={12} className="wrapperCreatePostItem">
         <Divider>
           <Typography.Title level={3} style={{ color: '#4878a9' }}>
-            Add photos
+            Add Photos
           </Typography.Title>
         </Divider>
         <AddDetailsPhotos />
