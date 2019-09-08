@@ -27,7 +27,7 @@ const AddDetailsInfo = props => {
         <Col xs={7} sm={7} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Price:</h3>
         </Col>
-        <Col xs={18} sm={6}>
+        <Col xs={17} sm={6}>
           <Field
             name="price"
             component={AInput}
