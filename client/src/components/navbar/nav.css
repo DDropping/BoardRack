@@ -13,6 +13,7 @@
 
 .navItems {
   float: right; /* floats the div that holds the nav items to the right */
+  padding-top: 6px; /* center nav items */
   width: calc(
     100% - 170px
   ); /* make navitems span the rest of the horizontal space next to logo */
@@ -24,8 +25,8 @@
 }
 
 .drawerButton {
-  margin-top: 10px;
-  margin-right: 10px;
+  margin-top: 14px; /* center drawer button */
+  margin-right: 14px;
   float: right;
 }
 

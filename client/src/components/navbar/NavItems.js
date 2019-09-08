@@ -12,11 +12,7 @@ import { toggleLogoutModal } from '../../actions/modals/logoutModal';
 const Navbar = props => {
   return (
     <div>
-      <Menu
-        className="navigationItems"
-        mode="horizontal"
-        style={{ paddingTop: '6px' }}
-      >
+      <Menu className="navigationItems" mode="horizontal">
         <Menu.Item key="home">
           <Link to="/">Home</Link>
         </Menu.Item>
