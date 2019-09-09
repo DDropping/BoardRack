@@ -1,7 +1,8 @@
 import React from 'react';
-import { Upload, Button, Icon } from 'antd';
+import { connect } from 'react-redux';
+import { Upload, Icon } from 'antd';
 
-const upload = () => {
+const ImgUpload = () => {
   return (
     <Upload
       name="avatar"
@@ -16,4 +17,14 @@ const upload = () => {
   );
 };
 
-export default upload;
+const mapStateToProps = state => {
+  return {
+    images: state.ImgUpload.images,
+    isLoading: state.ImgUpload.isLoading
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(ImgUpload);

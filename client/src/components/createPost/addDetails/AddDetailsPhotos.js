@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Upload from './photoUpload/Upload';
+import ImgUpload from './photoUpload/ImgUpload';
 
 const AddDetailsPhotos = () => {
   return (
     <div>
-      <Upload />
+      <ImgUpload />
     </div>
   );
 };

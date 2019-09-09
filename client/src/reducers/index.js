@@ -8,6 +8,7 @@ import logoutModal from './modals/logoutModal';
 import navDrawer from './drawers/navDrawer';
 import resultModal from './modals/resultModal';
 import postSteps from './createPost/postSteps';
+import imgUpload from './createPost/imgUpload';
 
 export default combineReducers({
   form: formReducer,
@@ -17,5 +18,6 @@ export default combineReducers({
   navDrawer,
   logoutModal,
   resultModal,
-  postSteps
+  postSteps,
+  imgUpload
 });
