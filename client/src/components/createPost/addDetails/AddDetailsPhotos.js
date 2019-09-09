@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Upload from './photoUpload/Upload';
+
 const AddDetailsPhotos = () => {
   return (
     <div>
-      <div>Add Photos here!</div>
+      <Upload />
     </div>
   );
 };
