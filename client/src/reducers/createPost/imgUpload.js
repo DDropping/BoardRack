@@ -1,6 +1,8 @@
 const INITIAL_STATE = {
-  images: [],
-  isLoading: false
+  imageList: [],
+  isLoading: false,
+  previewVisible: false,
+  previewImage: ''
 };
 
 export default function(state = INITIAL_STATE, action) {

@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Upload, Icon } from 'antd';
 
-const ImgUpload = () => {
+const ImgUpload = props => {
   return (
     <Upload
       name="avatar"
       listType="picture-card"
       className="avatar-uploader"
+      fileList={props.images}
       showUploadList={false}
-      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
     >
       <Icon type="plus" />
       <div className="ant-upload-text">Upload</div>
@@ -19,8 +19,8 @@ const ImgUpload = () => {
 
 const mapStateToProps = state => {
   return {
-    images: state.ImgUpload.images,
-    isLoading: state.ImgUpload.isLoading
+    images: state.imgUpload.images,
+    isLoading: state.imgUpload.isLoading
   };
 };
 
