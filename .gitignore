@@ -1,4 +1,4 @@
 node_modules/
 0DeveloperNotes
 01DeveloperNotes
-config/*
+config/default.json
