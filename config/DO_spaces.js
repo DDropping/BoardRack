@@ -1,8 +1,15 @@
 import AWS from 'aws-sdk';
-import { SpacesEndpoint, SpacesKey, SpacesSecret } from './default.json';
+const ENDPOINT = config.get('SpacesEndpoint');
+const KEY = config.get('SpacesKey');
+const SECRET = config.get('SpacesSecret');
 
 /**
  * Digital Ocean Spaces Connection
  */
 
-const spacesEndPoint = new AWS.Endpoint();
+const spacesEndPoint = new AWS.Endpoint(ENDPOINT);
+const s3 = new AWS.S3({
+  endpoint: spacesEndPoint,
+  accessKeyId: process.env.KEY,
+  secretAccessKey: process.env.SECRET
+});
