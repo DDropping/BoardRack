@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/DB');
 const cors = require('cors');
+const aws = require('aws-sdk');
 //const bodyParser = require('body-parser');
 
 const app = express();
@@ -8,9 +9,16 @@ const app = express();
 //connect to Database
 connectDB();
 
+//set s3 endpoint to digitalocean spaces
+const spacesEndpoint = new aws.Endpoint('sfo2.digitaloceanspaces.com');
+const s3 = new aws.S3({
+  endpoint: spacesEndpoint
+});
+
 //init middleware
-app.use(express.json({ extended: true }));
-//app.use(bodyParser.json({ type: '*/*' }));
+// parse body
+app.use(express.json({ extended: true })); //app.use(bodyParser.json({ type: '*/*' }));
+// cross origin resource sharing
 app.use(
   cors({
     origin: 'http://104.248.186.12'
