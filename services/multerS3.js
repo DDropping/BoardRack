@@ -2,6 +2,7 @@ const aws = require('aws-sdk');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
 
+const config = require('config');
 const S3_KEY = config.get('S3_Access_Key_Id');
 const S3_SECRET = config.get('S3_Secret_Acess_Key');
 const S3_REGION = config.get('S3_Region');
