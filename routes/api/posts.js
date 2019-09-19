@@ -5,8 +5,8 @@
 // - GET api/posts (retrieve all posts)
 // - GET api/posts/filter (retrieve filtered posts)
 // - DELETE api/posts/delete/:postId (delete post given id)
-// @route   PUT api/posts/like/:id (like post)
-// @route   PUT api/posts/unlike/:id (like post)
+// - PUT api/posts/like/:id (like post)
+// - PUT api/posts/unlike/:id (like post)
 
 const express = require('express');
 const router = express.Router();

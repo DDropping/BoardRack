@@ -1,19 +1,12 @@
 const express = require('express');
 const connectDB = require('./config/DB');
 const cors = require('cors');
-const aws = require('aws-sdk');
 //const bodyParser = require('body-parser');
 
 const app = express();
 
 //connect to Database
 connectDB();
-
-//set s3 endpoint to digitalocean spaces
-const spacesEndpoint = new aws.Endpoint('sfo2.digitaloceanspaces.com');
-const s3 = new aws.S3({
-  endpoint: spacesEndpoint
-});
 
 //init middleware
 // parse body
@@ -35,6 +28,7 @@ app.use('/api/shapers', require('./routes/api/shapers'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/messages', require('./routes/api/messages'));
+app.use('/api/upload', require('./routes/api/upload'));
 
 //Server setup
 const PORT = process.env.PORT || 5000;
