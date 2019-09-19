@@ -31,14 +31,6 @@ const imageFilter2 = (req, file, callback) => {
   callback(null, true);
 };
 
-const imageFilter = (req, res, cb) => {
-  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-    cb(null, true);
-  } else {
-    cb(new Error('Invalid file type, only JPEG and PNG allowed'), false);
-  }
-};
-
 const upload = multer({
   fileFilter: imageFilter2,
   storage: multerS3({
@@ -51,7 +43,8 @@ const upload = multer({
     key: function(req, file, cb) {
       cb(null, Date.now().toString());
     }
-  })
+  }),
+  limits: { fileSize: 2000000 } //limit file size to 2,000,000 bytes = 2MB
 });
 
 module.exports = upload;
