@@ -8,8 +8,8 @@ const S3_SECRET = config.get('S3_Secret_Acess_Key');
 const S3_REGION = config.get('S3_Region');
 
 aws.config.update({
-  secretAccessKey: S3_KEY,
-  accessKeyId: S3_SECRET,
+  secretAccessKey: S3_SECRET,
+  accessKeyId: S3_KEY,
   region: S3_REGION
 });
 
