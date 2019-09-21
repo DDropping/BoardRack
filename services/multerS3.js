@@ -6,6 +6,7 @@ const config = require('config');
 const S3_KEY = config.get('S3_Access_Key_Id');
 const S3_SECRET = config.get('S3_Secret_Acess_Key');
 const S3_REGION = config.get('S3_Region');
+const S3_BUCKET = config.get('S3_Bucket');
 
 aws.config.update({
   secretAccessKey: S3_SECRET,
@@ -15,7 +16,7 @@ aws.config.update({
 
 const s3 = new aws.S3();
 
-const imageFilter2 = (req, file, callback) => {
+const imageFilter = (req, file, callback) => {
   var path = require('path');
   var ext = path.extname(file.originalname);
   if (
@@ -31,20 +32,26 @@ const imageFilter2 = (req, file, callback) => {
   callback(null, true);
 };
 
+const maxSize = 5 * 1000 * 1000; //max file size
+
 const upload = multer({
-  fileFilter: imageFilter2,
   storage: multerS3({
     s3: s3,
-    bucket: 'boardrack',
+    bucket: S3_BUCKET,
     acl: 'public-read',
-    metadata: function(req, file, cb) {
-      cb(null, { fieldName: file.fieldname });
+    limits: {
+      fileSize: maxSize,
+      files: 5
     },
+    contentType: multerS3.AUTO_CONTENT_TYPE,
     key: function(req, file, cb) {
       cb(null, Date.now().toString());
+    },
+    fileFilter: imageFilter,
+    metadata: function(req, file, cb) {
+      cb(null, { fieldName: file.fieldname });
     }
-  }),
-  limits: { fileSize: 2000000 } //limit file size to 2,000,000 bytes = 2MB
+  })
 });
 
 module.exports = upload;
