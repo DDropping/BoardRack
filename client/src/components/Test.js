@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 
-const Test = () => {
-  return (
-    <div>
-      <form method="post" enctype="multipart/form-data" action="/upload">
-        <label for="file">Upload a file</label>
-        <input type="file" name="upload" />
-        <input type="submit" class="button" />
-      </form>
-    </div>
-  );
-};
+class Test extends Component {
+  state = {
+    selectedFile: null
+  };
+
+  fileSelectedHandler = event => {
+    this.setState({
+      selectedFile: event.target.files[0]
+    });
+  };
+
+  fileUploadHandler = () => {
+    const fd = new FormData();
+    fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+    axios.post('api/upload', fd).then(res => {
+      console.log(res);
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <input type="file" onChange={this.fileSelectedHandler} />
+        <button onClick={this.fileUploadHandler}>Upload</button>
+      </div>
+    );
+  }
+}
 
 export default Test;
