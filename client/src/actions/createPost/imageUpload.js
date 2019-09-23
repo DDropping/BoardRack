@@ -6,11 +6,11 @@ export const uploadImage = uploadedImage => async dispatch => {
   console.log('In upload action...');
 
   //compress image options
-  const thumbnailOptions = {
-    maxSizeMB: 0.005,
-    //maxWidthOrHeight: 500,
-    useWebWorker: true
-  };
+  //   const thumbnailOptions = {
+  //     maxSizeMB: 0.005,
+  //     //maxWidthOrHeight: 500,
+  //     useWebWorker: true
+  //   };
 
   const standardOptions = {
     maxSizeMB: 0.5,
