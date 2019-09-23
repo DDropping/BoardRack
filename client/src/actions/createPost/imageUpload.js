@@ -13,6 +13,5 @@ export const uploadImage = uploadedImage => async dispatch => {
       );
     }
   });
-  console.log(res.data.imageUrl);
   dispatch({ type: ADD_IMG_URL_TO_STORE, payload: res.data.imageUrl });
 };
