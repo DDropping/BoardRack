@@ -25,3 +25,5 @@ export const USER_LOADED = 'USER_LOADED';
 export const AUTH_ERROR = 'AUTH_ERROR';
 
 export const CHANGE_POST_STEP = 'CHANGE_POST_STEP';
+
+export const UPLOAD_IMAGE = 'UPLOAD_IMAGE';

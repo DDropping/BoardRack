@@ -1,7 +1,15 @@
+/**
+ * Image upload component
+ * - change icon to loading when loading
+ */
+
 import React from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import { Icon } from 'antd';
+
 import './imgUpload.css';
+import { uploadImage } from '../../../../actions/createPost/imageUpload';
 
 const fileUploadHandler = event => {
   const fd = new FormData();
@@ -35,4 +43,7 @@ const ImageUpload = () => {
   );
 };
 
-export default ImageUpload;
+export default connect(
+  null,
+  { uploadImage }
+)(ImageUpload);
