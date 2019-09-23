@@ -5,9 +5,15 @@ import { ADD_IMG_URL_TO_STORE } from '../types';
 export const uploadImage = uploadedImage => async dispatch => {
   console.log('In upload action...');
 
-  const options = {
-    maxSizeMB: 1,
-    maxWidthOrHeight: 1200,
+  //compress image options
+  const thumbnailOptions = {
+    maxSizeMB: 0.005,
+    //maxWidthOrHeight: 500,
+    useWebWorker: true
+  };
+
+  const standardOptions = {
+    maxSizeMB: 0.5,
     useWebWorker: true
   };
 
@@ -16,7 +22,7 @@ export const uploadImage = uploadedImage => async dispatch => {
   console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
 
   try {
-    const compressedFile = await imageCompression(imageFile, options);
+    const compressedFile = await imageCompression(imageFile, standardOptions);
     console.log(
       'compressedFile instanceof Blob',
       compressedFile instanceof Blob
