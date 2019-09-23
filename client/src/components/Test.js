@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Upload, Icon, Button } from 'antd';
 
 class Test extends Component {
   state = {
     selectedFile: null
   };
 
-  fileSelectedHandler = event => {
-    this.setState({
-      selectedFile: event.target.files[0]
-    });
-  };
-
-  fileUploadHandler = () => {
+  fileUploadHandler = event => {
     const fd = new FormData();
-    fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-    axios.post('api/upload', fd).then(res => {
-      console.log(res);
-    });
+    fd.append('image', event.target.files[0], event.target.files[0].name);
+    axios
+      .post('api/upload', fd, {
+        onUploadProgress: progressEvent => {
+          console.log(
+            'Upload Progress: ' +
+              Math.round((progressEvent.loaded / progressEvent.total) * 100) +
+              '%'
+          );
+        }
+      })
+      .then(res => {
+        console.log(res);
+      });
   };
 
   render() {
+    const uploadButton = (
+      <div>
+        <Icon type={this.state.loading ? 'loading' : 'plus'} />
+        <div className="ant-upload-text">Upload</div>
+      </div>
+    );
     return (
       <div>
-        <input type="file" onChange={this.fileSelectedHandler} />
-        <button onClick={this.fileUploadHandler}>Upload</button>
+        <div className="upload-btn-wrapper">
+          <button className="btn">{uploadButton}</button>
+          <input type="file" onChange={this.fileUploadHandler} />
+        </div>
       </div>
     );
   }
