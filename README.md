@@ -10,6 +10,7 @@
 
 primary color: `#00458a`
 secondary color: `#4878a9`
+compress image options: client/src/actions/imageUpload.js
 
 ## Production checklist
 
