@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Upload, Icon, Button } from 'antd';
+import { Icon } from 'antd';
 
 class Test extends Component {
   state = {

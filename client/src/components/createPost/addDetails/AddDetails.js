@@ -3,7 +3,6 @@ import { Row, Col, Divider, Typography } from 'antd';
 
 import AddDetailsInfo from './AddDetailsInfo';
 import AddDetailsPhotos from './AddDetailsPhotos';
-import ImageUpload from './photoUpload/ImageUpload';
 
 const AddDetails = () => {
   return (
@@ -22,7 +21,7 @@ const AddDetails = () => {
             Add Photos
           </Typography.Title>
         </Divider>
-        <ImageUpload />
+        <AddDetailsPhotos />
       </Col>
     </Row>
   );

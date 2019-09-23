@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Upload, Icon, Button } from 'antd';
+import { Icon } from 'antd';
 import './imgUpload.css';
 
 const fileUploadHandler = event => {
