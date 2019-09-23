@@ -26,4 +26,4 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 
 export const CHANGE_POST_STEP = 'CHANGE_POST_STEP';
 
-export const UPLOAD_IMAGE = 'UPLOAD_IMAGE';
+export const ADD_IMG_URL_TO_STORE = 'ADD_IMG_URL_TO_STORE';
