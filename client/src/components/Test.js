@@ -3,10 +3,6 @@ import axios from 'axios';
 import { Icon } from 'antd';
 
 class Test extends Component {
-  state = {
-    selectedFile: null
-  };
-
   fileUploadHandler = event => {
     const fd = new FormData();
     fd.append('image', event.target.files[0], event.target.files[0].name);
