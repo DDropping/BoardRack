@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ImageUpload from './photoUpload/ImageUpload';
+import ImageUpload from './imageUpload/ImageUpload';
 
 const AddDetailsPhotos = () => {
   return (
