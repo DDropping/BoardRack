@@ -1,18 +1,13 @@
 import React from 'react';
 import { Card } from 'antd';
 
-const imageList = () => {
+const imageList = thumbnailUrl => {
   return (
     <div>
       <Card
         style={{ width: 200, padding: 'none' }}
         bodyStyle={{ padding: 0 }}
-        cover={
-          <img
-            alt="example"
-            src="https://boardrack.s3-us-west-1.amazonaws.com/1569281898504"
-          />
-        }
+        cover={<img alt="image-surfboard" src={props.thumbnailUrl} />}
         actions={[
           <Icon type="star" key="star" />,
           <Icon type="delete" key="delete" />
