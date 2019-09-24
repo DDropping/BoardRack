@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
 
-const imageList = thumbnailUrl => {
+const Thumbnail = thumbnailUrl => {
   return (
     <div>
       <Card
@@ -17,4 +17,4 @@ const imageList = thumbnailUrl => {
   );
 };
 
-export default imageList;
+export default Thumbnail;
