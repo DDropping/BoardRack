@@ -8,9 +8,7 @@ const ThumbnailList = props => {
     <div>
       <div>Thumbnail List</div>
       {props.imgList.map(img => (
-        <div key={img}>
-          <Thumbnail thumbnailUrl={img} />
-        </div>
+        <Thumbnail key={img} thumbnailUrl={img} />
       ))}
     </div>
   );
