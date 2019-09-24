@@ -10,7 +10,7 @@ export default function(state = INITIAL_STATE, action) {
     case ADD_IMG_URL_TO_STORE:
       return {
         ...state,
-        imgList: state.imageList.concat(action.payload)
+        imgList: state.imgList.concat(action.payload)
       };
     default:
       return state;
