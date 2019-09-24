@@ -10,7 +10,7 @@ import { Icon } from 'antd';
 import './imgUpload.css';
 import { uploadImage } from '../../../../actions/createPost/imageUpload';
 
-class ImageUpload extends React.Component {
+class ImageUploadButton extends React.Component {
   handleChange(file) {
     this.props.uploadImage(file);
   }
@@ -41,4 +41,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { uploadImage }
-)(ImageUpload);
+)(ImageUploadButton);
