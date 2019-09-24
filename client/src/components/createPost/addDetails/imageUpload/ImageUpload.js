@@ -15,9 +15,8 @@ class ImageUpload extends React.Component {
     return (
       <div className="upload-btn-wrapper">
         <button className="btn">
-          {/**        <Icon type={this.state.loading ? 'loading' : 'plus'} />
-           */}
-          <Icon type="plus" />
+          <Icon type={this.props.isLoading ? 'loading' : 'plus'} />
+
           <div className="ant-upload-text">Upload</div>
         </button>
         <input
@@ -29,7 +28,13 @@ class ImageUpload extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    isLoading: state.imgUpload.isLoading
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { uploadImage }
 )(ImageUpload);
