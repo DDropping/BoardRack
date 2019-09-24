@@ -4,11 +4,16 @@ import {
   ADD_IMG_URL_TO_STORE,
   ADD_THUMBNAIL_URL_TO_STORE,
   IMAGE_UPLOADING_TRUE,
-  IMAGE_UPLOADING_FALSE
+  IMAGE_UPLOADING_FALSE,
+  ADD_IMAGE_PREVIEW_OBJECTURL
 } from '../types';
 
 export const uploadImage = uploadedImage => async dispatch => {
-  console.log('In upload action...');
+  //create objectUrl for upload preview
+  dispatch({
+    type: ADD_IMAGE_PREVIEW_OBJECTURL,
+    payload: URL.createObjectURL(uploadedImage)
+  });
 
   //compress image options
   const thumbnailOptions = {
@@ -63,7 +68,7 @@ export const uploadImage = uploadedImage => async dispatch => {
     });
     dispatch({ type: ADD_IMG_URL_TO_STORE, payload: res.data.imageUrl });
 
-    //upload standardized image to S3 and store image url in redux
+    //upload thumbnail image to S3 and store image url in redux
     const fd2 = new FormData();
     fd2.append('image', compressedThumbnail, compressedThumbnail.name);
     const res2 = await axios.post('api/upload', fd2, {

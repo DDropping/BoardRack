@@ -11,6 +11,10 @@ import './imgUpload.css';
 import { uploadImage } from '../../../../actions/createPost/imageUpload';
 
 class ImageUpload extends React.Component {
+  handleChange(file) {
+    this.props.uploadImage(file);
+  }
+
   render() {
     return (
       <div className="upload-btn-wrapper">
@@ -21,7 +25,7 @@ class ImageUpload extends React.Component {
         </button>
         <input
           type="file"
-          onChange={event => this.props.uploadImage(event.target.files[0])}
+          onChange={event => this.handleChange(event.target.files[0])}
         />
       </div>
     );
