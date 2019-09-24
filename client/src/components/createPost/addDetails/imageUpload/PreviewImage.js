@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Icon } from 'antd';
 
-const Thumbnail = thumbnailUrl => {
+const PreviewImage = previewObjectUrl => {
   return (
     <Card
       style={{
@@ -12,7 +12,7 @@ const Thumbnail = thumbnailUrl => {
       }}
       hoverable={true}
       bodyStyle={{ padding: 0 }}
-      cover={<img alt="surfboard" src={thumbnailUrl.thumbnailUrl} />}
+      cover={<img alt="surfboard" src={previewObjectUrl.previewObjectUrl} />}
       actions={[
         <Icon type="star" key="star" />,
         <Icon type="delete" key="delete" />
@@ -21,4 +21,4 @@ const Thumbnail = thumbnailUrl => {
   );
 };
 
-export default Thumbnail;
+export default PreviewImage;

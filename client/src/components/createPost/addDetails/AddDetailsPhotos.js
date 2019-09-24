@@ -1,13 +1,13 @@
 import React from 'react';
 
 import ImageUpload from './imageUpload/ImageUpload';
-import ThumbnailList from './imageUpload/ThumbnailList';
+import PreviewList from './imageUpload/PreviewList';
 
 const AddDetailsPhotos = () => {
   return (
     <div>
       <ImageUpload />
-      <ThumbnailList />
+      <PreviewList />
     </div>
   );
 };

@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Thumbnail from './Thumbnail';
+import Preview from './PreviewImage';
 
-const ThumbnailList = props => {
+const PreviewList = props => {
   return (
     <div>
-      {props.previewList.map(thumbnail => (
-        <Thumbnail key={thumbnail} thumbnailUrl={thumbnail} />
+      {props.previewList.map(preview => (
+        <Preview key={preview} previewObjectUrl={preview} />
       ))}
     </div>
   );
@@ -22,4 +22,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   null
-)(ThumbnailList);
+)(PreviewList);
