@@ -6,7 +6,6 @@ import Thumbnail from './Thumbnail';
 const ThumbnailList = props => {
   return (
     <div>
-      <div>Thumbnail List</div>
       {props.imgList.map(img => (
         <Thumbnail key={img} thumbnailUrl={img} />
       ))}

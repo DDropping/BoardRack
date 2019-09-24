@@ -6,9 +6,11 @@ const Thumbnail = thumbnailUrl => {
     <Card
       style={{
         width: 150,
-        margin: '10px',
+        marginTop: '10px',
+        marginRight: '10px',
         display: 'inline-block'
       }}
+      hoverable={true}
       bodyStyle={{ padding: 0 }}
       cover={<img alt="surfboard" src={thumbnailUrl.thumbnailUrl} />}
       actions={[
