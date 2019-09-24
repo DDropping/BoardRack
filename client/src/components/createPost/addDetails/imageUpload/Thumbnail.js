@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'antd';
+import { Card, Icon } from 'antd';
 
 const Thumbnail = thumbnailUrl => {
   return (
@@ -7,7 +7,7 @@ const Thumbnail = thumbnailUrl => {
       <Card
         style={{ width: 200, padding: 'none' }}
         bodyStyle={{ padding: 0 }}
-        cover={<img alt="image-surfboard" src={props.thumbnailUrl} />}
+        cover={<img alt="surfboard" src={thumbnailUrl.thumbnailUrl} />}
         actions={[
           <Icon type="star" key="star" />,
           <Icon type="delete" key="delete" />
