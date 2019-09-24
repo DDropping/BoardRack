@@ -6,8 +6,8 @@ import Thumbnail from './Thumbnail';
 const ThumbnailList = props => {
   return (
     <div>
-      {props.imgList.map(img => (
-        <Thumbnail key={img} thumbnailUrl={img} />
+      {props.thumbnailList.map(thumbnail => (
+        <Thumbnail key={thumbnail} thumbnailUrl={thumbnail} />
       ))}
     </div>
   );
@@ -15,7 +15,7 @@ const ThumbnailList = props => {
 
 const mapStateToProps = state => {
   return {
-    imgList: state.imgUpload.imgList
+    thumbnailList: state.imgUpload.thumbnailList
   };
 };
 

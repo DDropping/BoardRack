@@ -18,7 +18,7 @@ export const uploadImage = uploadedImage => async dispatch => {
   };
 
   const standardOptions = {
-    maxSizeMB: 0.05,
+    maxSizeMB: 0.1,
     useWebWorker: true
   };
 
