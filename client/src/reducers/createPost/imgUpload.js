@@ -1,7 +1,7 @@
 import { ADD_IMG_URL_TO_STORE } from '../../actions/types';
 
 const INITIAL_STATE = {
-  imageList: [],
+  imgList: [],
   isLoading: false
 };
 
@@ -10,7 +10,7 @@ export default function(state = INITIAL_STATE, action) {
     case ADD_IMG_URL_TO_STORE:
       return {
         ...state,
-        imageList: state.imageList.concat(action.payload)
+        imgList: state.imageList.concat(action.payload)
       };
     default:
       return state;
