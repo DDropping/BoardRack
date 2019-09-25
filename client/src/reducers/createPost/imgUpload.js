@@ -11,7 +11,7 @@ import {
 const INITIAL_STATE = {
   isLoading: false,
   imgKey: 0,
-  imgList2: []
+  imgList: []
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -29,8 +29,8 @@ export default function(state = INITIAL_STATE, action) {
     case OBJECTURL_IMG_URL:
       return {
         ...state,
-        imgList2: [
-          ...state.imgList2,
+        imgList: [
+          ...state.imgList,
           {
             imgKey: action.payload.imgKey,
             objectUrl: action.payload.objectUrl,
@@ -42,7 +42,7 @@ export default function(state = INITIAL_STATE, action) {
     case DEFAULT_IMG_URL:
       return {
         ...state,
-        imgList2: state.imgList2.map(item =>
+        imgList: state.imgList.map(item =>
           item.imgKey === action.payload.imgKey
             ? { ...item, imgDefault: action.payload.imgDefault }
             : item
@@ -51,7 +51,7 @@ export default function(state = INITIAL_STATE, action) {
     case THUMBNAIL_IMG_URL:
       return {
         ...state,
-        imgList2: state.imgList2.map(item =>
+        imgList: state.imgList.map(item =>
           item.imgKey === action.payload.imgKey
             ? { ...item, imgThumbnail: action.payload.imgThumbnail }
             : item

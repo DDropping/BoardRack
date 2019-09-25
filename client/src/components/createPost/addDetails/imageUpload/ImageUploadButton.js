@@ -17,7 +17,12 @@ class ImageUploadButton extends React.Component {
 
   render() {
     return (
-      <div className="upload-btn-wrapper">
+      <div
+        className="upload-btn-wrapper"
+        style={{
+          display: 'inline-block'
+        }}
+      >
         <button className="btn">
           <Icon type={this.props.isLoading ? 'loading' : 'plus'} />
 
