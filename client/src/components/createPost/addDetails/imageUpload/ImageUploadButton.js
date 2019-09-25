@@ -10,26 +10,35 @@ import { Icon } from 'antd';
 import './imgUpload.css';
 import { uploadImage } from '../../../../actions/createPost/imageUpload';
 
-class ImageUpload extends React.Component {
+class ImageUploadButton extends React.Component {
+  handleChange(file) {
+    this.props.uploadImage(file);
+  }
+
   render() {
     return (
       <div className="upload-btn-wrapper">
         <button className="btn">
-          {/**        <Icon type={this.state.loading ? 'loading' : 'plus'} />
-           */}
-          <Icon type="plus" />
+          <Icon type={this.props.isLoading ? 'loading' : 'plus'} />
+
           <div className="ant-upload-text">Upload</div>
         </button>
         <input
           type="file"
-          onChange={event => this.props.uploadImage(event.target.files[0])}
+          onChange={event => this.handleChange(event.target.files[0])}
         />
       </div>
     );
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    isLoading: state.imgUpload.isLoading
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { uploadImage }
-)(ImageUpload);
+)(ImageUploadButton);
