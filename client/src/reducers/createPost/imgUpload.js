@@ -17,7 +17,7 @@ const INITIAL_STATE = {
   previewList: [],
   isLoading: false,
   imgKey: 0,
-  imgList2: []
+  imgList2: {}
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -33,13 +33,24 @@ export default function(state = INITIAL_STATE, action) {
         imgKey: state.imgKey - 1
       };
     case OBJECTURL_IMG_URL:
+      console.log(action.payload.imgKey);
       return {
-        imgList2: state.imgList2.concat({
-          key: action.payload.imgKey,
-          objectUrl: action.payload.objectUrl,
-          imgDefault: null,
-          imgThumbnail: null
-        })
+        ...state,
+        imgList2: {
+          ...state.imgList2,
+          [action.payload.imgKey]: {
+            objectUrl: action.payload.objectUrl,
+            imgDefault: null,
+            imgThumbnail: null
+          }
+        }
+      };
+    case DEFAULT_IMG_URL:
+      return {
+        ...state,
+        imgList2: {
+          ...state.imgList2
+        }
       };
     case ADD_IMAGE_PREVIEW_OBJECTURL:
       return {

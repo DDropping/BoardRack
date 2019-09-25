@@ -12,7 +12,7 @@ import { uploadImage } from '../../../../actions/createPost/imageUpload';
 
 class ImageUploadButton extends React.Component {
   handleChange(file) {
-    this.props.uploadImage(file, this.props.key);
+    this.props.uploadImage(this.props.imgKey, file);
   }
 
   render() {

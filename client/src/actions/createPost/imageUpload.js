@@ -13,12 +13,13 @@ import {
   DECREASE_IMG_KEY
 } from '../types';
 
-export const uploadImage = (uploadedImage, key) => async dispatch => {
+export const uploadImage = (imgKey, uploadedImage) => async dispatch => {
   //create objectUrl for upload preview
   dispatch({
     type: OBJECTURL_IMG_URL,
-    payload: { objectUrl: URL.createObjectURL(uploadedImage), imgKey: key }
+    payload: { imgKey: imgKey, objectUrl: URL.createObjectURL(uploadedImage) }
   });
+  dispatch({ type: INCREASE_IMG_KEY });
 
   // //compress image options
   // const thumbnailOptions = {
@@ -71,7 +72,10 @@ export const uploadImage = (uploadedImage, key) => async dispatch => {
   //       );
   //     }
   //   });
-  //   dispatch({ type: ADD_IMG_URL_TO_STORE, payload: res.data.imageUrl });
+  //   dispatch({
+  //     type: DEFAULT_IMG_URL,
+  //     payload: { defaultUrl: res.data.imageUrl, imgKey: key }
+  //   });
 
   //   //upload thumbnail image to S3 and store image url in redux
   //   const fd2 = new FormData();
