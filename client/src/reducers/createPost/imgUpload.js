@@ -33,7 +33,6 @@ export default function(state = INITIAL_STATE, action) {
         imgKey: state.imgKey - 1
       };
     case OBJECTURL_IMG_URL:
-      console.log(action.payload.imgKey);
       return {
         ...state,
         imgList2: {
@@ -49,7 +48,24 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         imgList2: {
-          ...state.imgList2
+          ...state.imgList2,
+          [action.payload.imgKey]: {
+            ...state.imgList2[action.payload.imgKey],
+            imgDefault: action.payload.defaultUrl
+          }
+        }
+      };
+    case THUMBNAIL_IMG_URL:
+      console.log('Inside upload thumbnail');
+
+      return {
+        ...state,
+        imgList2: {
+          ...state.imgList2,
+          [action.payload.imgKey]: {
+            ...state.imgList2[action.payload.imgKey],
+            imgThumbnail: action.payload.imgThumbnail
+          }
         }
       };
     case ADD_IMAGE_PREVIEW_OBJECTURL:
