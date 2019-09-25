@@ -26,7 +26,7 @@ class ImageUploadButton extends React.Component {
           marginRight: '10px'
         }}
       >
-        <button className="btn" style={{ width: 150, height: 150 }}>
+        <button className="btn" style={{ width: '150px', height: '200px' }}>
           <Icon type={this.props.isLoading ? 'loading' : 'plus'} />
 
           <div className="ant-upload-text">Upload</div>
