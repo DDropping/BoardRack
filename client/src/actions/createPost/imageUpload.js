@@ -8,7 +8,10 @@ import {
   IMAGE_UPLOADING_FALSE,
   INCREASE_IMG_KEY,
   DECREASE_IMG_KEY,
-  DELETE_IMG_PREVIEW
+  DELETE_IMG_PREVIEW,
+  IMG_UPLOAD_LOADING,
+  IMG_UPLOAD_DONE,
+  IMG_UPLOAD_ERR_DELETE
 } from '../types';
 
 //Upload new image, compress to default and thumbnail size, and upload both to AWS S3 bucket
@@ -38,7 +41,7 @@ export const uploadImage = (imgKey, uploadedImage) => async dispatch => {
 
   try {
     //Create compressed file of origional file to standard size
-    dispatch({ type: IMAGE_UPLOADING_TRUE });
+    dispatch({ type: IMG_UPLOAD_LOADING, payload: imgKey });
     const compressedFile = await imageCompression(imageFile, standardOptions);
     console.log(
       'compressedFile instanceof Blob',
@@ -92,9 +95,11 @@ export const uploadImage = (imgKey, uploadedImage) => async dispatch => {
       type: THUMBNAIL_IMG_URL,
       payload: { imgKey: imgKey, imgThumbnail: res2.data.imageUrl }
     });
-    dispatch({ type: IMAGE_UPLOADING_FALSE });
+    dispatch({ type: IMG_UPLOAD_DONE, payload: imgKey });
   } catch (err) {
     console.log(err);
+    dispatch({ type: DELETE_IMG_PREVIEW, payload: imgKey });
+    dispatch({ type: IMG_UPLOAD_ERR_DELETE, payload: imgKey });
     dispatch({ type: IMAGE_UPLOADING_FALSE });
     dispatch({ type: DECREASE_IMG_KEY });
   }

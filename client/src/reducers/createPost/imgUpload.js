@@ -6,13 +6,17 @@ import {
   IMAGE_UPLOADING_FALSE,
   INCREASE_IMG_KEY,
   DECREASE_IMG_KEY,
-  DELETE_IMG_PREVIEW
+  DELETE_IMG_PREVIEW,
+  IMG_UPLOAD_LOADING,
+  IMG_UPLOAD_DONE,
+  IMG_UPLOAD_ERR_DELETE
 } from '../../actions/types';
 
 const INITIAL_STATE = {
   isLoading: false,
   imgKey: 0,
-  imgList: []
+  imgList: [],
+  imgLoading: []
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -64,6 +68,34 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         /* filter would not remove img by itself, adding ternerary console.log makes it work */
         imgList: state.imgList.filter(img =>
+          img.imgKey !== action.payload
+            ? console.log(img.imgKey + ' removed')
+            : console.log()
+        )
+      };
+    case IMG_UPLOAD_LOADING:
+      return {
+        ...state,
+        imgLoading: [
+          ...state.imgLoading,
+          {
+            imgKey: action.payload,
+            isLoading: true
+          }
+        ]
+      };
+    case IMG_UPLOAD_DONE:
+      return {
+        ...state,
+        imgLoading: state.imgLoading.map(item =>
+          item.imgKey === action.payload ? { ...item, isLoading: false } : item
+        )
+      };
+    case IMG_UPLOAD_ERR_DELETE:
+      return {
+        ...state,
+        /* filter would not remove img by itself, adding ternerary console.log makes it work */
+        imgLoading: state.imgLoading.filter(img =>
           img.imgKey !== action.payload
             ? console.log(img.imgKey + ' removed')
             : console.log()
