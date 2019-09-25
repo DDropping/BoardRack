@@ -1,14 +1,11 @@
 import axios from 'axios';
 import imageCompression from 'browser-image-compression';
 import {
-  ADD_IMG_URL_TO_STORE,
-  ADD_THUMBNAIL_URL_TO_STORE,
-  IMAGE_UPLOADING_TRUE,
-  IMAGE_UPLOADING_FALSE,
-  ADD_IMAGE_PREVIEW_OBJECTURL,
   OBJECTURL_IMG_URL,
   DEFAULT_IMG_URL,
   THUMBNAIL_IMG_URL,
+  IMAGE_UPLOADING_TRUE,
+  IMAGE_UPLOADING_FALSE,
   INCREASE_IMG_KEY,
   DECREASE_IMG_KEY
 } from '../types';
@@ -61,7 +58,7 @@ export const uploadImage = (imgKey, uploadedImage) => async dispatch => {
     });
     dispatch({
       type: DEFAULT_IMG_URL,
-      payload: { imgKey: imgKey, defaultUrl: res.data.imageUrl }
+      payload: { imgKey: imgKey, imgDefault: res.data.imageUrl }
     });
 
     //Create compressed file of standard file to thumbnail size

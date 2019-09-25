@@ -1,23 +1,17 @@
 import {
-  ADD_IMG_URL_TO_STORE,
-  ADD_THUMBNAIL_URL_TO_STORE,
-  IMAGE_UPLOADING_TRUE,
-  IMAGE_UPLOADING_FALSE,
-  ADD_IMAGE_PREVIEW_OBJECTURL,
   OBJECTURL_IMG_URL,
   DEFAULT_IMG_URL,
   THUMBNAIL_IMG_URL,
+  IMAGE_UPLOADING_TRUE,
+  IMAGE_UPLOADING_FALSE,
   INCREASE_IMG_KEY,
   DECREASE_IMG_KEY
 } from '../../actions/types';
 
 const INITIAL_STATE = {
-  imgList: [],
-  thumbnailList: [],
-  previewList: [],
   isLoading: false,
   imgKey: 0,
-  imgList2: {}
+  imgList2: []
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -35,53 +29,33 @@ export default function(state = INITIAL_STATE, action) {
     case OBJECTURL_IMG_URL:
       return {
         ...state,
-        imgList2: {
+        imgList2: [
           ...state.imgList2,
-          [action.payload.imgKey]: {
+          {
+            imgKey: action.payload.imgKey,
             objectUrl: action.payload.objectUrl,
             imgDefault: null,
             imgThumbnail: null
           }
-        }
+        ]
       };
     case DEFAULT_IMG_URL:
       return {
         ...state,
-        imgList2: {
-          ...state.imgList2,
-          [action.payload.imgKey]: {
-            ...state.imgList2[action.payload.imgKey],
-            imgDefault: action.payload.defaultUrl
-          }
-        }
+        imgList2: state.imgList2.map(item =>
+          item.imgKey === action.payload.imgKey
+            ? { ...item, imgDefault: action.payload.imgDefault }
+            : item
+        )
       };
     case THUMBNAIL_IMG_URL:
-      console.log('Inside upload thumbnail');
-
       return {
         ...state,
-        imgList2: {
-          ...state.imgList2,
-          [action.payload.imgKey]: {
-            ...state.imgList2[action.payload.imgKey],
-            imgThumbnail: action.payload.imgThumbnail
-          }
-        }
-      };
-    case ADD_IMAGE_PREVIEW_OBJECTURL:
-      return {
-        ...state,
-        previewList: state.previewList.concat(action.payload)
-      };
-    case ADD_IMG_URL_TO_STORE:
-      return {
-        ...state,
-        imgList: state.imgList.concat(action.payload)
-      };
-    case ADD_THUMBNAIL_URL_TO_STORE:
-      return {
-        ...state,
-        thumbnailList: state.thumbnailList.concat(action.payload)
+        imgList2: state.imgList2.map(item =>
+          item.imgKey === action.payload.imgKey
+            ? { ...item, imgThumbnail: action.payload.imgThumbnail }
+            : item
+        )
       };
     case IMAGE_UPLOADING_TRUE:
       return {

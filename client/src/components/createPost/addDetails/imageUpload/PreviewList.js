@@ -6,7 +6,7 @@ import Preview from './PreviewImage';
 const PreviewList = props => {
   return (
     <div>
-      {props.previewList.map(preview => (
+      {props.imgList2.map(preview => (
         <Preview key={preview} previewObjectUrl={preview} />
       ))}
     </div>
@@ -15,7 +15,7 @@ const PreviewList = props => {
 
 const mapStateToProps = state => {
   return {
-    previewList: state.imgUpload.previewList
+    imgList2: state.imgUpload.imgList2
   };
 };
 

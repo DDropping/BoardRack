@@ -7,7 +7,7 @@ const AddDetailsPhotos = () => {
   return (
     <div>
       <ImageUploadButton />
-      <PreviewList />
+      {/*<PreviewList />*/}
     </div>
   );
 };
