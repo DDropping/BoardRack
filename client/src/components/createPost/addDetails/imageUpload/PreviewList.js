@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Preview from './PreviewImage';
-import ImageUploadButton from './ImageUploadButton';
 
 const PreviewList = props => {
   return (

@@ -1,7 +1,11 @@
 import React from 'react';
 import { Card, Icon } from 'antd';
 
-const Test = () => {
+import './createPost/addDetails/imageUpload/imgUpload.css';
+import { connect } from 'react-redux';
+import { deleteImagePreview } from '../actions/createPost/imageUpload';
+
+const Test = props => {
   return (
     <div>
       <Card
@@ -32,11 +36,14 @@ const Test = () => {
         }
         actions={[
           <Icon type="star" key="star" />,
-          <Icon type="delete" key="delete" />
+          <Icon onClick={props.deleteImagePreview} type="delete" key="delete" />
         ]}
       ></Card>
     </div>
   );
 };
 
-export default Test;
+export default connect(
+  null,
+  { deleteImagePreview }
+)(Test);
