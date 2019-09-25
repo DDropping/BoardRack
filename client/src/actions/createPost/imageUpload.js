@@ -7,9 +7,11 @@ import {
   IMAGE_UPLOADING_TRUE,
   IMAGE_UPLOADING_FALSE,
   INCREASE_IMG_KEY,
-  DECREASE_IMG_KEY
+  DECREASE_IMG_KEY,
+  DELETE_IMG_PREVIEW
 } from '../types';
 
+//Upload new image, compress to default and thumbnail size, and upload both to AWS S3 bucket
 export const uploadImage = (imgKey, uploadedImage) => async dispatch => {
   //create objectUrl for upload preview
   dispatch({
@@ -96,4 +98,9 @@ export const uploadImage = (imgKey, uploadedImage) => async dispatch => {
     dispatch({ type: IMAGE_UPLOADING_FALSE });
     dispatch({ type: DECREASE_IMG_KEY });
   }
+};
+
+export const deleteImagePreview = imgKey => async dispatch => {
+  console.log('inside deleteImagePreview action');
+  dispatch({ type: DELETE_IMG_PREVIEW, payload: imgKey });
 };

@@ -5,7 +5,8 @@ import {
   IMAGE_UPLOADING_TRUE,
   IMAGE_UPLOADING_FALSE,
   INCREASE_IMG_KEY,
-  DECREASE_IMG_KEY
+  DECREASE_IMG_KEY,
+  DELETE_IMG_PREVIEW
 } from '../../actions/types';
 
 const INITIAL_STATE = {
@@ -56,6 +57,11 @@ export default function(state = INITIAL_STATE, action) {
             ? { ...item, imgThumbnail: action.payload.imgThumbnail }
             : item
         )
+      };
+    case DELETE_IMG_PREVIEW:
+      return {
+        ...state,
+        imgList: state.imgList.filter(item => item.imgKey !== action.payload)
       };
     case IMAGE_UPLOADING_TRUE:
       return {
