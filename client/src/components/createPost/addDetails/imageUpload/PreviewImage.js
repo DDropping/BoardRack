@@ -42,7 +42,13 @@ const PreviewImage = props => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    isLoading: state.imgUpload.imgLoading
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { deleteImagePreview }
 )(PreviewImage);
