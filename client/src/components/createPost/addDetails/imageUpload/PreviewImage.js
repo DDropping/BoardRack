@@ -6,7 +6,7 @@ const PreviewImage = previewObjectUrl => {
     <Card
       style={{
         width: 150,
-        marginTop: '10px',
+        marginBottom: '10px',
         marginRight: '10px',
         display: 'inline-block'
       }}
