@@ -55,7 +55,7 @@ const AdditionalDetailsConstruction = () => {
         </Col>
         <Col xs={15} sm={14} md={16} lg={17}>
           <Field
-            name="countour"
+            name="contour"
             component={AInput}
             placeholder="single to double"
             size="default"

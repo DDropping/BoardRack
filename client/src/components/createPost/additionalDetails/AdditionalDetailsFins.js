@@ -15,7 +15,7 @@ const AdditionalDetailsFins = () => {
         </Col>
         <Col xs={18} sm={17}>
           <Field
-            name="Tail"
+            name="tail"
             component={ASelect}
             size="default"
             defaultActiveFirstOption
