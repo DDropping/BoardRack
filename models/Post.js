@@ -8,6 +8,14 @@ const PostSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
+  imgList: [
+    {
+      imgKey: String,
+      objectUrl: String,
+      imgDefault: String,
+      imgThumbnail: String
+    }
+  ],
   title: {
     type: String,
     required: true
