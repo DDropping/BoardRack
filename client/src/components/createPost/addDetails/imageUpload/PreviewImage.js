@@ -7,11 +7,9 @@ import './imgUpload.css';
 
 const PreviewImage = props => {
   var isLoading = true;
-  props.imgList.map(item => {
-    if (item.imgKey === props.imgKey) {
-      isLoading = item.isLoading ? true : false;
-    }
-  });
+  props.imgList
+    .filter(item => item.imgKey === props.imgKey)
+    .map(item => (isLoading = item.isLoading));
 
   return (
     <Card
