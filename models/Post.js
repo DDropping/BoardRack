@@ -1,4 +1,5 @@
 //Post details model:
+// add geo-location
 
 const mongoose = require('mongoose');
 
