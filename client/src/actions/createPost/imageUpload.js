@@ -38,11 +38,11 @@ export const uploadImage = (imgKey, uploadedImage) => async dispatch => {
       uploadedImage,
       standardOptions
     );
-    console.log(
-      'compressedFile instanceof Blob',
-      compressedFile instanceof Blob
-    );
-    console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`);
+    // console.log(
+    //   'compressedFile instanceof Blob',
+    //   compressedFile instanceof Blob
+    // );
+    // console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`);
 
     //upload standardized image to S3 and store image url in redux
     const fd = new FormData();
