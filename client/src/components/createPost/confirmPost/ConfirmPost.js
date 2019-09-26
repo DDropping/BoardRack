@@ -4,10 +4,11 @@ import { compose } from 'redux';
 import { reduxForm } from 'redux-form';
 import { Button, Form } from 'antd';
 
+import { createPost } from '../../../actions/createPost';
+
 const ConfirmPost = props => {
   const onSubmit = formProps => {
-    console.log(formProps);
-    console.log(props.imgList);
+    props.createPost(formProps, props.imgList);
   };
   return (
     <div>
@@ -33,7 +34,7 @@ const mapStateToProps = state => {
 export default compose(
   connect(
     mapStateToProps,
-    null
+    { createPost }
   ),
   reduxForm({ form: 'createPost', destroyOnUnmount: false })
 )(ConfirmPost);
