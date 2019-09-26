@@ -10,10 +10,10 @@ const AddDetailsInfo = props => {
   return (
     <Form>
       <Row>
-        <Col xs={7} sm={7} md={6} lg={5}>
+        <Col xs={7} sm={7} md={0}>
           <h3 style={{ textAlign: 'center' }}>Title:</h3>
         </Col>
-        <Col xs={17} sm={17} md={18} lg={19}>
+        <Col xs={17} sm={17} md={0}>
           <Field
             name="title"
             component={AInput}
@@ -24,16 +24,67 @@ const AddDetailsInfo = props => {
       </Row>
 
       <Row>
-        <Col xs={7} sm={7} md={6} lg={5}>
+        <Col xs={7} sm={7} md={0}>
           <h3 style={{ textAlign: 'center' }}>Price:</h3>
         </Col>
-        <Col xs={17} sm={6}>
+        <Col xs={17} sm={10} md={0}>
           <Field
             name="price"
             component={AInput}
             placeholder="Price..."
             size="default"
             prefix="$"
+          />
+        </Col>
+      </Row>
+
+      <Row gutter={8}>
+        <Col xs={0} sm={0} md={6} lg={5}>
+          <h3 style={{ textAlign: 'center' }}>Title:</h3>
+        </Col>
+        <Col xs={0} sm={0} md={11} lg={12}>
+          <Field
+            name="title"
+            component={AInput}
+            placeholder="Title..."
+            size="default"
+          />
+        </Col>
+        <Col xs={0} sm={0} md={7}>
+          <Field
+            name="price"
+            component={AInput}
+            placeholder="Price..."
+            size="default"
+            prefix="$"
+          />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col xs={7} sm={7} md={6} lg={5}>
+          <h3 style={{ textAlign: 'center' }}>Shaper:</h3>
+        </Col>
+        <Col xs={17} sm={17} md={18} lg={19}>
+          <Field
+            name="shaper"
+            component={AInput}
+            placeholder="Shaper..."
+            size="default"
+          />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col xs={7} sm={7} md={6} lg={5}>
+          <h3 style={{ textAlign: 'center' }}>Model:</h3>
+        </Col>
+        <Col xs={17} sm={17} md={18} lg={19}>
+          <Field
+            name="model"
+            component={AInput}
+            placeholder="Model..."
+            size="default"
           />
         </Col>
       </Row>
