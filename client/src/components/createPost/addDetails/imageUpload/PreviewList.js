@@ -2,12 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Preview from './PreviewImage';
+import ImageUploadButton from './ImageUploadButton';
 
 const PreviewList = props => {
   return (
-    <div>
-      {props.previewList.map(preview => (
-        <Preview key={preview} previewObjectUrl={preview} />
+    <div
+      style={{
+        display: 'inline-block'
+      }}
+    >
+      <ImageUploadButton />
+      {props.imgList.map(preview => (
+        <Preview
+          key={preview.imgKey}
+          previewObjectUrl={preview.objectUrl}
+          imgKey={preview.imgKey}
+        />
       ))}
     </div>
   );
@@ -15,7 +25,7 @@ const PreviewList = props => {
 
 const mapStateToProps = state => {
   return {
-    previewList: state.imgUpload.previewList
+    imgList: state.imgUpload.imgList
   };
 };
 

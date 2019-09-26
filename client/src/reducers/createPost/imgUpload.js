@@ -1,34 +1,82 @@
 import {
-  ADD_IMG_URL_TO_STORE,
-  ADD_THUMBNAIL_URL_TO_STORE,
+  OBJECTURL_IMG_URL,
+  DEFAULT_IMG_URL,
+  THUMBNAIL_IMG_URL,
   IMAGE_UPLOADING_TRUE,
   IMAGE_UPLOADING_FALSE,
-  ADD_IMAGE_PREVIEW_OBJECTURL
+  INCREASE_IMG_KEY,
+  DECREASE_IMG_KEY,
+  DELETE_IMG_PREVIEW,
+  IMG_UPLOAD_DONE
 } from '../../actions/types';
 
 const INITIAL_STATE = {
+  isLoading: false,
+  imgKey: 0,
   imgList: [],
-  thumbnailList: [],
-  previewList: [],
-  isLoading: false
+  imgLoading: []
 };
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case ADD_IMAGE_PREVIEW_OBJECTURL:
+    case INCREASE_IMG_KEY:
       return {
         ...state,
-        previewList: state.previewList.concat(action.payload)
+        imgKey: state.imgKey + 1
       };
-    case ADD_IMG_URL_TO_STORE:
+    case DECREASE_IMG_KEY:
       return {
         ...state,
-        imgList: state.imgList.concat(action.payload)
+        imgKey: state.imgKey - 1
       };
-    case ADD_THUMBNAIL_URL_TO_STORE:
+    case OBJECTURL_IMG_URL:
       return {
         ...state,
-        thumbnailList: state.thumbnailList.concat(action.payload)
+        imgList: [
+          ...state.imgList,
+          {
+            imgKey: action.payload.imgKey,
+            isLoading: true,
+            objectUrl: action.payload.objectUrl,
+            imgDefault: null,
+            imgThumbnail: null
+          }
+        ]
+      };
+    case DEFAULT_IMG_URL:
+      return {
+        ...state,
+        imgList: state.imgList.map(item =>
+          item.imgKey === action.payload.imgKey
+            ? { ...item, imgDefault: action.payload.imgDefault }
+            : item
+        )
+      };
+    case THUMBNAIL_IMG_URL:
+      return {
+        ...state,
+        imgList: state.imgList.map(item =>
+          item.imgKey === action.payload.imgKey
+            ? { ...item, imgThumbnail: action.payload.imgThumbnail }
+            : item
+        )
+      };
+    case DELETE_IMG_PREVIEW:
+      return {
+        ...state,
+        imgList: state.imgList.filter(img => {
+          if (img.imgKey === action.payload) {
+            return false;
+          }
+          return true;
+        })
+      };
+    case IMG_UPLOAD_DONE:
+      return {
+        ...state,
+        imgList: state.imgList.map(item =>
+          item.imgKey === action.payload ? { ...item, isLoading: false } : item
+        )
       };
     case IMAGE_UPLOADING_TRUE:
       return {

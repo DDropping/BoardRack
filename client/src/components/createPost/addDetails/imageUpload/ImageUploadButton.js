@@ -12,13 +12,21 @@ import { uploadImage } from '../../../../actions/createPost/imageUpload';
 
 class ImageUploadButton extends React.Component {
   handleChange(file) {
-    this.props.uploadImage(file);
+    this.props.uploadImage(this.props.imgKey, file);
   }
 
   render() {
     return (
-      <div className="upload-btn-wrapper">
-        <button className="btn">
+      <div
+        className="upload-btn-wrapper"
+        style={{
+          display: 'inline-block',
+          verticalAlign: 'top',
+          marginBottom: '10px',
+          marginRight: '10px'
+        }}
+      >
+        <button className="btn" style={{ width: '150px', height: '200px' }}>
           <Icon type={this.props.isLoading ? 'loading' : 'plus'} />
 
           <div className="ant-upload-text">Upload</div>
@@ -34,7 +42,8 @@ class ImageUploadButton extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    isLoading: state.imgUpload.isLoading
+    isLoading: state.imgUpload.isLoading,
+    imgKey: state.imgUpload.imgKey
   };
 };
 

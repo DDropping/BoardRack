@@ -7,6 +7,7 @@ import { Button, Form } from 'antd';
 const ConfirmPost = props => {
   const onSubmit = formProps => {
     console.log(formProps);
+    console.log(props.imgList);
   };
   return (
     <div>
@@ -23,9 +24,15 @@ const ConfirmPost = props => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    imgList: state.imgUpload.imgList
+  };
+};
+
 export default compose(
   connect(
-    null,
+    mapStateToProps,
     null
   ),
   reduxForm({ form: 'createPost', destroyOnUnmount: false })
