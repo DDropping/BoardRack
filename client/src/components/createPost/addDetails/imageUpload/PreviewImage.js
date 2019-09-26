@@ -3,6 +3,7 @@ import { Card, Icon } from 'antd';
 import { connect } from 'react-redux';
 
 import { deleteImagePreview } from '../../../../actions/createPost/imageUpload';
+import './imgUpload.css';
 
 const PreviewImage = props => {
   var isLoading = true;
@@ -29,17 +30,21 @@ const PreviewImage = props => {
         cover={
           <div style={{ width: 150, height: 150, textAlign: 'center' }}>
             {isLoading ? (
-              <Icon type="loading" key="loading" />
+              <div style={{ display: 'inline-block' }}>
+                <img
+                  className="preview-img-card-img-loading"
+                  alt="surfboard"
+                  src={props.previewObjectUrl}
+                />
+                <Icon
+                  className="preview-img-upload-loading-icon"
+                  type="loading"
+                  key="loading"
+                />
+              </div>
             ) : (
               <img
-                style={{
-                  maxWidth: '146px',
-                  maxHeight: '146px',
-                  verticalAlign: 'middle',
-                  margin: ' 0 auto',
-                  position: 'relative',
-                  right: '1px' /*fix antd-card-border offset by 1 px*/
-                }}
+                className="preview-img-card-img"
                 alt="surfboard"
                 src={props.previewObjectUrl}
               />

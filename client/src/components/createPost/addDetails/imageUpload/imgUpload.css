@@ -34,14 +34,34 @@
 .preview-img-card-img-parent {
   width: 150px;
   height: 150px;
-  text-align: 'center';
+  text-align: center;
 }
 
 .preview-img-card-img {
   max-width: 148px;
   max-height: 150px;
   vertical-align: middle;
-  margin: auto;
+  margin: 0 auto;
   position: relative;
   right: 1px; /*fix antd-card-border offset by 1 px*/
+}
+
+.preview-img-card-img-loading {
+  max-width: 148px;
+  max-height: 150px;
+  opacity: 0.4;
+  vertical-align: middle;
+  margin: 0 auto;
+  position: relative;
+  right: 1px; /*fix antd-card-border offset by 1 px*/
+}
+
+.preview-img-upload-loading-icon {
+  font-size: 70px;
+  color: #08c;
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  top: 20%;
+  bottom: 20%;
 }
