@@ -9,7 +9,15 @@ const Test = props => {
   return (
     <div>
       <Card
-        className="preview-img-card-img"
+        style={{
+          width: '150px',
+          height: '200px',
+          backgroundColor: '#f3f7f9',
+          marginBottom: '10px',
+          marginRight: '10px',
+          display: 'inline-block',
+          lineHeight: '150px'
+        }}
         hoverable={true}
         bodyStyle={{ padding: 0 }}
         cover={
