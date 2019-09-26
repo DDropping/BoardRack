@@ -52,7 +52,11 @@ const PreviewImage = props => {
       }
       actions={[
         <Icon type="star" key="star" />,
-        <Icon type="delete" key="delete" onClick={props.deleteImagePreview} />
+        <Icon
+          type="delete"
+          key="delete"
+          onClick={() => props.deleteImagePreview(props.imgKey)}
+        />
       ]}
     ></Card>
   );

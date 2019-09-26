@@ -64,12 +64,12 @@ export default function(state = INITIAL_STATE, action) {
     case DELETE_IMG_PREVIEW:
       return {
         ...state,
-        /* filter would not remove img by itself, adding ternerary console.log makes it work */
-        imgList: state.imgList.filter(img =>
-          img.imgKey !== action.payload
-            ? console.log(img.imgKey + ' removed')
-            : console.log()
-        )
+        imgList: state.imgList.filter(img => {
+          if (img.imgKey === action.payload) {
+            return false;
+          }
+          return true;
+        })
       };
     case IMG_UPLOAD_DONE:
       return {

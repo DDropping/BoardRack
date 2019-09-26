@@ -99,6 +99,6 @@ export const uploadImage = (imgKey, uploadedImage) => async dispatch => {
 };
 
 export const deleteImagePreview = imgKey => async dispatch => {
-  console.log('inside deleteImagePreview action');
+  console.log('inside deleteImagePreview action. imgkey: ' + imgKey);
   dispatch({ type: DELETE_IMG_PREVIEW, payload: imgKey });
 };
