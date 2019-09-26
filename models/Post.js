@@ -1,5 +1,4 @@
 //Post details model:
-//new, title, price, shpaer, model, boardType, condition, waterTight, dimensions, location, discription, author
 //add later: potos []
 
 const mongoose = require('mongoose');
@@ -9,16 +8,84 @@ const PostSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
-  isNewBoard: {
-    type: Boolean,
-    required: true
-  },
   title: {
     type: String,
     required: true
   },
   price: {
-    type: Number,
+    type: String,
+    required: true
+  },
+  boardType: {
+    type: String,
+    required: true
+  },
+  condition: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  tail: {
+    type: String,
+    required: true
+  },
+  finSystem: {
+    type: String,
+    required: true
+  },
+  finConfiguration: {
+    type: String,
+    required: true
+  },
+  LengthFt: {
+    type: String,
+    required: true
+  },
+  LengthIn: {
+    type: String,
+    required: true
+  },
+  width: {
+    type: String,
+    required: true
+  },
+  depth: {
+    type: String,
+    required: true
+  },
+  volume: {
+    type: String,
+    required: true
+  },
+  construction: {
+    type: String,
+    required: true
+  },
+  glassing: {
+    type: String,
+    required: true
+  },
+  contour: {
+    type: String,
+    required: true
+  },
+  waveSize: {
+    type: String,
+    required: true
+  },
+  drive: {
+    type: String,
+    required: true
+  },
+  paddlePower: {
+    type: String,
+    required: true
+  },
+  movability: {
+    type: String,
     required: true
   },
   shaper: {
@@ -28,36 +95,6 @@ const PostSchema = new mongoose.Schema({
   model: {
     type: String,
     required: false
-  },
-  boardType: {
-    type: String,
-    required: false
-  },
-  condition: {
-    type: String,
-    required: false
-  },
-  isWaterTight: {
-    type: Boolean,
-    required: false
-  },
-  dimensions: {
-    height: {
-      type: String,
-      required: false
-    },
-    width: {
-      type: String,
-      required: false
-    },
-    depth: {
-      type: String,
-      required: false
-    },
-    volume: {
-      type: String,
-      required: false
-    }
   },
   location: {
     country: {
@@ -76,10 +113,6 @@ const PostSchema = new mongoose.Schema({
       type: String,
       required: false
     }
-  },
-  description: {
-    type: String,
-    required: false
   },
   likes: [
     {
