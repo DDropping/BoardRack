@@ -11,7 +11,11 @@ const PreviewList = props => {
       }}
     >
       {props.imgList.map(preview => (
-        <Preview key={preview.imgKey} previewObjectUrl={preview.objectUrl} />
+        <Preview
+          key={preview.imgKey}
+          previewObjectUrl={preview.objectUrl}
+          imgKey={preview.imgKey}
+        />
       ))}
     </div>
   );
