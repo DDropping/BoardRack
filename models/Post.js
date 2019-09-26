@@ -1,5 +1,4 @@
 //Post details model:
-//add later: potos []
 
 const mongoose = require('mongoose');
 
@@ -8,14 +7,6 @@ const PostSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
-  imgList: [
-    {
-      imgKey: String,
-      objectUrl: String,
-      imgDefault: String,
-      imgThumbnail: String
-    }
-  ],
   title: {
     type: String,
     required: true
@@ -36,92 +27,37 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  tail: {
-    type: String,
-    required: true
-  },
-  finSystem: {
-    type: String,
-    required: true
-  },
-  finConfiguration: {
-    type: String,
-    required: true
-  },
-  LengthFt: {
-    type: String,
-    required: true
-  },
-  LengthIn: {
-    type: String,
-    required: true
-  },
-  width: {
-    type: String,
-    required: true
-  },
-  depth: {
-    type: String,
-    required: true
-  },
-  volume: {
-    type: String,
-    required: true
-  },
-  construction: {
-    type: String,
-    required: true
-  },
-  glassing: {
-    type: String,
-    required: true
-  },
-  contour: {
-    type: String,
-    required: true
-  },
-  waveSize: {
-    type: String,
-    required: true
-  },
-  drive: {
-    type: String,
-    required: true
-  },
-  paddlePower: {
-    type: String,
-    required: true
-  },
-  movability: {
-    type: String,
-    required: true
-  },
-  shaper: {
-    type: String,
-    required: false
-  },
-  model: {
-    type: String,
-    required: false
-  },
+  tail: { type: String },
+  finSystem: { type: String },
+  finConfiguration: { type: String },
+  LengthFt: { type: String },
+  LengthIn: { type: String },
+  width: { type: String },
+  depth: { type: String },
+  volume: { type: String },
+  construction: { type: String },
+  glassing: { type: String },
+  contour: { type: String },
+  waveSize: { type: String },
+  drive: { type: String },
+  paddlePower: { type: String },
+  movability: { type: String },
+  shaper: { type: String },
+  model: { type: String },
   location: {
-    country: {
-      type: String,
-      required: false
-    },
-    state: {
-      type: String,
-      required: false
-    },
-    city: {
-      type: String,
-      required: false
-    },
-    zip: {
-      type: String,
-      required: false
-    }
+    country: { type: String },
+    state: { type: String },
+    city: { type: String },
+    zip: { type: String }
   },
+  imgList: [
+    {
+      imgKey: String,
+      objectUrl: String,
+      imgDefault: String,
+      imgThumbnail: String
+    }
+  ],
   likes: [
     {
       user: {
