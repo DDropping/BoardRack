@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Preview from './PreviewImage';
+import ImageUploadButton from './ImageUploadButton';
 
 const PreviewList = props => {
   return (
@@ -10,6 +11,7 @@ const PreviewList = props => {
         display: 'inline-block'
       }}
     >
+      <ImageUploadButton />
       {props.imgList.map(preview => (
         <Preview
           key={preview.imgKey}

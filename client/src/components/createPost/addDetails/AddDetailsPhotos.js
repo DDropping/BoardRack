@@ -6,7 +6,6 @@ import PreviewList from './imageUpload/PreviewList';
 const AddDetailsPhotos = () => {
   return (
     <div>
-      <ImageUploadButton />
       <PreviewList />
     </div>
   );
