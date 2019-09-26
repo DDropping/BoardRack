@@ -11,6 +11,47 @@ const AdditionalDetailsConstruction = () => {
     <Form>
       <Row>
         <Col xs={9} sm={10} md={8} lg={7}>
+          <h3 style={{ textAlign: 'center' }}>Tail:</h3>
+        </Col>
+        <Col xs={15} sm={14} md={16} lg={17}>
+          <Field
+            name="tail"
+            component={ASelect}
+            size="default"
+            defaultActiveFirstOption
+          >
+            <Select.Option value="Assymetrical">
+              Assymetrical Tail
+            </Select.Option>
+            <Select.Option value="Bat">Bat Tail</Select.Option>
+            <Select.Option value="Chop">Chop Tail</Select.Option>
+            <Select.Option value="Diamond">Diamond Tail</Select.Option>
+            <Select.Option value="Halfcrest Moon">
+              Halfcrest Moon Tail
+            </Select.Option>
+            <Select.Option value="Pin">Pin Tail</Select.Option>
+            <Select.Option value="Rocket">Rocket Tail</Select.Option>
+            <Select.Option value="Rounded Diamond">
+              Rounded Diamond Tail
+            </Select.Option>
+            <Select.Option value="Rounded Pin">Rounded Pin Tail</Select.Option>
+            <Select.Option value="Rounded Square">
+              Rounded Square Tail
+            </Select.Option>
+            <Select.Option value="Round">Round Tail</Select.Option>
+            <Select.Option value="Square">Square Tail</Select.Option>
+            <Select.Option value="Squash">Squash Tail</Select.Option>
+            <Select.Option value="Star">Star Tail</Select.Option>
+            <Select.Option value="Swallow">Swallow Tail</Select.Option>
+            <Select.Option value="Wing Swallow">
+              Wing Swallow Tail
+            </Select.Option>
+          </Field>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col xs={9} sm={10} md={8} lg={7}>
           <h3 style={{ textAlign: 'center' }}>Construction:</h3>
         </Col>
         <Col xs={15} sm={14} md={16} lg={17}>

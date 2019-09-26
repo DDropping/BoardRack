@@ -24,7 +24,7 @@ const AdditionalDetails = () => {
         <Col xs={24} sm={12} md={12} className="wrapperCreatePostItem">
           <Divider>
             <Typography.Title level={3} style={{ color: '#4878a9' }}>
-              Tail & Fins
+              Details
             </Typography.Title>
           </Divider>
           <AdditionalDetailsFins />

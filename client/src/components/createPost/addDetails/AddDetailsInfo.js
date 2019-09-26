@@ -63,34 +63,6 @@ const AddDetailsInfo = props => {
 
       <Row>
         <Col xs={7} sm={7} md={6} lg={5}>
-          <h3 style={{ textAlign: 'center' }}>Shaper:</h3>
-        </Col>
-        <Col xs={17} sm={17} md={18} lg={19}>
-          <Field
-            name="shaper"
-            component={AInput}
-            placeholder="Shaper..."
-            size="default"
-          />
-        </Col>
-      </Row>
-
-      <Row>
-        <Col xs={7} sm={7} md={6} lg={5}>
-          <h3 style={{ textAlign: 'center' }}>Model:</h3>
-        </Col>
-        <Col xs={17} sm={17} md={18} lg={19}>
-          <Field
-            name="model"
-            component={AInput}
-            placeholder="Model..."
-            size="default"
-          />
-        </Col>
-      </Row>
-
-      <Row>
-        <Col xs={7} sm={7} md={6} lg={5}>
           <h3 style={{ textAlign: 'center' }}>Type:</h3>
         </Col>
         <Col xs={17} sm={17} md={18} lg={19}>

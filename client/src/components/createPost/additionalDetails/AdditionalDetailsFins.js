@@ -4,49 +4,36 @@ import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import { Form, Row, Col, Select } from 'antd';
 
-import { ASelect } from '../../formAntComponents';
+import { ASelect, AInput } from '../../formAntComponents';
 
 const AdditionalDetailsFins = () => {
   return (
     <Form>
       <Row>
         <Col xs={6} sm={7}>
-          <h3 style={{ textAlign: 'center' }}>Tail:</h3>
+          <h3 style={{ textAlign: 'center' }}>Shaper:</h3>
         </Col>
         <Col xs={18} sm={17}>
           <Field
-            name="tail"
-            component={ASelect}
+            name="shaper"
+            component={AInput}
+            placeholder="Shaper..."
             size="default"
-            defaultActiveFirstOption
-          >
-            <Select.Option value="Assymetrical">
-              Assymetrical Tail
-            </Select.Option>
-            <Select.Option value="Bat">Bat Tail</Select.Option>
-            <Select.Option value="Chop">Chop Tail</Select.Option>
-            <Select.Option value="Diamond">Diamond Tail</Select.Option>
-            <Select.Option value="Halfcrest Moon">
-              Halfcrest Moon Tail
-            </Select.Option>
-            <Select.Option value="Pin">Pin Tail</Select.Option>
-            <Select.Option value="Rocket">Rocket Tail</Select.Option>
-            <Select.Option value="Rounded Diamond">
-              Rounded Diamond Tail
-            </Select.Option>
-            <Select.Option value="Rounded Pin">Rounded Pin Tail</Select.Option>
-            <Select.Option value="Rounded Square">
-              Rounded Square Tail
-            </Select.Option>
-            <Select.Option value="Round">Round Tail</Select.Option>
-            <Select.Option value="Square">Square Tail</Select.Option>
-            <Select.Option value="Squash">Squash Tail</Select.Option>
-            <Select.Option value="Star">Star Tail</Select.Option>
-            <Select.Option value="Swallow">Swallow Tail</Select.Option>
-            <Select.Option value="Wing Swallow">
-              Wing Swallow Tail
-            </Select.Option>
-          </Field>
+          />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col xs={6} sm={7}>
+          <h3 style={{ textAlign: 'center' }}>Model:</h3>
+        </Col>
+        <Col xs={18} sm={17}>
+          <Field
+            name="model"
+            component={AInput}
+            placeholder="Model..."
+            size="default"
+          />
         </Col>
       </Row>
 
