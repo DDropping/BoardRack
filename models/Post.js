@@ -24,10 +24,7 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  description: {
-    type: String,
-    required: true
-  },
+  description: { type: String },
   tail: { type: String },
   finSystem: { type: String },
   finConfiguration: { type: String },
