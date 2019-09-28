@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Icon } from 'antd';
+import { formValueSelector } from 'redux-form';
 
 import { clickNext, clickPrevious } from '../../actions/createPost/postSteps';
 
@@ -28,8 +29,18 @@ const CreatePostButtons = props => {
             Previous
           </Button>
         )}
-        {!props.isStepThreeVisible && (
+
+        {!props.isStepThreeVisible &&
+        props.title &&
+        props.price &&
+        props.boardType &&
+        props.condition ? (
           <Button onClick={props.clickNext} type="primary" ghost>
+            Next
+            <Icon type="right" />
+          </Button>
+        ) : (
+          <Button onClick={props.clickNext} type="primary" ghost disabled>
             Next
             <Icon type="right" />
           </Button>
@@ -39,11 +50,16 @@ const CreatePostButtons = props => {
   );
 };
 
+const selector = formValueSelector('createPost');
 const mapStateToProps = state => {
   return {
     isStepOneVisible: state.postSteps.isStepOneVisible,
     isStepTwoVisible: state.postSteps.isStepTwoVisible,
-    isStepThreeVisible: state.postSteps.isStepThreeVisible
+    isStepThreeVisible: state.postSteps.isStepThreeVisible,
+    title: selector(state, 'title'),
+    price: selector(state, 'price'),
+    boardType: selector(state, 'boardType'),
+    condition: selector(state, 'condition')
   };
 };
 

@@ -24,14 +24,10 @@ export const createPost = (formProps, imgList) => async dispatch => {
   //post new account to DB
   try {
     const res = await axios.post('/api/posts', body, config);
+    console.log(res);
   } catch (err) {
     if (err) {
       console.log(err);
     }
   }
-
-  //   console.log('Inside createPost action...');
-  //   console.log(formProps);
-  //   console.log(images);
-  //   console.log(body);
 };
