@@ -15,7 +15,7 @@ const AddDetails = () => {
           textAlign: 'center'
         }}
       >
-        *Create a new post by entering in a couple important details about your
+        Create a new post by entering in a couple important details about your
         board, then upload some photos!
       </div>
       <Row>

@@ -17,7 +17,7 @@ const AdditionalDetails = () => {
           textAlign: 'center'
         }}
       >
-        *Additional details are recommended but not required. The more
+        Additional details are recommended but not required. The more
         information provided, the more likely your board will be seen!
       </div>
       <Row>
