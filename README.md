@@ -6,6 +6,14 @@
 
 \*\*\* If need to make public, check config/default.json (DB admin uName/pwd visible)
 
+## Dev Notes
+
+primary blue: `#00458a`  
+secondary blue: `#4878a9`  
+primary white: `#ffffff`  
+primary grey: `#f3f7f9`  
+compress image options: client/src/actions/imageUpload.js
+
 ## Production checklist
 
 - Change db location in config/DB.js

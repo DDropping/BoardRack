@@ -8,8 +8,7 @@ import App from './components/App';
 import Home from './components/home/Home';
 import AccountOverview from './components/account/AccountOverview';
 import CreatePost from './components/createPost/CreatePost';
-
-import TestComponent from './components/navbar/register/RegisterModal';
+import TestComponent from './components/Test';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,7 +17,7 @@ ReactDOM.render(
         <Route path="/" exact component={Home} />
         <Route path="/test" exact component={TestComponent} />
         <Route path="/Account" exact component={AccountOverview} />
-        <Route path="/CreatePost" exact component={CreatePost} />
+        <Route path="/CreatePost" component={CreatePost} />
       </App>
     </BrowserRouter>
   </Provider>,
