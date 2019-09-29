@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { reset } from 'redux-form';
 import setAuthToken from '../util/setAuthToken';
 import {
   AUTH_USER,
@@ -71,6 +72,7 @@ export const registerUser = ({
         'You are now Logged In'
       )
     );
+    dispatch(reset('register'));
   } catch (e) {
     //failed registration
     const errors = e.response.data.errors;
@@ -113,6 +115,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
     dispatch({ type: TOGGLE_LOGIN_MODAL });
     dispatch({ type: CLOSE_NAV_DRAWER });
     dispatch(loadResultModalData('success', 'You are now Logged In'));
+    dispatch(reset('login'));
   } catch (e) {
     //failed registration
     const errors = e.response.data.errors;

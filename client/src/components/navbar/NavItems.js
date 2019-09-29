@@ -76,6 +76,7 @@ const Navbar = props => {
             Login
           </Menu.Item>
         )}
+
         {!props.isAuthenticated && (
           <Menu.Item onClick={props.toggleRegisterModal} key="register">
             Register

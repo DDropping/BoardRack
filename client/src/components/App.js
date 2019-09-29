@@ -7,7 +7,9 @@ import RegisterModal from './navbar/register/RegisterModal';
 import LoginModal from './navbar/login/LoginModal';
 import LogoutModal from './navbar/logout/logoutModal';
 import ResultModal from './util/ResultModal';
+import Footer from './footer';
 import { loadUser } from '../actions/auth';
+import './app.css';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -20,12 +22,19 @@ const App = ({ children }) => {
 
   return (
     <div>
-      <Navbar />
-      <RegisterModal />
-      <LoginModal />
-      <LogoutModal />
-      <ResultModal />
-      {children}
+      <div className="wrapperApp">
+        <div className="wrapperNavbar">
+          <Navbar />
+        </div>
+        <div className="wrapperBody">
+          <RegisterModal />
+          <LoginModal />
+          <LogoutModal />
+          <ResultModal />
+          {children}
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };

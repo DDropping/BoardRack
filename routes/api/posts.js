@@ -5,8 +5,8 @@
 // - GET api/posts (retrieve all posts)
 // - GET api/posts/filter (retrieve filtered posts)
 // - DELETE api/posts/delete/:postId (delete post given id)
-// @route   PUT api/posts/like/:id (like post)
-// @route   PUT api/posts/unlike/:id (like post)
+// - PUT api/posts/like/:id (like post)
+// - PUT api/posts/unlike/:id (like post)
 
 const express = require('express');
 const router = express.Router();
@@ -39,46 +39,68 @@ router.post(
     }
 
     const {
-      isNewBoard,
       title,
       price,
-      shaper,
-      model,
       boardType,
       condition,
-      isWaterTight,
-      height,
+      description,
+      tail,
+      finSystem,
+      finConfiguration,
+      LengthFt,
+      LengthIn,
       width,
       depth,
       volume,
+      construction,
+      glassing,
+      contour,
+      waveSize,
+      drive,
+      paddlePower,
+      movability,
+      shaper,
+      model,
       country,
       state,
       city,
       zip,
-      description
+      imgList
     } = req.body;
 
     //build post object
     const postFields = {};
     postFields.user = req.user.id;
-    if (isNewBoard) postFields.isNewBoard = isNewBoard;
     if (title) postFields.title = title;
     if (price) postFields.price = price;
-    if (shaper) postFields.shaper = shaper;
-    if (model) postFields.model = model;
     if (boardType) postFields.boardType = boardType;
     if (condition) postFields.condition = condition;
-    if (isWaterTight) postFields.isWaterTight = isWaterTight;
     if (description) postFields.description = description;
+    if (tail) postFields.tail = tail;
+    if (finSystem) postFields.finSystem = finSystem;
+    if (finConfiguration) postFields.finConfiguration = finConfiguration;
+    if (construction) postFields.construction = construction;
+    if (glassing) postFields.glassing = glassing;
+    if (contour) postFields.contour = contour;
+    if (waveSize) postFields.waveSize = waveSize;
+    if (drive) postFields.drive = drive;
+    if (paddlePower) postFields.paddlePower = paddlePower;
+    if (movability) postFields.movability = movability;
+    if (shaper) postFields.shaper = shaper;
+    if (model) postFields.model = model;
 
-    // //build dimensions object
+    //list of image urls
+    if (imgList) postFields.imgList = imgList;
+
+    //build dimensions object
     postFields.dimensions = {};
-    if (height) postFields.dimensions.height = height;
+    if (LengthFt) postFields.dimensions.LengthFt = LengthFt;
+    if (LengthIn) postFields.dimensions.LengthIn = LengthIn;
     if (width) postFields.dimensions.width = width;
     if (depth) postFields.dimensions.depth = depth;
     if (volume) postFields.dimensions.volume = volume;
 
-    // //build location object
+    //build location object
     postFields.location = {};
     if (country) postFields.location.country = country;
     if (state) postFields.location.state = state;

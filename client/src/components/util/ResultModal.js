@@ -17,6 +17,7 @@ const ResultModal = props => {
         status={props.status}
         title={props.title}
         subTitle={props.subTitle}
+        style={{ padding: '0' }}
       />
     </Modal>
   );

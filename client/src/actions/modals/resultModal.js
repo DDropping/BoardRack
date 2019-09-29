@@ -15,10 +15,10 @@ export const loadResultModalData = (status, title, subTitle) => dispatch => {
   });
   setTimeout(() => {
     dispatch({ type: CLOSE_RESULT_MODAL });
-  }, 3000);
+  }, 1500);
   setTimeout(() => {
     dispatch({ type: RESET_RESULT_MODAL_DATA });
-  }, 4000);
+  }, 3000);
 };
 
 export const closeResultModal = () => dispatch => {
