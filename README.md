@@ -8,8 +8,10 @@
 
 ## Dev Notes
 
-primary color: `#00458a`
-secondary color: `#4878a9`
+primary blue: `#00458a`  
+secondary blue: `#4878a9`  
+primary white: `#ffffff`  
+primary grey: `#f3f7f9`  
 compress image options: client/src/actions/imageUpload.js
 
 ## Production checklist
