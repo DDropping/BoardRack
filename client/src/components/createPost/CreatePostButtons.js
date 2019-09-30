@@ -2,10 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Icon } from 'antd';
 import { formValueSelector } from 'redux-form';
+import { animateScroll as scroll } from 'react-scroll';
 
 import { clickNext, clickPrevious } from '../../actions/createPost/postSteps';
 
 const CreatePostButtons = props => {
+  const nextHandler = () => {
+    scroll.scrollToTop();
+    props.clickNext();
+  };
+
+  const previousHandler = () => {
+    scroll.scrollToTop();
+    props.clickPrevious();
+  };
+
   return (
     <div
       style={{
@@ -20,7 +31,7 @@ const CreatePostButtons = props => {
       <div style={{ float: 'right' }}>
         {!props.isStepOneVisible && (
           <Button
-            onClick={props.clickPrevious}
+            onClick={previousHandler}
             style={{ marginRight: '5px' }}
             type="primary"
             ghost
@@ -35,7 +46,7 @@ const CreatePostButtons = props => {
         props.price &&
         props.boardType &&
         props.condition ? (
-          <Button onClick={props.clickNext} type="primary" ghost>
+          <Button onClick={nextHandler} type="primary" ghost>
             Next
             <Icon type="right" />
           </Button>
