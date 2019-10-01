@@ -38,7 +38,7 @@ export const createPost = (formProps, imgList) => async dispatch => {
     if (err) {
       console.log(err);
       dispatch({ type: PUBISH_LOADING_DONE });
-      CreatePostSuccessNotification();
+      CreatePostFailNotification();
     }
   }
 };
