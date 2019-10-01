@@ -25,10 +25,12 @@ const ImageUploadButton = props => {
 
         <div className="ant-upload-text">Upload {props.imgList.length}/8</div>
       </button>
-      <input
-        type="file"
-        onChange={event => handleChange(event.target.files[0])}
-      />
+      {props.imgList.length < 8 && (
+        <input
+          type="file"
+          onChange={event => handleChange(event.target.files[0])}
+        />
+      )}
     </div>
   );
 };
