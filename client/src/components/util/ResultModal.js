@@ -1,3 +1,10 @@
+/**
+ * NOT CURRENTLY IN USE
+ *
+ * To use, dispatch action like:
+ *     dispatch(loadResultModalData('success', 'Regestration Successful!', 'You are now Logged In'));
+ */
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { Result, Modal } from 'antd';
