@@ -31,6 +31,7 @@ const PublishButton = props => {
             htmlType="submit"
             onSubmit={props.handleSubmit(onSubmit)}
             type="primary"
+            loading={props.isLoading}
           >
             Publish
           </Button>
@@ -42,7 +43,8 @@ const PublishButton = props => {
 
 const mapStateToProps = state => {
   return {
-    imgList: state.imgUpload.imgList
+    imgList: state.imgUpload.imgList,
+    isLoading: state.createPost.isLoading
   };
 };
 

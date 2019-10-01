@@ -1,6 +1,8 @@
 import axios from 'axios';
+import { PUBLISH_LOADING, PUBISH_DONE } from '../types';
 
 export const createPost = (formProps, imgList) => async dispatch => {
+  dispatch({ type: PUBLISH_LOADING });
   const images = imgList.map(obj => {
     return {
       thumbnail: obj.imgThumbnail,
@@ -26,9 +28,11 @@ export const createPost = (formProps, imgList) => async dispatch => {
     console.log(body);
     const res = await axios.post('/api/posts', body, config);
     console.log(res);
+    dispatch({ type: PUBISH_DONE });
   } catch (err) {
     if (err) {
       console.log(err);
+      dispatch({ type: PUBISH_DONE });
     }
   }
 };
