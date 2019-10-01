@@ -1,8 +1,3 @@
-/**
- * Image upload component
- * - change icon to loading when loading
- */
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { Icon } from 'antd';
@@ -29,7 +24,9 @@ class ImageUploadButton extends React.Component {
         <button className="btn" style={{ width: '150px', height: '200px' }}>
           <Icon type={this.props.isLoading ? 'loading' : 'plus'} />
 
-          <div className="ant-upload-text">Upload</div>
+          <div className="ant-upload-text">
+            Upload {this.props.imgList.length}/8
+          </div>
         </button>
         <input
           type="file"
@@ -42,8 +39,8 @@ class ImageUploadButton extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    isLoading: state.imgUpload.isLoading,
-    imgKey: state.imgUpload.imgKey
+    imgKey: state.imgUpload.imgKey,
+    imgList: state.imgUpload.imgList
   };
 };
 
