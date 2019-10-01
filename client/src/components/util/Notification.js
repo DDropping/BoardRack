@@ -27,3 +27,21 @@ export const LogoutSuccessNotification = () => {
     icon: <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
   });
 };
+
+export const CreatePostSuccessNotification = () => {
+  notification.open({
+    message: 'New Post Created!',
+    description: 'Your Post Has Been Created And Is Live For The World To See',
+    duration: 3,
+    icon: <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
+  });
+};
+
+export const CreatePostFailNotification = () => {
+  notification.open({
+    message: 'Uhh Ohh, Something Went Wrong',
+    description: 'Sorry, Your Post Could Not Be Created At This Time',
+    duration: 3,
+    icon: <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
+  });
+};

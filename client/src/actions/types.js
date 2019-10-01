@@ -25,7 +25,7 @@ export const USER_LOADED = 'USER_LOADED';
 export const AUTH_ERROR = 'AUTH_ERROR';
 
 export const PUBLISH_LOADING = 'PUBLISH_LOADING';
-export const PUBISH_DONE = 'PUBISH_DONE';
+export const PUBISH_LOADING_DONE = 'PUBISH_LOADING_DONE';
 
 export const CHANGE_POST_STEP = 'CHANGE_POST_STEP';
 

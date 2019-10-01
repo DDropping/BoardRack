@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { PUBLISH_LOADING, PUBISH_DONE } from '../types';
+import {
+  CreatePostSuccessNotification,
+  CreatePostFailNotification
+} from '../../components/util/Notification';
+import { PUBLISH_LOADING, PUBISH_LOADING_DONE } from '../types';
 
 export const createPost = (formProps, imgList) => async dispatch => {
   dispatch({ type: PUBLISH_LOADING });
@@ -28,11 +32,13 @@ export const createPost = (formProps, imgList) => async dispatch => {
     console.log(body);
     const res = await axios.post('/api/posts', body, config);
     console.log(res);
-    dispatch({ type: PUBISH_DONE });
+    dispatch({ type: PUBISH_LOADING_DONE });
+    CreatePostSuccessNotification();
   } catch (err) {
     if (err) {
       console.log(err);
-      dispatch({ type: PUBISH_DONE });
+      dispatch({ type: PUBISH_LOADING_DONE });
+      CreatePostSuccessNotification();
     }
   }
 };
