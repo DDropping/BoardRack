@@ -23,6 +23,7 @@ export const createPost = (formProps, imgList) => async dispatch => {
 
   //post new account to DB
   try {
+    console.log(body);
     const res = await axios.post('/api/posts', body, config);
     console.log(res);
   } catch (err) {

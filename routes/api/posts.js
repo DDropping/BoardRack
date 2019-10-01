@@ -65,7 +65,7 @@ router.post(
       state,
       city,
       zip,
-      imgList
+      images
     } = req.body;
 
     //build post object
@@ -90,7 +90,7 @@ router.post(
     if (model) postFields.model = model;
 
     //list of image urls
-    if (imgList) postFields.imgList = imgList;
+    if (images) postFields.images = images;
 
     //build dimensions object
     postFields.dimensions = {};

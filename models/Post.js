@@ -48,12 +48,11 @@ const PostSchema = new mongoose.Schema({
     city: { type: String },
     zip: { type: String }
   },
-  imgList: [
+  images: [
     {
       imgKey: String,
-      objectUrl: String,
-      imgDefault: String,
-      imgThumbnail: String
+      thumbnail: String,
+      default: String
     }
   ],
   likes: [

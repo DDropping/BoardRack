@@ -25,7 +25,6 @@ compress image options: client/src/actions/imageUpload.js
 - Start react client with `$ npm run deploy-production` or build react app with `$ react-app-rewired build`, remove current build from nginx selected folder with `$ rm -r /var/www/boardrack.org/html/*`, move current build to nginx folder with `$ cp -r ./build/* /var/www/boardrack.org/html`
 - Change location of mongo database in /config/DB.js
 - Create config/default.json with entries:
-
   `"mongoURI": "xxxxxxxxxxxxxxxx",`  
   `"mongoURI_dev": "xxxxxxxxxxxxxxxx",`  
   `"jwtSecret": "xxxxxxxxxxxxxxxx",`  
