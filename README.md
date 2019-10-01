@@ -26,12 +26,12 @@ compress image options: client/src/actions/imageUpload.js
 - Change location of mongo database in /config/DB.js
 - Create config/default.json with entries:
 
-  `"mongoURI": "xxxxxxxxxxxxxxxx",`
-  `"mongoURI_dev": "xxxxxxxxxxxxxxxx",`
-  `"jwtSecret": "xxxxxxxxxxxxxxxx",`
-  `"S3_Access_Key_Id": "xxxxxxxxxxxxxxxx",`
-  `"S3_Secret_Acess_Key": "xxxxxxxxxxxxxxxx",`
-  `"S3_Region": "xxxxxxxxxxxxxxxx",`
+  `"mongoURI": "xxxxxxxxxxxxxxxx",`  
+  `"mongoURI_dev": "xxxxxxxxxxxxxxxx",`  
+  `"jwtSecret": "xxxxxxxxxxxxxxxx",`  
+  `"S3_Access_Key_Id": "xxxxxxxxxxxxxxxx",`  
+  `"S3_Secret_Acess_Key": "xxxxxxxxxxxxxxxx",`  
+  `"S3_Region": "xxxxxxxxxxxxxxxx",`  
   `"S3_Bucket": "xxxxxxxxxxxxxxxx"`
 
 ### SSH Commands
