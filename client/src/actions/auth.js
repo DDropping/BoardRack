@@ -22,7 +22,6 @@ import {
   AUTH_ERROR,
   DEAUTH_USER
 } from './types';
-import { loadResultModalData } from './modals/resultModal';
 
 /*********** LOAD USER ***********/
 export const loadUser = () => async dispatch => {

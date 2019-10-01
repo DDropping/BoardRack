@@ -1,9 +1,10 @@
 import axios from 'axios';
+import { reset } from 'redux-form';
 import {
   CreatePostSuccessNotification,
   CreatePostFailNotification
 } from '../../components/util/Notification';
-import { PUBLISH_LOADING, PUBISH_LOADING_DONE } from '../types';
+import { PUBLISH_LOADING, PUBISH_LOADING_DONE, EMPTY_IMGLIST } from '../types';
 
 export const createPost = (formProps, imgList) => async dispatch => {
   dispatch({ type: PUBLISH_LOADING });
@@ -41,4 +42,9 @@ export const createPost = (formProps, imgList) => async dispatch => {
       CreatePostFailNotification();
     }
   }
+};
+
+export const cancelCreatePost = () => dispatch => {
+  dispatch(reset('createPost'));
+  dispatch({ type: EMPTY_IMGLIST });
 };

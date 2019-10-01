@@ -5,7 +5,8 @@ import {
   INCREASE_IMG_KEY,
   DECREASE_IMG_KEY,
   DELETE_IMG_PREVIEW,
-  IMG_UPLOAD_DONE
+  IMG_UPLOAD_DONE,
+  EMPTY_IMGLIST
 } from '../../actions/types';
 
 const INITIAL_STATE = {
@@ -75,6 +76,8 @@ export default function(state = INITIAL_STATE, action) {
           item.imgKey === action.payload ? { ...item, isLoading: false } : item
         )
       };
+    case EMPTY_IMGLIST:
+      return INITIAL_STATE;
     default:
       return state;
   }
