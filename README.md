@@ -12,6 +12,7 @@ primary blue: `#00458a`
 secondary blue: `#4878a9`  
 primary white: `#ffffff`  
 primary grey: `#f3f7f9`  
+primary green: `#52c41a`
 compress image options: client/src/actions/imageUpload.js
 
 ## Production checklist
