@@ -42,6 +42,8 @@ export const CreatePostFailNotification = () => {
     message: 'Uhh Ohh, Something Went Wrong',
     description: 'Sorry, Your Post Could Not Be Created At This Time',
     duration: 4.5,
-    icon: <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
+    icon: (
+      <Icon type="exclamation-circle" theme="twoTone" twoToneColor="#ffdc17" />
+    )
   });
 };
