@@ -14,7 +14,7 @@
 }
 
 .upload-btn-wrapper input[type='file'] {
-  font-size: 100px;
+  font-size: 130px; /* increase size of input box height & width (130 seems to equal size of upload img button) */
   position: absolute;
   left: 0;
   top: 0;
