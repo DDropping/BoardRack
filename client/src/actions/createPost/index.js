@@ -4,7 +4,12 @@ import {
   CreatePostSuccessNotification,
   CreatePostFailNotification
 } from '../../components/util/Notification';
-import { PUBLISH_LOADING, PUBISH_LOADING_DONE, EMPTY_IMGLIST } from '../types';
+import {
+  PUBLISH_LOADING,
+  PUBISH_LOADING_DONE,
+  EMPTY_IMGLIST,
+  REDIRECT_TO_HOME
+} from '../types';
 
 export const createPost = (formProps, imgList) => async dispatch => {
   dispatch({ type: PUBLISH_LOADING });
@@ -47,4 +52,5 @@ export const createPost = (formProps, imgList) => async dispatch => {
 export const cancelCreatePost = () => dispatch => {
   dispatch(reset('createPost'));
   dispatch({ type: EMPTY_IMGLIST });
+  dispatch({ type: REDIRECT_TO_HOME });
 };

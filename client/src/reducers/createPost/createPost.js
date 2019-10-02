@@ -1,7 +1,12 @@
-import { PUBLISH_LOADING, PUBISH_LOADING_DONE } from '../../actions/types';
+import {
+  PUBLISH_LOADING,
+  PUBISH_LOADING_DONE,
+  REDIRECT_TO_HOME
+} from '../../actions/types';
 
 const initialState = {
-  isLoading: false
+  isLoading: false,
+  redirectToHome: false
 };
 
 export default function(state = initialState, action) {
@@ -16,6 +21,12 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false
       };
+    case REDIRECT_TO_HOME: {
+      return {
+        ...state,
+        redirectToHome: true
+      };
+    }
     default:
       return state;
   }
