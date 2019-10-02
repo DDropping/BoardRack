@@ -28,7 +28,6 @@ const ImageUploadButton = props => {
         {props.imgList.length < 8 && (
           <input
             type="file"
-            size="200"
             onChange={event => handleChange(event.target.files[0])}
           />
         )}
