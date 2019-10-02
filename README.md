@@ -18,7 +18,7 @@ compress image options: client/src/actions/imageUpload.js
 ## Production checklist
 
 - Change db location in config/DB.js
-- Change proxy in client/package.json (not sure if this is actually required)
+- Change proxy in client/package.json, to connect to express server (not sure if this is actually required)
 
 ## How to run (deployed in production)
 
