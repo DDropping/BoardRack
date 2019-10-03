@@ -1,12 +1,15 @@
 import React from 'react';
 import { Modal } from 'antd';
 
+import './post.css';
+
 const Post = () => {
   return (
     <div>
       <Modal
+        className="br-post-modal"
         bodyStyle={{ height: '100vh' }}
-        visible={false}
+        visible={true}
         footer={null}
         onCancel={null}
       >
