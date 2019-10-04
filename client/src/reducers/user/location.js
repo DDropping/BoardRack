@@ -10,7 +10,6 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
-  console.log('reducer: ' + action.payload);
   switch (action.type) {
     case UPDATE_GEOLOCATION:
       return {
