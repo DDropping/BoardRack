@@ -13,7 +13,7 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
 
   try {
     const res = await axios.post('/api/externalAPI/getAddress', body, config);
-    console.log(res);
+    console.log(res.data);
   } catch (err) {
     console.log(err);
   }
