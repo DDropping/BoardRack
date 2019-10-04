@@ -24,7 +24,14 @@ router.post('/getAddress', async (req, res) => {
       PostalCode
     } = location.data.Response.View[0].Result[0].Location.Address;
 
-    const address = JSON.stringify({ Country, State, City, PostalCode });
+    const address = {
+      lat,
+      lng,
+      Country,
+      State,
+      City,
+      PostalCode
+    };
 
     res.json(address);
   } catch {

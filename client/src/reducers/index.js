@@ -10,6 +10,7 @@ import resultModal from './modals/resultModal';
 import createPost from './createPost/createPost';
 import postSteps from './createPost/postSteps';
 import imgUpload from './createPost/imgUpload';
+import location from './user/location';
 
 export default combineReducers({
   form: formReducer,
@@ -21,5 +22,6 @@ export default combineReducers({
   resultModal,
   createPost,
   postSteps,
-  imgUpload
+  imgUpload,
+  location
 });
