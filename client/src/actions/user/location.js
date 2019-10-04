@@ -1,13 +1,24 @@
 import axios from 'axios';
 
-// const config = require('config');
-// const HERE_REST_APP_ID = config.get('here_REST_App_Id');
-// const HERE_REST_APP_CODE = config.get('here_REST_App_Code');
-
-export const getUserAddress = (lat, lng) => async dispatch => {
+export const getUserAddress = ({ lat, lng }) => async dispatch => {
   console.log('Inside get user address action');
-  //   const address = await axios.get(
-  //     `https://reverse.geocoder.api.here.com/6.2/reversegeocode.json?app_id=${HERE_REST_APP_ID}&app_code=${HERE_REST_APP_CODE}&mode=retrieveAddresses&prox=${lat},${lng}`
-  //   );
-  //   console.log(address.data.Response.View[0].Result[0].Location.Address);
+  console.log('action: ' + lat);
+
+  //set headers for request
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  const body = JSON.stringify({ lat, lng });
+  console.log('body: ' + body);
+
+  console.log('sending to server...');
+  try {
+    const res = await axios.post('/api/externalAPI/getAddress', body, config);
+    console.log(res);
+  } catch (e) {
+    console.log(e.msg);
+  }
 };

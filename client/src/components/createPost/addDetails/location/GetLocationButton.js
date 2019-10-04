@@ -14,7 +14,9 @@ const GetLocationButton = props => {
   };
 
   const retrievedLocation = location => {
-    props.getUserAddress(location.coords.latitude, location.coords.longitude);
+    const lat = location.coords.latitude;
+    const lng = location.coords.longitude;
+    props.getUserAddress({ lat, lng });
   };
 
   return (
