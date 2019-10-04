@@ -14,7 +14,14 @@ const initialState = {
   isAuthenticated: null,
   isLoading: true,
   user: null,
-
+  guest: {
+    lat: null,
+    lng: null,
+    country: null,
+    state: null,
+    city: null,
+    postalCode: null
+  },
   registrationErrors: [],
   loginErrors: [],
   isRegisterButtonLoading: false,
