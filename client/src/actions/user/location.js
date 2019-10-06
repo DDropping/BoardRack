@@ -1,10 +1,15 @@
 import axios from 'axios';
 import store from '../../store';
 
-import { UPDATE_GEOLOCATION } from '../types';
+import {
+  UPDATE_GEOLOCATION,
+  LOADING_USER_LOCATION,
+  LOADING_USER_LOCATION_DONE
+} from '../types';
 
 // Get user's location
 export const getUserAddress = ({ lat, lng }) => async dispatch => {
+  dispatch({ type: LOADING_USER_LOCATION });
   //set headers for request
   const config = {
     headers: {
@@ -18,6 +23,7 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
   try {
     const res = await axios.post('/api/externalAPI/getAddress', body, config);
     dispatch({ type: UPDATE_GEOLOCATION, payload: res.data });
+    dispatch({ type: LOADING_USER_LOCATION_DONE });
 
     if (store.getState().auth.user) {
       //if user is logged in
@@ -38,6 +44,7 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
     }
   } catch (err) {
     console.log(err);
+    dispatch({ type: LOADING_USER_LOCATION_DONE });
   }
 };
 
