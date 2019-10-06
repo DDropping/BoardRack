@@ -12,41 +12,46 @@ const Location = props => {
     props.loginUser(formProps);
   };
   return (
-    <Form onSubmit={props.handleSubmit(onSubmit)}>
-      {/* FIX: force antd to load input style */}
-      <Input style={{ display: 'none' }} />
-      <Row gutter={4}>
-        <Col xs={12} sm={6} md={6}>
-          <Field
-            name="city"
-            component={AInput}
-            placeholder={props.location.city ? props.location.city : 'City'}
-            size="default"
-          />
-        </Col>
-        <Col xs={5} sm={4} md={2}>
-          <Field
-            name="state"
-            component={AInput}
-            placeholder={props.location.state ? props.location.state : 'State'}
-            size="default"
-          />
-        </Col>
-        <Col xs={7} sm={4} md={3}>
-          <Field
-            name="postalCode"
-            component={AInput}
-            placeholder={
-              props.location.postalCode
-                ? props.location.postalCode
-                : 'Postal Code'
-            }
-            size="default"
-          />
-        </Col>
-        <CurrentLocationButton />
-      </Row>
-    </Form>
+    <p style={{ display: 'inline-block', fontStyle: 'italic' }}>
+      {props.location.city + ', '}
+      {props.location.state + ' '}
+      {props.location.postalCode}
+    </p>
+    // <Form onSubmit={props.handleSubmit(onSubmit)}>
+    //   {/* FIX: force antd to load input style */}
+    //   <Input style={{ display: 'none' }} />
+    //   <Row gutter={4}>
+    //     <Col xs={12} sm={6} md={6}>
+    //       <Field
+    //         name="city"
+    //         component={AInput}
+    //         placeholder={props.location.city ? props.location.city : 'City'}
+    //         size="default"
+    //       />
+    //     </Col>
+    //     <Col xs={5} sm={4} md={2}>
+    //       <Field
+    //         name="state"
+    //         component={AInput}
+    //         placeholder={props.location.state ? props.location.state : 'State'}
+    //         size="default"
+    //       />
+    //     </Col>
+    //     <Col xs={7} sm={4} md={3}>
+    //       <Field
+    //         name="postalCode"
+    //         component={AInput}
+    //         placeholder={
+    //           props.location.postalCode
+    //             ? props.location.postalCode
+    //             : 'Postal Code'
+    //         }
+    //         size="default"
+    //       />
+    //     </Col>
+    //     <CurrentLocationButton />
+    //   </Row>
+    // </Form>
   );
 };
 

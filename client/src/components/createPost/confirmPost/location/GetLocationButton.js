@@ -26,6 +26,7 @@ const GetLocationButton = props => {
       loading={props.isLoading}
       type="primary"
       ghost
+      style={{ display: 'inline-block', marginRight: '10px' }}
     >
       Get Location
     </Button>

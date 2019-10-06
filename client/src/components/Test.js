@@ -9,8 +9,8 @@ import Location from './createPost/confirmPost/location/Location';
 const Test = props => {
   return (
     <div>
-      <Location />
       <GetLocation />
+      <Location />
     </div>
   );
 };
