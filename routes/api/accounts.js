@@ -165,12 +165,9 @@ router.delete('/myAccount', auth, async (req, res) => {
 // @desc    Update the users location
 // @access  Protected (only owner of account - JWT)
 router.put('/updateLocation', auth, async (req, res) => {
-  console.log('inside updatelocation route');
-  console.log(req.body);
   try {
     //update account
     await User.updateOne({ _id: req.user.id }, req.body);
-
     res.json({ msg: 'Account Updated' });
   } catch (err) {
     console.error(err.message);

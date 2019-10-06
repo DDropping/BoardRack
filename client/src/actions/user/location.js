@@ -17,7 +17,6 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
 
   try {
     const res = await axios.post('/api/externalAPI/getAddress', body, config);
-    console.log(res.data);
     dispatch({ type: UPDATE_GEOLOCATION, payload: res.data });
 
     if (store.getState().auth.user) {
@@ -35,8 +34,6 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
           }
         };
         dispatch(updateUserLocation(body));
-        console.log('yes');
-        //await axios.put('/api/accounts/updateLocation', body);
       }
     }
   } catch (err) {
@@ -46,7 +43,6 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
 
 //Update user's location in DB
 export const updateUserLocation = location => async dispatch => {
-  console.log(location);
   try {
     await axios.put('/api/accounts/updateLocation', location);
   } catch (err) {
