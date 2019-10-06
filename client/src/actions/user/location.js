@@ -3,6 +3,7 @@ import store from '../../store';
 
 import { UPDATE_GEOLOCATION } from '../types';
 
+// Get user's location
 export const getUserAddress = ({ lat, lng }) => async dispatch => {
   //set headers for request
   const config = {
@@ -20,12 +21,9 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
     dispatch({ type: UPDATE_GEOLOCATION, payload: res.data });
 
     if (store.getState().auth.user) {
-      console.log('user is logged in');
       //if user is logged in
       if (!store.getState().auth.user.location) {
         //if user doesn't have a saved location yet
-        console.log('Saving current location to account');
-        //updateUserLocation();
         const body = {
           location: {
             lat: res.data.lat,
@@ -36,9 +34,9 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
             zip: res.data.PostalCode
           }
         };
-        console.log('body: ' + res.data.lat);
-        const res2 = await axios.put('/api/accounts/updateLocation', body);
-        console.log(res2);
+        dispatch(updateUserLocation(body));
+        console.log('yes');
+        //await axios.put('/api/accounts/updateLocation', body);
       }
     }
   } catch (err) {
@@ -46,22 +44,11 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
   }
 };
 
-//set user's location
+//Update user's location in DB
 export const updateUserLocation = location => async dispatch => {
-  console.log('inside update user location');
   console.log(location);
   try {
-    const body = {
-      location: {
-        lat: { type: String },
-        lng: { type: String },
-        country: { type: String },
-        state: { type: String },
-        city: { type: String },
-        zip: { type: String }
-      }
-    };
-    const res = await axios.put('/api/accounts/updateLocation');
+    await axios.put('/api/accounts/updateLocation', location);
   } catch (err) {
     console.log(err);
   }
