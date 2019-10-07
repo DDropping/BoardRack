@@ -36,7 +36,6 @@ export const saveLocation = (city, state, postalCode) => dispatch => {
 
 // GET USER'S LOCATION ----------------------------------------
 export const getUserAddress = ({ lat, lng }) => async dispatch => {
-  dispatch({ type: LOADING_USER_LOCATION });
   //set headers for request
   const config = {
     headers: {
