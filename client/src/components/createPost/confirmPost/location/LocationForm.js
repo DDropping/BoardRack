@@ -52,7 +52,7 @@ const LocationForm = props => {
           <Button
             type="primary"
             style={{ marginTop: '4px' }}
-            loading={props.isLoading}
+            loading={props.isSaving}
             htmlType="submit"
             ghost
           >
@@ -67,7 +67,7 @@ const LocationForm = props => {
 const mapStateToProps = state => {
   return {
     location: state.location,
-    isLoading: state.location.isLoading
+    isSaving: state.location.isSaving
   };
 };
 

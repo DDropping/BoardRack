@@ -39,7 +39,7 @@ export const saveLocation = formProps => async dispatch => {
   try {
     const res = await axios.post('/api/externalAPI/getCoords', body, config);
     dispatch({ type: UPDATE_GEOLOCATION, payload: res.data });
-    //create action to handle res.data
+    dispatch({ type: SAVING_USER_LOCATION_DONE });
   } catch (err) {
     console.log(err);
     dispatch({ type: SAVING_USER_LOCATION_DONE });
