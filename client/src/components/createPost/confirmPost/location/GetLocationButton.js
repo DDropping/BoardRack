@@ -2,10 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
 
-import { getUserAddress } from '../../../../actions/user/location';
+import {
+  getUserAddress,
+  loadingLocation
+} from '../../../../actions/user/location';
 
 const GetLocationButton = props => {
   const handleGetLocation = () => {
+    props.loadingLocation();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(retrievedLocation);
     } else {
@@ -41,5 +45,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getUserAddress }
+  { getUserAddress, loadingLocation }
 )(GetLocationButton);

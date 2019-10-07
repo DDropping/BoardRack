@@ -2,9 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Icon } from 'antd';
 
+import { editLocation } from '../../../../actions/user/location';
+
 const LocationText = props => {
   const handlEditClick = () => {
-    console.log('handle edit click');
+    props.editLocation();
   };
   return (
     <div style={{ display: 'inline-block' }}>
@@ -29,5 +31,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  null
+  { editLocation }
 )(LocationText);

@@ -4,10 +4,37 @@ import store from '../../store';
 import {
   UPDATE_GEOLOCATION,
   LOADING_USER_LOCATION,
-  LOADING_USER_LOCATION_DONE
+  LOADING_USER_LOCATION_DONE,
+  SAVING_USER_LOCATION,
+  SAVING_USER_LOCATION_DONE,
+  DISPLAY_LOCATION_FORM,
+  HIDE_LOCATION_FORM
 } from '../types';
 
-// Get user's location
+// SET ISLOADING TO TRUE
+export const loadingLocation = () => dispatch => {
+  dispatch({ type: LOADING_USER_LOCATION });
+};
+
+// EDIT DISPLAYED LOCATION ----------------------------------------
+export const editLocation = () => dispatch => {
+  dispatch({ type: DISPLAY_LOCATION_FORM });
+};
+
+// Save location
+export const saveLocation = (city, state, postalCode) => dispatch => {
+  dispatch({ type: SAVING_USER_LOCATION });
+  try {
+    // fetch user location
+    console.log(city, state, postalCode);
+  } catch (err) {
+    console.log(err);
+    dispatch({ type: SAVING_USER_LOCATION_DONE });
+    dispatch({ type: HIDE_LOCATION_FORM });
+  }
+};
+
+// GET USER'S LOCATION ----------------------------------------
 export const getUserAddress = ({ lat, lng }) => async dispatch => {
   dispatch({ type: LOADING_USER_LOCATION });
   //set headers for request
@@ -48,7 +75,7 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
   }
 };
 
-//Update user's location in DB
+// UPDATE USER'S LOCATION IN DB ----------------------------------------
 export const updateUserLocation = location => async dispatch => {
   try {
     await axios.put('/api/accounts/updateLocation', location);
