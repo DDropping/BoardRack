@@ -4,13 +4,15 @@ import './createPost/addDetails/imageUpload/imgUpload.css';
 import { connect } from 'react-redux';
 import { deleteImagePreview } from '../actions/createPost/imageUpload';
 import GetLocation from './createPost/confirmPost/location/GetLocationButton';
-import Location from './createPost/confirmPost/location/Location';
+import LocationForm from './createPost/confirmPost/location/LocationForm';
+import LocationText from './createPost/confirmPost/location/LocationText';
 
 const Test = props => {
   return (
     <div>
       <GetLocation />
-      <Location />
+      <LocationText />
+      <LocationForm />
     </div>
   );
 };

@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import PublishButton from './PublishButton';
-import Location from './location/Location';
+import LocationForm from './location/LocationForm';
+import LocationText from './location/LocationText';
 
 const ConfirmPost = props => {
   return (
     <div>
-      <Location />
+      <LocationForm />
       <PublishButton />
     </div>
   );
