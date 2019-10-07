@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Form, Input, Button, Row, Col } from 'antd';
+import { Icon, Form, Input, Button, Row, Col } from 'antd';
 import { reduxForm, Field } from 'redux-form';
 
 import { AInput } from '../../../formAntComponents';
@@ -15,7 +15,8 @@ const Location = props => {
     <p style={{ display: 'inline-block', fontStyle: 'italic' }}>
       {props.location.city + ', '}
       {props.location.state + ' '}
-      {props.location.postalCode}
+      {props.location.postalCode + ' '}
+      <Icon onClick="handleEditClick" type="edit" />
     </p>
     // <Form onSubmit={props.handleSubmit(onSubmit)}>
     //   {/* FIX: force antd to load input style */}
