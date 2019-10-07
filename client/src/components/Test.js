@@ -10,14 +10,25 @@ import LocationText from './createPost/confirmPost/location/LocationText';
 const Test = props => {
   return (
     <div>
-      <GetLocation />
-      <LocationText />
-      <LocationForm />
+      {!props.displayLocationForm ? (
+        <div>
+          <GetLocation />
+          <LocationText />
+        </div>
+      ) : (
+        <LocationForm />
+      )}
     </div>
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    displayLocationForm: state.location.displayLocationForm
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { deleteImagePreview }
 )(Test);

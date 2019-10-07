@@ -2,11 +2,17 @@ import {
   UPDATE_GEOLOCATION,
   USER_LOADED_SET_LOCATION,
   LOADING_USER_LOCATION,
-  LOADING_USER_LOCATION_DONE
+  LOADING_USER_LOCATION_DONE,
+  SAVING_USER_LOCATION,
+  SAVING_USER_LOCATION_DONE,
+  DISPLAY_LOCATION_FORM,
+  HIDE_LOCATION_FORM
 } from '../../actions/types';
 
 const initialState = {
   isLoading: false,
+  isSaving: false,
+  displayLocationForm: false,
   lat: null,
   lng: null,
   country: null,
@@ -17,6 +23,26 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case SAVING_USER_LOCATION:
+      return {
+        ...state,
+        isSaving: true
+      };
+    case SAVING_USER_LOCATION_DONE:
+      return {
+        ...state,
+        isSaving: false
+      };
+    case DISPLAY_LOCATION_FORM:
+      return {
+        ...state,
+        displayLocationForm: true
+      };
+    case HIDE_LOCATION_FORM:
+      return {
+        ...state,
+        displayLocationForm: false
+      };
     case LOADING_USER_LOCATION:
       return {
         ...state,

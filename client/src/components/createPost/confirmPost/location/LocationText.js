@@ -7,12 +7,16 @@ const LocationText = props => {
     console.log('handle edit click');
   };
   return (
-    <p style={{ display: 'inline-block', fontStyle: 'italic' }}>
-      {props.location.city + ', '}
-      {props.location.state + ' '}
-      {props.location.postalCode + ' '}
-      <Icon onClick={props.handleEditClick} type="edit" />
-    </p>
+    <div style={{ display: 'inline-block' }}>
+      {props.location.postalCode !== null && (
+        <p style={{ display: 'inline-block', fontStyle: 'italic' }}>
+          {props.location.city + ', '}
+          {props.location.state + ' '}
+          {props.location.postalCode + ' '}
+          <Icon onClick={handlEditClick} type="edit" />
+        </p>
+      )}
+    </div>
   );
 };
 
