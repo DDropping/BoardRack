@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Icon, Form, Input, Button, Row, Col } from 'antd';
+import { Form, Input, Button, Row, Col } from 'antd';
 import { reduxForm, Field } from 'redux-form';
 
 import { AInput } from '../../../formAntComponents';
-import CurrentLocationButton from './GetLocationButton';
 
 const LocationForm = props => {
   const onSubmit = formProps => {
-    props.loginUser(formProps);
+    //create action to get geolocation from address and set user location
+    console.log('form on submit');
   };
   return (
     <Form
@@ -19,7 +19,7 @@ const LocationForm = props => {
       {/* FIX: force antd to load input style */}
       <Input style={{ display: 'none' }} />
       <Row gutter={4}>
-        <Col xs={12} sm={6} md={6}>
+        <Col xs={8} sm={8} md={6}>
           <Field
             name="city"
             component={AInput}
@@ -27,7 +27,7 @@ const LocationForm = props => {
             size="default"
           />
         </Col>
-        <Col xs={5} sm={4} md={2}>
+        <Col xs={4} sm={4} md={2}>
           <Field
             name="state"
             component={AInput}
@@ -35,7 +35,7 @@ const LocationForm = props => {
             size="default"
           />
         </Col>
-        <Col xs={7} sm={4} md={3}>
+        <Col xs={6} sm={4} md={3}>
           <Field
             name="postalCode"
             component={AInput}
@@ -47,12 +47,13 @@ const LocationForm = props => {
             size="default"
           />
         </Col>
-        <Col>
+        <Col xs={6} sm={4} md={3}>
           <Button
             type="primary"
             style={{ marginTop: '4px' }}
             loading={props.isLoading}
             htmlType="submit"
+            ghost
           >
             Save
           </Button>
@@ -74,5 +75,5 @@ export default compose(
     mapStateToProps,
     null
   ),
-  reduxForm({ form: 'location' })
+  reduxForm({ form: 'locationForm' })
 )(LocationForm);

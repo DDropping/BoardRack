@@ -11,7 +11,7 @@ import {
   HIDE_LOCATION_FORM
 } from '../types';
 
-// SET ISLOADING TO TRUE
+// SET ISLOADING TO TRUE ----------------------------------------
 export const loadingLocation = () => dispatch => {
   dispatch({ type: LOADING_USER_LOCATION });
 };
