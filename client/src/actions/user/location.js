@@ -21,12 +21,25 @@ export const editLocation = () => dispatch => {
   dispatch({ type: DISPLAY_LOCATION_FORM });
 };
 
-// Save location
-export const saveLocation = (city, state, postalCode) => dispatch => {
+// GET USER'S LOCATION WITH ADDRESS FORM ----------------------------------------
+export const saveLocation = formProps => async dispatch => {
   dispatch({ type: SAVING_USER_LOCATION });
+
+  const { city, state, postalCode } = formProps;
+
+  //set headers for request
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  const body = JSON.stringify({ city, state, postalCode });
+
   try {
-    // fetch user location
-    console.log(city, state, postalCode);
+    const res = await axios.post('/api/externalAPI/getCoords', body, config);
+    dispatch({ type: UPDATE_GEOLOCATION, payload: res.data });
+    //create action to handle res.data
   } catch (err) {
     console.log(err);
     dispatch({ type: SAVING_USER_LOCATION_DONE });
@@ -34,7 +47,7 @@ export const saveLocation = (city, state, postalCode) => dispatch => {
   }
 };
 
-// GET USER'S LOCATION ----------------------------------------
+// GET USER'S LOCATION WITH GEOCODE ----------------------------------------
 export const getUserAddress = ({ lat, lng }) => async dispatch => {
   //set headers for request
   const config = {
