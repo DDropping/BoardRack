@@ -4,16 +4,17 @@ import { Button } from 'antd';
 
 import {
   getUserAddress,
-  loadingLocation
+  loadingLocation,
+  editLocation
 } from '../../../../actions/user/location';
 
 const GetLocationButton = props => {
   const handleGetLocation = () => {
     props.loadingLocation();
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(retrievedLocation);
+      navigator.geolocation.getCurrentPosition(retrievedLocation, showForm);
     } else {
-      console.log('no');
+      props.editLocation();
     }
   };
 
@@ -21,6 +22,10 @@ const GetLocationButton = props => {
     const lat = location.coords.latitude;
     const lng = location.coords.longitude;
     props.getUserAddress({ lat, lng });
+  };
+
+  const showForm = () => {
+    props.editLocation();
   };
 
   return (
@@ -45,5 +50,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getUserAddress, loadingLocation }
+  { getUserAddress, loadingLocation, editLocation }
 )(GetLocationButton);
