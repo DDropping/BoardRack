@@ -5,11 +5,12 @@ import { Form, Input, Button, Row, Col } from 'antd';
 import { reduxForm, Field } from 'redux-form';
 
 import { AInput } from '../../../formAntComponents';
+import { saveLocation } from '../../../../actions/user/location';
 
 const LocationForm = props => {
   const onSubmit = formProps => {
     //create action to get geolocation from address and set user location
-    console.log('form on submit');
+    props.saveLocation(formProps);
   };
   return (
     <Form
@@ -73,7 +74,7 @@ const mapStateToProps = state => {
 export default compose(
   connect(
     mapStateToProps,
-    null
+    { saveLocation }
   ),
   reduxForm({ form: 'locationForm' })
 )(LocationForm);
