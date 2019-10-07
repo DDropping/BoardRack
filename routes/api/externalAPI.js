@@ -65,7 +65,7 @@ router.post('/getCoords', async (req, res) => {
     };
 
     res.json(address);
-  } catch {
+  } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
