@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Icon } from 'antd';
+import { Icon, Tooltip } from 'antd';
 
 import { editLocation } from '../../../../actions/user/location';
 
@@ -15,7 +15,9 @@ const LocationText = props => {
           {props.location.city + ', '}
           {props.location.state + ' '}
           {props.location.postalCode + ' '}
-          <Icon onClick={handlEditClick} type="edit" />
+          <Tooltip title="Edit Location">
+            <Icon onClick={handlEditClick} type="edit" />
+          </Tooltip>
         </p>
       )}
     </div>
