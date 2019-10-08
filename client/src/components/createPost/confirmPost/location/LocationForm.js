@@ -75,7 +75,7 @@ const LocationForm = props => {
 
 const mapStateToProps = state => {
   return {
-    location: state.location,
+    location: state.location.location,
     isSaving: state.location.isSaving
   };
 };

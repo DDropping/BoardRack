@@ -26,7 +26,7 @@ const LocationText = props => {
 
 const mapStateToProps = state => {
   return {
-    location: state.location,
+    location: state.location.location,
     isLoading: state.location.isLoading
   };
 };

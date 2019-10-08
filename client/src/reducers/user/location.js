@@ -13,12 +13,14 @@ const initialState = {
   isLoading: false,
   isSaving: false,
   displayLocationForm: false,
-  lat: null,
-  lng: null,
-  country: null,
-  state: null,
-  city: null,
-  postalCode: null
+  location: {
+    lat: null,
+    lng: null,
+    country: null,
+    state: null,
+    city: null,
+    postalCode: null
+  }
 };
 
 export default function(state = initialState, action) {
@@ -56,22 +58,27 @@ export default function(state = initialState, action) {
     case USER_LOADED_SET_LOCATION:
       return {
         ...state,
-        lat: action.payload.lat,
-        lng: action.payload.lng,
-        country: action.payload.country,
-        state: action.payload.state,
-        city: action.payload.city,
-        postalCode: action.payload.zip
+        location: {
+          ...state,
+          lat: action.payload.lat,
+          lng: action.payload.lng,
+          country: action.payload.country,
+          state: action.payload.state,
+          city: action.payload.city,
+          postalCode: action.payload.zip
+        }
       };
     case UPDATE_GEOLOCATION:
       return {
         ...state,
-        lat: action.payload.lat,
-        lng: action.payload.lng,
-        country: action.payload.Country,
-        state: action.payload.State,
-        city: action.payload.City,
-        postalCode: action.payload.PostalCode
+        location: {
+          lat: action.payload.lat,
+          lng: action.payload.lng,
+          country: action.payload.Country,
+          state: action.payload.State,
+          city: action.payload.City,
+          postalCode: action.payload.PostalCode
+        }
       };
     default:
       return state;

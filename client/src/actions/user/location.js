@@ -64,11 +64,11 @@ export const saveLocation = formProps => async dispatch => {
       //if new location is greater than 1 mile(0.014degrees) away, ask if user wants to save new location as default
       var latDistance = Math.abs(
         Math.abs(store.getState().auth.user.location.lat) -
-          Math.abs(store.getState().location.lat)
+          Math.abs(store.getState().location.location.lat)
       );
       var lngDistance = Math.abs(
         Math.abs(store.getState().auth.user.location.lng) -
-          Math.abs(store.getState().location.lng)
+          Math.abs(store.getState().location.location.lng)
       );
       if (latDistance > 0.014 && lngDistance > 0.014) {
         UpdateDefaultLocationNotification(body);
@@ -119,11 +119,11 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
       //if new location is greater than 1 mile(0.014degrees) away, ask if user wants to save new location as default
       var latDistance = Math.abs(
         Math.abs(store.getState().auth.user.location.lat) -
-          Math.abs(store.getState().location.lat)
+          Math.abs(store.getState().location.location.lat)
       );
       var lngDistance = Math.abs(
         Math.abs(store.getState().auth.user.location.lng) -
-          Math.abs(store.getState().location.lng)
+          Math.abs(store.getState().location.location.lng)
       );
       if (latDistance > 0.014 && lngDistance > 0.014) {
         UpdateDefaultLocationNotification(body);

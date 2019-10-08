@@ -8,7 +8,7 @@ import { createPost } from '../../../actions/createPost';
 
 const PublishButton = props => {
   const onSubmit = formProps => {
-    props.createPost(formProps, props.imgList);
+    props.createPost(formProps, props.imgList, props.location);
   };
 
   const images = props.imgList.filter(imgs => imgs.isLoading === true);
