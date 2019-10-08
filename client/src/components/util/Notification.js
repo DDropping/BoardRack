@@ -1,5 +1,8 @@
 import React from 'react';
-import { notification, Icon } from 'antd';
+import { notification, Icon, Button } from 'antd';
+
+import store from '../../store';
+import { updateUserLocation } from '../../actions/user/location';
 
 export const LoginSuccessNotification = () => {
   notification.open({
@@ -45,5 +48,28 @@ export const CreatePostFailNotification = () => {
     icon: (
       <Icon type="exclamation-circle" theme="twoTone" twoToneColor="#ffdc17" />
     )
+  });
+};
+
+export const UpdateDefaultLocationNotification = body => {
+  const key = `open${Date.now()}`;
+  const btn = (
+    <Button
+      type="primary"
+      size="small"
+      onClick={() => {
+        notification.close(key);
+        store.dispatch(updateUserLocation(body));
+      }}
+    >
+      Confirm
+    </Button>
+  );
+  notification.open({
+    message: 'Update Default Location',
+    description: 'Would you like to set this as your default location?',
+    duration: 10,
+    btn,
+    key
   });
 };
