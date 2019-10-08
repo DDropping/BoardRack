@@ -26,6 +26,14 @@ const UserSchema = new mongoose.Schema({
     default: 'user',
     required: true
   },
+  location: {
+    lat: { type: Number },
+    lng: { type: Number },
+    country: { type: String },
+    state: { type: String },
+    city: { type: String },
+    zip: { type: String }
+  },
   messageThreads: [
     {
       type: mongoose.Schema.Types.ObjectId,
