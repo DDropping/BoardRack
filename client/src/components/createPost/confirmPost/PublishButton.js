@@ -15,31 +15,29 @@ const PublishButton = props => {
   const imagesLoading = images.length > 0 ? true : false;
 
   return (
-    <div>
-      <Form onSubmit={props.handleSubmit(onSubmit)}>
-        {imagesLoading ||
-        props.location.lat == null ||
-        props.location.lng == null ? (
-          <Button
-            htmlType="submit"
-            onSubmit={props.handleSubmit(onSubmit)}
-            type="primary"
-            disabled
-          >
-            Publish
-          </Button>
-        ) : (
-          <Button
-            htmlType="submit"
-            onSubmit={props.handleSubmit(onSubmit)}
-            type="primary"
-            loading={props.isLoading}
-          >
-            Publish
-          </Button>
-        )}
-      </Form>
-    </div>
+    <Form onSubmit={props.handleSubmit(onSubmit)}>
+      {imagesLoading ||
+      props.location.lat == null ||
+      props.location.lng == null ? (
+        <Button
+          htmlType="submit"
+          onSubmit={props.handleSubmit(onSubmit)}
+          type="primary"
+          disabled
+        >
+          Publish
+        </Button>
+      ) : (
+        <Button
+          htmlType="submit"
+          onSubmit={props.handleSubmit(onSubmit)}
+          type="primary"
+          loading={props.isLoading}
+        >
+          Publish
+        </Button>
+      )}
+    </Form>
   );
 };
 
