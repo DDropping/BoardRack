@@ -46,18 +46,18 @@ export const saveLocation = formProps => async dispatch => {
     //save location as user's default location if no location exists yet
     if (store.getState().auth.isAuthenticated) {
       //if user is logged in
+      const body = {
+        location: {
+          lat: res.data.lat,
+          lng: res.data.lng,
+          country: res.data.Country,
+          state: res.data.State,
+          city: res.data.City,
+          zip: res.data.PostalCode
+        }
+      };
       if (!store.getState().auth.user.location) {
         //if user doesn't have a saved location yet
-        const body = {
-          location: {
-            lat: res.data.lat,
-            lng: res.data.lng,
-            country: res.data.Country,
-            state: res.data.State,
-            city: res.data.City,
-            zip: res.data.PostalCode
-          }
-        };
         dispatch(updateUserLocation(body));
       }
     }
@@ -88,18 +88,18 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
     //save location as user's default location if no location exists yet
     if (store.getState().auth.isAuthenticated) {
       //if user is logged in
+      const body = {
+        location: {
+          lat: res.data.lat,
+          lng: res.data.lng,
+          country: res.data.Country,
+          state: res.data.State,
+          city: res.data.City,
+          zip: res.data.PostalCode
+        }
+      };
       if (!store.getState().auth.user.location) {
         //if user doesn't have a saved location yet
-        const body = {
-          location: {
-            lat: res.data.lat,
-            lng: res.data.lng,
-            country: res.data.Country,
-            state: res.data.State,
-            city: res.data.City,
-            zip: res.data.PostalCode
-          }
-        };
         dispatch(updateUserLocation(body));
       }
     }
