@@ -65,7 +65,7 @@ export default function(state = initialState, action) {
           country: action.payload.country,
           state: action.payload.state,
           city: action.payload.city,
-          postalCode: action.payload.zip
+          postalCode: action.payload.postalCode
         }
       };
     case UPDATE_GEOLOCATION:

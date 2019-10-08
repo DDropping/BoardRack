@@ -46,7 +46,7 @@ const PostSchema = new mongoose.Schema({
     country: { type: String },
     state: { type: String },
     city: { type: String },
-    zip: { type: String }
+    postalCode: { type: String }
   },
   images: [
     {

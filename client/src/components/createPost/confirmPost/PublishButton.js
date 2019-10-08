@@ -45,7 +45,7 @@ const mapStateToProps = state => {
   return {
     imgList: state.imgUpload.imgList,
     isLoading: state.createPost.isLoading,
-    location: state.location
+    location: state.location.location
   };
 };
 

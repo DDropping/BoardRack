@@ -32,7 +32,7 @@ const UserSchema = new mongoose.Schema({
     country: { type: String },
     state: { type: String },
     city: { type: String },
-    zip: { type: String }
+    postalCode: { type: String }
   },
   messageThreads: [
     {
@@ -69,7 +69,7 @@ const UserSchema = new mongoose.Schema({
       city: {
         type: String
       },
-      zip: {
+      postalCode: {
         type: String
       },
       address: {
@@ -124,7 +124,7 @@ const UserSchema = new mongoose.Schema({
       city: {
         type: String
       },
-      zip: {
+      postalCode: {
         type: String
       },
       address: {
