@@ -17,7 +17,9 @@ const PublishButton = props => {
   return (
     <div>
       <Form onSubmit={props.handleSubmit(onSubmit)}>
-        {imagesLoading ? (
+        {imagesLoading ||
+        props.location.lat == null ||
+        props.location.lng == null ? (
           <Button
             htmlType="submit"
             onSubmit={props.handleSubmit(onSubmit)}
@@ -44,7 +46,8 @@ const PublishButton = props => {
 const mapStateToProps = state => {
   return {
     imgList: state.imgUpload.imgList,
-    isLoading: state.createPost.isLoading
+    isLoading: state.createPost.isLoading,
+    location: state.location
   };
 };
 
