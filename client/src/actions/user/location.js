@@ -1,6 +1,7 @@
 import axios from 'axios';
 import store from '../../store';
 
+import { UpdateDefaultLocationNotification } from '../../components/util/Notification';
 import {
   UPDATE_GEOLOCATION,
   LOADING_USER_LOCATION,
@@ -60,6 +61,18 @@ export const saveLocation = formProps => async dispatch => {
         //if user doesn't have a saved location yet
         dispatch(updateUserLocation(body));
       }
+      //if new location is greater than 1 mile(0.014degrees) away, ask if user wants to save new location as default
+      var latDistance = Math.abs(
+        Math.abs(store.getState().auth.user.location.lat) -
+          Math.abs(store.getState().location.lat)
+      );
+      var lngDistance = Math.abs(
+        Math.abs(store.getState().auth.user.location.lng) -
+          Math.abs(store.getState().location.lng)
+      );
+      if (latDistance > 0.014 && lngDistance > 0.014) {
+        UpdateDefaultLocationNotification(body);
+      }
     }
   } catch (err) {
     console.log(err);
@@ -101,6 +114,19 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
       if (!store.getState().auth.user.location) {
         //if user doesn't have a saved location yet
         dispatch(updateUserLocation(body));
+      }
+
+      //if new location is greater than 1 mile(0.014degrees) away, ask if user wants to save new location as default
+      var latDistance = Math.abs(
+        Math.abs(store.getState().auth.user.location.lat) -
+          Math.abs(store.getState().location.lat)
+      );
+      var lngDistance = Math.abs(
+        Math.abs(store.getState().auth.user.location.lng) -
+          Math.abs(store.getState().location.lng)
+      );
+      if (latDistance > 0.014 && lngDistance > 0.014) {
+        UpdateDefaultLocationNotification(body);
       }
     }
   } catch (err) {
