@@ -42,6 +42,25 @@ export const saveLocation = formProps => async dispatch => {
     dispatch({ type: UPDATE_GEOLOCATION, payload: res.data });
     dispatch({ type: SAVING_USER_LOCATION_DONE });
     dispatch({ type: HIDE_LOCATION_FORM });
+
+    //save location as user's default location if no location exists yet
+    if (store.getState().auth.isAuthenticated) {
+      //if user is logged in
+      if (!store.getState().auth.user.location) {
+        //if user doesn't have a saved location yet
+        const body = {
+          location: {
+            lat: res.data.lat,
+            lng: res.data.lng,
+            country: res.data.Country,
+            state: res.data.State,
+            city: res.data.City,
+            zip: res.data.PostalCode
+          }
+        };
+        dispatch(updateUserLocation(body));
+      }
+    }
   } catch (err) {
     console.log(err);
     dispatch({ type: SAVING_USER_LOCATION_DONE });
@@ -66,7 +85,8 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
     dispatch({ type: UPDATE_GEOLOCATION, payload: res.data });
     dispatch({ type: LOADING_USER_LOCATION_DONE });
 
-    if (store.getState().auth.user) {
+    //save location as user's default location if no location exists yet
+    if (store.getState().auth.isAuthenticated) {
       //if user is logged in
       if (!store.getState().auth.user.location) {
         //if user doesn't have a saved location yet
