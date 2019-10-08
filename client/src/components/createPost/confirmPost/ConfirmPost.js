@@ -1,20 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import PublishButton from './PublishButton';
-import LocationForm from './location/LocationForm';
-import LocationText from './location/LocationText';
+import GetLocation from './GetLocation';
 
 const ConfirmPost = props => {
   return (
     <div>
-      <LocationForm />
+      <GetLocation />
       <PublishButton />
     </div>
   );
 };
 
-export default connect(
-  null,
-  null
-)(ConfirmPost);
+export default ConfirmPost;

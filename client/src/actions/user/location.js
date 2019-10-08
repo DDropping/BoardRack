@@ -25,7 +25,7 @@ export const editLocation = () => dispatch => {
 export const saveLocation = formProps => async dispatch => {
   dispatch({ type: SAVING_USER_LOCATION });
 
-  const { city, state, postalCode } = formProps;
+  const { address, city, state, postalCode } = formProps;
 
   //set headers for request
   const config = {
@@ -34,7 +34,7 @@ export const saveLocation = formProps => async dispatch => {
     }
   };
 
-  const body = JSON.stringify({ city, state, postalCode });
+  const body = JSON.stringify({ address, city, state, postalCode });
 
   try {
     const res = await axios.post('/api/externalAPI/getCoords', body, config);

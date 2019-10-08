@@ -19,8 +19,17 @@ const LocationForm = props => {
     >
       {/* FIX: force antd to load input style */}
       <Input style={{ display: 'none' }} />
+      *Your exact location will not be public
       <Row gutter={4}>
-        <Col xs={8} sm={8} md={6}>
+        <Col xs={22} sm={10} md={9}>
+          <Field
+            name="address"
+            component={AInput}
+            placeholder="Address..."
+            size="default"
+          />
+        </Col>
+        <Col xs={8} sm={5} md={6}>
           <Field
             name="city"
             component={AInput}
@@ -28,7 +37,7 @@ const LocationForm = props => {
             size="default"
           />
         </Col>
-        <Col xs={4} sm={4} md={2}>
+        <Col xs={4} sm={2} md={2}>
           <Field
             name="state"
             component={AInput}
@@ -36,7 +45,7 @@ const LocationForm = props => {
             size="default"
           />
         </Col>
-        <Col xs={6} sm={4} md={3}>
+        <Col xs={6} sm={3} md={3}>
           <Field
             name="postalCode"
             component={AInput}
@@ -48,10 +57,10 @@ const LocationForm = props => {
             size="default"
           />
         </Col>
-        <Col xs={6} sm={4} md={3}>
+        <Col xs={4} sm={4} md={4}>
           <Button
             type="primary"
-            style={{ marginTop: '4px' }}
+            style={{ marginTop: '4px', width: '100%' }}
             loading={props.isSaving}
             htmlType="submit"
             ghost
