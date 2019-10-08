@@ -23,6 +23,7 @@ export const editLocation = () => dispatch => {
 
 // GET USER'S LOCATION WITH ADDRESS FORM ----------------------------------------
 export const saveLocation = formProps => async dispatch => {
+  dispatch({ type: LOADING_USER_LOCATION_DONE });
   dispatch({ type: SAVING_USER_LOCATION });
 
   const { address, city, state, postalCode } = formProps;
