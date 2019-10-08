@@ -2,6 +2,7 @@ import axios from 'axios';
 import store from '../../store';
 
 import { UpdateDefaultLocationNotification } from '../../components/util/Notification';
+import { loadUser } from '../auth';
 import {
   UPDATE_GEOLOCATION,
   LOADING_USER_LOCATION,
@@ -54,7 +55,7 @@ export const saveLocation = formProps => async dispatch => {
           country: res.data.Country,
           state: res.data.State,
           city: res.data.City,
-          zip: res.data.PostalCode
+          postalCode: res.data.PostalCode
         }
       };
       if (!store.getState().auth.user.location) {
@@ -108,7 +109,7 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
           country: res.data.Country,
           state: res.data.State,
           city: res.data.City,
-          zip: res.data.PostalCode
+          postalCode: res.data.PostalCode
         }
       };
       if (!store.getState().auth.user.location) {
@@ -139,6 +140,7 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
 export const updateUserLocation = location => async dispatch => {
   try {
     await axios.put('/api/accounts/updateLocation', location);
+    dispatch(loadUser());
   } catch (err) {
     console.log(err);
   }
