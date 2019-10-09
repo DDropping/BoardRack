@@ -8,6 +8,7 @@
 
 ## Dev Notes
 
+Update AntD default variables in /client/public/config-overrides.js
 primary blue: `#00458a`  
 secondary blue: `#4878a9`  
 primary white: `#ffffff`  
