@@ -38,16 +38,12 @@ export const createPost = (formProps, imgList, location) => async dispatch => {
     }
   };
 
-  console.log(postItems);
   //stringify the form items
   const body = JSON.stringify(postItems);
-  console.log(postItems);
 
   //post new account to DB
   try {
-    console.log(body);
     const res = await axios.post('/api/posts', body, config);
-    console.log(res);
     dispatch({ type: PUBISH_LOADING_DONE });
     CreatePostSuccessNotification();
   } catch (err) {

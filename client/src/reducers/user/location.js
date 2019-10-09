@@ -56,7 +56,6 @@ export default function(state = initialState, action) {
         isLoading: false
       };
     case USER_LOADED_SET_LOCATION:
-      console.log(action.payload);
       return {
         ...state,
         location: {

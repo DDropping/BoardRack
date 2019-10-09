@@ -111,7 +111,6 @@ router.post(
       let post = new Post(postFields);
       await post.save();
       res.json(post);
-      console.log(post);
     } catch (err) {
       console.error(err.message);
       re.status(500).send('Server Error');
