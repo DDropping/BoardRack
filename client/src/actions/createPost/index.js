@@ -11,7 +11,8 @@ import {
   REDIRECT_TO_HOME
 } from '../types';
 
-export const createPost = (formProps, imgList) => async dispatch => {
+// UPLOAD NEW POST TO DB
+export const createPost = (formProps, imgList, location) => async dispatch => {
   dispatch({ type: PUBLISH_LOADING });
   const images = imgList.map(obj => {
     return {
@@ -22,6 +23,13 @@ export const createPost = (formProps, imgList) => async dispatch => {
 
   const postItems = formProps;
   postItems.images = images;
+  postItems.location = {};
+  postItems.location.lat = location.lat;
+  postItems.location.lng = location.lng;
+  postItems.location.country = location.country;
+  postItems.location.state = location.state;
+  postItems.location.city = location.city;
+  postItems.location.postalCode = location.postalCode;
 
   //set headers for request
   const config = {
@@ -30,8 +38,10 @@ export const createPost = (formProps, imgList) => async dispatch => {
     }
   };
 
+  console.log(postItems);
   //stringify the form items
   const body = JSON.stringify(postItems);
+  console.log(postItems);
 
   //post new account to DB
   try {

@@ -43,6 +43,8 @@ const PostSchema = new mongoose.Schema({
   shaper: { type: String },
   model: { type: String },
   location: {
+    lat: { type: Number },
+    lng: { type: Number },
     country: { type: String },
     state: { type: String },
     city: { type: String },
