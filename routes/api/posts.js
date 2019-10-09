@@ -61,11 +61,8 @@ router.post(
       movability,
       shaper,
       model,
-      country,
-      state,
-      city,
-      zip,
-      images
+      images,
+      location
     } = req.body;
 
     //build post object
@@ -102,10 +99,13 @@ router.post(
 
     //build location object
     postFields.location = {};
-    if (country) postFields.location.country = country;
-    if (state) postFields.location.state = state;
-    if (city) postFields.location.city = city;
-    if (zip) postFields.location.zip = zip;
+    if (location.lat) postFields.location.lat = location.lat;
+    if (location.lng) postFields.location.lng = location.lng;
+    if (location.country) postFields.location.country = location.country;
+    if (location.state) postFields.location.state = location.state;
+    if (location.city) postFields.location.city = location.city;
+    if (location.postalCode)
+      postFields.location.postalCode = location.postalCode;
 
     try {
       let post = new Post(postFields);
