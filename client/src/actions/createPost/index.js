@@ -43,7 +43,7 @@ export const createPost = (formProps, imgList, location) => async dispatch => {
 
   //post new account to DB
   try {
-    const res = await axios.post('/api/posts', body, config);
+    await axios.post('/api/posts', body, config);
     dispatch({ type: PUBISH_LOADING_DONE });
     CreatePostSuccessNotification();
   } catch (err) {
