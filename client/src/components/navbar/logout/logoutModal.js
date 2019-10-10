@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Modal, Result, Button } from 'antd';
 
-import { toggleLogoutModal } from '../../../actions/modals/logoutModal';
+import { toggleLogoutModal } from '../../../actions/overlay';
 import { logoutUser } from '../../../actions/auth';
 
 const LogoutModal = props => {
@@ -45,7 +45,7 @@ const LogoutModal = props => {
 
 const mapStateToProps = state => {
   return {
-    isVisible: state.logoutModal.isVisible
+    isVisible: state.overlay.isLogoutModalVisible
   };
 };
 

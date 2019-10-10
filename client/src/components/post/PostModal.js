@@ -9,7 +9,7 @@ import PostModalBody from './PostModalBody';
 
 const PostModal = () => {
   const dispatch = useDispatch();
-  const isVisible = useSelector(state => state.postItem.isVisible);
+  const isVisible = useSelector(state => state.overlay.isPostModalVisible);
   return (
     <div>
       {isVisible ? (
