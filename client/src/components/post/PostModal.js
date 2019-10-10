@@ -1,24 +1,35 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Fade from 'react-reveal/Fade';
+import { Icon } from 'antd';
 
-import { OPEN_POST_MODAL, CLOSE_POST_MODAL } from '../../actions/types';
+import { CLOSE_POST_MODAL } from '../../actions/types';
+import PostModalBody from './PostModalBody';
 
 const PostModal = () => {
   const dispatch = useDispatch();
   const isVisible = useSelector(state => state.postItem.isVisible);
   return (
     <div>
-      <button onClick={() => dispatch({ type: OPEN_POST_MODAL })}>Open</button>
       {isVisible ? (
-        <div className="br-post-modal-grey">
-          <Fade left>
+        <div>
+          <div
+            className="br-post-modal-grey"
+            onClick={() => dispatch({ type: CLOSE_POST_MODAL })}
+          />
+          <Fade>
             <div className="br-post-modal-wrapper">
-              loremksdjf ksdf jsdjf klsjd flkjda kfjkdsj fadflk jsd f
-              sdfljdlkjfksdfk f jdf jdkfjlksf dfj kldf fj sdfjsald jfdf; asdf;s
-              <button onClick={() => dispatch({ type: CLOSE_POST_MODAL })}>
-                Close
-              </button>
+              <Icon
+                type="close-circle"
+                onClick={() => dispatch({ type: CLOSE_POST_MODAL })}
+                style={{
+                  fontSize: '25px',
+                  position: 'absolute',
+                  right: 5,
+                  top: 5
+                }}
+              />
+              <PostModalBody />
             </div>
           </Fade>
         </div>

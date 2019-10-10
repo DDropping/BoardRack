@@ -1,13 +1,16 @@
 import React from 'react';
 
 import './createPost/addDetails/imageUpload/imgUpload.css';
-import { connect } from 'react-redux';
+import { OPEN_POST_MODAL } from '../actions/types';
+import { connect, useDispatch } from 'react-redux';
 import PostModal from './post/PostModal';
 
 const Test = props => {
+  const dispatch = useDispatch();
   return (
     <div>
       <PostModal />
+      <button onClick={() => dispatch({ type: OPEN_POST_MODAL })}>Open</button>
     </div>
   );
 };
