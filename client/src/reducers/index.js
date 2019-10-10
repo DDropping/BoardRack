@@ -11,6 +11,7 @@ import createPost from './createPost/createPost';
 import postSteps from './createPost/postSteps';
 import imgUpload from './createPost/imgUpload';
 import location from './user/location';
+import postItem from './post/postItem';
 
 export default combineReducers({
   form: formReducer,
@@ -23,5 +24,6 @@ export default combineReducers({
   createPost,
   postSteps,
   imgUpload,
-  location
+  location,
+  postItem
 });
