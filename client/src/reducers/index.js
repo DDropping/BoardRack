@@ -12,18 +12,21 @@ import postSteps from './createPost/postSteps';
 import imgUpload from './createPost/imgUpload';
 import location from './user/location';
 import postItem from './post/postItem';
+import selectedPost from './post/selectedPost';
 
 export default combineReducers({
   form: formReducer,
   auth,
-  registerModal,
-  loginModal,
-  navDrawer,
-  logoutModal,
-  resultModal,
   createPost,
   postSteps,
   imgUpload,
   location,
-  postItem
+  postItem,
+  selectedPost,
+
+  registerModal,
+  loginModal,
+  navDrawer,
+  logoutModal,
+  resultModal
 });
