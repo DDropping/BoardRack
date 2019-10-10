@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Fade from 'react-reveal/Fade';
 import { Icon } from 'antd';
 
+import './post.css';
 import { CLOSE_POST_MODAL } from '../../actions/types';
 import PostModalBody from './PostModalBody';
 
