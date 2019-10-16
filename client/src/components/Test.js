@@ -3,7 +3,7 @@ import React from 'react';
 import './createPost/addDetails/imageUpload/imgUpload.css';
 import { OPEN_POST_MODAL } from '../actions/types';
 import { connect, useDispatch } from 'react-redux';
-import PostModal from './post/PostModal';
+import PostModal from './post/postModal/PostModal';
 
 const Test = props => {
   const dispatch = useDispatch();
