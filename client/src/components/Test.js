@@ -4,6 +4,7 @@ import './createPost/addDetails/imageUpload/imgUpload.css';
 import { OPEN_POST_MODAL } from '../actions/types';
 import { connect, useDispatch } from 'react-redux';
 import PostModal from './post/postModal/PostModal';
+import PostPreview from './post/postPreview/PostPreivew';
 
 const Test = props => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const Test = props => {
     <div>
       <PostModal />
       <button onClick={() => dispatch({ type: OPEN_POST_MODAL })}>Open</button>
+      <PostPreview />
     </div>
   );
 };
