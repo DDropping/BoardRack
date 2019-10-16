@@ -3,7 +3,7 @@ import { Card } from 'antd';
 
 const { Meta } = Card;
 
-const PostPreivew = () => {
+const PostPreview = () => {
   return (
     <Card
       hoverable
@@ -20,4 +20,4 @@ const PostPreivew = () => {
   );
 };
 
-export default PostPreivew;
+export default PostPreview;
