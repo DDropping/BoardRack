@@ -9,6 +9,7 @@
   max-width: 800px;
   background: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 1100;
 }
 
 .br-post-modal-grey {
@@ -21,4 +22,5 @@
   padding: 15px;
   position: fixed;
   margin: 0 auto;
+  z-index: 1100;
 }
