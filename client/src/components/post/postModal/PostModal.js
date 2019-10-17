@@ -14,11 +14,12 @@ const PostModal = () => {
     <div>
       {isVisible ? (
         <div>
-          <div
-            className="br-post-modal-grey"
-            onClick={() => dispatch({ type: CLOSE_POST_MODAL })}
-          />
           <Fade>
+            <div
+              className="br-post-modal-grey"
+              onClick={() => dispatch({ type: CLOSE_POST_MODAL })}
+            />
+
             <div className="br-post-modal-wrapper">
               <Icon
                 type="close-circle"
