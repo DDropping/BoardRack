@@ -1,11 +1,15 @@
 import React from 'react';
 import { Card } from 'antd';
+import { useDispatch } from 'react-redux';
 
+import { OPEN_POST_MODAL } from '../../../actions/types';
 const { Meta } = Card;
 
 const PostPreview = () => {
+  const dispatch = useDispatch();
   return (
     <Card
+      onClick={() => dispatch({ type: OPEN_POST_MODAL })}
       hoverable
       style={{ width: 240 }}
       cover={
