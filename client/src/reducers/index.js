@@ -6,7 +6,7 @@ import createPost from './createPost/createPost';
 import postSteps from './createPost/postSteps';
 import imgUpload from './createPost/imgUpload';
 import location from './user/location';
-import selectedPost from './post/selectedPost';
+import post from './post';
 import overlay from './overlay';
 
 export default combineReducers({
@@ -16,6 +16,6 @@ export default combineReducers({
   postSteps,
   imgUpload,
   location,
-  selectedPost,
+  post,
   overlay
 });
