@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { LOAD_POSTS } from '../types';
+import { LOAD_POSTS, UPDATE_SELECTED_POST, OPEN_POST_MODAL } from '../types';
 
 export const loadPosts = () => async dispatch => {
   try {
@@ -9,4 +9,9 @@ export const loadPosts = () => async dispatch => {
   } catch (err) {
     console.log(err);
   }
+};
+
+export const selectPost = post => dispatch => {
+  dispatch({ type: UPDATE_SELECTED_POST, payload: post });
+  dispatch({ type: OPEN_POST_MODAL });
 };

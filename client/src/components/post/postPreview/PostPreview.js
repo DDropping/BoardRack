@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import '../post.css';
 import { OPEN_POST_MODAL } from '../../../actions/types';
+import { selectPost } from '../../../actions/post/post';
 const { Meta } = Card;
 
 const PostPreview = post => {
@@ -12,7 +13,7 @@ const PostPreview = post => {
   return (
     <div className="br-post-preview-card">
       <Card
-        onClick={() => dispatch({ type: OPEN_POST_MODAL })}
+        onClick={() => dispatch(selectPost(post))}
         hoverable
         cover={<img alt="example" src={post.post.images[0].thumbnail} />}
       >
