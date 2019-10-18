@@ -24,3 +24,10 @@
   margin: 0 auto;
   z-index: 1100;
 }
+
+.br-post-preview-card {
+  width: 240px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  display: inline-block;
+}

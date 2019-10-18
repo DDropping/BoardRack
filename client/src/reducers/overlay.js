@@ -24,7 +24,6 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case OPEN_POST_MODAL:
-      console.log('post modal reducer');
       return {
         ...state,
         isPostModalVisible: true
