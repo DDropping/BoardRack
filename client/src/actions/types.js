@@ -61,3 +61,6 @@ export const HIDE_LOCATION_FORM = 'HIDE_LOCATION_FORM';
 //Post modal
 export const OPEN_POST_MODAL = 'OPEN_POST_MODAL';
 export const CLOSE_POST_MODAL = 'CLOSE_POST_MODAL';
+
+//Home page
+export const LOAD_POSTS = 'LOAD_POSTS';
