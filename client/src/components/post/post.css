@@ -34,13 +34,14 @@
 
 .br-post-card-container {
   position: relative;
+  display: inline-block;
   height: 350px;
   width: 250px;
   margin-right: 5px;
   margin-bottom: 5px;
   background: #fff;
   transition: box-shadow 0.3s;
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
 }
 
 .br-post-card-container:hover {
@@ -48,60 +49,51 @@
 }
 
 .br-post-card-header {
+  z-index: 2;
   position: absolute;
   width: 100%;
   height: 40px;
   padding: 5px;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100 */
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+75,0+100 */
   background: -moz-linear-gradient(
     top,
-    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 75%,
     rgba(255, 255, 255, 0) 100%
   ); /* FF3.6-15 */
   background: -webkit-linear-gradient(
     top,
-    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 75%,
     rgba(255, 255, 255, 0) 100%
   ); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 75%,
     rgba(255, 255, 255, 0) 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.br-post-card-img-wrapper {
+  text-align: center;
+  line-height: 350px;
 }
 
 .br-post-card-img {
-  height: 100%;
-  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+  margin: 0 auto;
+  position: relative;
 }
 
 .br-post-card-content {
-  height: 75px;
+  z-index: 2;
+  height: 80px;
   width: 100%;
   position: absolute;
-  bottom: 10px;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+1,000000+100&0+0,0.65+9 */
-  background: -moz-linear-gradient(
-    top,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.07) 1%,
-    rgba(255, 255, 255, 0.3) 9%,
-    rgba(255, 255, 255, 0.3) 100%
-  ); /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    top,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.07) 1%,
-    rgba(255, 255, 255, 0.3) 9%,
-    rgba(255, 255, 255, 0.3) 100%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.07) 1%,
-    rgba(255, 255, 255, 0.3) 9%,
-    rgba(255, 255, 255, 0.3) 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+  bottom: 0px;
+  background: #fff;
 }
