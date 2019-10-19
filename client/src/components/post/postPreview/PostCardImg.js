@@ -9,6 +9,7 @@ const PostCardImg = () => {
         <img
           className="br-post-card-img"
           src="https://boardrack.s3.us-west-1.amazonaws.com/1570745749457"
+          //src="https://boardrack.s3.us-west-1.amazonaws.com/1570731622308"
         />
       </div>
     </div>

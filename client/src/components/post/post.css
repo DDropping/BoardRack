@@ -25,6 +25,7 @@
   z-index: 1100;
 }
 
+/* THIS WILL NOT BE IN USE */
 .br-post-preview-card {
   width: 240px;
   margin-bottom: 5px;
@@ -78,12 +79,12 @@
 
 .br-post-card-img-wrapper {
   text-align: center;
-  line-height: 350px;
+  line-height: 310px;
 }
 
 .br-post-card-img {
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 350px;
+  max-width: 250px;
   vertical-align: middle;
   margin: 0 auto;
   position: relative;
@@ -93,6 +94,7 @@
   z-index: 2;
   height: 80px;
   width: 100%;
+  padding: 10px;
   position: absolute;
   bottom: 0px;
   background: #fff;
