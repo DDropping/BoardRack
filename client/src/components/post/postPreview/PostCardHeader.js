@@ -6,11 +6,13 @@ import '../post.css';
 const PostCardHeader = () => {
   return (
     <div className="br-post-card-header">
-      <Icon style={{ fontSize: '20px', color: '#00458a' }} type="eye" />
-      <Icon
-        style={{ fontSize: '20px', color: '#00458a', float: 'right' }}
-        type="star"
-      />
+      <strong>$250</strong>
+      <div style={{ float: 'right' }}>
+        14
+        <Icon style={{ fontSize: '20px', color: '#00458a' }} type="eye" />
+        10
+        <Icon style={{ fontSize: '20px', color: '#00458a' }} type="star" />
+      </div>
     </div>
   );
 };
