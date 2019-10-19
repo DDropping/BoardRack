@@ -5,12 +5,12 @@ import PostCardHeader from './PostCardHeader';
 import PostCardImg from './PostCardImg';
 import PostCardContent from './PostCardContent';
 
-const PostCard = () => {
+const PostCard = post => {
   return (
     <div className="br-post-card-container">
-      <PostCardHeader />
-      <PostCardImg />
-      <PostCardContent />
+      <PostCardHeader post={post.post} />
+      <PostCardImg post={post.post} />
+      <PostCardContent post={post.post} />
     </div>
   );
 };

@@ -16,9 +16,8 @@ const Test = props => {
 
   return (
     <div>
-      <PostCard />
       {posts.map(post => {
-        return <PostPreview key={post._id} post={post} />;
+        return <PostCard key={post._id} post={post} />;
       })}
     </div>
   );

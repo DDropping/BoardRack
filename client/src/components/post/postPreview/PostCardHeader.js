@@ -3,10 +3,11 @@ import { Icon } from 'antd';
 
 import '../post.css';
 
-const PostCardHeader = () => {
+const PostCardHeader = post => {
+  console.log(post);
   return (
     <div className="br-post-card-header">
-      <strong>$250</strong>
+      <strong>${post.post.price}</strong>
       <div style={{ float: 'right' }}>
         <strong>14</strong>
         <Icon

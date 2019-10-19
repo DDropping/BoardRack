@@ -2,15 +2,11 @@ import React from 'react';
 
 import '../post.css';
 
-const PostCardImg = () => {
+const PostCardImg = post => {
   return (
     <div className="br-post-card-img-wrapper">
       <div className="br-post-card-img">
-        <img
-          className="br-post-card-img"
-          src="https://boardrack.s3.us-west-1.amazonaws.com/1570745749457"
-          //src="https://boardrack.s3.us-west-1.amazonaws.com/1570731622308"
-        />
+        <img className="br-post-card-img" src={post.post.images[0].thumbnail} />
       </div>
     </div>
   );
