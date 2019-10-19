@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import './createPost/addDetails/imageUpload/imgUpload.css';
 import PostPreview from './post/postPreview/PostPreview';
+import PostCard from './post/postPreview/PostCard';
 import { loadPosts } from '../actions/post/post';
 
 const Test = props => {
@@ -15,6 +16,7 @@ const Test = props => {
 
   return (
     <div>
+      <PostCard />
       {posts.map(post => {
         return <PostPreview key={post._id} post={post} />;
       })}
