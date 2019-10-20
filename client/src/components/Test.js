@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './createPost/addDetails/imageUpload/imgUpload.css';
 import PostCard from './post/postPreview/PostCard';
 import Banner from './home/banner/Banner';
+import Filter from './home/searchFilter/Filter';
 import { loadPosts } from '../actions/post/post';
 
 const Test = props => {
@@ -17,9 +18,12 @@ const Test = props => {
   return (
     <div>
       <Banner />
-      {/* {posts.map(post => {
-        return <PostCard key={post._id} post={post} />;
-      })} */}
+      <Filter />
+      <div style={{ display: 'inline-block', maxWidth: 'calc(100% - 260px)' }}>
+        {posts.map(post => {
+          return <PostCard key={post._id} post={post} />;
+        })}
+      </div>
     </div>
   );
 };
