@@ -3,7 +3,6 @@ import { Card } from 'antd';
 import { useDispatch } from 'react-redux';
 
 import '../post.css';
-import { OPEN_POST_MODAL } from '../../../actions/types';
 import { selectPost } from '../../../actions/post/post';
 const { Meta } = Card;
 
