@@ -5,6 +5,7 @@ import './createPost/addDetails/imageUpload/imgUpload.css';
 import PostCard from './post/postPreview/PostCard';
 import Banner from './home/banner/Banner';
 import Filter from './home/searchFilter/Filter';
+import SearchBar from './home/searchBar/SearchBar';
 import { loadPosts } from '../actions/post/post';
 
 const Test = props => {
@@ -20,6 +21,7 @@ const Test = props => {
       <Banner />
       <Filter />
       <div style={{ display: 'inline-block', maxWidth: 'calc(100% - 260px)' }}>
+        <SearchBar />
         {posts.map(post => {
           return <PostCard key={post._id} post={post} />;
         })}
