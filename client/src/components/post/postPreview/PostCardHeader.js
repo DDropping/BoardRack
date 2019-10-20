@@ -4,7 +4,6 @@ import { Icon } from 'antd';
 import '../post.css';
 
 const PostCardHeader = post => {
-  console.log(post);
   return (
     <div className="br-post-card-header">
       <strong>${post.post.price}</strong>
@@ -15,7 +14,11 @@ const PostCardHeader = post => {
           type="eye"
         />
         <strong>11</strong>
-        <Icon style={{ fontSize: '20px', color: '#00458a' }} type="star" />
+        <Icon
+          className="br-post-card-header-star-icon"
+          style={{ fontSize: '20px', color: '#00458a' }}
+          type="star"
+        />
       </div>
     </div>
   );

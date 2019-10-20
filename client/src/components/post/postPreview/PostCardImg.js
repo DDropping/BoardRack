@@ -12,7 +12,11 @@ const PostCardImg = post => {
       onClick={() => dispatch(selectPost(post))}
     >
       <div className="br-post-card-img">
-        <img className="br-post-card-img" src={post.post.images[0].thumbnail} />
+        <img
+          className="br-post-card-img"
+          alt=""
+          src={post.post.images[0].thumbnail}
+        />
       </div>
     </div>
   );

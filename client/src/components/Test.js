@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './createPost/addDetails/imageUpload/imgUpload.css';
-import PostPreview from './post/postPreview/PostPreview';
 import PostCard from './post/postPreview/PostCard';
 import { loadPosts } from '../actions/post/post';
 
