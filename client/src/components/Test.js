@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import './createPost/addDetails/imageUpload/imgUpload.css';
 import PostCard from './post/postPreview/PostCard';
+import Banner from './home/banner/Banner';
 import { loadPosts } from '../actions/post/post';
 
 const Test = props => {
@@ -15,9 +16,10 @@ const Test = props => {
 
   return (
     <div>
-      {posts.map(post => {
+      <Banner />
+      {/* {posts.map(post => {
         return <PostCard key={post._id} post={post} />;
-      })}
+      })} */}
     </div>
   );
 };
