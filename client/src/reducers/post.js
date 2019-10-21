@@ -31,7 +31,7 @@ const initialState = {
       city: null,
       postalCode: null
     },
-    likes: []
+    favorites: []
   }
 };
 
@@ -68,7 +68,7 @@ export default function(state = initialState, action) {
           model: action.payload.post.model,
           images: action.payload.post.images,
           location: action.payload.post.location,
-          likes: action.payload.post.likes
+          favorites: action.payload.post.favorites
         }
       };
     default:
