@@ -30,14 +30,11 @@ export const addFavorite = id => async dispatch => {
 
   //post new account to DB
   try {
-    console.log('about to send req');
     await axios.put('/api/posts/favorite', body, config);
-    console.log('Sent request');
     //dispatch({ type: PUBISH_LOADING_DONE });
     //CreatePostSuccessNotification();
   } catch (err) {
     if (err) {
-      console.log('error occured');
       console.log(err);
       //dispatch({ type: PUBISH_LOADING_DONE });
       //CreatePostFailNotification();

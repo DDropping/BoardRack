@@ -392,7 +392,6 @@ router.put('/unlike/:id', auth, async (req, res) => {
 // @desc    Favorite a specific post | add userId to post favorite[], add postId to user favoritedPosts[]
 // @access  Private
 router.put('/favorite', auth, async (req, res) => {
-  console.log(req.body.id);
   try {
     const post = await Post.findById(req.body.id);
 
@@ -405,9 +404,13 @@ router.put('/favorite', auth, async (req, res) => {
       return res.status(400).json({ msg: 'Post already favorited' });
     }
 
-    //add favorite and save
+    //add favorite to post favorites and save
     post.favorites.unshift({ user: req.user.id });
     await post.save();
+
+    const user = await User.findById(req.user.id);
+    user.favorites.unshift({ post: req.body.id });
+    await user.save();
     res.json(post.favorites);
   } catch (err) {
     console.error(err.message);
