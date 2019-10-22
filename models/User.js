@@ -46,16 +46,15 @@ const UserSchema = new mongoose.Schema({
       ref: 'post'
     }
   ],
+  favorites: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'post'
+    }
+  ],
 
   //user account (likedPost, messageThreads, posts)
-  userInfo: {
-    likedPosts: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'post'
-      }
-    ]
-  },
+  userInfo: {},
 
   //shop account (address, storeHours, website, contactInfo, messageThreads, posts)
   shopInfo: {
