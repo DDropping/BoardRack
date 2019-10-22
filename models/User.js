@@ -53,9 +53,6 @@ const UserSchema = new mongoose.Schema({
     }
   ],
 
-  //user account (likedPost, messageThreads, posts)
-  userInfo: {},
-
   //shop account (address, storeHours, website, contactInfo, messageThreads, posts)
   shopInfo: {
     address: {
