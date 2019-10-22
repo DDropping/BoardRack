@@ -57,7 +57,7 @@ const PostSchema = new mongoose.Schema({
       default: String
     }
   ],
-  likes: [
+  favorites: [
     {
       user: {
         type: mongoose.Schema.Types.ObjectId,
