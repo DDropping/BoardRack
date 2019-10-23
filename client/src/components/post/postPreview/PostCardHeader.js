@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Icon } from 'antd';
 import { useDispatch } from 'react-redux';
 
@@ -7,6 +7,7 @@ import { addFavorite } from '../../../actions/post/post';
 
 const PostCardHeader = post => {
   const dispatch = useDispatch();
+
   return (
     <div className="br-post-card-header">
       <strong>${post.post.price}</strong>

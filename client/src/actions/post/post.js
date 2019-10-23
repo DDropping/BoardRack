@@ -24,8 +24,8 @@ export const addFavorite = id => async dispatch => {
     }
   };
 
-  const postid = { id: id };
   //stringify the form items
+  const postid = { id: id };
   const body = JSON.stringify(postid);
 
   //post new account to DB
