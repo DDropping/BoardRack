@@ -418,4 +418,43 @@ router.put('/favorite', auth, async (req, res) => {
   }
 });
 
+//TODO save postid to user's favorited posts array
+// @route   PUT api/posts/favorite
+// @desc    Favorite a specific post | add userId to post favorite[], add postId to user favoritedPosts[]
+// @access  Private
+router.put('/unFavorite', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.body.id);
+
+    //check if user has already favorited the post
+    if (
+      post.favorites.filter(
+        favorite => favorite.user.toString() === req.user.id
+      ).length === 0
+    ) {
+      return res.status(400).json({ msg: 'Post is not favorited' });
+    }
+
+    //remove favorite from post
+    const removePostIndex = post.favorites
+      .map(favorite => favorite.user.toString())
+      .indexOf(req.user.id);
+    post.favorites.splice(removePostIndex, 1);
+    await post.save();
+    res.json(post.favorites);
+
+    //remove post from user's favorite array
+    const user = await User.findById(req.user.id);
+    const removeUserIndex = user.favorites
+      .map(favorite => favorite.post.toString())
+      .indexOf(req.post.id);
+    user.favorites.splice(removeUserIndex, 1);
+    await user.save();
+    res.json(user.favorites);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
