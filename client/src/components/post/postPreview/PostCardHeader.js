@@ -3,7 +3,7 @@ import { Icon } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 
 import '../post.css';
-import { addFavorite } from '../../../actions/post/post';
+import { addFavorite, removeFavorite } from '../../../actions/post/post';
 
 const PostCardHeader = post => {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const PostCardHeader = post => {
             style={{ fontSize: '20px', color: '#00458a' }}
             type="star"
             theme="filled"
-            onClick={() => setFavorite(false)}
+            onClick={() => dispatch(removeFavorite(post.post._id))}
           />
         ) : (
           <Icon
