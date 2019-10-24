@@ -404,10 +404,11 @@ router.put('/favorite', auth, async (req, res) => {
       return res.status(400).json({ msg: 'Post already favorited' });
     }
 
-    //add favorite to post favorites and save
+    //add favorite to post's favorites and save
     post.favorites.unshift({ user: req.user.id });
     await post.save();
 
+    //add favorite to user's favorites and save
     const user = await User.findById(req.user.id);
     user.favorites.unshift({ post: req.body.id });
     await user.save();
@@ -435,22 +436,21 @@ router.put('/unFavorite', auth, async (req, res) => {
       return res.status(400).json({ msg: 'Post is not favorited' });
     }
 
-    //remove favorite from post
+    //remove favorite from post's favorites array
     const removePostIndex = post.favorites
       .map(favorite => favorite.user.toString())
       .indexOf(req.user.id);
     post.favorites.splice(removePostIndex, 1);
     await post.save();
-    res.json(post.favorites);
 
-    //remove post from user's favorite array
+    //remove favorite from user's favorites array
     const user = await User.findById(req.user.id);
     const removeUserIndex = user.favorites
       .map(favorite => favorite.post.toString())
       .indexOf(req.body.id);
     user.favorites.splice(removeUserIndex, 1);
     await user.save();
-    res.json(user.favorites);
+    res.json(post.favorites);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
