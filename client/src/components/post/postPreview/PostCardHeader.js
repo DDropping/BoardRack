@@ -5,24 +5,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import '../post.css';
 import { addFavorite } from '../../../actions/post/post';
 
-const PostCardHeader = (post, isFavoriteInitalValue) => {
+const PostCardHeader = post => {
   const dispatch = useDispatch();
-  //   const user = useSelector(state => state.auth.user);
-  const [isFavorite, setFavorite] = useState(isFavoriteInitalValue);
+  const user = useSelector(state => state.auth.user);
+  const [isFavorite, setFavorite] = useState(false);
 
-  //   useEffect(() => checkFavorite(user), []);
+  //check if logged in user has favorited this post
+  useEffect(() => {
+    if (user !== null) {
+      console.log('user is logged in.');
+      if (
+        post.post.favorites.filter(
+          favorite => favorite.user.toString() === user._id
+        ).length > 0
+      ) {
+        console.log('User has favorited this post');
+        setFavorite(true);
+        console.log(isFavorite);
+      }
+    }
+  }, [user]);
 
-  //   const checkFavorite = user => {
-  //     if (user !== null) {
-  //       if (
-  //         post.post.favorites.filter(
-  //           favorite => favorite.user.toString() === user._id
-  //         ).length > 0
-  //       ) {
-  //         setFavorite(true);
-  //       }
-  //     }
-  //   };
   return (
     <div className="br-post-card-header">
       <strong>${post.post.price}</strong>
