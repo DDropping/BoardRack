@@ -447,7 +447,7 @@ router.put('/unFavorite', auth, async (req, res) => {
     const user = await User.findById(req.user.id);
     const removeUserIndex = user.favorites
       .map(favorite => favorite.post.toString())
-      .indexOf(req.post.id);
+      .indexOf(req.body.id);
     user.favorites.splice(removeUserIndex, 1);
     await user.save();
     res.json(user.favorites);
