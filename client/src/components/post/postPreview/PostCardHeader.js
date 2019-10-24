@@ -24,7 +24,7 @@ const PostCardHeader = post => {
         console.log(isFavorite);
       }
     }
-  }, [user]);
+  }, [user, isFavorite, post.post.favorites]);
 
   return (
     <div className="br-post-card-header">
