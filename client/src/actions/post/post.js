@@ -41,3 +41,29 @@ export const addFavorite = id => async dispatch => {
     }
   }
 };
+
+export const removeFavorite = id => async dispatch => {
+  //set headers for request
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  //stringify the form items
+  const postid = { id: id };
+  const body = JSON.stringify(postid);
+
+  //post new account to DB
+  try {
+    await axios.put('/api/posts/unFavorite', body, config);
+    //dispatch({ type: PUBISH_LOADING_DONE });
+    //CreatePostSuccessNotification();
+  } catch (err) {
+    if (err) {
+      console.log(err);
+      //dispatch({ type: PUBISH_LOADING_DONE });
+      //CreatePostFailNotification();
+    }
+  }
+};
