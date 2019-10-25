@@ -6,7 +6,7 @@ import setAuthToken from '../util/setAuthToken';
 import RegisterModal from './navbar/register/RegisterModal';
 import LoginModal from './navbar/login/LoginModal';
 import LogoutModal from './navbar/logout/logoutModal';
-import ResultModal from './util/ResultModal';
+import PostModal from './post/postModal/PostModal';
 import Footer from './footer';
 import { loadUser } from '../actions/auth';
 import './app.css';
@@ -30,7 +30,7 @@ const App = ({ children }) => {
           <RegisterModal />
           <LoginModal />
           <LogoutModal />
-          <ResultModal />
+          <PostModal />
           {children}
         </div>
       </div>

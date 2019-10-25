@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'antd';
-import { toggleRegisterModal } from '../../../actions/modals/registerModal';
+import { toggleRegisterModal } from '../../../actions/overlay';
 import RegisterForm from './RegisterForm';
 
 const Register = props => {
@@ -23,7 +23,7 @@ const Register = props => {
 
 const mapStateToProps = state => {
   return {
-    isVisible: state.registerModal.isVisible
+    isVisible: state.overlay.isRegisterModalVisible
   };
 };
 

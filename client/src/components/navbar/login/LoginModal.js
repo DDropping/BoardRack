@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'antd';
-import { toggleLoginModal } from '../../../actions/modals/loginModal';
+import { toggleLoginModal } from '../../../actions/overlay';
 import LoginForm from './LoginForm';
 
 const LoginModal = props => {
@@ -23,7 +23,7 @@ const LoginModal = props => {
 
 const mapStateToProps = state => {
   return {
-    isVisible: state.loginModal.isVisible
+    isVisible: state.overlay.isLoginModalVisible
   };
 };
 

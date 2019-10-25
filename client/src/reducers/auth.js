@@ -14,7 +14,6 @@ const initialState = {
   isAuthenticated: null,
   isLoading: true,
   user: null,
-
   registrationErrors: [],
   loginErrors: [],
   isRegisterButtonLoading: false,

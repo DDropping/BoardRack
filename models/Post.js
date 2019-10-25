@@ -43,20 +43,21 @@ const PostSchema = new mongoose.Schema({
   shaper: { type: String },
   model: { type: String },
   location: {
+    lat: { type: Number },
+    lng: { type: Number },
     country: { type: String },
     state: { type: String },
     city: { type: String },
-    zip: { type: String }
+    postalCode: { type: String }
   },
-  imgList: [
+  images: [
     {
       imgKey: String,
-      objectUrl: String,
-      imgDefault: String,
-      imgThumbnail: String
+      thumbnail: String,
+      default: String
     }
   ],
-  likes: [
+  favorites: [
     {
       user: {
         type: mongoose.Schema.Types.ObjectId,
