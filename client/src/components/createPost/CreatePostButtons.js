@@ -1,11 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Icon } from 'antd';
+import { Button, Modal, Icon } from 'antd';
 import { formValueSelector } from 'redux-form';
+import { animateScroll as scroll } from 'react-scroll';
 
 import { clickNext, clickPrevious } from '../../actions/createPost/postSteps';
+import { cancelCreatePost } from '../../actions/createPost/index';
 
 const CreatePostButtons = props => {
+  const nextHandler = () => {
+    scroll.scrollToTop();
+    props.clickNext();
+  };
+
+  const previousHandler = () => {
+    scroll.scrollToTop();
+    props.clickPrevious();
+  };
+
+  const showCancelConfirm = () => {
+    Modal.confirm({
+      title: 'Are you sure you want to cancel this post?',
+      okText: 'Yes',
+      okType: 'danger',
+      cancelText: 'No',
+      onOk() {
+        props.cancelCreatePost();
+      }
+    });
+  };
+
   return (
     <div
       style={{
@@ -14,13 +38,13 @@ const CreatePostButtons = props => {
         margin: '0 auto'
       }}
     >
-      <Button type="danger" ghost>
+      <Button onClick={showCancelConfirm} type="danger" ghost>
         Cancel
       </Button>
       <div style={{ float: 'right' }}>
         {!props.isStepOneVisible && (
           <Button
-            onClick={props.clickPrevious}
+            onClick={previousHandler}
             style={{ marginRight: '5px' }}
             type="primary"
             ghost
@@ -35,7 +59,7 @@ const CreatePostButtons = props => {
         props.price &&
         props.boardType &&
         props.condition ? (
-          <Button onClick={props.clickNext} type="primary" ghost>
+          <Button onClick={nextHandler} type="primary" ghost>
             Next
             <Icon type="right" />
           </Button>
@@ -65,5 +89,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { clickNext, clickPrevious }
+  { clickNext, clickPrevious, cancelCreatePost }
 )(CreatePostButtons);

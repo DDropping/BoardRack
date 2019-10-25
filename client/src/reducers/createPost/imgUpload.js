@@ -2,16 +2,14 @@ import {
   OBJECTURL_IMG_URL,
   DEFAULT_IMG_URL,
   THUMBNAIL_IMG_URL,
-  IMAGE_UPLOADING_TRUE,
-  IMAGE_UPLOADING_FALSE,
   INCREASE_IMG_KEY,
   DECREASE_IMG_KEY,
   DELETE_IMG_PREVIEW,
-  IMG_UPLOAD_DONE
+  IMG_UPLOAD_DONE,
+  EMPTY_IMGLIST
 } from '../../actions/types';
 
 const INITIAL_STATE = {
-  isLoading: false,
   imgKey: 0,
   imgList: [],
   imgLoading: []
@@ -78,16 +76,8 @@ export default function(state = INITIAL_STATE, action) {
           item.imgKey === action.payload ? { ...item, isLoading: false } : item
         )
       };
-    case IMAGE_UPLOADING_TRUE:
-      return {
-        ...state,
-        isLoading: true
-      };
-    case IMAGE_UPLOADING_FALSE:
-      return {
-        ...state,
-        isLoading: false
-      };
+    case EMPTY_IMGLIST:
+      return INITIAL_STATE;
     default:
       return state;
   }

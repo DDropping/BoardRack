@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Menu, Icon, Drawer } from 'antd';
 
-import { toggleNavDrawer } from '../../actions/drawers/navDrawer';
-import { toggleRegisterModal } from '../../actions/modals/registerModal';
-import { toggleLoginModal } from '../../actions/modals/loginModal';
 import {
+  toggleNavDrawer,
+  toggleRegisterModal,
+  toggleLoginModal,
   toggleLogoutModal,
   toggleLogoutLoading
-} from '../../actions/modals/logoutModal';
+} from '../../actions/overlay';
 
 const NavItemsDrawer = props => {
   return (
@@ -95,7 +95,7 @@ const NavItemsDrawer = props => {
 
 const mapStateToProps = state => {
   return {
-    isVisible: state.navDrawer.isVisible,
+    isVisible: state.overlay.isNavDrawerVisible,
     isAuthenticated: state.auth.isAuthenticated
   };
 };

@@ -29,6 +29,7 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/messages', require('./routes/api/messages'));
 app.use('/api/upload', require('./routes/api/upload'));
+app.use('/api/externalAPI', require('./routes/api/externalAPI'));
 
 //Server setup
 const PORT = process.env.PORT || 5000;

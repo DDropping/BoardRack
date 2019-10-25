@@ -8,22 +8,32 @@
 
 ## Dev Notes
 
+Update AntD default variables in /client/public/config-overrides.js
 primary blue: `#00458a`  
 secondary blue: `#4878a9`  
 primary white: `#ffffff`  
 primary grey: `#f3f7f9`  
+primary green: `#52c41a`
 compress image options: client/src/actions/imageUpload.js
 
 ## Production checklist
 
 - Change db location in config/DB.js
-- Change proxy in client/package.json (not sure if this is actually required)
+- Change proxy in client/package.json, to connect to express server (not sure if this is actually required)
 
 ## How to run (deployed in production)
 
 - Start express server with pm2 with `$ npm start pro` or `$ pm2 start server.js --env production`
 - Start react client with `$ npm run deploy-production` or build react app with `$ react-app-rewired build`, remove current build from nginx selected folder with `$ rm -r /var/www/boardrack.org/html/*`, move current build to nginx folder with `$ cp -r ./build/* /var/www/boardrack.org/html`
-- Change location of mongo database from /config/DB.js
+- Change location of mongo database in /config/DB.js
+- Create config/default.json with entries:
+  `"mongoURI": "xxxxxxxxxxxxxxxx",`  
+  `"mongoURI_dev": "xxxxxxxxxxxxxxxx",`  
+  `"jwtSecret": "xxxxxxxxxxxxxxxx",`  
+  `"S3_Access_Key_Id": "xxxxxxxxxxxxxxxx",`  
+  `"S3_Secret_Acess_Key": "xxxxxxxxxxxxxxxx",`  
+  `"S3_Region": "xxxxxxxxxxxxxxxx",`  
+  `"S3_Bucket": "xxxxxxxxxxxxxxxx"`
 
 ### SSH Commands
 

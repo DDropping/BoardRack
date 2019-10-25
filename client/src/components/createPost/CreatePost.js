@@ -7,6 +7,7 @@ import AddDetails from './addDetails/AddDetails';
 import AdditionalDetails from './additionalDetails/AdditionalDetails';
 import ConfirmPost from './confirmPost/ConfirmPost';
 import CreatePostButtons from './CreatePostButtons';
+import { Redirect } from 'react-router-dom';
 
 const CreatePost = props => {
   return (
@@ -14,7 +15,7 @@ const CreatePost = props => {
       <div className="showSteps">
         <PostSteps />
       </div>
-
+      {props.redirectToHome && <Redirect push to="/" />}
       {props.isStepOneVisible && <AddDetails />}
       {props.isStepTwoVisible && <AdditionalDetails />}
       {props.isStepThreeVisible && <ConfirmPost />}
@@ -26,6 +27,7 @@ const CreatePost = props => {
 
 const mapStateToProps = state => {
   return {
+    redirectToHome: state.createPost.redirectToHome,
     isStepOneVisible: state.postSteps.isStepOneVisible,
     isStepTwoVisible: state.postSteps.isStepTwoVisible,
     isStepThreeVisible: state.postSteps.isStepThreeVisible

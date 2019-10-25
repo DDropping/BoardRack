@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import { Menu, Button, Icon } from 'antd';
 
 import AccountAvatar from './AccountAvatar';
-import { toggleRegisterModal } from '../../actions/modals/registerModal';
-import { toggleLoginModal } from '../../actions/modals/loginModal';
-import { toggleNavDrawer } from '../../actions/drawers/navDrawer';
-import { toggleLogoutModal } from '../../actions/modals/logoutModal';
+import {
+  toggleNavDrawer,
+  toggleLoginModal,
+  toggleRegisterModal,
+  toggleLogoutModal
+} from '../../actions/overlay';
 
 const Navbar = props => {
   return (
