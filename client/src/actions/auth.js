@@ -1,10 +1,7 @@
 import axios from 'axios';
 import { reset } from 'redux-form';
 import setAuthToken from '../util/setAuthToken';
-import {
-  successNotification,
-  failNotification
-} from '../components/util/Notification';
+import { successNotification } from '../components/util/Notification';
 import {
   AUTH_USER,
   AUTH_USER_FAIL,
