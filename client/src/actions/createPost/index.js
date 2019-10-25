@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { reset } from 'redux-form';
 import {
-  CreatePostSuccessNotification,
-  CreatePostFailNotification
+  successNotification,
+  failNotification
 } from '../../components/util/Notification';
 import {
   PUBLISH_LOADING,
@@ -45,12 +45,20 @@ export const createPost = (formProps, imgList, location) => async dispatch => {
   try {
     await axios.post('/api/posts', body, config);
     dispatch({ type: PUBISH_LOADING_DONE });
-    CreatePostSuccessNotification();
+    successNotification(
+      'New Post Created!',
+      'Your Post Has Been Created And Is Live For The World To See',
+      4.5
+    );
   } catch (err) {
     if (err) {
       console.log(err);
       dispatch({ type: PUBISH_LOADING_DONE });
-      CreatePostFailNotification();
+      failNotification(
+        'Uhh Ohh, Something Went Wrong',
+        'Sorry, Your Post Could Not Be Created At This Time',
+        4.5
+      );
     }
   }
 };

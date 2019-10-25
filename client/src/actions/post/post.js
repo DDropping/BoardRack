@@ -1,10 +1,7 @@
 import axios from 'axios';
 
 import { LOAD_POSTS, UPDATE_SELECTED_POST, OPEN_POST_MODAL } from '../types';
-import {
-  successNotification,
-  failNotification
-} from '../../components/util/Notification';
+import { successNotification } from '../../components/util/Notification';
 
 export const loadPosts = () => async dispatch => {
   try {

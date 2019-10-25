@@ -2,9 +2,8 @@ import axios from 'axios';
 import { reset } from 'redux-form';
 import setAuthToken from '../util/setAuthToken';
 import {
-  LoginSuccessNotification,
-  RegisterSuccessNotification,
-  LogoutSuccessNotification
+  successNotification,
+  failNotification
 } from '../components/util/Notification';
 import {
   AUTH_USER,
@@ -73,7 +72,7 @@ export const registerUser = ({
     dispatch({ type: TOGGLE_REGISTER_BUTTON_LOADING, payload: false });
     dispatch({ type: TOGGLE_REGISTER_MODAL });
     dispatch({ type: CLOSE_NAV_DRAWER });
-    RegisterSuccessNotification();
+    successNotification('Registration Successful!', 'You Are Now Logged In', 3);
     dispatch(reset('register'));
   } catch (e) {
     //failed registration
@@ -116,7 +115,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
     dispatch({ type: TOGGLE_LOGIN_BUTTON_LOADING, payload: false });
     dispatch({ type: TOGGLE_LOGIN_MODAL });
     dispatch({ type: CLOSE_NAV_DRAWER });
-    LoginSuccessNotification();
+    successNotification('Login Successful!', 'You Are Now Logged In', 3);
     dispatch(reset('login'));
   } catch (e) {
     //failed login
@@ -137,5 +136,5 @@ export const logoutUser = () => dispatch => {
   dispatch({ type: DEAUTH_USER });
   dispatch({ type: TOGGLE_LOGOUT_MODAL });
   dispatch({ type: CLOSE_NAV_DRAWER });
-  LogoutSuccessNotification();
+  successNotification('Logout Successful!', 'You Are Now Logged Out', 3);
 };
