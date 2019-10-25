@@ -11,6 +11,5 @@
   margin-right: 10px;
   display: inline-block;
   background: #fff;
-  transition: box-shadow 0.3s;
   box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
 }
