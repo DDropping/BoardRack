@@ -13,15 +13,12 @@ const PostCardHeader = post => {
   //check if logged in user has favorited this post
   useEffect(() => {
     if (user !== null) {
-      console.log('user is logged in.');
       if (
         post.post.favorites.filter(
           favorite => favorite.user.toString() === user._id
         ).length > 0
       ) {
-        console.log('User has favorited this post');
         setFavorite(true);
-        console.log(isFavorite);
       }
     }
   }, [user, isFavorite, post.post.favorites]);
@@ -42,14 +39,20 @@ const PostCardHeader = post => {
             style={{ fontSize: '20px', color: '#00458a' }}
             type="star"
             theme="filled"
-            onClick={() => dispatch(removeFavorite(post.post._id))}
+            onClick={() => {
+              dispatch(removeFavorite(post.post._id));
+              setFavorite(false);
+            }}
           />
         ) : (
           <Icon
             className="br-post-card-header-star-icon"
             style={{ fontSize: '20px', color: '#00458a' }}
             type="star"
-            onClick={() => dispatch(addFavorite(post.post._id))}
+            onClick={() => {
+              dispatch(addFavorite(post.post._id));
+              setFavorite(true);
+            }}
           />
         )}
       </div>
