@@ -1,12 +1,12 @@
 .br-search-bar-wrapper {
-  width: 100%;
+  width: calc(100% - 10px);
 }
 
 .br-search-bar-container {
   vertical-align: top;
   position: relative;
   height: 70px;
-  width: 800px; /* will need to be replaced */
+  width: 100%; /* will need to be replaced */
   margin-bottom: 10px;
   margin-right: 10px;
   display: inline-block;
