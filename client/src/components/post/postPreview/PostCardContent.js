@@ -1,7 +1,6 @@
 import React from 'react';
 
 import '../post.css';
-import { selectPost } from '../../../actions/post/post';
 
 const PostCardContent = post => {
   return (
