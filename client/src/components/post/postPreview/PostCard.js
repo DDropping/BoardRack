@@ -10,17 +10,15 @@ const PostCard = post => {
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
   const hidePostModal = () => setIsPostModalOpen(false);
   return (
-    <div>
-      <div className="br-post-card-container">
-        <PostCardHeader post={post.post} />
-        <div
-          onClick={() => {
-            setIsPostModalOpen(true);
-          }}
-        >
-          <PostCardImg post={post.post} />
-          <PostCardContent post={post.post} />
-        </div>
+    <div className="br-post-card-container">
+      <PostCardHeader post={post.post} />
+      <div
+        onClick={() => {
+          setIsPostModalOpen(true);
+        }}
+      >
+        <PostCardImg post={post.post} />
+        <PostCardContent post={post.post} />
       </div>
       {isPostModalOpen ? (
         <PostModal post={post.post} hidePostModal={hidePostModal} />
