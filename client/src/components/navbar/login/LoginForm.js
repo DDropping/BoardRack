@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { reduxForm, Field } from 'redux-form';
@@ -10,13 +9,17 @@ import { changeToRegisterModal } from '../../../actions/overlay';
 import { loginUser } from '../../../actions/auth';
 
 const LoginForm = props => {
+  const dispatch = useDispatch();
+  const loginErrors = useSelector(state => state.auth.loginErrors);
+  const isLoading = useSelector(state => state.overlay.isLoginModalLoading);
+
   const onSubmit = formProps => {
-    props.loginUser(formProps);
+    dispatch(loginUser(formProps));
   };
 
   let errors = null;
-  if (props.loginErrors) {
-    errors = props.loginErrors.map(error => {
+  if (loginErrors) {
+    errors = loginErrors.map(error => {
       return <li key={error}>{error}</li>;
     });
   }
@@ -48,7 +51,7 @@ const LoginForm = props => {
       </Link>
       <Button
         type="primary"
-        loading={props.isLoading}
+        loading={isLoading}
         size="large"
         htmlType="submit"
         className="login-form-button"
@@ -58,7 +61,7 @@ const LoginForm = props => {
       </Button>
       <div style={{ paddingTop: '20px' }}>
         Don't have an account yet?{' '}
-        <Link to="" onClick={props.changeToRegisterModal}>
+        <Link to="" onClick={() => dispatch(changeToRegisterModal)}>
           register now!
         </Link>
       </div>
@@ -66,17 +69,4 @@ const LoginForm = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    loginErrors: state.auth.loginErrors,
-    isLoading: state.overlay.isLoginModalLoading
-  };
-};
-
-export default compose(
-  connect(
-    mapStateToProps,
-    { changeToRegisterModal, loginUser }
-  ),
-  reduxForm({ form: 'login' })
-)(LoginForm);
+export default reduxForm({ form: 'login' })(LoginForm);
