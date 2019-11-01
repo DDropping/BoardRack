@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from 'antd';
-import { toggleRegisterModal } from '../../../actions/overlay';
+import { TOGGLE_REGISTER_MODAL } from '../../../actions/types';
 import RegisterForm from './RegisterForm';
 
 const Register = () => {
@@ -12,8 +12,8 @@ const Register = () => {
       <Modal
         title="Register"
         visible={isVisible}
-        onOk={dispatch(() => toggleRegisterModal())}
-        onCancel={dispatch(() => toggleRegisterModal())}
+        onOk={() => dispatch({ type: TOGGLE_REGISTER_MODAL })}
+        onCancel={() => dispatch({ type: TOGGLE_REGISTER_MODAL })}
         footer={null}
         zIndex={1100}
       >
