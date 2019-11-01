@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
-import { compose } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Icon, Button } from 'antd';
 import { reduxForm, Field } from 'redux-form';
@@ -83,12 +82,5 @@ const RegisterForm = props => {
     </Form>
   );
 };
-
-// const mapStateToProps = state => {
-//   return {
-//     registrationErrors: state.auth.registrationErrors,
-//     isLoading: state.overlay.isRegisterModalLoading
-//   };
-// };
 
 export default reduxForm({ form: 'register' })(RegisterForm);
