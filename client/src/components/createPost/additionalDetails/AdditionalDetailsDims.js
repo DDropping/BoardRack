@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import { Form, Row, Col, Input } from 'antd';
 
@@ -83,10 +81,6 @@ const AdditionalDetailsDims = () => {
   );
 };
 
-export default compose(
-  connect(
-    null,
-    null
-  ),
-  reduxForm({ form: 'createPost', destroyOnUnmount: false })
-)(AdditionalDetailsDims);
+export default reduxForm({ form: 'createPost', destroyOnUnmount: false })(
+  AdditionalDetailsDims
+);
