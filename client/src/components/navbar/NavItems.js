@@ -27,7 +27,7 @@ const Navbar = () => {
             <Link to="/CreatePost">Create Post</Link>
           </Menu.Item>
         )}
-        {user !== null && (
+        {user !== null && isAuthenticated && (
           <Menu.SubMenu
             title={
               <span className="submenu-title-wrapper">
