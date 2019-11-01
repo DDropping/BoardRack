@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { Link } from 'react-router-dom';
 import { Form, Icon, Button } from 'antd';
@@ -10,13 +10,19 @@ import { registerUser } from '../../../actions/auth';
 import { AInput } from '../../formAntComponents';
 
 const RegisterForm = props => {
+  const dispatch = useDispatch();
+  const registrationErrors = useSelector(
+    state => state.auth.registrationErrors
+  );
+  const isLoading = useSelector(state => state.overlay.isRegisterModalLoading);
+
   const onSubmit = formProps => {
-    props.registerUser(formProps);
+    dispatch(registerUser(formProps));
   };
 
   let errors = null;
-  if (props.registrationErrors) {
-    errors = props.registrationErrors.map(error => {
+  if (registrationErrors) {
+    errors = registrationErrors.map(error => {
       return <li key={error}>{error}</li>;
     });
   }
@@ -60,7 +66,7 @@ const RegisterForm = props => {
       </small>
       <Button
         type="primary"
-        loading={props.isLoading}
+        loading={isLoading}
         size="large"
         htmlType="submit"
         className="login-form-button"
@@ -70,7 +76,7 @@ const RegisterForm = props => {
       </Button>
       <div style={{ marginTop: '20px' }}>
         Already have an account?{' '}
-        <Link to="/" onClick={props.changeToLoginModal}>
+        <Link to="/" onClick={() => dispatch(changeToLoginModal())}>
           Log In
         </Link>
       </div>
@@ -78,17 +84,11 @@ const RegisterForm = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    registrationErrors: state.auth.registrationErrors,
-    isLoading: state.overlay.isRegisterModalLoading
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     registrationErrors: state.auth.registrationErrors,
+//     isLoading: state.overlay.isRegisterModalLoading
+//   };
+// };
 
-export default compose(
-  connect(
-    mapStateToProps,
-    { changeToLoginModal, registerUser }
-  ),
-  reduxForm({ form: 'register' })
-)(RegisterForm);
+export default reduxForm({ form: 'register' })(RegisterForm);
