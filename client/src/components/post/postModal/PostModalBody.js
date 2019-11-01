@@ -1,9 +1,9 @@
 import React from 'react';
 
-const PostModalBody = () => {
+const PostModalBody = post => {
   return (
     <div>
-      <div>hello</div>
+      <div>{post.post.title}</div>
     </div>
   );
 };

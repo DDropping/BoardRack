@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { LOAD_POSTS, UPDATE_SELECTED_POST, OPEN_POST_MODAL } from '../types';
+import { LOAD_POSTS } from '../types';
 import { successNotification } from '../../components/util/Notification';
 
 export const loadPosts = () => async dispatch => {
@@ -10,11 +10,6 @@ export const loadPosts = () => async dispatch => {
   } catch (err) {
     console.log(err);
   }
-};
-
-export const selectPost = post => dispatch => {
-  dispatch({ type: UPDATE_SELECTED_POST, payload: post });
-  dispatch({ type: OPEN_POST_MODAL });
 };
 
 export const addFavorite = id => async dispatch => {
@@ -37,13 +32,9 @@ export const addFavorite = id => async dispatch => {
       'This post has been added to your favorites',
       3.5
     );
-    //dispatch({ type: PUBISH_LOADING_DONE });
-    //CreatePostSuccessNotification();
   } catch (err) {
     if (err) {
       console.log(err);
-      //dispatch({ type: PUBISH_LOADING_DONE });
-      //CreatePostFailNotification();
     }
   }
 };
@@ -68,13 +59,9 @@ export const removeFavorite = id => async dispatch => {
       'This post has been removed from your favorites',
       3.5
     );
-    //dispatch({ type: PUBISH_LOADING_DONE });
-    //CreatePostSuccessNotification();
   } catch (err) {
     if (err) {
       console.log(err);
-      //dispatch({ type: PUBISH_LOADING_DONE });
-      //CreatePostFailNotification();
     }
   }
 };
