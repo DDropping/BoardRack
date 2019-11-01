@@ -5,7 +5,7 @@ import { Modal, Result, Button } from 'antd';
 import { toggleLogoutModal } from '../../../actions/overlay';
 import { logoutUser } from '../../../actions/auth';
 
-const LogoutModal = props => {
+const LogoutModal = () => {
   const dispatch = useDispatch();
   const isVisible = useSelector(state => state.overlay.isLogoutModalVisible);
   return (

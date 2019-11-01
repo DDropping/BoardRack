@@ -1,17 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Modal } from 'antd';
 import { toggleLoginModal } from '../../../actions/overlay';
 import LoginForm from './LoginForm';
 
-const LoginModal = props => {
+const LoginModal = () => {
+  const dispatch = useDispatch();
+  const isVisible = useSelector(state => state.overlay.isLoginModalVisible);
   return (
     <div>
       <Modal
         title="Login"
-        visible={props.isVisible}
-        onOk={props.toggleLoginModal}
-        onCancel={props.toggleLoginModal}
+        visible={isVisible}
+        onOk={() => dispatch(toggleLoginModal)}
+        onCancel={() => dispatch(toggleLoginModal)}
         footer={null}
         zIndex={1100}
       >
@@ -21,13 +23,4 @@ const LoginModal = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    isVisible: state.overlay.isLoginModalVisible
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { toggleLoginModal }
-)(LoginModal);
+export default LoginModal;
