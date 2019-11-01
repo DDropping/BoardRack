@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import NavItems from './NavItems';
 import NavItemsDrawer from './NavItemsDrawer';
 import './nav.css';
 
-const Navbar = props => {
+const Navbar = () => {
+  const isLoading = useSelector(state => state.auth.isLoading);
   return (
     <div className="navbar">
       <div className="logo">
@@ -18,7 +19,7 @@ const Navbar = props => {
         </Link>
       </div>
       <div className="navItems">
-        {!props.isLoading && (
+        {!isLoading && (
           <Fragment>
             <NavItems />
             <NavItemsDrawer />
@@ -30,13 +31,4 @@ const Navbar = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    isLoading: state.auth.isLoading
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(Navbar);
+export default Navbar;
