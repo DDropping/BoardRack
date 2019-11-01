@@ -1,17 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from 'antd';
 import { toggleRegisterModal } from '../../../actions/overlay';
 import RegisterForm from './RegisterForm';
 
-const Register = props => {
+const Register = () => {
+  const dispatch = useDispatch();
+  const isVisible = useSelector(state => state.overlay.isRegisterModalVisible);
   return (
     <div>
       <Modal
         title="Register"
-        visible={props.isVisible}
-        onOk={props.toggleRegisterModal}
-        onCancel={props.toggleRegisterModal}
+        visible={isVisible}
+        onOk={dispatch(() => toggleRegisterModal())}
+        onCancel={dispatch(() => toggleRegisterModal())}
         footer={null}
         zIndex={1100}
       >
@@ -21,13 +23,4 @@ const Register = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    isVisible: state.overlay.isRegisterModalVisible
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { toggleRegisterModal }
-)(Register);
+export default Register;
