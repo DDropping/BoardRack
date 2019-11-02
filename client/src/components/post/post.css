@@ -88,6 +88,7 @@
 .br-post-card-img-wrapper {
   text-align: center; /* needed to allow vertical centering */
   line-height: 340px; /* overall post card height - post header height | used to center photo in white space*/
+  background-color: #f3f7f9;
 }
 
 .br-post-card-img {
