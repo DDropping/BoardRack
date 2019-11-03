@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { Button, Modal, Icon } from 'antd';
 import { formValueSelector } from 'redux-form';
 import { animateScroll as scroll } from 'react-scroll';
@@ -8,14 +8,16 @@ import { clickNext, clickPrevious } from '../../actions/createPost/postSteps';
 import { cancelCreatePost } from '../../actions/createPost/index';
 
 const CreatePostButtons = props => {
+  const dispatch = useDispatch();
+
   const nextHandler = () => {
     scroll.scrollToTop();
-    props.clickNext();
+    dispatch(clickNext());
   };
 
   const previousHandler = () => {
     scroll.scrollToTop();
-    props.clickPrevious();
+    dispatch(clickPrevious());
   };
 
   const showCancelConfirm = () => {
@@ -25,7 +27,7 @@ const CreatePostButtons = props => {
       okType: 'danger',
       cancelText: 'No',
       onOk() {
-        props.cancelCreatePost();
+        dispatch(cancelCreatePost());
       }
     });
   };
@@ -64,7 +66,12 @@ const CreatePostButtons = props => {
             <Icon type="right" />
           </Button>
         ) : (
-          <Button onClick={props.clickNext} type="primary" ghost disabled>
+          <Button
+            onClick={() => dispatch(clickNext)}
+            type="primary"
+            ghost
+            disabled
+          >
             Next
             <Icon type="right" />
           </Button>
@@ -89,5 +96,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { clickNext, clickPrevious, cancelCreatePost }
+  null
 )(CreatePostButtons);

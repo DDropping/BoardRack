@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import './createPost.css';
 import PostSteps from './PostSteps';
@@ -9,32 +9,31 @@ import ConfirmPost from './confirmPost/ConfirmPost';
 import CreatePostButtons from './CreatePostButtons';
 import { Redirect } from 'react-router-dom';
 
-const CreatePost = props => {
+const CreatePost = () => {
+  const redirectToHome = useSelector(state => state.createPost.redirectToHome);
+  const isStepOneVisible = useSelector(
+    state => state.postSteps.isStepOneVisible
+  );
+  const isStepTwoVisible = useSelector(
+    state => state.postSteps.isStepTwoVisible
+  );
+  const isStepThreeVisible = useSelector(
+    state => state.postSteps.isStepThreeVisible
+  );
+
   return (
     <div className="wrapperCreatePost">
       <div className="showSteps">
         <PostSteps />
       </div>
-      {props.redirectToHome && <Redirect push to="/" />}
-      {props.isStepOneVisible && <AddDetails />}
-      {props.isStepTwoVisible && <AdditionalDetails />}
-      {props.isStepThreeVisible && <ConfirmPost />}
+      {redirectToHome && <Redirect push to="/" />}
+      {isStepOneVisible && <AddDetails />}
+      {isStepTwoVisible && <AdditionalDetails />}
+      {isStepThreeVisible && <ConfirmPost />}
 
       <CreatePostButtons />
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    redirectToHome: state.createPost.redirectToHome,
-    isStepOneVisible: state.postSteps.isStepOneVisible,
-    isStepTwoVisible: state.postSteps.isStepTwoVisible,
-    isStepThreeVisible: state.postSteps.isStepThreeVisible
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(CreatePost);
+export default CreatePost;

@@ -9,27 +9,23 @@ import PostModalBody from './PostModalBody';
 
 const PostModal = ({ post, hidePostModal }) => {
   return (
-    <div>
-      <div>
-        <Fade>
-          <div className="br-post-modal-grey" onClick={() => hidePostModal()} />
+    <Fade>
+      <div className="br-post-modal-grey" onClick={() => hidePostModal()} />
 
-          <div className="br-post-modal-wrapper">
-            <Icon
-              type="close-circle"
-              onClick={() => hidePostModal()}
-              style={{
-                fontSize: '25px',
-                position: 'absolute',
-                right: 5,
-                top: 5
-              }}
-            />
-            <PostModalBody post={post} />
-          </div>
-        </Fade>
+      <div className="br-post-modal-wrapper">
+        <Icon
+          type="close-circle"
+          onClick={() => hidePostModal()}
+          style={{
+            fontSize: '25px',
+            position: 'absolute',
+            right: 5,
+            top: 5
+          }}
+        />
+        <PostModalBody post={post} />
       </div>
-    </div>
+    </Fade>
   );
 };
 
