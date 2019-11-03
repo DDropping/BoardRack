@@ -1,10 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Preview from './PreviewImage';
 import ImageUploadButton from './ImageUploadButton';
 
-const PreviewList = props => {
+const PreviewList = () => {
+  const imgList = useSelector(state => state.imgUpload.imgList);
+
   return (
     <div
       style={{
@@ -12,7 +14,7 @@ const PreviewList = props => {
       }}
     >
       <ImageUploadButton />
-      {props.imgList.map(preview => (
+      {imgList.map(preview => (
         <Preview
           key={preview.imgKey}
           previewObjectUrl={preview.objectUrl}
@@ -23,13 +25,4 @@ const PreviewList = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    imgList: state.imgUpload.imgList
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(PreviewList);
+export default PreviewList;

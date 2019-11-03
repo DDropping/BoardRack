@@ -1,13 +1,16 @@
 import React from 'react';
 import { Card, Icon } from 'antd';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { deleteImagePreview } from '../../../../actions/createPost/imageUpload';
 import './imgUpload.css';
 
 const PreviewImage = props => {
+  const dispatch = useDispatch();
+  const imgList = useSelector(state => state.imgUpload.imgList);
+
   var isLoading = true;
-  props.imgList
+  imgList
     .filter(item => item.imgKey === props.imgKey)
     .map(item => (isLoading = item.isLoading));
 
@@ -53,20 +56,11 @@ const PreviewImage = props => {
         <Icon
           type="delete"
           key="delete"
-          onClick={() => props.deleteImagePreview(props.imgKey)}
+          onClick={() => dispatch(deleteImagePreview(props.imgKey))}
         />
       ]}
     ></Card>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    imgList: state.imgUpload.imgList
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { deleteImagePreview }
-)(PreviewImage);
+export default PreviewImage;

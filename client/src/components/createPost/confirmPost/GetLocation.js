@@ -1,14 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import GetLocationButton from './location/GetLocationButton';
 import LocationForm from './location/LocationForm';
 import LocationText from './location/LocationText';
 
-const GetLocation = props => {
+const GetLocation = () => {
+  const displayLocationForm = useSelector(
+    state => state.location.displayLocationForm
+  );
   return (
     <div>
-      {!props.displayLocationForm ? (
+      {!displayLocationForm ? (
         <div>
           <GetLocationButton />
           <LocationText />
@@ -20,13 +23,4 @@ const GetLocation = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    displayLocationForm: state.location.displayLocationForm
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(GetLocation);
+export default GetLocation;

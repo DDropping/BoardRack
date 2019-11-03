@@ -1,20 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Icon, Tooltip } from 'antd';
 
 import { editLocation } from '../../../../actions/user/location';
 
 const LocationText = props => {
+  const dispatch = useDispatch();
+  const location = useSelector(state => state.location.location);
+
   const handlEditClick = () => {
-    props.editLocation();
+    dispatch(editLocation());
   };
   return (
     <div style={{ display: 'inline-block' }}>
-      {props.location.postalCode !== null && (
+      {location.postalCode !== null && (
         <p style={{ display: 'inline-block', fontStyle: 'italic' }}>
-          {props.location.city + ', '}
-          {props.location.state + ' '}
-          {props.location.postalCode + ' '}
+          {location.city + ', '}
+          {location.state + ' '}
+          {location.postalCode + ' '}
           <Tooltip title="Edit Location">
             <Icon onClick={handlEditClick} type="edit" />
           </Tooltip>
@@ -24,14 +27,4 @@ const LocationText = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    location: state.location.location,
-    isLoading: state.location.isLoading
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { editLocation }
-)(LocationText);
+export default LocationText;

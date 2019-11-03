@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'antd';
 
 import {
@@ -8,31 +8,34 @@ import {
   editLocation
 } from '../../../../actions/user/location';
 
-const GetLocationButton = props => {
+const GetLocationButton = () => {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state.location.isLoading);
+
   const handleGetLocation = () => {
-    props.loadingLocation();
+    dispatch(loadingLocation());
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(retrievedLocation, showForm);
     } else {
-      props.editLocation();
+      dispatch(editLocation());
     }
   };
 
   const retrievedLocation = location => {
     const lat = location.coords.latitude;
     const lng = location.coords.longitude;
-    props.getUserAddress({ lat, lng });
+    dispatch(getUserAddress({ lat, lng }));
   };
 
   const showForm = () => {
-    props.editLocation();
+    dispatch(editLocation());
   };
 
   return (
     <Button
       onClick={handleGetLocation}
       icon="environment"
-      loading={props.isLoading}
+      loading={isLoading}
       type="primary"
       ghost
       style={{ display: 'inline-block', marginRight: '10px' }}
@@ -42,13 +45,4 @@ const GetLocationButton = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    isLoading: state.location.isLoading
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { getUserAddress, loadingLocation, editLocation }
-)(GetLocationButton);
+export default GetLocationButton;

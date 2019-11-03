@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input, Button, Row, Col } from 'antd';
 import { reduxForm, Field } from 'redux-form';
 
@@ -8,9 +7,13 @@ import { AInput } from '../../../formAntComponents';
 import { saveLocation } from '../../../../actions/user/location';
 
 const LocationForm = props => {
+  const dispatch = useDispatch();
+  const location = useSelector(state => state.location.location);
+  const isSaving = useSelector(state => state.location.isSaving);
+
   const onSubmit = formProps => {
     //create action to get geolocation from address and set user location
-    props.saveLocation(formProps);
+    dispatch(saveLocation(formProps));
   };
   return (
     <Form
@@ -33,7 +36,7 @@ const LocationForm = props => {
           <Field
             name="city"
             component={AInput}
-            placeholder={props.location.city ? props.location.city : 'City'}
+            placeholder={location.city ? location.city : 'City'}
             size="default"
           />
         </Col>
@@ -41,7 +44,7 @@ const LocationForm = props => {
           <Field
             name="state"
             component={AInput}
-            placeholder={props.location.state ? props.location.state : 'State'}
+            placeholder={location.state ? location.state : 'State'}
             size="default"
           />
         </Col>
@@ -50,9 +53,7 @@ const LocationForm = props => {
             name="postalCode"
             component={AInput}
             placeholder={
-              props.location.postalCode
-                ? props.location.postalCode
-                : 'Postal Code'
+              location.postalCode ? location.postalCode : 'Postal Code'
             }
             size="default"
           />
@@ -61,7 +62,7 @@ const LocationForm = props => {
           <Button
             type="primary"
             style={{ marginTop: '4px', width: '100%' }}
-            loading={props.isSaving}
+            loading={isSaving}
             htmlType="submit"
             ghost
           >
@@ -73,17 +74,4 @@ const LocationForm = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    location: state.location.location,
-    isSaving: state.location.isSaving
-  };
-};
-
-export default compose(
-  connect(
-    mapStateToProps,
-    { saveLocation }
-  ),
-  reduxForm({ form: 'locationForm' })
-)(LocationForm);
+export default reduxForm({ form: 'locationForm' })(LocationForm);
