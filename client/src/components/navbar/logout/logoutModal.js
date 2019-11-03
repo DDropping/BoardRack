@@ -1,18 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Modal, Result, Button } from 'antd';
 
 import { toggleLogoutModal } from '../../../actions/overlay';
 import { logoutUser } from '../../../actions/auth';
 
-const LogoutModal = props => {
+const LogoutModal = () => {
+  const dispatch = useDispatch();
+  const isVisible = useSelector(state => state.overlay.isLogoutModalVisible);
   return (
     <div>
       <Modal
         title="Logout"
-        visible={props.isVisible}
-        onOk={props.toggleLogoutModal}
-        onCancel={props.toggleLogoutModal}
+        visible={isVisible}
+        onOk={() => dispatch(toggleLogoutModal)}
+        onCancel={() => dispatch(toggleLogoutModal)}
         footer={null}
         zIndex={1100}
       >
@@ -21,7 +23,7 @@ const LogoutModal = props => {
           style={{ padding: 0 }}
           extra={[
             <Button
-              onClick={props.toggleLogoutModal}
+              onClick={() => dispatch(toggleLogoutModal)}
               type="primary"
               key="console"
               size="large"
@@ -29,7 +31,7 @@ const LogoutModal = props => {
               Cancel
             </Button>,
             <Button
-              onClick={props.logoutUser}
+              onClick={() => dispatch(logoutUser)}
               type="default"
               key="buy"
               size="large"
@@ -43,13 +45,4 @@ const LogoutModal = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    isVisible: state.overlay.isLogoutModalVisible
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { toggleLogoutModal, logoutUser }
-)(LogoutModal);
+export default LogoutModal;

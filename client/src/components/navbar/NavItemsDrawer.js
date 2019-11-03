@@ -1,88 +1,112 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Menu, Icon, Drawer } from 'antd';
 
 import {
   toggleNavDrawer,
   toggleRegisterModal,
   toggleLoginModal,
-  toggleLogoutModal,
-  toggleLogoutLoading
+  toggleLogoutModal
 } from '../../actions/overlay';
 
-const NavItemsDrawer = props => {
+const NavItemsDrawer = () => {
+  const dispatch = useDispatch();
+  const isVisible = useSelector(state => state.overlay.isNavDrawerVisible);
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+
   return (
     <div>
       <Drawer
         placement="right"
         closable={false}
-        onClose={props.toggleNavDrawer}
-        visible={props.isVisible}
+        onClose={() => dispatch(toggleNavDrawer())}
+        visible={isVisible}
         style={{ padding: '0px !important' }}
       >
         <Menu>
-          <Menu.Item onClick={props.toggleNavDrawer} key="home">
+          <Menu.Item onClick={() => dispatch(toggleNavDrawer())} key="home">
             <Link to="/">
               <Icon type="home" style={{ color: 'rgba(0,0,0,.50)' }} />
               Home
             </Link>
           </Menu.Item>
-          {props.isAuthenticated && (
-            <Menu.Item onClick={props.toggleNavDrawer} key="createPost">
+          {isAuthenticated && (
+            <Menu.Item
+              onClick={() => dispatch(toggleNavDrawer())}
+              key="createPost"
+            >
               <Link to="/CreatePost">
                 <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
                 Create Post
               </Link>
             </Menu.Item>
           )}
-          {props.isAuthenticated && (
-            <Menu.Item onClick={props.toggleNavDrawer} key="myAccount">
+          {isAuthenticated && (
+            <Menu.Item
+              onClick={() => dispatch(toggleNavDrawer())}
+              key="myAccount"
+            >
               <Link to="/Account">
                 <Icon type="user" style={{ color: 'rgba(0,0,0,.50)' }} />
                 My Account
               </Link>
             </Menu.Item>
           )}
-          {props.isAuthenticated && (
-            <Menu.Item onClick={props.toggleNavDrawer} key="myPosts">
+          {isAuthenticated && (
+            <Menu.Item
+              onClick={() => dispatch(toggleNavDrawer())}
+              key="myPosts"
+            >
               <Link to="/Account">
                 <Icon type="form" style={{ color: 'rgba(0,0,0,.50)' }} />
                 My Posts
               </Link>
             </Menu.Item>
           )}
-          {props.isAuthenticated && (
-            <Menu.Item onClick={props.toggleNavDrawer} key="myMessages">
+          {isAuthenticated && (
+            <Menu.Item
+              onClick={() => dispatch(toggleNavDrawer())}
+              key="myMessages"
+            >
               <Link to="/Account">
                 <Icon type="mail" style={{ color: 'rgba(0,0,0,.50)' }} />
                 My Messages
               </Link>
             </Menu.Item>
           )}
-          {props.isAuthenticated && (
-            <Menu.Item onClick={props.toggleNavDrawer} key="myFavorites">
+          {isAuthenticated && (
+            <Menu.Item
+              onClick={() => dispatch(toggleNavDrawer())}
+              key="myFavorites"
+            >
               <Link to="/Account">
                 <Icon type="star" style={{ color: 'rgba(0,0,0,.50)' }} />
                 My Favorites
               </Link>
             </Menu.Item>
           )}
-          {!props.isAuthenticated && (
-            <Menu.Item onClick={props.toggleLoginModal} key="login">
+          {!isAuthenticated && (
+            <Menu.Item onClick={() => dispatch(toggleLoginModal())} key="login">
               <Icon type="user" style={{ color: 'rgba(0,0,0,.50)' }} />
               Login
             </Menu.Item>
           )}
-          {!props.isAuthenticated && (
-            <Menu.Item onClick={props.toggleRegisterModal} key="register">
+          {!isAuthenticated && (
+            <Menu.Item
+              onClick={() => dispatch(toggleRegisterModal())}
+              key="register"
+            >
               <Icon type="user-add" style={{ color: 'rgba(0,0,0,.50)' }} />
               Register
             </Menu.Item>
           )}
-          {props.isAuthenticated && <Menu.Divider />}
-          {props.isAuthenticated && (
-            <Menu.Item onClick={props.toggleLogoutModal} key="logout">
+          {isAuthenticated && <Menu.Divider />}
+          {isAuthenticated && (
+            <Menu.Item
+              onClick={() => dispatch(toggleLogoutModal())}
+              key="logout"
+            >
               <Icon type="logout" style={{ color: 'rgba(0,0,0,.50)' }} />
               Logout
             </Menu.Item>
@@ -93,20 +117,4 @@ const NavItemsDrawer = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    isVisible: state.overlay.isNavDrawerVisible,
-    isAuthenticated: state.auth.isAuthenticated
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  {
-    toggleRegisterModal,
-    toggleLoginModal,
-    toggleNavDrawer,
-    toggleLogoutModal,
-    toggleLogoutLoading
-  }
-)(NavItemsDrawer);
+export default NavItemsDrawer;

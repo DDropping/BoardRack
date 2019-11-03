@@ -1,44 +1,31 @@
 /* Displays postModal if isPostModalVisible === true */
 
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import Fade from 'react-reveal/Fade';
 import { Icon } from 'antd';
 
 import '../post.css';
-import { CLOSE_POST_MODAL } from '../../../actions/types';
 import PostModalBody from './PostModalBody';
 
-const PostModal = () => {
-  const dispatch = useDispatch();
-  const isVisible = useSelector(state => state.overlay.isPostModalVisible);
+const PostModal = ({ post, hidePostModal }) => {
   return (
-    <div>
-      {isVisible ? (
-        <div>
-          <Fade>
-            <div
-              className="br-post-modal-grey"
-              onClick={() => dispatch({ type: CLOSE_POST_MODAL })}
-            />
+    <Fade>
+      <div className="br-post-modal-grey" onClick={() => hidePostModal()} />
 
-            <div className="br-post-modal-wrapper">
-              <Icon
-                type="close-circle"
-                onClick={() => dispatch({ type: CLOSE_POST_MODAL })}
-                style={{
-                  fontSize: '25px',
-                  position: 'absolute',
-                  right: 5,
-                  top: 5
-                }}
-              />
-              <PostModalBody />
-            </div>
-          </Fade>
-        </div>
-      ) : null}
-    </div>
+      <div className="br-post-modal-wrapper">
+        <Icon
+          type="close-circle"
+          onClick={() => hidePostModal()}
+          style={{
+            fontSize: '25px',
+            position: 'absolute',
+            right: 5,
+            top: 5
+          }}
+        />
+        <PostModalBody post={post} />
+      </div>
+    </Fade>
   );
 };
 

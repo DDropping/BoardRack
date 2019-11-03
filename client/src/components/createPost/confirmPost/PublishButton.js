@@ -1,39 +1,31 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { Button, Form } from 'antd';
 
 import { createPost } from '../../../actions/createPost';
 
 const PublishButton = props => {
+  const dispatch = useDispatch();
+  const imgList = useSelector(state => state.imgUpload.imgList);
+  const isLoading = useSelector(state => state.createPost.isLoading);
+  const location = useSelector(state => state.location.location);
+
   const onSubmit = formProps => {
-    props.createPost(formProps, props.imgList, props.location);
+    dispatch(createPost(formProps, imgList, location));
   };
 
-  const images = props.imgList.filter(imgs => imgs.isLoading === true);
+  const images = imgList.filter(imgs => imgs.isLoading === true);
   const imagesLoading = images.length > 0 ? true : false;
 
   return (
     <Form onSubmit={props.handleSubmit(onSubmit)}>
-      {imagesLoading ||
-      props.location.lat == null ||
-      props.location.lng == null ? (
-        <Button
-          htmlType="submit"
-          onSubmit={props.handleSubmit(onSubmit)}
-          type="primary"
-          disabled
-        >
+      {imagesLoading || location.lat == null || location.lng == null ? (
+        <Button htmlType="submit" type="primary" disabled>
           Publish
         </Button>
       ) : (
-        <Button
-          htmlType="submit"
-          onSubmit={props.handleSubmit(onSubmit)}
-          type="primary"
-          loading={props.isLoading}
-        >
+        <Button htmlType="submit" type="primary" loading={isLoading}>
           Publish
         </Button>
       )}
@@ -41,18 +33,6 @@ const PublishButton = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    imgList: state.imgUpload.imgList,
-    isLoading: state.createPost.isLoading,
-    location: state.location.location
-  };
-};
-
-export default compose(
-  connect(
-    mapStateToProps,
-    { createPost }
-  ),
-  reduxForm({ form: 'createPost', destroyOnUnmount: false })
-)(PublishButton);
+export default reduxForm({ form: 'createPost', destroyOnUnmount: false })(
+  PublishButton
+);

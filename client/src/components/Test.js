@@ -20,7 +20,7 @@ const Test = props => {
     <div>
       <Banner />
       <Filter />
-      <div style={{ display: 'inline-block', maxWidth: 'calc(100% - 260px)' }}>
+      <div style={{ display: 'inline-block', width: 'calc(100% - 260px)' }}>
         <SearchBar />
         {posts.map(post => {
           return <PostCard key={post._id} post={post} />;

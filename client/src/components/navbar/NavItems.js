@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Menu, Button, Icon } from 'antd';
 
@@ -11,24 +11,28 @@ import {
   toggleLogoutModal
 } from '../../actions/overlay';
 
-const Navbar = props => {
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+  const user = useSelector(state => state.auth.user);
+
   return (
     <div>
       <Menu className="navigationItems" mode="horizontal">
         <Menu.Item key="home">
           <Link to="/">Home</Link>
         </Menu.Item>
-        {props.isAuthenticated && (
+        {isAuthenticated && (
           <Menu.Item key="createPost">
             <Link to="/CreatePost">Create Post</Link>
           </Menu.Item>
         )}
-        {props.isAuthenticated && (
+        {user !== null && isAuthenticated && (
           <Menu.SubMenu
             title={
               <span className="submenu-title-wrapper">
                 <Icon type="user" />
-                {props.username}
+                {user.username}
               </span>
             }
           >
@@ -66,28 +70,34 @@ const Navbar = props => {
               </Link>
             </Menu.Item>
             <Menu.Divider />
-            <Menu.Item onClick={props.toggleLogoutModal} key="subLogout">
+            <Menu.Item
+              onClick={() => dispatch(toggleLogoutModal())}
+              key="subLogout"
+            >
               <Icon type="logout" style={{ color: 'rgba(0,0,0,.50)' }} />
               Logout
             </Menu.Item>
           </Menu.SubMenu>
         )}
 
-        {!props.isAuthenticated && (
-          <Menu.Item onClick={props.toggleLoginModal} key="login">
+        {!isAuthenticated && (
+          <Menu.Item onClick={() => dispatch(toggleLoginModal())} key="login">
             Login
           </Menu.Item>
         )}
 
-        {!props.isAuthenticated && (
-          <Menu.Item onClick={props.toggleRegisterModal} key="register">
+        {!isAuthenticated && (
+          <Menu.Item
+            onClick={() => dispatch(toggleRegisterModal())}
+            key="register"
+          >
             Register
           </Menu.Item>
         )}
       </Menu>
 
       <div className="drawerButton">
-        <Button onClick={props.toggleNavDrawer}>
+        <Button onClick={() => dispatch(toggleNavDrawer())}>
           <Icon type="menu" />
         </Button>
       </div>
@@ -95,20 +105,4 @@ const Navbar = props => {
   );
 };
 
-const mapStateToProps = state => {
-  if (state.auth.user) {
-    return {
-      isAuthenticated: state.auth.isAuthenticated,
-      username: state.auth.user.username
-    };
-  } else {
-    return {
-      isAuthenticated: state.auth.isAuthenticated
-    };
-  }
-};
-
-export default connect(
-  mapStateToProps,
-  { toggleRegisterModal, toggleLoginModal, toggleLogoutModal, toggleNavDrawer }
-)(Navbar);
+export default Navbar;

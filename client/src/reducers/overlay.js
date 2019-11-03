@@ -1,6 +1,4 @@
 import {
-  OPEN_POST_MODAL,
-  CLOSE_POST_MODAL,
   TOGGLE_REGISTER_MODAL,
   TOGGLE_REGISTER_BUTTON_LOADING,
   TOGGLE_LOGOUT_MODAL,
@@ -23,16 +21,6 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case OPEN_POST_MODAL:
-      return {
-        ...state,
-        isPostModalVisible: true
-      };
-    case CLOSE_POST_MODAL:
-      return {
-        ...state,
-        isPostModalVisible: false
-      };
     case TOGGLE_REGISTER_MODAL:
       return {
         ...state,
