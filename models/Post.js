@@ -64,7 +64,11 @@ const PostSchema = new mongoose.Schema({
         ref: 'user'
       }
     }
-  ]
+  ],
+  viewCount: {
+    type: Number,
+    default: 0
+  }
 });
 
 module.exports = Post = mongoose.model('post', PostSchema);
