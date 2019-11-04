@@ -458,7 +458,7 @@ router.put('/unFavorite', auth, async (req, res) => {
 // @route   PUT api/posts/addView
 // @desc    Add 1 to view count of post
 // @access  Public
-router.put('/favorite', async (req, res) => {
+router.put('/addView', async (req, res) => {
   try {
     const post = await Post.findById(req.body.id);
 

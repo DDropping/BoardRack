@@ -67,6 +67,7 @@ export const removeFavorite = id => async dispatch => {
 };
 
 export const addView = id => async dispatch => {
+  console.log(id);
   //set headers for request
   const config = {
     headers: {
