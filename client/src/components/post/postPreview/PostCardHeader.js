@@ -27,12 +27,12 @@ const PostCardHeader = post => {
     <div className="br-post-card-header">
       <strong>${post.post.price}</strong>
       <div style={{ float: 'right' }}>
-        <strong>14</strong>
+        <strong>{post.post.viewCount}</strong>
         <Icon
           style={{ fontSize: '20px', color: '#00458a', marginRight: '10px' }}
           type="eye"
         />
-        <strong>11</strong>
+        <strong>{post.post.favorites.length}</strong>
         {isFavorite ? (
           <Icon
             className="br-post-card-header-star-icon"
