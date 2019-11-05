@@ -61,3 +61,4 @@ export const HIDE_LOCATION_FORM = 'HIDE_LOCATION_FORM';
 //Posts
 export const LOAD_POSTS = 'LOAD_POSTS';
 export const UPDATE_SELECTED_POST = 'UPDATE_SELECTED_POST';
+export const POST_VIEWED = 'POST_VIEWED';

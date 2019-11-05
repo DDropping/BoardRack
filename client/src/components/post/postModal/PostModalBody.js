@@ -1,8 +1,23 @@
 import React, { useEffect } from 'react';
+import { POST_VIEWED } from '../../../actions/types';
+import { useSelector, useDispatch } from 'react-redux';
 import { addView } from '../../../actions/post/post';
 
 const PostModalBody = post => {
-  useEffect(() => addView(post.post._id), []);
+  const dispatch = useDispatch();
+  const viewedPosts = useSelector(state => state.post.viewedPosts);
+
+  useEffect(() => {
+    //increase post viewCount if this is first time user is viewing post
+    if (
+      viewedPosts.filter(
+        postId => postId.toString() === post.post._id.toString()
+      ).length === 0
+    ) {
+      dispatch(addView(post.post._id));
+    }
+  }, [post.post._id, viewedPosts]);
+
   return (
     <div>
       <div>{post.post.title}</div>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { LOAD_POSTS } from '../types';
+import { LOAD_POSTS, POST_VIEWED } from '../types';
 import { successNotification } from '../../components/util/Notification';
 
 export const loadPosts = () => async dispatch => {
@@ -67,7 +67,6 @@ export const removeFavorite = id => async dispatch => {
 };
 
 export const addView = id => async dispatch => {
-  console.log(id);
   //set headers for request
   const config = {
     headers: {
@@ -81,6 +80,7 @@ export const addView = id => async dispatch => {
 
   //post new account to DB
   try {
+    dispatch({ type: POST_VIEWED, payload: id });
     await axios.put('/api/posts/addView', body, config);
   } catch (err) {
     if (err) {
