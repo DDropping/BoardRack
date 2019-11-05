@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { POST_VIEWED } from '../../../actions/types';
 import { useSelector, useDispatch } from 'react-redux';
 import { addView } from '../../../actions/post/post';
 
@@ -16,7 +15,7 @@ const PostModalBody = post => {
     ) {
       dispatch(addView(post.post._id));
     }
-  }, [post.post._id, viewedPosts]);
+  }, [post.post._id, dispatch, viewedPosts]);
 
   return (
     <div>
