@@ -1,18 +1,18 @@
 import React from 'react';
 import { Icon, Button } from 'antd';
 
-const Filter = () => {
+const LayoutButton = () => {
   return (
     <Button
       onClick={console.log('hello')}
-      style={{ marginRight: '5px' }}
+      style={{ marginRight: '5px', float: 'right' }}
       type="primary"
       ghost
     >
-      <Icon type="filter" />
-      Filter
+      <Icon type="appstore" />
+      View
     </Button>
   );
 };
 
-export default Filter;
+export default LayoutButton;
