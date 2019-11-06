@@ -5,8 +5,8 @@
 .br-search-bar-container {
   vertical-align: top;
   position: relative;
-  height: 70px;
-  width: 100%; /* will need to be replaced */
+  height: 80px;
+  width: 100%;
   margin-bottom: 10px;
   display: inline-block;
   background: #fff;
