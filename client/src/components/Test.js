@@ -1,31 +1,13 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-import './createPost/addDetails/imageUpload/imgUpload.css';
-import PostCard from './post/postPreview/PostCard';
-import Banner from './home/banner/Banner';
-import Filter from './home/searchFilter/Filter';
-import SearchBar from './home/searchBar/SearchBar';
-import { loadPosts } from '../actions/post/post';
+import React from 'react';
+//import { useSelector, useDispatch } from 'react-redux';
 
 const Test = props => {
-  const dispatch = useDispatch();
-  const posts = useSelector(state => state.post.postList);
-
-  useEffect(() => {
-    dispatch(loadPosts());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // const posts = useSelector(state => state.post.postList);
 
   return (
     <div>
-      <Banner />
-      <Filter />
-      <div style={{ display: 'inline-block', width: 'calc(100% - 260px)' }}>
-        <SearchBar />
-        {posts.map(post => {
-          return <PostCard key={post._id} post={post} />;
-        })}
-      </div>
+      <div>Test Page</div>
     </div>
   );
 };

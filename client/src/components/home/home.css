@@ -1,0 +1,10 @@
+.br-searchbar-postcards-container {
+  display: inline-block;
+  width: calc(100% - 260px);
+}
+
+@media (max-width: 780px) {
+  .br-filterBox-container {
+    width: 100%;
+  }
+}

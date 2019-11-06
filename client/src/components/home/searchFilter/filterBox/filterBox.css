@@ -1,4 +1,4 @@
-.br-filter-container {
+.br-filterBox-container {
   vertical-align: top;
   position: relative;
   height: 500px;
@@ -11,8 +11,8 @@
   box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
 }
 
-@media screen and (max-width: 520px) {
-  .br-filter-container {
-    display: block;
+@media (max-width: 780px) {
+  .br-filterBox-container {
+    display: none;
   }
 }
