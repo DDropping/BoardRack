@@ -4,10 +4,9 @@ import { Icon, Button } from 'antd';
 const LayoutButton = () => {
   return (
     <Button
-      onClick={console.log('hello')}
-      style={{ marginRight: '5px', float: 'right' }}
-      type="primary"
-      ghost
+      onClick={() => console.log('hello')}
+      style={{ float: 'right' }}
+      type="link"
     >
       <Icon type="appstore" />
       View
