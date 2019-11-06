@@ -2,8 +2,8 @@ import React from 'react';
 
 import './filterBox.css';
 
-const Filter = () => {
+const FilterButton = () => {
   return <div className="br-filterBox-container ">Filters</div>;
 };
 
-export default Filter;
+export default FilterButton;

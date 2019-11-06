@@ -1,0 +1,11 @@
+.br-filterBar-container {
+  width: 100%;
+}
+
+.br-filterButton-container {
+  display: inline-block;
+}
+
+.br-viewButton-container {
+  float: right;
+}

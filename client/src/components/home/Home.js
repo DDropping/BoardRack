@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import PostCard from '../post/postPreview/PostCard';
 import Banner from '../home/banner/Banner';
-import Filter from '../home/searchFilter/filterBox/Filter';
+import FilterBox from './searchFilter/filterBox/FilterBox';
 import SearchBar from '../home/searchBar/SearchBar';
 import { loadPosts } from '../../actions/post/post';
 
@@ -18,7 +18,7 @@ const Home = props => {
   return (
     <div>
       <Banner />
-      <Filter />
+      <FilterBox />
       <div
         className="br-searchbar-postcards-container"
         style={{ display: 'inline-block' }}
