@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import './home.css';
 import PostCard from '../post/postPreview/PostCard';
 import Banner from '../home/banner/Banner';
 import FilterBox from './searchFilter/filterBox/FilterBox';
@@ -16,13 +17,10 @@ const Home = props => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="br-home-page-wrapper">
       <Banner />
       <FilterBox />
-      <div
-        className="br-searchbar-postcards-container"
-        style={{ display: 'inline-block' }}
-      >
+      <div className="br-searchbar-postcards-container">
         <SearchBar />
         {posts.map(post => {
           return <PostCard key={post._id} post={post} />;

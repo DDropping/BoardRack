@@ -9,8 +9,10 @@ const SearchBar = () => {
     <div className="br-search-bar-wrapper">
       <div className="br-search-bar-container ">
         Search Bar
-        <FilterButton />
-        <LayoutButton />
+        <div>
+          <FilterButton />
+          <LayoutButton />
+        </div>
       </div>
     </div>
   );
