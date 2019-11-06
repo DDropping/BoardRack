@@ -3,10 +3,13 @@
 }
 
 .br-layout-button {
+  z-index: 2;
   float: right;
 }
 
 .br-layout-options {
+  position: relative;
+  z-index: 3;
   padding: 5px;
   background: #fff;
   box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
