@@ -1,15 +1,3 @@
 .br-home-page-wrapper {
   width: 100%;
 }
-
-.br-searchbar-postcards-container {
-  display: inline-block;
-  margin-left: 10px;
-  width: calc(100% - 260px);
-}
-
-@media (max-width: 780px) {
-  .br-searchbar-postcards-container {
-    width: calc(100% - 10px);
-  }
-}

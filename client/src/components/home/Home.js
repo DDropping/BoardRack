@@ -19,11 +19,9 @@ const Home = props => {
     <div className="br-home-page-wrapper">
       <Banner />
       <FilterBox />
-      <div className="br-searchbar-postcards-container">
-        {posts.map(post => {
-          return <PostCard key={post._id} post={post} />;
-        })}
-      </div>
+      {posts.map(post => {
+        return <PostCard key={post._id} post={post} />;
+      })}
     </div>
   );
 };
