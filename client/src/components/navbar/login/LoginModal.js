@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Modal } from 'antd';
-import { toggleLoginModal } from '../../../actions/overlay';
+
+import { TOGGLE_LOGIN_MODAL } from '../../../actions/types';
 import LoginForm from './LoginForm';
 
 const LoginModal = () => {
@@ -12,8 +13,8 @@ const LoginModal = () => {
       <Modal
         title="Login"
         visible={isVisible}
-        onOk={() => dispatch(toggleLoginModal)}
-        onCancel={() => dispatch(toggleLoginModal)}
+        onOk={() => dispatch({ type: TOGGLE_LOGIN_MODAL })}
+        onCancel={() => dispatch({ type: TOGGLE_LOGIN_MODAL })}
         footer={null}
         zIndex={1100}
       >
