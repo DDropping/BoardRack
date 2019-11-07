@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './searchBar.css';
-import SearchInput from './SearchInput';
 import LayoutButton from './LayoutButton';
 import FilterButton from '../searchFilter/filterButton/FilterButton';
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Input } from 'antd';
 
-import './searchInput.css';
+import './searchBar.css';
 
-const SearchInput = () => {
+const SearchBar = () => {
   const { Search } = Input;
 
   return (
@@ -19,4 +19,4 @@ const SearchInput = () => {
   );
 };
 
-export default SearchInput;
+export default SearchBar;

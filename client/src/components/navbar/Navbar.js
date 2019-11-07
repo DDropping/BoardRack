@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import NavItems from './NavItems';
 import NavItemsDrawer from './NavItemsDrawer';
-import SearchInput from '../home/searchBar/SearchInput';
+import SearchBar from './searchBar/SearchBar';
 import './nav.css';
 
 const Navbar = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <SearchInput />
+      <SearchBar />
       <div className="navItems">
         {!isLoading && (
           <Fragment>
