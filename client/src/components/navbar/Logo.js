@@ -5,23 +5,27 @@ import './logo.css';
 
 const Logo = () => {
   return (
-    <div>
-      <div className="br-logo-desktop">
+    <div className="br-logo-wrapper">
+      <div className="br-logo-desktop-wrapper">
         <Link to="/">
           <img
+            className="br-logo-desktop"
             alt="br-logo-desktop"
             src={process.env.PUBLIC_URL + '/images/br_logo_xs.jpg'}
           />
         </Link>
       </div>
-      <Link to="/">
-        <div className="br-logo-mobile">
-          <img
-            alt="logo-small"
-            src={process.env.PUBLIC_URL + '/images/br_logo_small_xs.png'}
-          />
+      <div>
+        <div className="br-logo-mobile-wrapper">
+          <Link to="/">
+            <img
+              className="br-logo-mobile"
+              alt="logo-small"
+              src={process.env.PUBLIC_URL + '/images/br_logo_small.png'}
+            />
+          </Link>
         </div>
-      </Link>
+      </div>
     </div>
   );
 };
