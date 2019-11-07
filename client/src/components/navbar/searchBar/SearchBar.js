@@ -9,7 +9,6 @@ const SearchBar = () => {
   return (
     <div className="br-search-input">
       <Search
-        placeholder="input search text"
         enterButton="Search"
         size="large"
         placeholder="Find Your Next Surfboard..."

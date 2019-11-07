@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import Logo from './Logo';
 import NavItems from './NavItems';
