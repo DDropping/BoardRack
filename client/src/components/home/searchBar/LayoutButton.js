@@ -6,7 +6,7 @@ import { useOnClickOutside } from '../../../hooks/onClickOutside';
 
 const LayoutButton = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [layoutValuem, setLayoutValue] = useState('View');
+  const [layoutValue, setLayoutValue] = useState('Gallery');
   const ref = useRef();
   useOnClickOutside(ref, useCallback(() => setIsVisible(false)));
 
@@ -17,8 +17,10 @@ const LayoutButton = () => {
         style={{ marginRight: '24px' }}
         type="link"
       >
-        <Icon type="appstore" />
-        View
+        {layoutValue === 'List' && <Icon type="menu" />}
+        {layoutValue === 'Thumb' && <Icon type="unordered-list" />}
+        {layoutValue === 'Gallery' && <Icon type="appstore" />}
+        {layoutValue}
       </Button>
       {isVisible && (
         <div className="br-layout-options">

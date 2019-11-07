@@ -12,6 +12,7 @@ const SearchInput = () => {
         placeholder="input search text"
         enterButton="Search"
         size="large"
+        placeholder="BoardRack..."
         onSearch={value => console.log(value)}
       />
     </div>

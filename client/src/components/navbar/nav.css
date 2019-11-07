@@ -14,9 +14,9 @@
 .navItems {
   float: right; /* floats the div that holds the nav items to the right */
   padding-top: 6px; /* center nav items */
-  width: calc(
+  /* width: calc(
     100% - 170px
-  ); /* make navitems span the rest of the horizontal space next to logo */
+  ); make navitems span the rest of the horizontal space next to logo */
 }
 
 .navigationItems {
