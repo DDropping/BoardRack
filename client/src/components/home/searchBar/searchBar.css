@@ -5,10 +5,7 @@
 .br-search-bar-container {
   vertical-align: top;
   position: relative;
-  height: 80px;
   width: 100%;
   margin-bottom: 10px;
   display: inline-block;
-  background: #fff;
-  box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
 }

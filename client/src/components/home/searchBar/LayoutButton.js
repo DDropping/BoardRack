@@ -14,7 +14,7 @@ const LayoutButton = () => {
     <div className="br-layout-button" ref={ref}>
       <Button
         onClick={() => setIsVisible(!isVisible)}
-        style={{ marginRight: '24px' }}
+        style={{ marginRight: '30px' }}
         type="link"
       >
         {layoutValue === 'List' && <Icon type="menu" />}

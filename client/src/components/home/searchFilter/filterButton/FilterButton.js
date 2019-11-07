@@ -3,11 +3,7 @@ import { Icon, Button } from 'antd';
 
 const Filter = () => {
   return (
-    <Button
-      onClick={() => console.log('hello')}
-      style={{ marginLeft: '20px' }}
-      type="link"
-    >
+    <Button onClick={() => console.log('hello')} type="link">
       <Icon type="filter" />
       Filter
     </Button>

@@ -8,13 +8,8 @@ import FilterButton from '../searchFilter/filterButton/FilterButton';
 const SearchBar = () => {
   return (
     <div className="br-search-bar-wrapper">
-      <div className="br-search-bar-container ">
-        <SearchInput />
-        <div>
-          <FilterButton />
-          <LayoutButton />
-        </div>
-      </div>
+      <FilterButton />
+      <LayoutButton />
     </div>
   );
 };
