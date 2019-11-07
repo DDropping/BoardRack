@@ -1,0 +1,14 @@
+.br-search-input {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: calc(100% - 460px);
+  max-width: 400px;
+}
+
+@media (max-width: 700px) {
+  .br-search-input {
+    width: calc(100% - 160px);
+  }
+}

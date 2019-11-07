@@ -1,15 +1,29 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import './home.css';
+import PostCard from '../post/postPreview/PostCard';
+import Banner from '../home/banner/Banner';
+import FilterBox from './searchFilter/filterBox/FilterBox';
+import { loadPosts } from '../../actions/post/post';
 
 const Home = props => {
+  const dispatch = useDispatch();
+  const posts = useSelector(state => state.post.postList);
+
+  useEffect(() => {
+    dispatch(loadPosts());
+  }, [dispatch]);
+
   return (
-    <div>
-      <div>Home Page</div>
+    <div className="br-home-page-wrapper">
+      <Banner />
+      <FilterBox />
+      {posts.map(post => {
+        return <PostCard key={post._id} post={post} />;
+      })}
     </div>
   );
 };
 
-export default connect(
-  null,
-  null
-)(Home);
+export default Home;

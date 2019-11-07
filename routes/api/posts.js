@@ -5,8 +5,8 @@
 // - GET api/posts (retrieve all posts)
 // - GET api/posts/filter (retrieve filtered posts)
 // - DELETE api/posts/delete/:postId (delete post given id)
-// - PUT api/posts/like/:id (like post)
-// - PUT api/posts/unlike/:id (like post)
+// - PUT api/posts/like (like post)
+// - PUT api/posts/unlike (like post)
 
 const express = require('express');
 const router = express.Router();
@@ -387,7 +387,6 @@ router.put('/unlike/:id', auth, async (req, res) => {
   }
 });
 
-//TODO save postid to user's favorited posts array
 // @route   PUT api/posts/favorite
 // @desc    Favorite a specific post | add userId to post favorite[], add postId to user favoritedPosts[]
 // @access  Private
@@ -419,9 +418,8 @@ router.put('/favorite', auth, async (req, res) => {
   }
 });
 
-//TODO save postid to user's favorited posts array
 // @route   PUT api/posts/favorite
-// @desc    Favorite a specific post | add userId to post favorite[], add postId to user favoritedPosts[]
+// @desc    Unfavorite a specific post | remove userId to post favorite[], remove postId to user favoritedPosts[]
 // @access  Private
 router.put('/unFavorite', auth, async (req, res) => {
   try {
@@ -451,6 +449,22 @@ router.put('/unFavorite', auth, async (req, res) => {
     user.favorites.splice(removeUserIndex, 1);
     await user.save();
     res.json(post.favorites);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   PUT api/posts/addView
+// @desc    Add 1 to view count of post
+// @access  Public
+router.put('/addView', async (req, res) => {
+  try {
+    const post = await Post.findById(req.body.id);
+
+    //increment post viewCount and save
+    post.viewCount++;
+    await post.save();
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');

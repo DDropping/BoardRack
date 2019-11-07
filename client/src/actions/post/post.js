@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { LOAD_POSTS } from '../types';
+import { LOAD_POSTS, POST_VIEWED } from '../types';
 import { successNotification } from '../../components/util/Notification';
 
 export const loadPosts = () => async dispatch => {
@@ -59,6 +59,29 @@ export const removeFavorite = id => async dispatch => {
       'This post has been removed from your favorites',
       3.5
     );
+  } catch (err) {
+    if (err) {
+      console.log(err);
+    }
+  }
+};
+
+export const addView = id => async dispatch => {
+  //set headers for request
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  //stringify the form items
+  const postid = { id: id };
+  const body = JSON.stringify(postid);
+
+  //post new account to DB
+  try {
+    dispatch({ type: POST_VIEWED, payload: id });
+    await axios.put('/api/posts/addView', body, config);
   } catch (err) {
     if (err) {
       console.log(err);
