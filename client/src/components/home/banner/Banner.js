@@ -14,7 +14,7 @@ const Banner = () => {
             <img
               className="br-banner-img"
               alt="br-logo-desktop"
-              src={process.env.PUBLIC_URL + '/images/br_banner_1.jpg'}
+              src={process.env.PUBLIC_URL + '/images/br_banner_2.jpg'}
             />
           </Link>
         </div>
@@ -32,7 +32,7 @@ const Banner = () => {
             <img
               className="br-banner-img"
               alt="br-logo-desktop"
-              src={process.env.PUBLIC_URL + '/images/br_banner_1.jpg'}
+              src={process.env.PUBLIC_URL + '/images/br_banner_2.jpg'}
             />
           </Link>
         </div>
