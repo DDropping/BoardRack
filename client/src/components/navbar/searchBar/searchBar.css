@@ -1,10 +1,11 @@
-.br-search-input {
+.br-search-bar {
   display: inline-block;
-  margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
   width: calc(100% - 460px);
   max-width: 400px;
+  position: relative;
+  top: -7px;
 }
 
 @media (max-width: 700px) {
