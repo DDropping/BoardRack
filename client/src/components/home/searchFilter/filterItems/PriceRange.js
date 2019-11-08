@@ -1,26 +1,34 @@
 import React, { useState } from 'react';
-import { Input, InputNumber } from 'antd';
+import { InputNumber, Slider } from 'antd';
 
-export const PriceRange = () => {
-  const [inputValue, setInputValue] = useState(4);
-  const InputGroup = Input.Group;
-  function onChange(value) {
-    console.log('changed', value);
-  }
+const PriceRange = () => {
+  const [priceLow, setPriceLow] = useState(0);
+  const [priceHigh, setPriceHigh] = useState(1000);
   return (
     <div>
       Price:
-      <InputNumber
-        defaultValue={0}
-        formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-        parser={value => value.replace(/\$\s?|(,*)/g, '')}
-        onChange={onChange}
+      <Slider
+        range
+        max={1000}
+        defaultValue={[0, 1000]}
+        value={[100, 500]}
+        onChange={value => setPriceLow(value)}
+        onAfterChange={value => setPriceHigh(value)}
       />
       <InputNumber
-        defaultValue={1000}
+        size="small"
+        defaultValue={priceLow}
         formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
         parser={value => value.replace(/\$\s?|(,*)/g, '')}
-        onChange={onChange}
+        onChange={value => setPriceLow(value)}
+      />
+      -
+      <InputNumber
+        size="small"
+        defaultValue={priceHigh}
+        formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+        parser={value => value.replace(/\$\s?|(,*)/g, '')}
+        onChange={value => setPriceHigh(value)}
       />
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef } from 'react';
 import { Icon, Button } from 'antd';
 
 import './layoutButton.css';
-import { useOnClickOutside } from '../../../hooks/onClickOutside';
+import { useOnClickOutside } from '../../../../../hooks/onClickOutside';
 
 const LayoutButton = () => {
   const [isVisible, setIsVisible] = useState(false);
