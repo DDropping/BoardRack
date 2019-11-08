@@ -8,7 +8,7 @@
 }
 
 .br-layout-options {
-  position: relative;
+  position: absolute;
   z-index: 1000;
   padding: 5px;
   background: #fff;
