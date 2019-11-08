@@ -1,9 +1,10 @@
 .br-banner-container {
   height: 90px;
-  max-width: 1200px;
+  width: 1200px;
 }
 
 .br-banner-img {
+  max-height: 100%;
   margin: auto;
   display: block;
   position: relative;
