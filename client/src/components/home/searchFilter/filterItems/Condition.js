@@ -4,18 +4,14 @@ import { Checkbox } from 'antd';
 const CheckboxGroup = Checkbox.Group;
 
 const plainOptions = [
-  'Shortboard',
-  'Longboard',
-  'Fish',
-  'Funboard',
-  'Hybrid',
-  'Gun',
-  'Grovler',
-  'SUP'
+  'New',
+  'Lightly Used',
+  'Used',
+  'Heavily Used',
+  'Thrashed'
 ];
 const defaultCheckedList = [];
-
-export const BoardType = () => {
+export const Condition = () => {
   const [checkedList, setCheckedList] = useState(defaultCheckedList);
   const [indeterminate, setIndeterminate] = useState(false);
   const [checkAll, setCheckAll] = useState(false);
@@ -37,23 +33,26 @@ export const BoardType = () => {
   };
   return (
     <div>
-      <strong>Board Type:</strong>
+      <strong>Condition:</strong>
       <div style={{ borderBottom: '1px solid #E9E9E9' }}>
         <Checkbox
           indeterminate={indeterminate}
           onChange={onCheckAllChange}
           checked={checkAll}
         >
-          All Boards
+          All Conditions
         </Checkbox>
       </div>
-      <CheckboxGroup
-        options={plainOptions}
-        value={checkedList}
-        onChange={onChange}
-      />
+      <div onClick={() => setCheckAll(false)}>
+        <CheckboxGroup
+          options={plainOptions}
+          value={checkedList}
+          onChange={onChange}
+          disabled={checkAll}
+        />
+      </div>
     </div>
   );
 };
 
-export default BoardType;
+export default Condition;
