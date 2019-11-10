@@ -10,11 +10,18 @@ const plainOptions = [
   'Heavily Used',
   'Thrashed'
 ];
-const defaultCheckedList = [];
+const defaultCheckedList = [
+  'New',
+  'Lightly Used',
+  'Used',
+  'Heavily Used',
+  'Thrashed'
+];
+
 export const Condition = () => {
   const [checkedList, setCheckedList] = useState(defaultCheckedList);
   const [indeterminate, setIndeterminate] = useState(false);
-  const [checkAll, setCheckAll] = useState(false);
+  const [checkAll, setCheckAll] = useState(true);
 
   const onChange = checkedList => {
     setCheckedList(checkedList);

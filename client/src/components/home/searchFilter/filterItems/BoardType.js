@@ -13,12 +13,21 @@ const plainOptions = [
   'Grovler',
   'SUP'
 ];
-const defaultCheckedList = [];
+const defaultCheckedList = [
+  'Shortboard',
+  'Longboard',
+  'Fish',
+  'Funboard',
+  'Hybrid',
+  'Gun',
+  'Grovler',
+  'SUP'
+];
 
 export const BoardType = () => {
   const [checkedList, setCheckedList] = useState(defaultCheckedList);
   const [indeterminate, setIndeterminate] = useState(false);
-  const [checkAll, setCheckAll] = useState(false);
+  const [checkAll, setCheckAll] = useState(true);
 
   const onChange = checkedList => {
     setCheckedList(checkedList);
@@ -47,11 +56,14 @@ export const BoardType = () => {
           All Boards
         </Checkbox>
       </div>
-      <CheckboxGroup
-        options={plainOptions}
-        value={checkedList}
-        onChange={onChange}
-      />
+      <div onClick={() => setCheckAll(false)}>
+        <CheckboxGroup
+          options={plainOptions}
+          value={checkedList}
+          onChange={onChange}
+          disabled={checkAll}
+        />
+      </div>
     </div>
   );
 };
