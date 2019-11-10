@@ -8,6 +8,7 @@ const FilterButton = () => {
   return (
     <div className="br-filterBox-container ">
       <PriceRange />
+      <br />
       <BoardType />
     </div>
   );

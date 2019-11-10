@@ -8,7 +8,7 @@ const LayoutButton = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [layoutValue, setLayoutValue] = useState('Gallery');
   const ref = useRef();
-  useOnClickOutside(ref, useCallback(() => setIsVisible(false)));
+  useOnClickOutside(ref, useCallback(() => setIsVisible(false), []));
 
   return (
     <div className="br-layout-button" ref={ref}>
