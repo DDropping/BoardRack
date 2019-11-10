@@ -4,6 +4,7 @@ import './filterBox.css';
 import PriceRange from '../filterItems/PriceRange';
 import BoardType from '../filterItems/BoardType';
 import Condition from '../filterItems/Condition';
+import Distance from '../filterItems/Distance';
 
 const FilterButton = () => {
   return (
@@ -13,6 +14,8 @@ const FilterButton = () => {
       <Condition />
       <br />
       <BoardType />
+      <br />
+      <Distance />
     </div>
   );
 };
