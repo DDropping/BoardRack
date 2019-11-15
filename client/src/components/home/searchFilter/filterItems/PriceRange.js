@@ -8,14 +8,14 @@ const PriceRange = () => {
   return (
     <div>
       <strong>Price:</strong>
-      <br />
-      <Checkbox
-        onChange={() => setIsAnyPrice(!isAnyPrice)}
-        checked={isAnyPrice}
-      >
-        Any Price
-      </Checkbox>
-      <br />
+      <div style={{ borderBottom: '1px solid #E9E9E9', marginBottom: '3px' }}>
+        <Checkbox
+          onChange={() => setIsAnyPrice(!isAnyPrice)}
+          checked={isAnyPrice}
+        >
+          Any Price
+        </Checkbox>
+      </div>
       <div
         onClick={() => setIsAnyPrice(false)}
         style={{ display: 'inline-block', marginRight: '10px' }}

@@ -41,7 +41,9 @@ const Distance = () => {
   return (
     <div>
       <strong>Distance: </strong>
-      <br />
+      <div
+        style={{ borderBottom: '1px solid #E9E9E9', marginBottom: '3px' }}
+      ></div>
       <InputNumber
         size="small"
         defaultValue={25}
