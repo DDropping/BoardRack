@@ -1,7 +1,8 @@
 .br-filterBox-container {
   vertical-align: top;
   position: relative;
-  width: 350px;
+  width: 260px;
+  height: 900px;
   padding: 10px;
   margin-bottom: 10px;
   display: inline-block;

@@ -11,6 +11,7 @@ const FilterButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="br-filterBox-container ">
+      <h2>Filters</h2>
       <PriceRange />
       <br />
       <Condition />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { InputNumber, Button } from 'antd';
+import { InputNumber, Icon } from 'antd';
 
 import { failNotification } from '../../../util/Notification';
 import {
@@ -41,20 +41,27 @@ const Distance = () => {
       <div
         style={{ borderBottom: '1px solid #E9E9E9', marginBottom: '3px' }}
       ></div>
-      <InputNumber size="small" defaultValue={25} /> miles from{' '}
+      <InputNumber style={{ width: '50px' }} size="small" defaultValue={25} />{' '}
+      miles from{' '}
       <InputNumber
+        style={{ width: '80px' }}
         size="small"
         placeholder={postalCode ? postalCode : 'area code'}
       />
-      <Button
-        onClick={handleGetLocation}
-        size="small"
-        icon="environment"
-        loading={isLoading}
-        type="primary"
-        ghost
-        style={{ display: 'inline-block', marginLeft: '5px' }}
-      />
+      {!isLoading ? (
+        <Icon
+          style={{ marginLeft: '5px', fontSize: '20px' }}
+          type="environment"
+          theme="twoTone"
+          twoToneColor="#00458a"
+          onClick={handleGetLocation}
+        />
+      ) : (
+        <Icon
+          type="loading"
+          style={{ marginLeft: '5px', color: '#00458a', fontSize: '20px' }}
+        />
+      )}
     </div>
   );
 };

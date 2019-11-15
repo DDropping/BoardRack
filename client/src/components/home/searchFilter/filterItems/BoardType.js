@@ -64,7 +64,7 @@ export const BoardType = () => {
         >
           <Row>
             {plainOptions.map(option => (
-              <Col span={8} key={option}>
+              <Col span={12} key={option}>
                 <Checkbox value={option}>{option}</Checkbox>
               </Col>
             ))}
