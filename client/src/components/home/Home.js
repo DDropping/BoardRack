@@ -28,19 +28,15 @@ const Home = () => {
         isFiltersVisible={isFiltersVisible}
         setIsFiltersVisible={setIsFiltersVisible}
       />
-      {isFiltersVisible ? (
-        <div className="br-posts-filter-container">
-          {posts.map(post => {
-            return <PostCard key={post._id} post={post} />;
-          })}
-        </div>
-      ) : (
-        <div className="br-posts-container">
-          {posts.map(post => {
-            return <PostCard key={post._id} post={post} />;
-          })}
-        </div>
-      )}
+      <div
+        className={
+          isFiltersVisible ? 'br-posts-filter-container' : 'br-posts-container'
+        }
+      >
+        {posts.map(post => {
+          return <PostCard key={post._id} post={post} />;
+        })}
+      </div>
     </div>
   );
 };

@@ -12,7 +12,7 @@ const FilterButton = ({ isFiltersVisible, setIsFiltersVisible }) => {
   return (
     <Fragment>
       {isFiltersVisible ? (
-        <div className="br-filterBox-container ">
+        <div className="br-filterBox-container">
           <h2>Filters</h2>
           <PriceRange />
           <br />
