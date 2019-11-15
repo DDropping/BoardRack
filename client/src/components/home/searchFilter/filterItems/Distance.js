@@ -5,11 +5,8 @@ import { InputNumber, Button } from 'antd';
 import { failNotification } from '../../../util/Notification';
 import {
   loadingLocation,
-  editLocation,
   getUserAddress
 } from '../../../../actions/user/location';
-
-//import LocationButton from '../../../createPost/confirmPost/location/GetLocationButton';
 
 const Distance = () => {
   const dispatch = useDispatch();
@@ -44,18 +41,10 @@ const Distance = () => {
       <div
         style={{ borderBottom: '1px solid #E9E9E9', marginBottom: '3px' }}
       ></div>
-      <InputNumber
-        size="small"
-        defaultValue={25}
-        formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-        parser={value => value.replace(/\$\s?|(,*)/g, '')}
-      />{' '}
-      miles from{' '}
+      <InputNumber size="small" defaultValue={25} /> miles from{' '}
       <InputNumber
         size="small"
         placeholder={postalCode ? postalCode : 'area code'}
-        formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-        parser={value => value.replace(/\$\s?|(,*)/g, '')}
       />
       <Button
         onClick={handleGetLocation}

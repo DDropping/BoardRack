@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Checkbox } from 'antd';
+import { Checkbox, Row, Col } from 'antd';
 
 const CheckboxGroup = Checkbox.Group;
 
@@ -52,11 +52,18 @@ export const Condition = () => {
       </div>
       <div onClick={() => setCheckAll(false)}>
         <CheckboxGroup
-          options={plainOptions}
           value={checkedList}
           onChange={onChange}
           disabled={checkAll}
-        />
+        >
+          <Row>
+            {plainOptions.map(option => (
+              <Col span={12} key={option}>
+                <Checkbox value={option}>{option}</Checkbox>
+              </Col>
+            ))}
+          </Row>
+        </CheckboxGroup>
       </div>
     </div>
   );
