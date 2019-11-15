@@ -4,10 +4,13 @@ import './filterBar.css';
 import FilterButton from './filterButton/FilterButton';
 import LayoutButton from './layout/LayoutButton';
 
-const FilterBar = () => {
+const FilterBar = ({ isFiltersVisible, setIsFiltersVisible }) => {
   return (
     <div className="br-filter-bar-wrapper">
-      <FilterButton />
+      <FilterButton
+        isFiltersVisible={isFiltersVisible}
+        setIsFiltersVisible={setIsFiltersVisible}
+      />
       <LayoutButton />
     </div>
   );

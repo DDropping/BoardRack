@@ -2,13 +2,18 @@
   width: 100%;
 }
 
-.br-searchbar-postcards-desktop-container {
+.br-posts-filter-container {
   display: inline-block;
   width: calc(100% - 260px);
 }
 
+.br-posts-container {
+  display: inline-block;
+  width: 100%;
+}
+
 @media (max-width: 780px) {
-  .br-searchbar-postcards-desktop-container {
+  .br-posts-filter-container {
     display: inline-block;
     width: 100%;
   }
