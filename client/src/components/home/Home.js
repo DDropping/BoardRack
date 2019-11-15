@@ -21,9 +21,11 @@ const Home = props => {
       <Banner />
       <FilterBar />
       <FilterBox />
-      {posts.map(post => {
-        return <PostCard key={post._id} post={post} />;
-      })}
+      <div className="br-searchbar-postcards-desktop-container">
+        {posts.map(post => {
+          return <PostCard key={post._id} post={post} />;
+        })}
+      </div>
     </div>
   );
 };
