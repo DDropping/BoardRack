@@ -10,8 +10,8 @@
   box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
 }
 
-@media (max-width: 780px) {
+@media (max-width: 520px) {
   .br-filterBox-container {
-    display: none;
+    display: block;
   }
 }

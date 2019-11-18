@@ -11,10 +11,3 @@
   display: inline-block;
   width: 100%;
 }
-
-@media (max-width: 780px) {
-  .br-posts-filter-container {
-    display: inline-block;
-    width: 100%;
-  }
-}
