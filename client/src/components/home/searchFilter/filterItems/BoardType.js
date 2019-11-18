@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Checkbox, Row, Col } from 'antd';
+
+import { UPDATE_BOARD_TYPE } from '../../../../actions/types';
 
 const CheckboxGroup = Checkbox.Group;
 
@@ -25,12 +28,14 @@ const defaultCheckedList = [
 ];
 
 export const BoardType = () => {
+  const dispatch = useDispatch();
   const [checkedList, setCheckedList] = useState(defaultCheckedList);
   const [indeterminate, setIndeterminate] = useState(false);
   const [checkAll, setCheckAll] = useState(true);
 
   const onChange = checkedList => {
     setCheckedList(checkedList);
+    dispatch({ type: UPDATE_BOARD_TYPE, payload: checkedList });
     !!checkedList.length && checkedList.length < plainOptions.length
       ? setIndeterminate(true)
       : setIndeterminate(false);
@@ -40,7 +45,13 @@ export const BoardType = () => {
   };
 
   const onCheckAllChange = e => {
-    e.target.checked ? setCheckedList(plainOptions) : setCheckedList([]);
+    if (e.target.checked) {
+      setCheckedList(plainOptions);
+      dispatch({ type: UPDATE_BOARD_TYPE, payload: plainOptions });
+    } else {
+      setCheckedList([]);
+      dispatch({ type: UPDATE_BOARD_TYPE, payload: [] });
+    }
     setIndeterminate(false);
     setCheckAll(e.target.checked);
   };
