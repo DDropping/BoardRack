@@ -22,7 +22,7 @@ const NavItemsDrawer = () => {
         closable={false}
         onClose={() => dispatch(toggleNavDrawer())}
         visible={isVisible}
-        style={{ padding: '0px !important' }}
+        style={{ zIndex: 10 }}
       >
         <Menu>
           <Menu.Item onClick={() => dispatch(toggleNavDrawer())} key="home">
