@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tag } from 'antd';
 
 import './filterBar.css';
 import FilterButton from './filterButton/FilterButton';
@@ -11,6 +12,9 @@ const FilterBar = ({ isFiltersVisible, setIsFiltersVisible }) => {
         isFiltersVisible={isFiltersVisible}
         setIsFiltersVisible={setIsFiltersVisible}
       />
+      <Tag color="blue" closable onClose={() => console.log('close tag')}>
+        red
+      </Tag>
       <LayoutButton />
     </div>
   );
