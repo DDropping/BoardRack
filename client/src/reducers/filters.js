@@ -7,7 +7,6 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  allBoards: true, // default, all boards will show
   distance: 25,
   areaCode: null,
   anyPrice: true, // any price
