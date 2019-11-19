@@ -3,7 +3,8 @@ import {
   UPDATE_BOARD_TYPE,
   UPDATE_PRICE_HIGH,
   UPDATE_PRICE_LOW,
-  UPDATE_ANY_PRICE
+  UPDATE_ANY_PRICE,
+  DELETE_PRICE
 } from '../actions/types';
 
 const initialState = {

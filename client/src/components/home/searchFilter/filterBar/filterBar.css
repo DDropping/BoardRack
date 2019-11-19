@@ -14,10 +14,12 @@
 
 .br-flex-container {
   display: flex;
+  height: 35px; /* adjust height of where scrollbar will appear */
   flex-wrap: nowrap;
   overflow: auto;
 }
 
 .br-flex-item {
   flex: 0 0 auto;
+  height: 22px; /* adjust height dimension of tag elements */
 }
