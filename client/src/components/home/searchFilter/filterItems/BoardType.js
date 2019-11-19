@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Checkbox, Row, Col } from 'antd';
 
 import { UPDATE_BOARD_TYPE } from '../../../../actions/types';
@@ -29,6 +29,7 @@ const defaultCheckedList = [
 
 export const BoardType = () => {
   const dispatch = useDispatch();
+  const boardTypes = useSelector(state => state.filters.boardType);
   const [checkedList, setCheckedList] = useState(defaultCheckedList);
   const [indeterminate, setIndeterminate] = useState(false);
   const [checkAll, setCheckAll] = useState(true);

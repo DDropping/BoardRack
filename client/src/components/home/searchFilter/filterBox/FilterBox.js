@@ -4,6 +4,7 @@ import './filterBox.css';
 import PriceRange from '../filterItems/PriceRange';
 import BoardType from '../filterItems/BoardType';
 import Condition from '../filterItems/Condition';
+import Condition2 from '../filterItems/Condition2';
 import Distance from '../filterItems/Distance';
 import MoreFiltersButton from '../filterItems/MoreFiltersButton';
 
@@ -17,6 +18,8 @@ const FilterButton = ({ isFiltersVisible, setIsFiltersVisible }) => {
           <PriceRange />
           <br />
           <Condition />
+          <br />
+          <Condition2 />
           <br />
           <BoardType />
           <br />

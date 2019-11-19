@@ -1,9 +1,11 @@
 import React from 'react';
 import { Icon, Button } from 'antd';
 
+import './filterButton.css';
+
 const Filter = ({ isFiltersVisible, setIsFiltersVisible }) => {
   return (
-    <div style={{ display: 'inline-block' }}>
+    <div className="br-filter-button">
       {isFiltersVisible ? (
         <Button onClick={() => setIsFiltersVisible(false)} type="link">
           <Icon type="filter" />

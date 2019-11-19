@@ -23,7 +23,7 @@ const initialState = {
     'Grovler',
     'SUP'
   ],
-  condition: ['New', 'Lightly Used', 'Used', 'Heavily Used', 'Thrashed']
+  condition: []
 };
 
 export default function(state = initialState, action) {
@@ -52,6 +52,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         anyPrice: action.payload
+      };
+    case DELETE_PRICE:
+      return {
+        ...state,
+        anyPrice: true
       };
     default:
       return state;
