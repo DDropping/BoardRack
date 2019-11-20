@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Icon, Tooltip } from 'antd';
 
-import { editLocation } from '../../../../actions/user/location';
+import { editLocation } from '../../../actions/user/location';
 
 const LocationText = props => {
   const dispatch = useDispatch();
