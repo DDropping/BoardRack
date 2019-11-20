@@ -9,7 +9,7 @@ const LocationText = props => {
   const location = useSelector(state => state.location.location);
 
   const handleEditClick = () => {
-    dispatch(editLocation());
+    console.log('handle edit click');
   };
   return (
     <div style={{ display: 'inline-block' }}>
