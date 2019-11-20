@@ -13,16 +13,7 @@ const initialState = {
   anyPrice: true, // any price
   priceLow: 0,
   priceHigh: 1000,
-  boardType: [
-    'Shortboard',
-    'Longboard',
-    'Fish',
-    'Funboard',
-    'Hybrid',
-    'Gun',
-    'Grovler',
-    'SUP'
-  ],
+  boardType: [],
   condition: []
 };
 

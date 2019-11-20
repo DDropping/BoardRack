@@ -14,7 +14,7 @@ const conditionOptions = [
   'Thrashed'
 ];
 
-export const Condition = () => {
+const Condition = () => {
   const dispatch = useDispatch();
   const conditionsList = useSelector(state => state.filters.condition);
 
