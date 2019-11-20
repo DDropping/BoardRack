@@ -11,8 +11,8 @@ const initialState = {
   distance: 25,
   areaCode: null,
   anyPrice: true, // any price
-  priceLow: 0,
-  priceHigh: 1000,
+  priceLow: null,
+  priceHigh: null,
   boardType: [],
   condition: []
 };
