@@ -10,6 +10,7 @@
 .br-filter-item-container {
   display: inline-block;
   max-width: calc(100% - 270px);
+  margin-left: 130px; /* make space for hide filters button */
 }
 
 .br-flex-container {
@@ -20,6 +21,7 @@
 }
 
 .br-flex-item {
+  margin-top: 5px; /* lower filter items in filter bar */
   flex: 0 0 auto;
-  height: 22px; /* adjust height dimension of tag elements */
+  height: 22px; /* adjust height of tag elements */
 }
