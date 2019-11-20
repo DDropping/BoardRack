@@ -4,7 +4,8 @@ import {
   UPDATE_PRICE_HIGH,
   UPDATE_PRICE_LOW,
   UPDATE_ANY_PRICE,
-  DELETE_PRICE
+  UPDATE_DISTANCE,
+  UPDATE_POSTAL_CODE
 } from '../actions/types';
 
 const initialState = {
@@ -44,10 +45,15 @@ export default function(state = initialState, action) {
         ...state,
         anyPrice: action.payload
       };
-    case DELETE_PRICE:
+    case UPDATE_DISTANCE:
       return {
         ...state,
-        anyPrice: true
+        distance: action.payload
+      };
+    case UPDATE_POSTAL_CODE:
+      return {
+        ...state,
+        areaCode: action.payload
       };
     default:
       return state;

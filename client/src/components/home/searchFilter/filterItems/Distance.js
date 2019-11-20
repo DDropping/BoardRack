@@ -7,6 +7,7 @@ import {
   loadingLocation,
   getUserAddress
 } from '../../../../actions/user/location';
+import { UPDATE_POSTAL_CODE, UPDATE_DISTANCE } from '../../../../actions/types';
 
 const Distance = () => {
   const dispatch = useDispatch();
@@ -41,12 +42,20 @@ const Distance = () => {
       <div
         style={{ borderBottom: '1px solid #E9E9E9', marginBottom: '3px' }}
       ></div>
-      <InputNumber style={{ width: '50px' }} size="small" defaultValue={25} />{' '}
+      <InputNumber
+        style={{ width: '50px' }}
+        size="small"
+        defaultValue={25}
+        onChange={value => dispatch({ type: UPDATE_DISTANCE, payload: value })}
+      />{' '}
       miles from{' '}
       <InputNumber
         style={{ width: '80px' }}
         size="small"
         placeholder={postalCode ? postalCode : 'area code'}
+        onChange={value =>
+          dispatch({ type: UPDATE_POSTAL_CODE, payload: value })
+        }
       />
       {!isLoading ? (
         <Icon
