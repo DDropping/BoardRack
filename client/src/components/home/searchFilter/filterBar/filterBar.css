@@ -7,7 +7,7 @@
   margin-bottom: 10px;
 }
 
-.br-filter-item-container {
+.br-filter-tag-container {
   display: inline-block;
   max-width: calc(100% - 270px);
   margin-left: 130px; /* make space for hide filters button */
@@ -24,4 +24,10 @@
   margin-top: 5px; /* lower filter items in filter bar */
   flex: 0 0 auto;
   height: 22px; /* adjust height of tag elements */
+}
+
+@media (max-width: 520px) {
+  .br-filter-tag-container {
+    display: none;
+  }
 }

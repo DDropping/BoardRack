@@ -26,7 +26,7 @@ const FilterBar = ({ isFiltersVisible, setIsFiltersVisible }) => {
         isFiltersVisible={isFiltersVisible}
         setIsFiltersVisible={setIsFiltersVisible}
       />
-      <div className="br-filter-item-container">
+      <div className="br-filter-tag-container">
         <div className="br-flex-container">
           {!anyPrice && priceHigh && priceLow && priceHigh >= priceLow ? (
             <Tag
