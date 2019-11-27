@@ -4,6 +4,7 @@ import store from '../../store';
 import { UpdateDefaultLocationNotification } from '../../components/util/Notification';
 import { loadUser } from '../auth';
 import {
+  UPDATE_USER_APPROX_LOCATION,
   UPDATE_GEOLOCATION,
   LOADING_USER_LOCATION,
   LOADING_USER_LOCATION_DONE,
@@ -13,12 +14,22 @@ import {
   HIDE_LOCATION_FORM
 } from '../types';
 
-// SET ISLOADING TO TRUE ----------------------------------------
+// GET USER'S APPROXIMATE LOCATION BASED ON IP ADDRESS --------------------------
+export const getUsersAproxLocation = () => async dispatch => {
+  try {
+    const res = await axios.get('/api/externalAPI/getApproximateLocation');
+    dispatch({ type: UPDATE_USER_APPROX_LOCATION, payload: res.data });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// SET ISLOADING TO TRUE --------------------------------------------------------
 export const loadingLocation = () => dispatch => {
   dispatch({ type: LOADING_USER_LOCATION });
 };
 
-// EDIT DISPLAYED LOCATION ----------------------------------------
+// EDIT DISPLAYED LOCATION ------------------------------------------------------
 export const editLocation = () => dispatch => {
   dispatch({ type: DISPLAY_LOCATION_FORM });
 };
@@ -82,7 +93,7 @@ export const saveLocation = formProps => async dispatch => {
   }
 };
 
-// GET USER'S LOCATION WITH GEOCODE ----------------------------------------
+// GET USER'S LOCATION WITH GEOCODE ---------------------------------------------
 export const getUserAddress = ({ lat, lng }) => async dispatch => {
   //set headers for request
   const config = {
@@ -136,7 +147,7 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
   }
 };
 
-// UPDATE USER'S LOCATION IN DB ----------------------------------------
+// UPDATE USER'S LOCATION IN DB -------------------------------------------------
 export const updateUserLocation = location => async dispatch => {
   try {
     await axios.put('/api/accounts/updateLocation', location);

@@ -1,4 +1,5 @@
 import {
+  UPDATE_USER_APPROX_LOCATION,
   UPDATE_GEOLOCATION,
   USER_LOADED_SET_LOCATION,
   LOADING_USER_LOCATION,
@@ -20,11 +21,31 @@ const initialState = {
     state: null,
     city: null,
     postalCode: null
+  },
+  approxLocation: {
+    approxLat: null,
+    approxLng: null,
+    approxCountry: null,
+    approxState: null,
+    approxcity: null,
+    approxPostalCode: null
   }
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case UPDATE_USER_APPROX_LOCATION:
+      return {
+        ...state,
+        approxLocation: {
+          approxLat: action.payload.latitude,
+          approxLng: action.payload.longitude,
+          approxCountry: action.payload.country_name,
+          approxState: action.payload.region_name,
+          approxcity: action.payload.city,
+          approxPostalCode: action.payload.zip
+        }
+      };
     case SAVING_USER_LOCATION:
       return {
         ...state,

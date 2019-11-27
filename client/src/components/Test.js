@@ -1,13 +1,16 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Button } from 'antd';
 
-import FilterBar from './home/searchFilter/filterBar/FilterBar';
-import Banner from './home/banner/Banner';
+import { getUsersAproxLocation } from '../actions/user/location';
 
-const Test = props => {
+const Test = () => {
+  const dispatch = useDispatch();
   return (
     <div>
-      <Banner />
-      <FilterBar />
+      <Button onClick={() => dispatch(getUsersAproxLocation())}>
+        location
+      </Button>
     </div>
   );
 };
