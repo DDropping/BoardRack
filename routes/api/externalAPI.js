@@ -55,7 +55,6 @@ router.get('/getApproximateLocation', async (req, res) => {
 // @desc    Get user address provided lat/lng
 // @access  Public
 router.post('/getAddress', async (req, res) => {
-  console.log(req);
   const { lat, lng } = req.body;
   try {
     const location = await axios.get(
