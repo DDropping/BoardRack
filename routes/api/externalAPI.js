@@ -14,15 +14,11 @@ router.get('/getApproximateLocation', async (req, res) => {
   var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
 
   try {
-    if (ip === '::1') {
-      res.send('localhost');
+    if (ip === '::1' || ip === '127.0.0.1') {
     } else {
-      console.log('hello world');
       const approxLocation = await axios.get(
         `http://api.ipstack.com/${ip}?access_key=${IPSTACK_ACCESS_KEY}`
       );
-
-      res.json(approxLocation);
 
       //setup response
       const {
@@ -45,7 +41,7 @@ router.get('/getApproximateLocation', async (req, res) => {
 
       res.json(location);
     }
-  } catch {
+  } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
