@@ -11,7 +11,7 @@ import {
 
 const initialState = {
   distance: 25,
-  areaCode: null,
+  postalCode: null,
   anyPrice: true, // any price
   priceLow: null,
   priceHigh: null,
@@ -54,7 +54,7 @@ export default function(state = initialState, action) {
     case UPDATE_POSTAL_CODE:
       return {
         ...state,
-        areaCode: action.payload
+        postalCode: action.payload
       };
     case DELETE_PRICE:
       return {

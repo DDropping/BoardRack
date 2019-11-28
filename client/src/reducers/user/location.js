@@ -26,9 +26,9 @@ const initialState = {
     approxLat: null,
     approxLng: null,
     approxCountry: null,
-    approxState: null,
-    approxcity: null,
-    approxPostalCode: null
+    approxState: 'CA',
+    approxCity: 'San Francisco',
+    approxPostalCode: 94122
   }
 };
 
@@ -42,7 +42,7 @@ export default function(state = initialState, action) {
           approxLng: action.payload.longitude,
           approxCountry: action.payload.country_name,
           approxState: action.payload.region_name,
-          approxcity: action.payload.city,
+          approxCity: action.payload.city,
           approxPostalCode: action.payload.zip
         }
       };
