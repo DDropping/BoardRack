@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import './home.css';
 import PostCard from '../post/postPreview/PostCard';
 import Banner from '../home/banner/Banner';
-import LocationBar from './locationBar/LocationBar';
 import FilterBar from './searchFilter/filterBar/FilterBar';
 import FilterBox from './searchFilter/filterBox/FilterBox';
 import { loadPosts } from '../../actions/post/post';
@@ -34,7 +33,6 @@ const Home = () => {
           isFiltersVisible ? 'br-posts-filter-container' : 'br-posts-container'
         }
       >
-        <LocationBar />
         {posts.map(post => {
           return <PostCard key={post._id} post={post} />;
         })}
