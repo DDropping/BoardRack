@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 
 import './filterBox.css';
+import LocationText from './LocationText';
 import PriceRange from '../filterItems/PriceRange';
 import BoardType from '../filterItems/BoardType';
 import Condition from '../filterItems/Condition';
@@ -13,7 +14,7 @@ const FilterButton = ({ isFiltersVisible, setIsFiltersVisible }) => {
     <Fragment>
       {isFiltersVisible ? (
         <div className="br-filterBox-container">
-          <h2>Filters</h2>
+          <LocationText />
           <PriceRange />
           <br />
           <Condition />

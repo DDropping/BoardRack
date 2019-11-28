@@ -12,22 +12,22 @@ const LocationText = () => {
   return (
     <div style={{ display: 'inline-block' }}>
       {location.postalCode !== null && (
-        <p style={{ display: 'inline-block', fontStyle: 'italic' }}>
+        <h2 style={{ display: 'inline-block' }}>
           {location.city + ', '}
           {location.state + ' '}
           <Tooltip title="Edit Location">
             <Icon onClick={handleEditClick} type="edit" />
           </Tooltip>
-        </p>
+        </h2>
       )}
       {location.postalCode === null && approxLocation.postalCode !== null && (
-        <p style={{ display: 'inline-block', fontStyle: 'italic' }}>
+        <h2 style={{ display: 'inline-block' }}>
           {approxLocation.approxCity + ', '}
           {approxLocation.approxState + ' '}
           <Tooltip title="Edit Location">
             <Icon onClick={handleEditClick} type="edit" />
           </Tooltip>
-        </p>
+        </h2>
       )}
     </div>
   );
