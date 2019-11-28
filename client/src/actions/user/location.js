@@ -24,6 +24,27 @@ export const getUsersAproxLocation = () => async dispatch => {
   }
 };
 
+// GET USER'S LOCATION WITH ONLY ZIP CODE ---------------------------------------
+export const getUsersLocationWithPostalCode = postalCode => async dispatch => {
+  const state = store.getState().location.location.state;
+  const country = store.getState().location.location.Country;
+  //set headers for request
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  const body = JSON.stringify({ state, country, postalCode });
+
+  try {
+    const res = await axios.post('/api/externalAPI/getCoords', body, config);
+    dispatch({ type: UPDATE_USER_LOCATION_WITH_GEO, payload: res.data });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 // SET ISLOADING TO TRUE --------------------------------------------------------
 export const loadingLocation = () => dispatch => {
   dispatch({ type: LOADING_USER_LOCATION });

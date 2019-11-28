@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { InputNumber, Icon } from 'antd';
 
 import { failNotification } from '../../../util/Notification';
 import {
   loadingLocation,
-  getUserAddress
+  getUserAddress,
+  getUsersLocationWithPostalCode
 } from '../../../../actions/user/location';
-import { UPDATE_POSTAL_CODE, UPDATE_DISTANCE } from '../../../../actions/types';
+import { UPDATE_DISTANCE } from '../../../../actions/types';
 
 const Distance = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(state => state.location.isLoading);
   const postalCode = useSelector(state => state.location.location.postalCode);
+  const [postalCodeEntered, setPostalCodeEntered] = useState(postalCode);
+
+  const updateUserLocationEntered = value => {
+    if (value > 10000) {
+      dispatch(getUsersLocationWithPostalCode(value));
+    }
+  };
 
   const handleGetLocation = () => {
     dispatch(loadingLocation());
@@ -52,10 +60,13 @@ const Distance = () => {
       <InputNumber
         style={{ width: '80px' }}
         size="small"
-        placeholder={postalCode ? postalCode : 'area code'}
-        onChange={value =>
-          dispatch({ type: UPDATE_POSTAL_CODE, payload: value })
-        }
+        placeholder={postalCodeEntered ? postalCodeEntered : 'area code'}
+        onChange={value => {
+          if (value !== postalCodeEntered) {
+            setPostalCodeEntered(value);
+            updateUserLocationEntered(value);
+          }
+        }}
       />
       {!isLoading ? (
         <Icon
