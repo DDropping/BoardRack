@@ -9,6 +9,7 @@ const InputGroup = Input.Group;
 const LocationText = () => {
   const dispatch = useDispatch();
   const location = useSelector(state => state.location.location);
+  const isLoading = useSelector(state => state.location.isLoading);
   const [isLocationForm, setIsLocationForm] = useState(false);
   const [formCity, setFormCity] = useState('');
   const [formState, setFormState] = useState('');
@@ -76,6 +77,7 @@ const LocationText = () => {
                   )
                 }
                 type="primary"
+                loading={isLoading}
                 ghost
                 block
               >

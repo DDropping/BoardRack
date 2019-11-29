@@ -56,6 +56,7 @@ export const getUsersLocationWithCityStateZip = (
   postalCode,
   setIsLocationForm
 ) => async dispatch => {
+  dispatch({ type: LOADING_USER_LOCATION });
   //set headers for request
   const config = {
     headers: {
@@ -69,8 +70,10 @@ export const getUsersLocationWithCityStateZip = (
     const res = await axios.post('/api/externalAPI/getCoords', body, config);
     dispatch({ type: UPDATE_USER_LOCATION_WITH_GEO, payload: res.data });
     setIsLocationForm(false); //hide location form
+    dispatch({ type: LOADING_USER_LOCATION_DONE });
   } catch (err) {
     console.log(err);
+    dispatch({ type: LOADING_USER_LOCATION_DONE });
   }
 };
 
