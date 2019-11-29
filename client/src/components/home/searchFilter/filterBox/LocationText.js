@@ -60,7 +60,8 @@ const LocationText = () => {
                     getUsersLocationWithCityStateZip(
                       formCity,
                       formState,
-                      formPostalCode
+                      formPostalCode,
+                      setIsLocationForm
                     )
                   )
                 }

@@ -35,7 +35,11 @@ export const getUsersLocationWithPostalCode = postalCode => async dispatch => {
     }
   };
 
-  const body = JSON.stringify({ state, country, postalCode });
+  const body = JSON.stringify({
+    state,
+    country,
+    postalCode
+  });
 
   try {
     const res = await axios.post('/api/externalAPI/getCoords', body, config);
@@ -49,7 +53,8 @@ export const getUsersLocationWithPostalCode = postalCode => async dispatch => {
 export const getUsersLocationWithCityStateZip = (
   city,
   state,
-  postalCode
+  postalCode,
+  setIsLocationForm
 ) => async dispatch => {
   //set headers for request
   const config = {
@@ -63,6 +68,7 @@ export const getUsersLocationWithCityStateZip = (
   try {
     const res = await axios.post('/api/externalAPI/getCoords', body, config);
     dispatch({ type: UPDATE_USER_LOCATION_WITH_GEO, payload: res.data });
+    setIsLocationForm(false);
   } catch (err) {
     console.log(err);
   }
