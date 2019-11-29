@@ -14,17 +14,27 @@ const LocationText = () => {
   const [formState, setFormState] = useState('');
   const [formPostalCode, setFormPostalCode] = useState('');
 
-  const handleEditClick = () => {
-    setIsLocationForm(!isLocationForm);
-  };
-
   return (
     <div>
       <h2 style={{ display: 'inline-block' }}>
         {location.city + ', '}
         {location.state + ' '}
         <Tooltip title="Edit Location">
-          <Icon onClick={handleEditClick} type="edit" />
+          {!isLocationForm ? (
+            <Icon
+              onClick={() => {
+                setIsLocationForm(true);
+              }}
+              type="edit"
+            />
+          ) : (
+            <Icon
+              onClick={() => {
+                setIsLocationForm(false);
+              }}
+              type="close-circle"
+            />
+          )}
         </Tooltip>
         {isLocationForm ? (
           <div>
