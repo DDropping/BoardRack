@@ -60,8 +60,9 @@ const Distance = () => {
       <InputNumber
         style={{ width: '80px' }}
         size="small"
-        placeholder={postalCodeEntered ? postalCodeEntered : 'area code'}
+        placeholder={postalCode ? postalCode : 'area code'}
         onChange={value => {
+          console.log(value);
           if (value !== postalCodeEntered) {
             setPostalCodeEntered(value);
             updateUserLocationEntered(value);
