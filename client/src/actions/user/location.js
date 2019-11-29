@@ -68,7 +68,7 @@ export const getUsersLocationWithCityStateZip = (
   try {
     const res = await axios.post('/api/externalAPI/getCoords', body, config);
     dispatch({ type: UPDATE_USER_LOCATION_WITH_GEO, payload: res.data });
-    setIsLocationForm(false);
+    setIsLocationForm(false); //hide location form
   } catch (err) {
     console.log(err);
   }
