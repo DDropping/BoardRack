@@ -7,6 +7,7 @@
 // - DELETE api/posts/delete/:postId (delete post given id)
 // - PUT api/posts/like (like post)
 // - PUT api/posts/unlike (like post)
+// - PUT api/posts/addView
 
 const express = require('express');
 const router = express.Router();

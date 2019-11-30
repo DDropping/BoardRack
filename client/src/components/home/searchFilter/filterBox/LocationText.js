@@ -20,23 +20,25 @@ const LocationText = () => {
       <h2 style={{ display: 'inline-block' }}>
         {location.city + ', '}
         {location.state + ' '}
-        <Tooltip title="Edit Location">
-          {!isLocationForm ? (
+
+        {!isLocationForm ? (
+          <Tooltip title="Edit Location">
             <Icon
               onClick={() => {
                 setIsLocationForm(true);
               }}
               type="edit"
             />
-          ) : (
-            <Icon
-              onClick={() => {
-                setIsLocationForm(false);
-              }}
-              type="close-circle"
-            />
-          )}
-        </Tooltip>
+          </Tooltip>
+        ) : (
+          <Icon
+            onClick={() => {
+              setIsLocationForm(false);
+            }}
+            type="close-circle"
+          />
+        )}
+
         {isLocationForm ? (
           <div>
             <InputGroup size="large">
