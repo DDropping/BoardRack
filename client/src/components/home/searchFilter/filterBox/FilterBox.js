@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react';
-import { Button } from 'antd';
 
 import './filterBox.css';
 import LocationText from './LocationText';

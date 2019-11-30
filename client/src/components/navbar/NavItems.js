@@ -18,37 +18,35 @@ const Navbar = () => {
 
   return (
     <div>
-      <Menu className="navigationItems" mode="horizontal">
-        {/* Home ------------------------------------- */}
-        {/* <Menu.Item key="home">
-          <strong>
-            <Link to="/">Home</Link>
-          </strong>
-        </Menu.Item> */}
-
-        {/* Create Post ------------------------------------- */}
-        {isAuthenticated ? (
-          <Link to="/CreatePost">
-            <Button type="primary" ghost style={{ marginRight: '10px' }}>
-              <strong>
-                <Icon type="plus" style={{ paddingRight: '2px' }} />
-                Create Post
-              </strong>
-            </Button>
-          </Link>
-        ) : (
-          <Button
-            type="primary"
-            ghost
-            onClick={() => dispatch(toggleLoginModal())}
-            style={{ marginRight: '10px' }}
-          >
+      {/* Create Post ------------------------------------- */}
+      {isAuthenticated ? (
+        <Link to="/CreatePost">
+          <Button type="primary" ghost style={{ marginTop: '7px' }}>
             <strong>
               <Icon type="plus" style={{ paddingRight: '2px' }} />
               Create Post
             </strong>
           </Button>
-        )}
+        </Link>
+      ) : (
+        <Button
+          type="primary"
+          ghost
+          onClick={() => dispatch(toggleLoginModal())}
+          style={{ marginTop: '7px' }}
+        >
+          <strong>
+            <Icon type="plus" style={{ paddingRight: '2px' }} />
+            Create Post
+          </strong>
+        </Button>
+      )}
+
+      <Menu className="navigationItems" mode="horizontal">
+        {/* Home ------------------------------------- */}
+        {/* <Menu.Item key="home">
+            <Link to="/">Home</Link>
+        </Menu.Item> */}
 
         {/* Create Post ------------------------------------- */}
         {/* {isAuthenticated && (
@@ -62,10 +60,8 @@ const Navbar = () => {
           <Menu.SubMenu
             title={
               <span className="submenu-title-wrapper">
-                <strong>
-                  <Icon type="user" />
-                  {user.username}
-                </strong>
+                <Icon type="user" />
+                {user.username}
               </span>
             }
           >
@@ -116,7 +112,7 @@ const Navbar = () => {
         {/* Login ------------------------------------- */}
         {!isAuthenticated && (
           <Menu.Item onClick={() => dispatch(toggleLoginModal())} key="login">
-            <strong>Login</strong>
+            Login
           </Menu.Item>
         )}
 
@@ -126,7 +122,7 @@ const Navbar = () => {
             onClick={() => dispatch(toggleRegisterModal())}
             key="register"
           >
-            <strong>Register</strong>
+            Register
           </Menu.Item>
         )}
       </Menu>
