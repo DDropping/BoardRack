@@ -24,10 +24,7 @@ const Home = () => {
         isFiltersVisible={isFiltersVisible}
         setIsFiltersVisible={setIsFiltersVisible}
       />
-      <FilterBox
-        isFiltersVisible={isFiltersVisible}
-        setIsFiltersVisible={setIsFiltersVisible}
-      />
+      <FilterBox isFiltersVisible={isFiltersVisible} />
       <div
         className={
           isFiltersVisible ? 'br-posts-filter-container' : 'br-posts-container'

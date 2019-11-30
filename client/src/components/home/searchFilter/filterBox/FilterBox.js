@@ -8,7 +8,7 @@ import Condition from '../filterItems/Condition';
 import Distance from '../filterItems/Distance';
 import MoreFiltersButton from '../filterItems/MoreFiltersButton';
 
-const FilterButton = ({ isFiltersVisible, setIsFiltersVisible }) => {
+const FilterButton = ({ isFiltersVisible }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Fragment>
