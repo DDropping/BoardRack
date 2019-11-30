@@ -31,17 +31,17 @@ const NavItemsDrawer = () => {
               Home
             </Link>
           </Menu.Item>
-          {isAuthenticated && (
-            <Menu.Item
-              onClick={() => dispatch(toggleNavDrawer())}
-              key="createPost"
-            >
-              <Link to="/CreatePost">
-                <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
-                Create Post
-              </Link>
-            </Menu.Item>
-          )}
+
+          <Menu.Item
+            onClick={() => dispatch(toggleNavDrawer())}
+            key="createPost"
+          >
+            <Link to="/CreatePost">
+              <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
+              Create Post
+            </Link>
+          </Menu.Item>
+
           {isAuthenticated && (
             <Menu.Item
               onClick={() => dispatch(toggleNavDrawer())}

@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { Button } from 'antd';
 
 import './filterBox.css';
 import LocationText from './LocationText';
@@ -13,18 +14,20 @@ const FilterButton = ({ isFiltersVisible, setIsFiltersVisible }) => {
   return (
     <Fragment>
       {isFiltersVisible ? (
-        <div className="br-filterBox-container">
-          <LocationText />
-          <PriceRange />
-          <br />
-          <Condition />
-          <br />
-          <BoardType />
-          <br />
-          <Distance />
-          <br />
-          <MoreFiltersButton isOpen={isOpen} setIsOpen={setIsOpen} />
-        </div>
+        <Fragment>
+          <div className="br-filterBox-container">
+            <LocationText />
+            <PriceRange />
+            <br />
+            <Condition />
+            <br />
+            <BoardType />
+            <br />
+            <Distance />
+            <br />
+            <MoreFiltersButton isOpen={isOpen} setIsOpen={setIsOpen} />
+          </div>
+        </Fragment>
       ) : null}
     </Fragment>
   );

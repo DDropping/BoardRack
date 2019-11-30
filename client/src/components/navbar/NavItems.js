@@ -94,6 +94,14 @@ const Navbar = () => {
             Register
           </Menu.Item>
         )}
+        <Link to="/CreatePost">
+          <Button type="primary" style={{ marginRight: '10px' }}>
+            <strong>
+              <Icon type="plus" style={{ paddingRight: '2px' }} />
+              Create Post
+            </strong>
+          </Button>
+        </Link>
       </Menu>
 
       <div className="drawerButton">
