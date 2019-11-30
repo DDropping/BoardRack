@@ -19,20 +19,53 @@ const Navbar = () => {
   return (
     <div>
       <Menu className="navigationItems" mode="horizontal">
-        <Menu.Item key="home">
-          <Link to="/">Home</Link>
-        </Menu.Item>
-        {isAuthenticated && (
+        {/* Home ------------------------------------- */}
+        {/* <Menu.Item key="home">
+          <strong>
+            <Link to="/">Home</Link>
+          </strong>
+        </Menu.Item> */}
+
+        {/* Create Post ------------------------------------- */}
+        {isAuthenticated ? (
+          <Link to="/CreatePost">
+            <Button type="primary" ghost style={{ marginRight: '10px' }}>
+              <strong>
+                <Icon type="plus" style={{ paddingRight: '2px' }} />
+                Create Post
+              </strong>
+            </Button>
+          </Link>
+        ) : (
+          <Button
+            type="primary"
+            ghost
+            onClick={() => dispatch(toggleLoginModal())}
+            style={{ marginRight: '10px' }}
+          >
+            <strong>
+              <Icon type="plus" style={{ paddingRight: '2px' }} />
+              Create Post
+            </strong>
+          </Button>
+        )}
+
+        {/* Create Post ------------------------------------- */}
+        {/* {isAuthenticated && (
           <Menu.Item key="createPost">
             <Link to="/CreatePost">Create Post</Link>
           </Menu.Item>
-        )}
+        )} */}
+
+        {/* User Menu ------------------------------------- */}
         {user !== null && isAuthenticated && (
           <Menu.SubMenu
             title={
               <span className="submenu-title-wrapper">
-                <Icon type="user" />
-                {user.username}
+                <strong>
+                  <Icon type="user" />
+                  {user.username}
+                </strong>
               </span>
             }
           >
@@ -80,30 +113,25 @@ const Navbar = () => {
           </Menu.SubMenu>
         )}
 
+        {/* Login ------------------------------------- */}
         {!isAuthenticated && (
           <Menu.Item onClick={() => dispatch(toggleLoginModal())} key="login">
-            Login
+            <strong>Login</strong>
           </Menu.Item>
         )}
 
+        {/* Register ------------------------------------- */}
         {!isAuthenticated && (
           <Menu.Item
             onClick={() => dispatch(toggleRegisterModal())}
             key="register"
           >
-            Register
+            <strong>Register</strong>
           </Menu.Item>
         )}
-        <Link to="/CreatePost">
-          <Button type="primary" style={{ marginRight: '10px' }}>
-            <strong>
-              <Icon type="plus" style={{ paddingRight: '2px' }} />
-              Create Post
-            </strong>
-          </Button>
-        </Link>
       </Menu>
 
+      {/* Hamburger Menu ------------------------------------- */}
       <div className="drawerButton">
         <Button onClick={() => dispatch(toggleNavDrawer())}>
           <Icon type="menu" />
