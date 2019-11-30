@@ -7,6 +7,7 @@ import { addFavorite, removeFavorite } from '../../../actions/post/post';
 
 const PostCardHeader = post => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const user = useSelector(state => state.auth.user);
   const [isFavorite, setFavorite] = useState(false);
 
@@ -28,12 +29,16 @@ const PostCardHeader = post => {
       <strong>${post.post.price}</strong>
       <div style={{ float: 'right' }}>
         <strong>{post.post.viewCount}</strong>
+
         <Icon
           style={{ fontSize: '20px', color: '#00458a', marginRight: '10px' }}
           type="eye"
         />
+
         <strong>{post.post.favorites.length}</strong>
-        {isFavorite ? (
+
+        {/* Three options for what star to display below */}
+        {isAuthenticated && isFavorite && (
           <Icon
             className="br-post-card-header-star-icon"
             style={{ fontSize: '20px', color: '#00458a' }}
@@ -44,7 +49,9 @@ const PostCardHeader = post => {
               setFavorite(false);
             }}
           />
-        ) : (
+        )}
+
+        {isAuthenticated && !isFavorite && (
           <Icon
             className="br-post-card-header-star-icon"
             style={{ fontSize: '20px', color: '#00458a' }}
@@ -54,6 +61,10 @@ const PostCardHeader = post => {
               setFavorite(true);
             }}
           />
+        )}
+
+        {!isAuthenticated && (
+          <Icon style={{ fontSize: '20px', color: '#00458a' }} type="star" />
         )}
       </div>
     </div>
