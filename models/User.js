@@ -48,10 +48,8 @@ const UserSchema = new mongoose.Schema({
   ],
   favorites: [
     {
-      post: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'post'
-      }
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'post'
     }
   ],
 

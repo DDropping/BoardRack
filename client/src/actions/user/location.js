@@ -4,7 +4,8 @@ import store from '../../store';
 import { UpdateDefaultLocationNotification } from '../../components/util/Notification';
 import { loadUser } from '../auth';
 import {
-  UPDATE_GEOLOCATION,
+  UPDATE_USER_LOCATION_WITH_IP,
+  UPDATE_USER_LOCATION_WITH_GEO,
   LOADING_USER_LOCATION,
   LOADING_USER_LOCATION_DONE,
   SAVING_USER_LOCATION,
@@ -13,12 +14,75 @@ import {
   HIDE_LOCATION_FORM
 } from '../types';
 
-// SET ISLOADING TO TRUE ----------------------------------------
+// GET USER'S APPROXIMATE LOCATION BASED ON IP ADDRESS --------------------------
+export const getUsersAproxLocation = () => async dispatch => {
+  try {
+    const res = await axios.get('/api/externalAPI/getApproximateLocation');
+    dispatch({ type: UPDATE_USER_LOCATION_WITH_IP, payload: res.data });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// GET USER'S LOCATION WITH ONLY ZIP CODE ---------------------------------------
+export const getUsersLocationWithPostalCode = postalCode => async dispatch => {
+  const state = store.getState().location.location.state;
+  const country = store.getState().location.location.Country;
+  //set headers for request
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  const body = JSON.stringify({
+    state,
+    country,
+    postalCode
+  });
+
+  try {
+    const res = await axios.post('/api/externalAPI/getCoords', body, config);
+    dispatch({ type: UPDATE_USER_LOCATION_WITH_GEO, payload: res.data });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// GET USER'S LOCATION WITH CITY STATE ZIP CODE --------------------------------
+export const getUsersLocationWithCityStateZip = (
+  city,
+  state,
+  postalCode,
+  setIsLocationForm
+) => async dispatch => {
+  dispatch({ type: LOADING_USER_LOCATION });
+  //set headers for request
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  const body = JSON.stringify({ city, state, postalCode });
+
+  try {
+    const res = await axios.post('/api/externalAPI/getCoords', body, config);
+    dispatch({ type: UPDATE_USER_LOCATION_WITH_GEO, payload: res.data });
+    setIsLocationForm(false); //hide location form
+    dispatch({ type: LOADING_USER_LOCATION_DONE });
+  } catch (err) {
+    console.log(err);
+    dispatch({ type: LOADING_USER_LOCATION_DONE });
+  }
+};
+
+// SET ISLOADING TO TRUE --------------------------------------------------------
 export const loadingLocation = () => dispatch => {
   dispatch({ type: LOADING_USER_LOCATION });
 };
 
-// EDIT DISPLAYED LOCATION ----------------------------------------
+// EDIT DISPLAYED LOCATION ------------------------------------------------------
 export const editLocation = () => dispatch => {
   dispatch({ type: DISPLAY_LOCATION_FORM });
 };
@@ -41,7 +105,7 @@ export const saveLocation = formProps => async dispatch => {
 
   try {
     const res = await axios.post('/api/externalAPI/getCoords', body, config);
-    dispatch({ type: UPDATE_GEOLOCATION, payload: res.data });
+    dispatch({ type: UPDATE_USER_LOCATION_WITH_GEO, payload: res.data });
     dispatch({ type: SAVING_USER_LOCATION_DONE });
     dispatch({ type: HIDE_LOCATION_FORM });
 
@@ -82,7 +146,7 @@ export const saveLocation = formProps => async dispatch => {
   }
 };
 
-// GET USER'S LOCATION WITH GEOCODE ----------------------------------------
+// GET USER'S LOCATION WITH GEOCODE ---------------------------------------------
 export const getUserAddress = ({ lat, lng }) => async dispatch => {
   //set headers for request
   const config = {
@@ -96,7 +160,7 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
 
   try {
     const res = await axios.post('/api/externalAPI/getAddress', body, config);
-    dispatch({ type: UPDATE_GEOLOCATION, payload: res.data });
+    dispatch({ type: UPDATE_USER_LOCATION_WITH_GEO, payload: res.data });
     dispatch({ type: LOADING_USER_LOCATION_DONE });
 
     //save location as user's default location if no location exists yet
@@ -136,7 +200,7 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
   }
 };
 
-// UPDATE USER'S LOCATION IN DB ----------------------------------------
+// UPDATE USER'S LOCATION IN DB -------------------------------------------------
 export const updateUserLocation = location => async dispatch => {
   try {
     await axios.put('/api/accounts/updateLocation', location);

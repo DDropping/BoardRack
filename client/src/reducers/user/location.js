@@ -1,5 +1,6 @@
 import {
-  UPDATE_GEOLOCATION,
+  UPDATE_USER_LOCATION_WITH_IP,
+  UPDATE_USER_LOCATION_WITH_GEO,
   USER_LOADED_SET_LOCATION,
   LOADING_USER_LOCATION,
   LOADING_USER_LOCATION_DONE,
@@ -17,14 +18,66 @@ const initialState = {
     lat: null,
     lng: null,
     country: null,
-    state: null,
-    city: null,
-    postalCode: null
+    state: 'CA',
+    city: 'San Francisco',
+    postalCode: '94122'
   }
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    //set user's location state with ip location services with IpStack API
+    case UPDATE_USER_LOCATION_WITH_IP:
+      //set if location has not been already set. To prevent 'set saved default user's location' overwrite by 'set ip location'
+      if (
+        state.location.lng === null &&
+        state.location.lat === null &&
+        state.location.postalCode === null &&
+        state.location.city === null &&
+        state.location.state === null
+      ) {
+        return {
+          ...state,
+          location: {
+            lat: action.payload.latitude,
+            lng: action.payload.longitude,
+            country: action.payload.country_name,
+            state: action.payload.region_name,
+            city: action.payload.city,
+            postalCode: action.payload.zip
+          }
+        };
+      } else {
+        return {
+          ...state
+        };
+      }
+    //set user's location state with geolocation & developer.here API
+    case UPDATE_USER_LOCATION_WITH_GEO:
+      return {
+        ...state,
+        location: {
+          lat: action.payload.lat,
+          lng: action.payload.lng,
+          country: action.payload.Country,
+          state: action.payload.State,
+          city: action.payload.City,
+          postalCode: action.payload.PostalCode
+        }
+      };
+    //set user's saved default location to location state
+    case USER_LOADED_SET_LOCATION:
+      return {
+        ...state,
+        location: {
+          lat: action.payload.lat,
+          lng: action.payload.lng,
+          country: action.payload.country,
+          state: action.payload.state,
+          city: action.payload.city,
+          postalCode: action.payload.postalCode
+        }
+      };
     case SAVING_USER_LOCATION:
       return {
         ...state,
@@ -54,30 +107,6 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isLoading: false
-      };
-    case USER_LOADED_SET_LOCATION:
-      return {
-        ...state,
-        location: {
-          lat: action.payload.lat,
-          lng: action.payload.lng,
-          country: action.payload.country,
-          state: action.payload.state,
-          city: action.payload.city,
-          postalCode: action.payload.postalCode
-        }
-      };
-    case UPDATE_GEOLOCATION:
-      return {
-        ...state,
-        location: {
-          lat: action.payload.lat,
-          lng: action.payload.lng,
-          country: action.payload.Country,
-          state: action.payload.State,
-          city: action.payload.City,
-          postalCode: action.payload.PostalCode
-        }
       };
     default:
       return state;

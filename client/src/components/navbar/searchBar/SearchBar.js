@@ -7,7 +7,7 @@ const SearchBar = () => {
   const { Search } = Input;
 
   return (
-    <div className="br-search-input">
+    <div className="br-search-bar">
       <Search
         enterButton="Search"
         size="large"

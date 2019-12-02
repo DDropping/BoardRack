@@ -18,15 +18,44 @@ const Navbar = () => {
 
   return (
     <div>
+      {/* Create Post ------------------------------------- */}
+      {isAuthenticated ? (
+        <Link to="/CreatePost">
+          <Button type="primary" ghost style={{ marginTop: '7px' }}>
+            <strong>
+              <Icon type="plus" style={{ paddingRight: '2px' }} />
+              Create Post
+            </strong>
+          </Button>
+        </Link>
+      ) : (
+        <Button
+          type="primary"
+          ghost
+          onClick={() => dispatch(toggleLoginModal())}
+          style={{ marginTop: '7px' }}
+        >
+          <strong>
+            <Icon type="plus" style={{ paddingRight: '2px' }} />
+            Create Post
+          </strong>
+        </Button>
+      )}
+
       <Menu className="navigationItems" mode="horizontal">
-        <Menu.Item key="home">
-          <Link to="/">Home</Link>
-        </Menu.Item>
-        {isAuthenticated && (
+        {/* Home ------------------------------------- */}
+        {/* <Menu.Item key="home">
+            <Link to="/">Home</Link>
+        </Menu.Item> */}
+
+        {/* Create Post ------------------------------------- */}
+        {/* {isAuthenticated && (
           <Menu.Item key="createPost">
             <Link to="/CreatePost">Create Post</Link>
           </Menu.Item>
-        )}
+        )} */}
+
+        {/* User Menu ------------------------------------- */}
         {user !== null && isAuthenticated && (
           <Menu.SubMenu
             title={
@@ -80,12 +109,14 @@ const Navbar = () => {
           </Menu.SubMenu>
         )}
 
+        {/* Login ------------------------------------- */}
         {!isAuthenticated && (
           <Menu.Item onClick={() => dispatch(toggleLoginModal())} key="login">
             Login
           </Menu.Item>
         )}
 
+        {/* Register ------------------------------------- */}
         {!isAuthenticated && (
           <Menu.Item
             onClick={() => dispatch(toggleRegisterModal())}
@@ -96,6 +127,7 @@ const Navbar = () => {
         )}
       </Menu>
 
+      {/* Hamburger Menu ------------------------------------- */}
       <div className="drawerButton">
         <Button onClick={() => dispatch(toggleNavDrawer())}>
           <Icon type="menu" />

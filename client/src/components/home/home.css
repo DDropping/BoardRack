@@ -1,3 +1,19 @@
 .br-home-page-wrapper {
   width: 100%;
 }
+
+.br-posts-filter-container {
+  display: inline-block;
+  width: calc(100% - 260px);
+}
+
+.br-posts-container {
+  display: inline-block;
+  width: 100%;
+}
+
+@media (max-width: 520px) {
+  .br-posts-filter-container {
+    width: 100%;
+  }
+}

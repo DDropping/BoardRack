@@ -11,7 +11,7 @@ const Logo = () => {
           <img
             className="br-logo-desktop"
             alt="br-logo-desktop"
-            src={process.env.PUBLIC_URL + '/images/br_logo_xs.jpg'}
+            src={process.env.PUBLIC_URL + '/images/br_logo_origional.png'}
           />
         </Link>
       </div>

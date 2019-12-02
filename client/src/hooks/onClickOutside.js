@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 /*Given a handler function, apply when mouse click outside of given ref
 How to use: 
     const ref = useRef();
-    useOnClickOutside(ref, useCallback(() => setIsVisible(false)));
+    useOnClickOutside(ref, useCallback(() => setIsVisible(false), []));
     <div ref={ref}> //this ref will be effected
 */
 export const useOnClickOutside = (ref, handler) => {

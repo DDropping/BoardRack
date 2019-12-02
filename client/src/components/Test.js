@@ -1,23 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-//import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { Button } from 'antd';
 
-const Test = props => {
-  // const dispatch = useDispatch();
-  // const posts = useSelector(state => state.post.postList);
+import { getUsersAproxLocation } from '../actions/user/location';
 
+const Test = () => {
+  const dispatch = useDispatch();
   return (
     <div>
-      <div>Test Page</div>
-      <Link to="/">
-        <div style={{ width: '60px' }}>
-          <img
-            style={{ maxHeight: '100%', maxWidth: '100%' }}
-            alt="br-logo-desktop"
-            src={process.env.PUBLIC_URL + '/images/br_logo_small.png'}
-          />
-        </div>
-      </Link>
+      <Button onClick={() => dispatch(getUsersAproxLocation())}>
+        location
+      </Button>
+      <div style={{ width: '20px', height: '20px' }}>
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          className="br-logo-desktop"
+          alt="br-logo-desktop"
+          src={process.env.PUBLIC_URL + '/images/br-favicon2-xl.png'}
+        />
+      </div>
     </div>
   );
 };
