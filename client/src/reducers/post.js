@@ -1,6 +1,11 @@
-import { LOAD_POSTS, UPDATE_SELECTED_POST } from '../actions/types';
+import {
+  LOAD_POSTS,
+  POST_VIEWED,
+  UPDATE_SELECTED_POST
+} from '../actions/types';
 
 const initialState = {
+  viewedPosts: [],
   postList: [],
   selectedPost: {
     _id: null,
@@ -42,8 +47,12 @@ export default function(state = initialState, action) {
         ...state,
         postList: action.payload
       };
+    case POST_VIEWED:
+      return {
+        ...state,
+        viewedPosts: [...state.viewedPosts, action.payload]
+      };
     case UPDATE_SELECTED_POST:
-      console.log(action.payload.post);
       return {
         ...state,
         selectedPost: {

@@ -22,7 +22,7 @@ const NavItemsDrawer = () => {
         closable={false}
         onClose={() => dispatch(toggleNavDrawer())}
         visible={isVisible}
-        style={{ padding: '0px !important' }}
+        style={{ zIndex: 10 }}
       >
         <Menu>
           <Menu.Item onClick={() => dispatch(toggleNavDrawer())} key="home">
@@ -31,7 +31,8 @@ const NavItemsDrawer = () => {
               Home
             </Link>
           </Menu.Item>
-          {isAuthenticated && (
+
+          {isAuthenticated ? (
             <Menu.Item
               onClick={() => dispatch(toggleNavDrawer())}
               key="createPost"
@@ -41,7 +42,18 @@ const NavItemsDrawer = () => {
                 Create Post
               </Link>
             </Menu.Item>
+          ) : (
+            <Menu.Item
+              onClick={() => dispatch(toggleNavDrawer())}
+              key="createPost"
+            >
+              <div onClick={() => dispatch(toggleLoginModal())}>
+                <Icon type="plus" style={{ color: 'rgba(0,0,0,.50)' }} />
+                Create Post
+              </div>
+            </Menu.Item>
           )}
+
           {isAuthenticated && (
             <Menu.Item
               onClick={() => dispatch(toggleNavDrawer())}

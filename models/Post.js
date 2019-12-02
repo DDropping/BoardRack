@@ -59,12 +59,14 @@ const PostSchema = new mongoose.Schema({
   ],
   favorites: [
     {
-      user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
-      }
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'user'
     }
-  ]
+  ],
+  viewCount: {
+    type: Number,
+    default: 0
+  }
 });
 
 module.exports = Post = mongoose.model('post', PostSchema);

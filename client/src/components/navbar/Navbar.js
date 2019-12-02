@@ -1,23 +1,18 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
+import Logo from './Logo';
 import NavItems from './NavItems';
 import NavItemsDrawer from './NavItemsDrawer';
+import SearchBar from './searchBar/SearchBar';
 import './nav.css';
 
 const Navbar = () => {
   const isLoading = useSelector(state => state.auth.isLoading);
   return (
     <div className="navbar">
-      <div className="logo">
-        <Link to="/">
-          <img
-            alt="logo"
-            src={process.env.PUBLIC_URL + '/images/br_logo_xs.jpg'}
-          />
-        </Link>
-      </div>
+      <Logo />
+      <SearchBar />
       <div className="navItems">
         {!isLoading && (
           <Fragment>

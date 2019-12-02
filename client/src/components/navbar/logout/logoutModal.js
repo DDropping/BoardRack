@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Modal, Result, Button } from 'antd';
 
-import { toggleLogoutModal } from '../../../actions/overlay';
+import { TOGGLE_LOGOUT_MODAL } from '../../../actions/types';
 import { logoutUser } from '../../../actions/auth';
 
 const LogoutModal = () => {
@@ -13,8 +13,8 @@ const LogoutModal = () => {
       <Modal
         title="Logout"
         visible={isVisible}
-        onOk={() => dispatch(toggleLogoutModal)}
-        onCancel={() => dispatch(toggleLogoutModal)}
+        onOk={() => dispatch({ type: TOGGLE_LOGOUT_MODAL })}
+        onCancel={() => dispatch({ type: TOGGLE_LOGOUT_MODAL })}
         footer={null}
         zIndex={1100}
       >
@@ -23,7 +23,10 @@ const LogoutModal = () => {
           style={{ padding: 0 }}
           extra={[
             <Button
-              onClick={() => dispatch(toggleLogoutModal)}
+              onClick={() => {
+                console.log('cancel logout clicked');
+                dispatch({ type: TOGGLE_LOGOUT_MODAL });
+              }}
               type="primary"
               key="console"
               size="large"
@@ -31,7 +34,10 @@ const LogoutModal = () => {
               Cancel
             </Button>,
             <Button
-              onClick={() => dispatch(logoutUser)}
+              onClick={() => {
+                console.log('logout clicked');
+                dispatch(logoutUser());
+              }}
               type="default"
               key="buy"
               size="large"

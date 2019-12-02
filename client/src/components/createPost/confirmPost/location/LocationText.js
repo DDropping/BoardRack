@@ -8,7 +8,7 @@ const LocationText = props => {
   const dispatch = useDispatch();
   const location = useSelector(state => state.location.location);
 
-  const handlEditClick = () => {
+  const handleEditClick = () => {
     dispatch(editLocation());
   };
   return (
@@ -19,7 +19,7 @@ const LocationText = props => {
           {location.state + ' '}
           {location.postalCode + ' '}
           <Tooltip title="Edit Location">
-            <Icon onClick={handlEditClick} type="edit" />
+            <Icon onClick={handleEditClick} type="edit" />
           </Tooltip>
         </p>
       )}

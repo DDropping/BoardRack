@@ -1,30 +1,23 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Button } from 'antd';
 
-import './createPost/addDetails/imageUpload/imgUpload.css';
-import PostCard from './post/postPreview/PostCard';
-import Banner from './home/banner/Banner';
-import Filter from './home/searchFilter/Filter';
-import SearchBar from './home/searchBar/SearchBar';
-import { loadPosts } from '../actions/post/post';
+import { getUsersAproxLocation } from '../actions/user/location';
 
-const Test = props => {
+const Test = () => {
   const dispatch = useDispatch();
-  const posts = useSelector(state => state.post.postList);
-
-  useEffect(() => {
-    dispatch(loadPosts());
-  }, [dispatch]);
-
   return (
     <div>
-      <Banner />
-      <Filter />
-      <div style={{ display: 'inline-block', width: 'calc(100% - 260px)' }}>
-        <SearchBar />
-        {posts.map(post => {
-          return <PostCard key={post._id} post={post} />;
-        })}
+      <Button onClick={() => dispatch(getUsersAproxLocation())}>
+        location
+      </Button>
+      <div style={{ width: '20px', height: '20px' }}>
+        <img
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          className="br-logo-desktop"
+          alt="br-logo-desktop"
+          src={process.env.PUBLIC_URL + '/images/br-favicon2-xl.png'}
+        />
       </div>
     </div>
   );

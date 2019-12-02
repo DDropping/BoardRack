@@ -41,6 +41,7 @@ export const changeToRegisterModal = () => dispatch => {
 };
 
 export const toggleLogoutModal = () => dispatch => {
+  console.log('toggle logout modal');
   dispatch({
     type: TOGGLE_LOGOUT_MODAL
   });
