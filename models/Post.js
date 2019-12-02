@@ -59,10 +59,8 @@ const PostSchema = new mongoose.Schema({
   ],
   favorites: [
     {
-      user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
-      }
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'user'
     }
   ],
   viewCount: {
