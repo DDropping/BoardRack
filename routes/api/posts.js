@@ -397,20 +397,19 @@ router.put('/favorite', auth, async (req, res) => {
 
     //check if user has already favorited the post
     if (
-      post.favorites.filter(
-        favorite => favorite.user.toString() === req.user.id
-      ).length > 0
+      post.favorites.filter(favorite => favorite.toString() === req.user.id)
+        .length > 0
     ) {
       return res.status(400).json({ msg: 'Post already favorited' });
     }
 
     //add favorite to post's favorites and save
-    post.favorites.unshift({ user: req.user.id });
+    post.favorites.unshift(req.user.id);
     await post.save();
 
     //add favorite to user's favorites and save
     const user = await User.findById(req.user.id);
-    user.favorites.unshift({ post: req.body.id });
+    user.favorites.unshift(req.body.id);
     await user.save();
     res.json(post.favorites);
   } catch (err) {
@@ -428,16 +427,15 @@ router.put('/unFavorite', auth, async (req, res) => {
 
     //check if user has already favorited the post
     if (
-      post.favorites.filter(
-        favorite => favorite.user.toString() === req.user.id
-      ).length === 0
+      post.favorites.filter(favorite => favorite.toString() === req.user.id)
+        .length === 0
     ) {
       return res.status(400).json({ msg: 'Post is not favorited' });
     }
 
     //remove favorite from post's favorites array
     const removePostIndex = post.favorites
-      .map(favorite => favorite.user.toString())
+      .map(favorite => favorite.toString())
       .indexOf(req.user.id);
     post.favorites.splice(removePostIndex, 1);
     await post.save();
@@ -445,7 +443,7 @@ router.put('/unFavorite', auth, async (req, res) => {
     //remove favorite from user's favorites array
     const user = await User.findById(req.user.id);
     const removeUserIndex = user.favorites
-      .map(favorite => favorite.post.toString())
+      .map(favorite => favorite.toString())
       .indexOf(req.body.id);
     user.favorites.splice(removeUserIndex, 1);
     await user.save();
