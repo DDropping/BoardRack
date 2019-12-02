@@ -15,9 +15,8 @@ const PostCardHeader = post => {
   useEffect(() => {
     if (user !== null) {
       if (
-        post.post.favorites.filter(
-          favorite => favorite.user.toString() === user._id
-        ).length > 0
+        post.post.favorites.filter(favorite => favorite.toString() === user._id)
+          .length > 0
       ) {
         setFavorite(true);
       }
