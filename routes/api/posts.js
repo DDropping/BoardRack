@@ -48,8 +48,8 @@ router.post(
       tail,
       finSystem,
       finConfiguration,
-      LengthFt,
-      LengthIn,
+      lengthFt,
+      lengthIn,
       width,
       depth,
       volume,
@@ -87,16 +87,14 @@ router.post(
     if (shaper) postFields.shaper = shaper;
     if (model) postFields.model = model;
 
+    if (lengthFt) postFields.lengthFt = lengthFt;
+    if (lengthIn) postFields.lengthIn = lengthIn;
+    if (width) postFields.width = width;
+    if (depth) postFields.depth = depth;
+    if (volume) postFields.volume = volume;
+
     //list of image urls
     if (images) postFields.images = images;
-
-    //build dimensions object
-    postFields.dimensions = {};
-    if (LengthFt) postFields.dimensions.LengthFt = LengthFt;
-    if (LengthIn) postFields.dimensions.LengthIn = LengthIn;
-    if (width) postFields.dimensions.width = width;
-    if (depth) postFields.dimensions.depth = depth;
-    if (volume) postFields.dimensions.volume = volume;
 
     //build location object
     postFields.location = {};
