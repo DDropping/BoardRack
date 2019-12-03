@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './home.css';
-import PostCard from '../post/postPreview/PostCard';
+import PostCard from '../post/postCard/PostCard';
 import Banner from '../home/banner/Banner';
 import FilterBar from './searchFilter/filterBar/FilterBar';
 import FilterBox from './searchFilter/filterBox/FilterBox';
