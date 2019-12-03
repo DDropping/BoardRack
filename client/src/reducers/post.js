@@ -1,10 +1,12 @@
 import {
   LOAD_POSTS,
   POST_VIEWED,
-  UPDATE_SELECTED_POST
+  UPDATE_SELECTED_POST,
+  TOGGLE_POST_MODAL
 } from '../actions/types';
 
 const initialState = {
+  isPostModalOpen: false,
   viewedPosts: [],
   postList: [],
   selectedPost: {
@@ -42,6 +44,11 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case TOGGLE_POST_MODAL:
+      return {
+        ...state,
+        isPostModalOpen: action.payload
+      };
     case LOAD_POSTS:
       return {
         ...state,
