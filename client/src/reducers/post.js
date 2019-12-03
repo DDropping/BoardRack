@@ -8,38 +8,7 @@ import {
 const initialState = {
   isPostModalOpen: false,
   viewedPosts: [],
-  postList: [],
-  selectedPost: {
-    _id: null,
-    user: null,
-    title: null,
-    price: null,
-    boardType: null,
-    condition: null,
-    description: null,
-    tail: null,
-    finSystem: null,
-    finConfiguration: null,
-    construction: null,
-    glassing: null,
-    contour: null,
-    waveSize: null,
-    drive: null,
-    paddlePower: null,
-    movability: null,
-    shaper: null,
-    model: null,
-    images: [],
-    location: {
-      lat: null,
-      lng: null,
-      country: null,
-      state: null,
-      city: null,
-      postalCode: null
-    },
-    favorites: []
-  }
+  postList: []
 };
 
 export default function(state = initialState, action) {

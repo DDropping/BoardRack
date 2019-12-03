@@ -1,0 +1,32 @@
+.br-postThumb-container {
+  width: calc(100% - 20px);
+  min-height: 125px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #fff;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
+}
+
+.br-postThumb-img-container {
+  display: inline-block;
+  padding: 5px;
+  height: 125px;
+  width: 125px;
+}
+
+.br-postThumb-img {
+  display: inline-block;
+  max-height: 100%;
+  max-width: 100%;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
+}
+
+.br-postThumb-details {
+  display: inline-block;
+  padding: 10px 0px;
+  position: absolute;
+  color: #303030;
+}
