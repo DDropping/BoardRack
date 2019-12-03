@@ -130,7 +130,6 @@ export const loginUser = ({ email, password }) => async dispatch => {
 
 /*********** LOGOUT USER ***********/
 export const logoutUser = () => dispatch => {
-  console.log('logout user');
   dispatch({ type: DEAUTH_USER });
   dispatch({ type: TOGGLE_LOGOUT_MODAL });
   dispatch({ type: CLOSE_NAV_DRAWER });
