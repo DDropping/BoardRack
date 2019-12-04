@@ -1,14 +1,21 @@
 import React, { useState, useCallback, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Icon, Button } from 'antd';
 
 import './layoutButton.css';
 import { useOnClickOutside } from '../../../../../hooks/onClickOutside';
+import { UPDATE_LAYOUT } from '../../../../../actions/types';
 
 const LayoutButton = () => {
+  const dispatch = useDispatch();
+  const layoutValue = useSelector(state => state.filters.layout);
   const [isVisible, setIsVisible] = useState(false);
-  const [layoutValue, setLayoutValue] = useState('Gallery');
+
   const ref = useRef();
-  useOnClickOutside(ref, useCallback(() => setIsVisible(false), []));
+  useOnClickOutside(
+    ref,
+    useCallback(() => setIsVisible(false), [])
+  );
 
   return (
     <div className="br-layout-button" ref={ref}>
@@ -26,7 +33,7 @@ const LayoutButton = () => {
         <div className="br-layout-options">
           <Button
             onClick={() => {
-              setLayoutValue('List');
+              dispatch({ type: UPDATE_LAYOUT, payload: 'List' });
               setIsVisible(false);
             }}
             type="link"
@@ -36,7 +43,7 @@ const LayoutButton = () => {
           <br />
           <Button
             onClick={() => {
-              setLayoutValue('Thumb');
+              dispatch({ type: UPDATE_LAYOUT, payload: 'Thumb' });
               setIsVisible(false);
             }}
             type="link"
@@ -46,7 +53,7 @@ const LayoutButton = () => {
           <br />
           <Button
             onClick={() => {
-              setLayoutValue('Gallery');
+              dispatch({ type: UPDATE_LAYOUT, payload: 'Gallery' });
               setIsVisible(false);
             }}
             type="link"

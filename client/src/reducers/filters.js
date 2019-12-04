@@ -1,4 +1,5 @@
 import {
+  UPDATE_LAYOUT,
   UPDATE_CONDITION,
   UPDATE_BOARD_TYPE,
   UPDATE_PRICE_HIGH,
@@ -10,6 +11,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
+  layout: 'Gallery',
   distance: 25,
   //postalCode: uses state.location value
   anyPrice: true, // any price
@@ -21,6 +23,11 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case UPDATE_LAYOUT:
+      return {
+        ...state,
+        layout: action.payload
+      };
     case UPDATE_CONDITION:
       return {
         ...state,
