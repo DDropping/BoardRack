@@ -3,7 +3,7 @@ import { Icon } from 'antd';
 
 const ViewCounter = viewCount => {
   return (
-    <div>
+    <div style={{ display: 'inline-block' }}>
       <div
         style={{
           display: 'inline-block',

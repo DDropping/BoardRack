@@ -25,7 +25,7 @@ const FavoriteCounter = (favorites, _id) => {
   console.log('favorite: ');
   console.log(favorites);
   return (
-    <div>
+    <div style={{ display: 'inline-block' }}>
       <div
         style={{
           display: 'inline-block',

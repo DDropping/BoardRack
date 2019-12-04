@@ -4,10 +4,10 @@ import './postThumb.css';
 
 const PostImg = post => {
   return (
-    <div className="br-postThumb-img-container ">
+    <div className="br-postThumb-img-container">
       <img
         className="br-postThumb-img"
-        alt=""
+        alt="surfboard"
         src={post.post.images[0].thumbnail}
       />
     </div>

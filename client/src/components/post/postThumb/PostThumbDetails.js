@@ -10,32 +10,44 @@ const PostThumbDetails = post => {
   console.log(post);
   return (
     <div className="br-postThumb-details">
-      {/* Title & Price */}
-      <strong style={{ fontSize: '20px' }}>
-        {post.post.title + '  $' + post.post.price}
-        <ViewCounter viewCount={post.post.viewCount} />
-        <FavoriteCounter favorites={post.post.favorites} _id={post.post._id} />
-      </strong>
+      <div style={{ display: 'inline-block', width: '100%' }}>
+        {/* Title & Price */}
+        <strong style={{ fontSize: '20px' }}>
+          {post.post.title + '  $' + post.post.price}
+        </strong>
 
-      <ConditionTag condition={post.post.condition} />
+        <ConditionTag condition={post.post.condition} />
+        <div style={{ display: 'inline-block', float: 'right' }}>
+          <ViewCounter viewCount={post.post.viewCount} />
+          <FavoriteCounter
+            favorites={post.post.favorites}
+            _id={post.post._id}
+          />
+        </div>
+      </div>
 
       {/* Dimensions & Volume */}
-      <i>
-        <div style={{ display: 'inline-block' }}>
-          {'Dims: ' +
-            post.post.lengthFt +
-            "' " +
-            post.post.lengthIn +
-            '" x ' +
-            post.post.width +
-            '" x ' +
-            post.post.depth +
-            '"'}
-        </div>
-        <div style={{ display: 'inline-block', marginLeft: '20px' }}>
-          {'Volume: ' + post.post.volume + 'L'}
-        </div>
-      </i>
+      <div>
+        <i>
+          <div style={{ display: 'inline-block' }}>
+            {'Dims: ' +
+              post.post.lengthFt +
+              "' " +
+              post.post.lengthIn +
+              '" x ' +
+              post.post.width +
+              '" x ' +
+              post.post.depth +
+              '"'}
+          </div>
+          <div style={{ display: 'inline-block', marginLeft: '20px' }}>
+            {'Volume: ' + post.post.volume + 'L'}
+          </div>
+        </i>
+      </div>
+      <div style={{ position: 'absolute', bottom: '10px', float: 'right' }}>
+        {post.post.location.city + ', ' + post.post.location.state}
+      </div>
     </div>
   );
 };
