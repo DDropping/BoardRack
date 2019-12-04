@@ -2,6 +2,7 @@ import React from 'react';
 import { Tag } from 'antd';
 
 import './postThumb.css';
+import ConditionTag from '../ConditionTag';
 import FavoriteCounter from '../FavoriteCounter';
 import ViewCounter from '../ViewCounter';
 
@@ -16,26 +17,7 @@ const PostThumbDetails = post => {
         <FavoriteCounter favorites={post.post.favorites} _id={post.post._id} />
       </strong>
 
-      {/* Condition */}
-      <div
-        style={{
-          display: 'inline-block',
-          marginLeft: '10px',
-          position: 'relative',
-          top: '-3px'
-        }}
-      >
-        {post.post.condition === 'New' && <Tag color="#52c41a">New</Tag>}
-        {post.post.condition === 'Lightly Used' && (
-          <Tag color="#00458a">Lightly Used</Tag>
-        )}
-        {post.post.condition === 'Used' && <Tag color="#00458a">Used</Tag>}
-        {post.post.condition === 'Heavily Used' && (
-          <Tag color="#4878a9">Heavily Used</Tag>
-        )}
-        {post.post.condition === 'Thrashed' && <Tag color="#f50">Thrashed</Tag>}
-      </div>
-      <br />
+      <ConditionTag condition={post.post.condition} />
 
       {/* Dimensions & Volume */}
       <i>
