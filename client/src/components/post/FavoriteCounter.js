@@ -29,6 +29,7 @@ const FavoriteCounter = (favorites, _id) => {
       <div
         style={{
           display: 'inline-block',
+          marginRight: '2px',
           fontSize: '18px',
           color: '#616161',
           position: 'relative',

@@ -3,6 +3,7 @@ import { Tag } from 'antd';
 
 import './postThumb.css';
 import FavoriteCounter from '../FavoriteCounter';
+import ViewCounter from '../ViewCounter';
 
 const PostThumbDetails = post => {
   console.log(post);
@@ -11,6 +12,7 @@ const PostThumbDetails = post => {
       {/* Title & Price */}
       <strong style={{ fontSize: '20px' }}>
         {post.post.title + '  $' + post.post.price}
+        <ViewCounter viewCount={post.post.viewCount} />
         <FavoriteCounter favorites={post.post.favorites} _id={post.post._id} />
       </strong>
 
