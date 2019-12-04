@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './post.css';
 import { addFavorite, removeFavorite } from '../../actions/post/post';
 
-const FavoriteCounter = (favorites, _id) => {
+const FavoriteCounter = ({ favorites, _id }) => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const user = useSelector(state => state.auth.user);
@@ -15,8 +15,8 @@ const FavoriteCounter = (favorites, _id) => {
   useEffect(() => {
     if (user !== null) {
       if (
-        favorites.favorites.filter(favorite => favorite.toString() === user._id)
-          .length > 0
+        favorites.filter(favorite => favorite.toString() === user._id).length >
+        0
       ) {
         setFavorite(true);
       }
@@ -36,7 +36,7 @@ const FavoriteCounter = (favorites, _id) => {
           top: '-1px'
         }}
       >
-        {favorites.favorites.length}
+        {favorites.length}
       </div>
       {/* Three options for what star to display below */}
       {isAuthenticated && isFavorite && (

@@ -3,6 +3,7 @@ import { Tag } from 'antd';
 
 import './postThumb.css';
 import ConditionTag from '../ConditionTag';
+import Dimensions from '../Dimensions';
 import FavoriteCounter from '../FavoriteCounter';
 import ViewCounter from '../ViewCounter';
 
@@ -27,7 +28,14 @@ const PostThumbDetails = post => {
       </div>
 
       {/* Dimensions & Volume */}
-      <div>
+      <Dimensions
+        lengthFt={post.post.lengthFt}
+        lengthIn={post.post.lengthIn}
+        width={post.post.width}
+        depth={post.post.depth}
+        volume={post.post.volume}
+      />
+      {/* <div>
         <i>
           <div style={{ display: 'inline-block' }}>
             {'Dims: ' +
@@ -44,7 +52,7 @@ const PostThumbDetails = post => {
             {'Volume: ' + post.post.volume + 'L'}
           </div>
         </i>
-      </div>
+      </div> */}
       <div style={{ position: 'absolute', bottom: '10px', float: 'right' }}>
         {post.post.location.city + ', ' + post.post.location.state}
       </div>
