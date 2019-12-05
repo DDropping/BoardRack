@@ -11,9 +11,8 @@ const PostThumb = post => {
   const dispatch = useDispatch();
   const isPostModalOpen = useSelector(state => state.post.isPostModalOpen);
   return (
-    <div>
+    <div className="br-postThumb-container">
       <div
-        className="br-postThumb-container"
         onClick={() => {
           dispatch({ type: TOGGLE_POST_MODAL, payload: true });
         }}
