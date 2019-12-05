@@ -5,18 +5,14 @@ const Dimensions = ({ lengthFt, lengthIn, width, depth, volume }) => {
     <div>
       <i>
         <div style={{ display: 'inline-block' }}>
-          {'Dims: ' +
-            lengthFt +
-            "' " +
-            lengthIn +
-            '" x ' +
-            width +
-            '" x ' +
-            depth +
-            '"'}
+          {lengthFt && 'Dims: ' + lengthFt + "' "}
+          {lengthIn && lengthIn + '" '}
+          {(lengthFt || lengthIn) && 'x '}
+          {width && width + '" x '}
+          {depth && depth + '"'}
         </div>
         <div style={{ display: 'inline-block', marginLeft: '20px' }}>
-          {'Volume: ' + volume + 'L'}
+          {volume && 'Volume: ' + volume + 'L'}
         </div>
       </i>
     </div>

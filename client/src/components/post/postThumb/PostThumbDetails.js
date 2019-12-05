@@ -23,11 +23,11 @@ const PostThumbDetails = ({ post }) => {
         </div>
       </div>
       <Dimensions
-        lengthFt={post.lengthFt}
-        lengthIn={post.lengthIn}
-        width={post.width}
-        depth={post.depth}
-        volume={post.volume}
+        lengthFt={post.lengthFt ? post.lengthFt : null}
+        lengthIn={post.lengthIn ? post.lengthIn : null}
+        width={post.width ? post.width : null}
+        depth={post.depth ? post.depth : null}
+        volume={post.volume ? post.volume : null}
       />
       <div style={{ position: 'absolute', bottom: '10px', float: 'right' }}>
         {post.location.city + ', ' + post.location.state}
