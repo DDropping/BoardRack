@@ -45,7 +45,8 @@ const FavoriteCounter = ({ favorites, _id }) => {
           style={{ fontSize: '20px', color: '#00458a' }}
           type="star"
           theme="filled"
-          onClick={() => {
+          onClick={e => {
+            e.stopPropagation();
             dispatch(removeFavorite(_id));
             setFavorite(false);
           }}
@@ -56,7 +57,8 @@ const FavoriteCounter = ({ favorites, _id }) => {
           className="br-post-card-header-star-icon"
           style={{ fontSize: '20px', color: '#00458a' }}
           type="star"
-          onClick={() => {
+          onClick={e => {
+            e.stopPropagation();
             dispatch(addFavorite(_id));
             setFavorite(true);
           }}
