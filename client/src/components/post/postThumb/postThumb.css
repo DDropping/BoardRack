@@ -26,10 +26,10 @@
 }
 
 .br-postThumb-details {
+  padding: 10px 0;
+  vertical-align: top;
   display: inline-block;
   height: 125px;
-  padding: 10px 0px;
   position: relative;
-  top: 0px;
   color: #303030;
 }

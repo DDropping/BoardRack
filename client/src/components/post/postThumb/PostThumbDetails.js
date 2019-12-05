@@ -17,7 +17,12 @@ const PostThumbDetails = ({ post }) => {
         </strong>
 
         <ConditionTag condition={post.condition} />
-        <div style={{ display: 'inline-block', float: 'right' }}>
+        <div
+          style={{
+            display: 'inline-block',
+            float: 'right'
+          }}
+        >
           <ViewCounter viewCount={post.viewCount} />
           <FavoriteCounter favorites={post.favorites} _id={post._id} />
         </div>
@@ -29,7 +34,7 @@ const PostThumbDetails = ({ post }) => {
         depth={post.depth ? post.depth : null}
         volume={post.volume ? post.volume : null}
       />
-      <div style={{ position: 'absolute', bottom: '10px', float: 'right' }}>
+      <div style={{ position: 'absolute', bottom: '20px' }}>
         {post.location.city + ', ' + post.location.state}
       </div>
     </div>
