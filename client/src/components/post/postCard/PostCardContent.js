@@ -1,15 +1,20 @@
 import React from 'react';
 
-import '../post.css';
+import './postCard.css';
 import Dimensions from '../Dimensions';
-import ConditionTag from '../ConditionTag';
 
 const PostCardContent = ({ post }) => {
   return (
     <div className="br-post-card-content">
-      <div style={{ fontSize: '20px' }}>
+      <div
+        style={{
+          fontSize: '20px',
+          width: '100% ',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden'
+        }}
+      >
         {post.title}
-        <ConditionTag condition={post.condition} />
       </div>
       <Dimensions
         lengthFt={post.lengthFt ? post.lengthFt : null}

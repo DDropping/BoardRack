@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../post.css';
+import './postCard.css';
 
 const PostCardImg = post => {
   return (

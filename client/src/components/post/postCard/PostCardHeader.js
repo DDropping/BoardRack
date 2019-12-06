@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import '../post.css';
+import './postCard.css';
 import FavoriteCounter from '../FavoriteCounter';
 import ViewCounter from '../ViewCounter';
 
