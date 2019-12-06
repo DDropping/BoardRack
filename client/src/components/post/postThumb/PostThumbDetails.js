@@ -9,9 +9,17 @@ import ViewCounter from '../ViewCounter';
 const PostThumbDetails = ({ post }) => {
   return (
     <div className="br-postThumb-details">
-      <strong style={{ fontSize: '20px' }}>
-        {post.title + '  $' + post.price}
-      </strong>
+      <div
+        style={{
+          fontSize: '20px',
+          display: 'inline-block',
+          width: 'calc(100% - 125px)',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden'
+        }}
+      >
+        <strong>{'$' + post.price + ' ' + post.title}</strong>
+      </div>
       <div
         style={{
           display: 'inline-block',
@@ -23,7 +31,6 @@ const PostThumbDetails = ({ post }) => {
       </div>
 
       <ConditionTag condition={post.condition} />
-      <br />
       <Dimensions
         lengthFt={post.lengthFt ? post.lengthFt : null}
         lengthIn={post.lengthIn ? post.lengthIn : null}

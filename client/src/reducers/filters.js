@@ -11,7 +11,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  layout: 'List',
+  layout: 'Thumb',
   distance: 25,
   //postalCode: uses state.location value
   anyPrice: true, // any price
