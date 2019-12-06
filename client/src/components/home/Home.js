@@ -6,6 +6,7 @@ import PostList from '../post/postList/PostList';
 import PostThumb from '../post/postThumb/PostThumb';
 import PostCard from '../post/postCard/PostCard';
 import Banner from '../home/banner/Banner';
+import ResultsBar from './resultsSort/ResultsBar';
 import FilterBar from './searchFilter/filterBar/FilterBar';
 import FilterBox from './searchFilter/filterBox/FilterBox';
 import { loadPosts } from '../../actions/post/post';
@@ -33,6 +34,7 @@ const Home = () => {
           isFiltersVisible ? 'br-posts-filter-container' : 'br-posts-container'
         }
       >
+        <ResultsBar />
         {layout === 'List' &&
           posts.map(post => {
             return <PostList key={post._id} post={post} />;

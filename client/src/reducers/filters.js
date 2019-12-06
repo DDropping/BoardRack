@@ -11,6 +11,7 @@ import {
 
 const initialState = {
   layout: 'Thumb',
+  sort: 'Newest',
   distance: 25,
   anyPrice: true, // any price
   priceLow: null,
