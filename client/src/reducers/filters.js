@@ -6,14 +6,12 @@ import {
   UPDATE_PRICE_LOW,
   UPDATE_ANY_PRICE,
   UPDATE_DISTANCE,
-  //UPDATE_POSTAL_CODE,
   DELETE_PRICE
 } from '../actions/types';
 
 const initialState = {
-  layout: 'Gallery',
+  layout: 'Thumb',
   distance: 25,
-  //postalCode: uses state.location value
   anyPrice: true, // any price
   priceLow: null,
   priceHigh: null,
@@ -58,11 +56,6 @@ export default function(state = initialState, action) {
         ...state,
         distance: action.payload
       };
-    // case UPDATE_POSTAL_CODE:
-    //   return {
-    //     ...state,
-    //     postalCode: action.payload
-    //   };
     case DELETE_PRICE:
       return {
         ...state,
