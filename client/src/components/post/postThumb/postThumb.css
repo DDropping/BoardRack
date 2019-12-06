@@ -26,7 +26,8 @@
 }
 
 .br-postThumb-details {
-  padding: 10px 0;
+  width: calc(100% - 125px);
+  padding: 10px 10px 10px 0px;
   vertical-align: top;
   display: inline-block;
   height: 125px;
