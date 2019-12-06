@@ -6,7 +6,6 @@ const ConditionTag = ({ condition }) => {
     <div
       style={{
         display: 'inline-block',
-        marginLeft: '10px',
         position: 'relative',
         top: '-3px'
       }}

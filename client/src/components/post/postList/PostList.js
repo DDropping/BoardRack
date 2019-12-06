@@ -9,11 +9,10 @@ import ViewCounter from '../ViewCounter';
 const PostList = ({ post }) => {
   return (
     <div className="br-postList-container ">
-      <div style={{ fontSize: '20px', display: 'inline-block', width: '80px' }}>
+      <div
+        style={{ fontSize: '20px', display: 'inline-block', width: '100px' }}
+      >
         ${post.price}
-      </div>
-      <div style={{ fontSize: '20px', display: 'inline-block' }}>
-        <strong>{post.title}</strong>
       </div>
       <div
         style={{
@@ -24,8 +23,21 @@ const PostList = ({ post }) => {
         <ViewCounter viewCount={post.viewCount} />
         <FavoriteCounter favorites={post.favorites} _id={post._id} />
       </div>
+      <div
+        style={{
+          fontSize: '20px',
+          display: 'inline-block',
+          width: 'calc(100% - 225px)',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden'
+        }}
+      >
+        <strong>{post.title}</strong>
+      </div>
+      <div style={{ display: 'inline-block', width: '100px' }}>
+        <ConditionTag condition={post.condition} />
+      </div>
 
-      <ConditionTag condition={post.condition} />
       <Dimensions
         lengthFt={post.lengthFt ? post.lengthFt : null}
         lengthIn={post.lengthIn ? post.lengthIn : null}

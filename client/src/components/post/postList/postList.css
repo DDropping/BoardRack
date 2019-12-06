@@ -8,17 +8,3 @@
   transition: box-shadow 0.3s;
   box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
 }
-
-.br-postList-price-title {
-  font-size: 20px;
-  display: inline-block;
-}
-
-.br-postList-details {
-  width: 100%;
-  vertical-align: top;
-  display: inline-block;
-  height: 125px;
-  position: relative;
-  color: #303030;
-}
