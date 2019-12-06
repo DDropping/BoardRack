@@ -7,26 +7,23 @@ import FavoriteCounter from '../FavoriteCounter';
 import ViewCounter from '../ViewCounter';
 
 const PostThumbDetails = ({ post }) => {
-  console.log(post);
   return (
     <div className="br-postThumb-details">
-      <div style={{ display: 'inline-block', width: '100%' }}>
-        {/* Title & Price */}
-        <strong style={{ fontSize: '20px' }}>
-          {post.title + '  $' + post.price}
-        </strong>
-
-        <ConditionTag condition={post.condition} />
-        <div
-          style={{
-            display: 'inline-block',
-            float: 'right'
-          }}
-        >
-          <ViewCounter viewCount={post.viewCount} />
-          <FavoriteCounter favorites={post.favorites} _id={post._id} />
-        </div>
+      <strong style={{ fontSize: '20px' }}>
+        {post.title + '  $' + post.price}
+      </strong>
+      <div
+        style={{
+          display: 'inline-block',
+          float: 'right'
+        }}
+      >
+        <ViewCounter viewCount={post.viewCount} />
+        <FavoriteCounter favorites={post.favorites} _id={post._id} />
       </div>
+
+      <ConditionTag condition={post.condition} />
+      <br />
       <Dimensions
         lengthFt={post.lengthFt ? post.lengthFt : null}
         lengthIn={post.lengthIn ? post.lengthIn : null}
