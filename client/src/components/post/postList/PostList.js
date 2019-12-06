@@ -15,15 +15,6 @@ const PostList = ({ post }) => {
       <div style={{ fontSize: '20px', display: 'inline-block' }}>
         <strong>{post.title}</strong>
       </div>
-
-      <ConditionTag condition={post.condition} />
-      <Dimensions
-        lengthFt={post.lengthFt ? post.lengthFt : null}
-        lengthIn={post.lengthIn ? post.lengthIn : null}
-        width={post.width ? post.width : null}
-        depth={post.depth ? post.depth : null}
-        volume={post.volume ? post.volume : null}
-      />
       <div
         style={{
           display: 'inline-block',
@@ -33,6 +24,15 @@ const PostList = ({ post }) => {
         <ViewCounter viewCount={post.viewCount} />
         <FavoriteCounter favorites={post.favorites} _id={post._id} />
       </div>
+
+      <ConditionTag condition={post.condition} />
+      <Dimensions
+        lengthFt={post.lengthFt ? post.lengthFt : null}
+        lengthIn={post.lengthIn ? post.lengthIn : null}
+        width={post.width ? post.width : null}
+        depth={post.depth ? post.depth : null}
+        volume={post.volume ? post.volume : null}
+      />
     </div>
   );
 };
