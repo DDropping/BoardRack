@@ -68,6 +68,7 @@ export const UPDATE_SELECTED_POST = 'UPDATE_SELECTED_POST';
 export const POST_VIEWED = 'POST_VIEWED';
 
 //Search Filters
+export const UPDATE_SORT = 'UPDATE_SORT';
 export const UPDATE_LAYOUT = 'UPDATE_LAYOUT';
 export const UPDATE_CONDITION = 'UPDATE_CONDITION';
 export const UPDATE_BOARD_TYPE = 'UPDATE_BOARD_TYPE';

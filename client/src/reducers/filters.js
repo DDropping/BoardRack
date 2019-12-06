@@ -1,5 +1,6 @@
 import {
   UPDATE_LAYOUT,
+  UPDATE_SORT,
   UPDATE_CONDITION,
   UPDATE_BOARD_TYPE,
   UPDATE_PRICE_HIGH,
@@ -26,6 +27,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         layout: action.payload
+      };
+    case UPDATE_SORT:
+      return {
+        ...state,
+        sort: action.payload
       };
     case UPDATE_CONDITION:
       return {
