@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './home.css';
+import PostList from '../post/postList/PostList';
 import PostThumb from '../post/postThumb/PostThumb';
 import PostCard from '../post/postCard/PostCard';
 import Banner from '../home/banner/Banner';
@@ -34,7 +35,7 @@ const Home = () => {
       >
         {layout === 'List' &&
           posts.map(post => {
-            return <PostCard key={post._id} post={post} />;
+            return <PostList key={post._id} post={post} />;
           })}
         {layout === 'Thumb' &&
           posts.map(post => {

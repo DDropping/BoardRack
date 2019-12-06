@@ -2,7 +2,7 @@ import React from 'react';
 
 const Dimensions = ({ lengthFt, lengthIn, width, depth, volume }) => {
   return (
-    <div style={{ fontStyle: 'italic' }}>
+    <div style={{ fontStyle: 'italic', display: 'inline-block' }}>
       <div style={{ display: 'inline-block' }}>
         {lengthFt && 'Dims: ' + lengthFt + "' "}
         {lengthIn && lengthIn + '" '}
