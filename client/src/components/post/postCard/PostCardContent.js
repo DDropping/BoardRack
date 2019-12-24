@@ -8,13 +8,13 @@ const PostCardContent = ({ post }) => {
     <div className="br-post-card-content">
       <div
         style={{
-          fontSize: '20px',
+          fontSize: '18px',
           width: '100% ',
           whiteSpace: 'nowrap',
           overflow: 'hidden'
         }}
       >
-        {post.title}
+        <strong>{post.title}</strong>
       </div>
       <Dimensions
         lengthFt={post.lengthFt ? post.lengthFt : null}

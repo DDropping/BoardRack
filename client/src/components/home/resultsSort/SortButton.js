@@ -30,6 +30,24 @@ const SortButton = () => {
             <Menu.Item>
               <div
                 onClick={() =>
+                  dispatch({ type: UPDATE_SORT, payload: 'Most Favorited' })
+                }
+              >
+                Most Favorited
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div
+                onClick={() =>
+                  dispatch({ type: UPDATE_SORT, payload: 'Most Viewed' })
+                }
+              >
+                Most Viewed
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div
+                onClick={() =>
                   dispatch({ type: UPDATE_SORT, payload: '$ Low-High' })
                 }
               >
