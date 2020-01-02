@@ -28,7 +28,7 @@ const FilterBar = ({ isFiltersVisible, setIsFiltersVisible }) => {
       />
       <div className="br-filter-tag-container">
         <div className="br-flex-container">
-          {!anyPrice && priceHigh && priceLow && priceHigh >= priceLow ? (
+          {!anyPrice && priceHigh && priceLow && priceHigh >= priceLow && (
             <Tag
               className="br-flex-item"
               color="blue"
@@ -37,45 +37,43 @@ const FilterBar = ({ isFiltersVisible, setIsFiltersVisible }) => {
             >
               ${priceLow}-${priceHigh}
             </Tag>
-          ) : null}
+          )}
 
-          {boardType.length < 8
-            ? boardType.map(board => (
-                <Tag
-                  key={board}
-                  className="br-flex-item"
-                  color="blue"
-                  closable
-                  onClose={() =>
-                    dispatch({
-                      type: UPDATE_BOARD_TYPE,
-                      payload: boardType.filter(type => type !== board)
-                    })
-                  }
-                >
-                  {board}
-                </Tag>
-              ))
-            : null}
+          {boardType.length < 8 &&
+            boardType.map(board => (
+              <Tag
+                key={board}
+                className="br-flex-item"
+                color="blue"
+                closable
+                onClose={() =>
+                  dispatch({
+                    type: UPDATE_BOARD_TYPE,
+                    payload: boardType.filter(type => type !== board)
+                  })
+                }
+              >
+                {board}
+              </Tag>
+            ))}
 
-          {condition.length < 5
-            ? condition.map(cond => (
-                <Tag
-                  key={cond}
-                  className="br-flex-item"
-                  color="blue"
-                  closable
-                  onClose={() =>
-                    dispatch({
-                      type: UPDATE_CONDITION,
-                      payload: condition.filter(item => item !== cond)
-                    })
-                  }
-                >
-                  {cond}
-                </Tag>
-              ))
-            : null}
+          {condition.length < 5 &&
+            condition.map(cond => (
+              <Tag
+                key={cond}
+                className="br-flex-item"
+                color="blue"
+                closable
+                onClose={() =>
+                  dispatch({
+                    type: UPDATE_CONDITION,
+                    payload: condition.filter(item => item !== cond)
+                  })
+                }
+              >
+                {cond}
+              </Tag>
+            ))}
         </div>
       </div>
       <LayoutButton />
