@@ -55,7 +55,7 @@ const LayoutButton = () => {
         }
       >
         <div style={{ cursor: 'pointer' }}>
-          <strong>
+          <strong style={{ padding: '0 20px 0 10px' }}>
             {layoutValue === 'List' && <Icon type="menu" />}
             {layoutValue === 'Thumb' && <Icon type="unordered-list" />}
             {layoutValue === 'Gallery' && <Icon type="appstore" />}
