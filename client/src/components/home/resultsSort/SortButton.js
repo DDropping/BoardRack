@@ -17,6 +17,7 @@ const SortButton = () => {
     >
       <Dropdown
         placement="bottomCenter"
+        trigger={['click']}
         overlay={
           <Menu>
             <Menu.Item>
