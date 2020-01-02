@@ -16,6 +16,7 @@ const SortButton = () => {
       }}
     >
       <Dropdown
+        placement="bottomCenter"
         overlay={
           <Menu>
             <Menu.Item>
