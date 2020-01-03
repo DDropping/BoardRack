@@ -1,26 +1,26 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 
 import './postThumb.css';
 import PostModal from '../postModal/PostModal';
 import PostImg from './PostImg';
 import PostThumbDetails from './PostThumbDetails';
-import { TOGGLE_POST_MODAL } from '../../../actions/types';
 
 const PostThumb = ({ post }) => {
-  const dispatch = useDispatch();
-  const isPostModalOpen = useSelector(state => state.post.isPostModalOpen);
+  const [isPostModalOpen, setIsPostModalOpen] = useState(false);
+  const hidePostModal = () => setIsPostModalOpen(false);
   return (
     <div className="br-postThumb-container">
       <div
         onClick={() => {
-          dispatch({ type: TOGGLE_POST_MODAL, payload: true });
+          setIsPostModalOpen(true);
         }}
       >
         <PostImg post={post} />
         <PostThumbDetails post={post} />
       </div>
-      {isPostModalOpen && <PostModal post={post} />}
+      {isPostModalOpen && (
+        <PostModal post={post} hidePostModal={hidePostModal} />
+      )}
     </div>
   );
 };
