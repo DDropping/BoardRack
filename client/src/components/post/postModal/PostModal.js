@@ -22,8 +22,7 @@ const PostModal = ({ post, hidePostModal }) => {
             right: 5,
             top: 5
           }}
-        />{' '}
-        .
+        />
         <PostModalBody post={post} />
       </div>
     </Fade>
