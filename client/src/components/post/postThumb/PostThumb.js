@@ -6,7 +6,7 @@ import PostImg from './PostImg';
 import PostThumbDetails from './PostThumbDetails';
 
 const PostThumb = ({ post }) => {
-  const [isPostModalOpen, setIsPostModalOpen] = useState(false);
+  const [isPostModalOpen, setIsPostModalOpen] = useState(true);
   const hidePostModal = () => setIsPostModalOpen(false);
   return (
     <div className="br-postThumb-container">
