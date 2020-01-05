@@ -1,24 +1,28 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Button } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { getUsersAproxLocation } from '../actions/user/location';
+import PostThumb from '../components/post/postThumb/PostThumb';
+import { loadPosts } from '../actions/post/post';
 
 const Test = () => {
   const dispatch = useDispatch();
+  const [isFiltersVisible] = useState(false);
+  const posts = useSelector(state => state.post.postList);
+
+  useEffect(() => {
+    dispatch(loadPosts());
+  }, [dispatch]);
+
   return (
-    <div>
-      <Button onClick={() => dispatch(getUsersAproxLocation())}>
-        location
-      </Button>
-      <div style={{ width: '20px', height: '20px' }}>
-        <img
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          className="br-logo-desktop"
-          alt="br-logo-desktop"
-          src={process.env.PUBLIC_URL + '/images/br-favicon2-xl.png'}
-        />
-      </div>
+    <div
+      className={
+        isFiltersVisible ? 'br-posts-filter-container' : 'br-posts-container'
+      }
+    >
+      {posts.map(post => {
+        if (post.price === '450')
+          return <PostThumb key={post._id} post={post} />;
+      })}
     </div>
   );
 };

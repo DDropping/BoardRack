@@ -18,42 +18,35 @@ const Navbar = () => {
 
   return (
     <div>
-      {/* Create Post ------------------------------------- */}
-      {isAuthenticated ? (
-        <Link to="/CreatePost">
-          <Button type="primary" ghost style={{ marginTop: '7px' }}>
+      <div className="br-navbar-create-post">
+        {isAuthenticated ? (
+          <Link to="/CreatePost">
+            <Button type="primary" ghost style={{ marginTop: '7px' }}>
+              <strong>
+                <Icon type="plus" style={{ paddingRight: '2px' }} />
+                Create Post
+              </strong>
+            </Button>
+          </Link>
+        ) : (
+          <Button
+            type="primary"
+            ghost
+            onClick={() => dispatch(toggleLoginModal())}
+            style={{ marginTop: '7px' }}
+          >
             <strong>
               <Icon type="plus" style={{ paddingRight: '2px' }} />
               Create Post
             </strong>
           </Button>
-        </Link>
-      ) : (
-        <Button
-          type="primary"
-          ghost
-          onClick={() => dispatch(toggleLoginModal())}
-          style={{ marginTop: '7px' }}
-        >
-          <strong>
-            <Icon type="plus" style={{ paddingRight: '2px' }} />
-            Create Post
-          </strong>
-        </Button>
-      )}
-
+        )}
+      </div>
       <Menu className="navigationItems" mode="horizontal">
         {/* Home ------------------------------------- */}
         {/* <Menu.Item key="home">
             <Link to="/">Home</Link>
         </Menu.Item> */}
-
-        {/* Create Post ------------------------------------- */}
-        {/* {isAuthenticated && (
-          <Menu.Item key="createPost">
-            <Link to="/CreatePost">Create Post</Link>
-          </Menu.Item>
-        )} */}
 
         {/* User Menu ------------------------------------- */}
         {user !== null && isAuthenticated && (

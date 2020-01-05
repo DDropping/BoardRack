@@ -1,60 +1,68 @@
-import React, { useState, useCallback, useRef } from 'react';
-import { Icon, Button } from 'antd';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Icon, Menu, Dropdown } from 'antd';
 
 import './layoutButton.css';
-import { useOnClickOutside } from '../../../../../hooks/onClickOutside';
+import { UPDATE_LAYOUT } from '../../../../../actions/types';
 
 const LayoutButton = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [layoutValue, setLayoutValue] = useState('Gallery');
-  const ref = useRef();
-  useOnClickOutside(ref, useCallback(() => setIsVisible(false), []));
+  const dispatch = useDispatch();
+  const layoutValue = useSelector(state => state.filters.layout);
 
   return (
-    <div className="br-layout-button" ref={ref}>
-      <Button
-        onClick={() => setIsVisible(!isVisible)}
-        style={{ marginRight: '30px' }}
-        type="link"
+    <div
+      style={{
+        display: 'inline-block',
+        float: 'right'
+      }}
+    >
+      <Dropdown
+        placement="bottomCenter"
+        trigger={['click']}
+        overlay={
+          <Menu>
+            <Menu.Item>
+              <div
+                onClick={() =>
+                  dispatch({ type: UPDATE_LAYOUT, payload: 'List' })
+                }
+              >
+                <Icon type="menu" />
+                {' List'}
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div
+                onClick={() =>
+                  dispatch({ type: UPDATE_LAYOUT, payload: 'Thumb' })
+                }
+              >
+                <Icon type="unordered-list" />
+                {' Thumb'}
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div
+                onClick={() =>
+                  dispatch({ type: UPDATE_LAYOUT, payload: 'Gallery' })
+                }
+              >
+                <Icon type="appstore" />
+                {' Gallery'}
+              </div>
+            </Menu.Item>
+          </Menu>
+        }
       >
-        {layoutValue === 'List' && <Icon type="menu" />}
-        {layoutValue === 'Thumb' && <Icon type="unordered-list" />}
-        {layoutValue === 'Gallery' && <Icon type="appstore" />}
-        {layoutValue}
-      </Button>
-      {isVisible && (
-        <div className="br-layout-options">
-          <Button
-            onClick={() => {
-              setLayoutValue('List');
-              setIsVisible(false);
-            }}
-            type="link"
-          >
-            <Icon type="menu" /> List
-          </Button>
-          <br />
-          <Button
-            onClick={() => {
-              setLayoutValue('Thumb');
-              setIsVisible(false);
-            }}
-            type="link"
-          >
-            <Icon type="unordered-list" /> Thumb
-          </Button>
-          <br />
-          <Button
-            onClick={() => {
-              setLayoutValue('Gallery');
-              setIsVisible(false);
-            }}
-            type="link"
-          >
-            <Icon type="appstore" /> Gallery
-          </Button>
+        <div style={{ cursor: 'pointer' }}>
+          <strong style={{ padding: '0 20px 0 10px' }}>
+            {layoutValue === 'List' && <Icon type="menu" />}
+            {layoutValue === 'Thumb' && <Icon type="unordered-list" />}
+            {layoutValue === 'Gallery' && <Icon type="appstore" />}
+            {' ' + layoutValue} <Icon type="down" />
+          </strong>
         </div>
-      )}
+      </Dropdown>
     </div>
   );
 };

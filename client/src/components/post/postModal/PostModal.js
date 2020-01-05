@@ -1,29 +1,37 @@
 /* Displays postModal if isPostModalVisible === true */
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Fade from 'react-reveal/Fade';
-import { Icon } from 'antd';
 
-import '../post.css';
-import PostModalBody from './PostModalBody';
+import './postModal.css';
+import { addView } from '../../../actions/post/post';
+import PostModalToolBar from './PostModalToolBar';
+import PostModalImages from './PostModalImages';
+import PostModalDetails from './PostModalDetails';
 
 const PostModal = ({ post, hidePostModal }) => {
+  const dispatch = useDispatch();
+  const viewedPosts = useSelector(state => state.post.viewedPosts);
+
+  useEffect(() => {
+    //increase post viewCount if this is first time user is viewing post
+    if (
+      viewedPosts.filter(postId => postId.toString() === post._id.toString())
+        .length === 0
+    ) {
+      dispatch(addView(post._id));
+    }
+  }, [post._id, dispatch, viewedPosts]);
+
   return (
     <Fade>
       <div className="br-post-modal-grey" onClick={() => hidePostModal()} />
 
       <div className="br-post-modal-wrapper">
-        <Icon
-          type="close-circle"
-          onClick={() => hidePostModal()}
-          style={{
-            fontSize: '25px',
-            position: 'absolute',
-            right: 5,
-            top: 5
-          }}
-        />
-        <PostModalBody post={post} />
+        <PostModalToolBar post={post} hidePostModal={hidePostModal} />
+        <PostModalImages post={post} />
+        <PostModalDetails post={post} />
       </div>
     </Fade>
   );

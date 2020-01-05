@@ -19,6 +19,10 @@
   float: right; /* floats the nav items to the right */
 }
 
+.br-navbar-create-post {
+  display: inline-block;
+}
+
 .drawerButton {
   margin-top: 8px; /* center drawer button */
   margin-right: 14px;
@@ -31,6 +35,9 @@
 
 @media (max-width: 900px) {
   .navigationItems {
+    display: none;
+  }
+  .br-navbar-create-post {
     display: none;
   }
 }

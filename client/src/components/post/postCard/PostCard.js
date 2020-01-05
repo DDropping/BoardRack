@@ -9,6 +9,7 @@ import PostCardContent from './PostCardContent';
 const PostCard = post => {
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
   const hidePostModal = () => setIsPostModalOpen(false);
+
   return (
     <div className="br-post-card-container">
       <PostCardHeader post={post.post} />
@@ -20,9 +21,9 @@ const PostCard = post => {
         <PostCardImg post={post.post} />
         <PostCardContent post={post.post} />
       </div>
-      {isPostModalOpen ? (
+      {isPostModalOpen && (
         <PostModal post={post.post} hidePostModal={hidePostModal} />
-      ) : null}
+      )}
     </div>
   );
 };
