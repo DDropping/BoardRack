@@ -5,15 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import './post.css';
 import { addFavorite, removeFavorite } from '../../actions/post/post';
 
-const FavoriteCounter = ({ favorites, _id }) => {
+const FavoriteCounter = ({ favorites, isFavorite, setIsFavorite, _id }) => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const user = useSelector(state => state.auth.user);
-  const [isFavorite, setFavorite] = useState(
-    favorites.filter(favorite => favorite.toString() === user._id).length > 0
-      ? true
-      : false
-  );
 
   console.log('favorite: ' + isFavorite);
   return (
@@ -40,7 +35,7 @@ const FavoriteCounter = ({ favorites, _id }) => {
           onClick={e => {
             e.stopPropagation();
             dispatch(removeFavorite(_id));
-            setFavorite(false);
+            setIsFavorite(false);
           }}
         />
       )}
@@ -52,7 +47,7 @@ const FavoriteCounter = ({ favorites, _id }) => {
           onClick={e => {
             e.stopPropagation();
             dispatch(addFavorite(_id));
-            setFavorite(true);
+            setIsFavorite(true);
           }}
         />
       )}

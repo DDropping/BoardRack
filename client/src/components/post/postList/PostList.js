@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import './postList.css';
 import PostModal from '../postModal/PostModal';
@@ -9,6 +10,16 @@ import ViewCounter from '../ViewCounter';
 
 const PostList = ({ post }) => {
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
+  const user = useSelector(state => state.auth.user);
+  const [isFavorite, setIsFavorite] = useState(
+    user !== null
+      ? post.favorites.filter(favorite => favorite.toString() === user._id)
+          .length > 0
+        ? true
+        : false
+      : false
+  );
+
   const hidePostModal = () => setIsPostModalOpen(false);
 
   return (
@@ -31,7 +42,12 @@ const PostList = ({ post }) => {
           }}
         >
           <ViewCounter viewCount={post.viewCount} />
-          <FavoriteCounter favorites={post.favorites} _id={post._id} />
+          <FavoriteCounter
+            favorites={post.favorites}
+            _id={post._id}
+            isFavorite={isFavorite}
+            setIsFavorite={setIsFavorite}
+          />
         </div>
         <div
           style={{
@@ -57,7 +73,12 @@ const PostList = ({ post }) => {
         />
       </div>
       {isPostModalOpen && (
-        <PostModal post={post} hidePostModal={hidePostModal} />
+        <PostModal
+          post={post}
+          hidePostModal={hidePostModal}
+          isFavorite={isFavorite}
+          setIsFavorite={setIsFavorite}
+        />
       )}
     </div>
   );

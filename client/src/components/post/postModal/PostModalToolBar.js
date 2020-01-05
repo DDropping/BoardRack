@@ -4,20 +4,13 @@ import { Icon } from 'antd';
 
 import './postModal.css';
 
-const PostModalToolBar = ({ post, hidePostModal }) => {
+const PostModalToolBar = ({
+  post,
+  hidePostModal,
+  isFavorite,
+  setIsFavorite
+}) => {
   const user = useSelector(state => state.auth.user);
-  const [isFavorite, setFavorite] = useState(false);
-
-  useEffect(() => {
-    if (user !== null) {
-      if (
-        post.favorites.filter(favorite => favorite.toString() === user._id)
-          .length > 0
-      ) {
-        setFavorite(true);
-      }
-    }
-  }, [user, isFavorite, post.favorites]);
 
   return (
     <div className="br-post-modal-toolbar-wrapper">

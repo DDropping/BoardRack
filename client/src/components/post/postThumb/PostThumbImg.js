@@ -2,7 +2,7 @@ import React from 'react';
 
 import './postThumb.css';
 
-const PostImg = ({ post }) => {
+const PostThumbImg = ({ post }) => {
   return (
     <div className="br-postThumb-img-container">
       <img
@@ -14,4 +14,4 @@ const PostImg = ({ post }) => {
   );
 };
 
-export default PostImg;
+export default PostThumbImg;

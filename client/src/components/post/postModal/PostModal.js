@@ -10,7 +10,7 @@ import PostModalToolBar from './PostModalToolBar';
 import PostModalImages from './PostModalImages';
 import PostModalDetails from './PostModalDetails';
 
-const PostModal = ({ post, hidePostModal }) => {
+const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
   const dispatch = useDispatch();
   const viewedPosts = useSelector(state => state.post.viewedPosts);
 
@@ -29,7 +29,12 @@ const PostModal = ({ post, hidePostModal }) => {
       <div className="br-post-modal-grey" onClick={() => hidePostModal()} />
 
       <div className="br-post-modal-wrapper">
-        <PostModalToolBar post={post} hidePostModal={hidePostModal} />
+        <PostModalToolBar
+          post={post}
+          hidePostModal={hidePostModal}
+          isFavorite={isFavorite}
+          setIsFavorite={setIsFavorite}
+        />
         <PostModalImages post={post} />
         <PostModalDetails post={post} />
       </div>

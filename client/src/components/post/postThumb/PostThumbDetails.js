@@ -6,7 +6,7 @@ import Dimensions from '../Dimensions';
 import FavoriteCounter from '../FavoriteCounter';
 import ViewCounter from '../ViewCounter';
 
-const PostThumbDetails = ({ post }) => {
+const PostThumbDetails = ({ post, isFavorite, setIsFavorite }) => {
   return (
     <div className="br-postThumb-details">
       <div
@@ -27,7 +27,12 @@ const PostThumbDetails = ({ post }) => {
         }}
       >
         <ViewCounter viewCount={post.viewCount} />
-        <FavoriteCounter favorites={post.favorites} _id={post._id} />
+        <FavoriteCounter
+          favorites={post.favorites}
+          isFavorite={isFavorite}
+          setIsFavorite={setIsFavorite}
+          _id={post._id}
+        />
       </div>
 
       <ConditionTag condition={post.condition} />
