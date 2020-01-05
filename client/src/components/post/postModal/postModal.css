@@ -39,6 +39,16 @@
   z-index: 11;
 }
 
+.br-post-modal-images-wrapper {
+  display: inline-block;
+  width: 50%;
+}
+
+.br-post-modal-details-wrapper {
+  display: inline-block;
+  width: 50%;
+}
+
 @media screen and (max-width: 1100px) {
   .br-post-modal-grey {
     width: 100%;

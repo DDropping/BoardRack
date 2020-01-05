@@ -1,8 +1,10 @@
 import React from 'react';
 
+import './postModal.css';
+
 const PostModalDetails = ({ post }) => {
   return (
-    <div>
+    <div className="br-post-modal-details-wrapper">
       <div> Details</div>
     </div>
   );
