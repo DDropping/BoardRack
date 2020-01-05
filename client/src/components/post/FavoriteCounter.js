@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Icon } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,7 +8,6 @@ import { addFavorite, removeFavorite } from '../../actions/post/post';
 const FavoriteCounter = ({ favorites, isFavorite, setIsFavorite, _id }) => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-  const user = useSelector(state => state.auth.user);
 
   console.log('favorite: ' + isFavorite);
   return (

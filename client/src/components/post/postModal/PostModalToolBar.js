@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Icon } from 'antd';
 
 import './postModal.css';
@@ -12,7 +12,6 @@ const PostModalToolBar = ({
   setIsFavorite
 }) => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.auth.user);
 
   return (
     <div className="br-post-modal-toolbar-wrapper">
@@ -36,7 +35,8 @@ const PostModalToolBar = ({
           style={{
             display: 'inline-block',
             padding: '0px 20px',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            borderRight: '2px solid white'
           }}
           onClick={e => {
             dispatch(addFavorite(post._id));
@@ -51,7 +51,7 @@ const PostModalToolBar = ({
           display: 'inline-block',
           padding: '0px 20px',
           cursor: 'pointer',
-          borderLeft: '2px solid white'
+          borderRight: '2px solid white'
         }}
         onClick={() => console.log('click favorite postmodaltoolbar')}
       >

@@ -8,7 +8,7 @@ import PostThumbDetails from './PostThumbDetails';
 
 const PostThumb = ({ post }) => {
   const user = useSelector(state => state.auth.user);
-  const [isPostModalOpen, setIsPostModalOpen] = useState(false);
+  const [isPostModalOpen, setIsPostModalOpen] = useState(true);
   const [isFavorite, setIsFavorite] = useState(
     user !== null
       ? post.favorites.filter(favorite => favorite.toString() === user._id)
