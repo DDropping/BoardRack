@@ -7,7 +7,8 @@ import Fade from 'react-reveal/Fade';
 import './postModal.css';
 import { addView } from '../../../actions/post/post';
 import PostModalToolBar from './PostModalToolBar';
-import PostModalBody from './PostModalBody';
+import PostModalImages from './PostModalImages';
+import PostModalDetails from './PostModalDetails';
 
 const PostModal = ({ post, hidePostModal }) => {
   const dispatch = useDispatch();
@@ -29,7 +30,8 @@ const PostModal = ({ post, hidePostModal }) => {
 
       <div className="br-post-modal-wrapper">
         <PostModalToolBar post={post} hidePostModal={hidePostModal} />
-        <PostModalBody post={post} />
+        <PostModalImages post={post} />
+        <PostModalDetails post={post} />
       </div>
     </Fade>
   );
