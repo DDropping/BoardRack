@@ -9,19 +9,13 @@ const FavoriteCounter = ({ favorites, _id }) => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const user = useSelector(state => state.auth.user);
-  const [isFavorite, setFavorite] = useState(false);
+  const [isFavorite, setFavorite] = useState(
+    favorites.filter(favorite => favorite.toString() === user._id).length > 0
+      ? true
+      : false
+  );
 
-  //check if logged in user has favorited this post
-  useEffect(() => {
-    if (user !== null) {
-      if (
-        favorites.filter(favorite => favorite.toString() === user._id).length >
-        0
-      ) {
-        setFavorite(true);
-      }
-    }
-  }, [user, isFavorite, favorites]);
+  console.log('favorite: ' + isFavorite);
   return (
     <div style={{ display: 'inline-block' }}>
       <div
