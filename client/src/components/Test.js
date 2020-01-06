@@ -19,9 +19,8 @@ const Test = () => {
         isFiltersVisible ? 'br-posts-filter-container' : 'br-posts-container'
       }
     >
-      {posts.map(post => {
-        if (post.price === '127')
-          return <PostThumb key={post._id} post={post} />;
+      {posts.map((post, index) => {
+        if (post.price === '127') return <PostThumb key={index} post={post} />;
       })}
     </div>
   );
