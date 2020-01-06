@@ -35,7 +35,7 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
           isFavorite={isFavorite}
           setIsFavorite={setIsFavorite}
         />
-        <PostModalImages post={post} />
+        <PostModalImages images={post.images} />
         <PostModalDetails post={post} />
       </div>
     </Fade>

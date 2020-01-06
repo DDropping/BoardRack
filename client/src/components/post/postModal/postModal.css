@@ -1,5 +1,21 @@
-.br-post-modal-toolbar {
-  padding: 15px;
+/* TOOLBAR */
+.br-post-modal-toolbar-button {
+  display: inline-block;
+  padding: 0px 20px;
+  cursor: pointer;
+  border-right: 2px solid white;
+}
+
+.br-post-modal-toolbar-exit-button {
+  display: inline-block;
+  padding: 0px 20px;
+  cursor: pointer;
+  border-left: 2px solid white;
+  float: right;
+}
+.br-post-modal-toolbar-button:hover,
+.br-post-modal-toolbar-exit-button:hover {
+  background-color: #00458a;
 }
 
 .br-post-modal-toolbar-wrapper {
