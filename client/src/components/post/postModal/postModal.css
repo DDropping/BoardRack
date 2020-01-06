@@ -76,6 +76,26 @@
   padding: 10px;
 }
 
+.br-post-modal-details {
+  margin-top: 10px;
+}
+
+.br-post-modal-details-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00458a;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.br-post-modal-details-item {
+  font-size: 15px;
+}
+
+.br-post-modal-details-item-ans {
+  font-size: 15px;
+  font-weight: bold;
+}
+
 /* USER BOX */
 .post-modal-user-box {
   width: 100%;
