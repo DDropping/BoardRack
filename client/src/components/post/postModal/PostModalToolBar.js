@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from 'antd';
 
 import './postModal.css';
@@ -12,10 +12,11 @@ const PostModalToolBar = ({
   setIsFavorite
 }) => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
   return (
     <div className="br-post-modal-toolbar-wrapper">
-      {isFavorite && (
+      {isAuthenticated && isFavorite && (
         <div
           className="br-post-modal-toolbar-button"
           onClick={e => {
@@ -27,9 +28,26 @@ const PostModalToolBar = ({
         </div>
       )}
 
-      {!isFavorite && (
+      {isAuthenticated && !isFavorite && (
         <div
           className="br-post-modal-toolbar-button"
+          onClick={e => {
+            dispatch(addFavorite(post._id));
+            setIsFavorite(true);
+          }}
+        >
+          <Icon type="star" /> Favorite
+        </div>
+      )}
+
+      {!isAuthenticated && (
+        <div
+          style={{
+            cursor: 'not-allowed',
+            display: 'inline-block',
+            padding: '0px 20px',
+            borderRight: '2px solid white'
+          }}
           onClick={e => {
             dispatch(addFavorite(post._id));
             setIsFavorite(true);
