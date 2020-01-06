@@ -12,7 +12,13 @@ const PostModalDetails = ({ post }) => {
       <div className="br-post-modal-details">
         <div className="br-post-modal-details-title">General Details</div>
         <Row>
-          <Col className="br-post-modal-details-item" span={12}>
+          <Col
+            className="br-post-modal-details-item"
+            xs={12}
+            sm={10}
+            md={8}
+            lg={6}
+          >
             <div>{post.shaper && 'Shaper: '}</div>
             <div>{post.model && 'Model: '}</div>
             <div>{post.boardType && 'Board Type: '}</div>
@@ -25,7 +31,13 @@ const PostModalDetails = ({ post }) => {
             <div>{post.glassing && 'Glassing: '}</div>
             <div>{post.contour && 'Contour: '}</div>
           </Col>
-          <Col className="br-post-modal-details-item-ans" span={12}>
+          <Col
+            className="br-post-modal-details-item-ans"
+            xs={12}
+            sm={14}
+            md={16}
+            lg={18}
+          >
             <div>{post.shaper && post.shaper}</div>
             <div>{post.model && post.model}</div>
             <div>{post.boardType && post.boardType}</div>
@@ -44,22 +56,36 @@ const PostModalDetails = ({ post }) => {
         <br />
 
         <div className="br-post-modal-details-title">Dimensions</div>
-        <Col className="br-post-modal-details-item" span={12}>
-          <div>{post.lengthFt && post.lengthIn && 'Length: '}</div>
-          <div>{post.width && 'Width: '}</div>
-          <div>{post.depth && 'Depth: '}</div>
-          <div>{post.volume && 'Volume: '}</div>
-        </Col>
-        <Col className="br-post-modal-details-item-ans" span={12}>
-          <div>
-            {post.lengthFt &&
-              post.lengthIn &&
-              post.lengthFt + "' " + post.lengthIn + '"'}
-          </div>
-          <div>{post.width && post.width + '"'}</div>
-          <div>{post.depth && post.depth + '"'}</div>
-          <div>{post.volume && post.volume + ' L'}</div>
-        </Col>
+        <Row>
+          <Col
+            className="br-post-modal-details-item"
+            xs={12}
+            sm={10}
+            md={8}
+            lg={6}
+          >
+            <div>{post.lengthFt && post.lengthIn && 'Length: '}</div>
+            <div>{post.width && 'Width: '}</div>
+            <div>{post.depth && 'Depth: '}</div>
+            <div>{post.volume && 'Volume: '}</div>
+          </Col>
+          <Col
+            className="br-post-modal-details-item-ans"
+            xs={12}
+            sm={14}
+            md={16}
+            lg={18}
+          >
+            <div>
+              {post.lengthFt &&
+                post.lengthIn &&
+                post.lengthFt + "' " + post.lengthIn + '"'}
+            </div>
+            <div>{post.width && post.width + '"'}</div>
+            <div>{post.depth && post.depth + '"'}</div>
+            <div>{post.volume && post.volume + ' L'}</div>
+          </Col>
+        </Row>
         <br />
 
         <div className="br-post-modal-details-title">Description</div>

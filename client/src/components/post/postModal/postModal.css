@@ -74,6 +74,8 @@
   vertical-align: top;
   width: 50%;
   padding: 10px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .br-post-modal-details {
