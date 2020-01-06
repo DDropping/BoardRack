@@ -5,7 +5,7 @@
   left: 0px;
   position: fixed;
   margin: 0 auto;
-  height: 100vh;
+  height: 100%;
   max-width: 1000px;
   background: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -58,13 +58,22 @@
   background-color: #00458a;
 }
 
+/* HEADER */
+.br-post-modal-header {
+  height: 40px;
+  margin: 10px 10px 0px 10px;
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+}
+
 /* IMAGES */
 .br-post-modal-images-wrapper {
   display: inline-block;
+  margin-top: 10px;
   width: 50%;
-  height: 100%;
-  margin: 10px 0px;
-  padding: 0px 10px;
+  padding: 0px 10px 10px 10px;
+  height: calc(100% - 110px);
   overflow-y: auto;
 }
 
@@ -73,8 +82,8 @@
   display: inline-block;
   vertical-align: top;
   width: 50%;
-  padding: 10px;
-  height: 100%;
+  padding: 10px 10px 10px 10px;
+  height: calc(100% - 109px);
   overflow-y: auto;
 }
 
