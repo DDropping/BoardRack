@@ -35,6 +35,16 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
           isFavorite={isFavorite}
           setIsFavorite={setIsFavorite}
         />
+        <div
+          style={{
+            margin: '10px 10px 0px 10px',
+            fontSize: '25px',
+            fontWeight: 'bold',
+            borderBottom: '2px solid rgba(0, 0, 0, 0.15)'
+          }}
+        >
+          {'$' + post.price + ' ' + post.title}
+        </div>
         <PostModalImages images={post.images} />
         <PostModalDetails post={post} />
       </div>
