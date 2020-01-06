@@ -51,7 +51,10 @@ const FavoriteCounter = ({ favorites, isFavorite, setIsFavorite, _id }) => {
         />
       )}
       {!isAuthenticated && (
-        <Icon style={{ fontSize: '20px', color: '#00458a' }} type="star" />
+        <Icon
+          style={{ fontSize: '20px', color: '#00458a', cursor: 'not-allowed' }}
+          type="star"
+        />
       )}
     </div>
   );
