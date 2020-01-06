@@ -5,8 +5,13 @@ import './postModal.css';
 const PostModalImages = ({ images }) => {
   return (
     <div className="br-post-modal-images-wrapper">
-      <div>Images</div>
-      <img style={{ maxWidth: '100%' }} alt="" src={images[0].default} />
+      {images.map(image => (
+        <img
+          style={{ maxWidth: '100%', marginBottom: '2px' }}
+          alt=""
+          src={image.default}
+        />
+      ))}
     </div>
   );
 };

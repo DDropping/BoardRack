@@ -20,7 +20,7 @@ const Test = () => {
       }
     >
       {posts.map(post => {
-        if (post.price === '450')
+        if (post.price === '127')
           return <PostThumb key={post._id} post={post} />;
       })}
     </div>
