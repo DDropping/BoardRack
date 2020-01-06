@@ -7,7 +7,6 @@ const PostModalUserBox = ({ user, location }) => {
       <div style={{ display: 'inline-block', marginRight: '10px' }}>
         <Avatar size={64} icon="user" />
       </div>
-
       <div
         style={{
           display: 'inline-block',
@@ -17,16 +16,15 @@ const PostModalUserBox = ({ user, location }) => {
         <span style={{ fontSize: '25px' }}>{user.username}</span>
         <br />
         {location.city + ', ' + location.state}
-        <br />
-        posts: 1
       </div>
-
       <div style={{ float: 'right', textAlign: 'right' }}>
         username@boardrack.com <br />
         (831)556-6778
         <br />
         <Button>Message</Button>
       </div>
+      <span style={{ clear: 'both', display: 'block' }} />{' '}
+      {/* clear fix for float */}
     </div>
   );
 };
