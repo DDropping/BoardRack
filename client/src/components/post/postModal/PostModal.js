@@ -3,6 +3,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Fade from 'react-reveal/Fade';
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks
+} from 'body-scroll-lock';
 
 import './postModal.css';
 import { addView } from '../../../actions/post/post';
@@ -13,6 +18,7 @@ import PostModalDetails from './PostModalDetails';
 const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
   const dispatch = useDispatch();
   const viewedPosts = useSelector(state => state.post.viewedPosts);
+  var targetElement = null;
 
   useEffect(() => {
     //increase post viewCount if this is first time user is viewing post
@@ -24,14 +30,37 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
     }
   }, [post._id, dispatch, viewedPosts]);
 
+  useEffect(() => {
+    targetElement = document.querySelector('.br-post-modal-wrapper');
+    showTargetElement();
+  }, []);
+
+  const showTargetElement = () => {
+    disableBodyScroll(targetElement);
+    console.log('FIRING...');
+  };
+
+  const hideTargetElement = () => {
+    enableBodyScroll(targetElement);
+    clearAllBodyScrollLocks();
+    console.log('unFIRING...');
+  };
+
   return (
     <Fade>
-      <div className="br-post-modal-grey" onClick={() => hidePostModal()} />
+      <div
+        className="br-post-modal-grey"
+        onClick={() => {
+          hidePostModal();
+          hideTargetElement();
+        }}
+      />
 
       <div className="br-post-modal-wrapper">
         <PostModalToolBar
           post={post}
           hidePostModal={hidePostModal}
+          hideTargetElement={hideTargetElement}
           isFavorite={isFavorite}
           setIsFavorite={setIsFavorite}
         />
