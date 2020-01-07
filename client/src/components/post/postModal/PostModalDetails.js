@@ -9,7 +9,38 @@ const PostModalDetails = ({ post }) => {
   return (
     <div className="br-post-modal-details-wrapper">
       <PostModalUserBox user={post.user} location={post.location} />
+
+      {/* TIME VIEWS FAVORITES */}
       <div className="br-post-modal-details">
+        <div>
+          <Row>
+            <Col style={{ textAlign: 'center' }} span={8}>
+              <div>Listed</div>
+              <strong>2 days</strong>
+            </Col>
+            <Col style={{ textAlign: 'center' }} span={8}>
+              <div>Views</div>
+              <strong>{post.viewCount}</strong>
+            </Col>
+            <Col style={{ textAlign: 'center' }} span={8}>
+              <div>Favorites</div>
+              <strong>{post.favorites.length}</strong>
+            </Col>
+          </Row>
+        </div>
+        <br />
+
+        {/* DESCRIPTION */}
+        <Row>
+          <Col span={1} />
+          <Col span={22}>
+            <div>{post.description && post.description}</div>
+          </Col>
+          <Col span={1} />
+        </Row>
+        <br />
+
+        {/* DETAILS */}
         <div className="br-post-modal-detail-box-outline">
           <div className="br-post-modal-details-title">General Details</div>
           <Row>
@@ -58,6 +89,7 @@ const PostModalDetails = ({ post }) => {
         </div>
         <br />
 
+        {/* DIMENSIONS */}
         <div className="br-post-modal-detail-box-outline">
           <div className="br-post-modal-details-title">Dimensions</div>
           <Row>
@@ -94,17 +126,7 @@ const PostModalDetails = ({ post }) => {
         </div>
         <br />
 
-        <div className="br-post-modal-detail-box-outline">
-          <div className="br-post-modal-details-title">Description</div>
-          <Row>
-            <Col span={1} />
-            <Col span={23}>
-              <div>{post.description && post.description}</div>
-            </Col>
-          </Row>
-        </div>
-        <br />
-
+        {/* SURFERS OPINION */}
         <div className="br-post-modal-detail-box-outline">
           <div className="br-post-modal-details-title">Surfer's Opinion</div>
           <Row>
