@@ -37,13 +37,11 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
 
   const showTargetElement = () => {
     disableBodyScroll(targetElement);
-    console.log('FIRING...');
   };
 
   const hideTargetElement = () => {
     enableBodyScroll(targetElement);
     clearAllBodyScrollLocks();
-    console.log('unFIRING...');
   };
 
   return (
