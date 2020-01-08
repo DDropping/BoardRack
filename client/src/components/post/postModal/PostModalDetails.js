@@ -166,17 +166,22 @@ const PostModalDetails = ({ post }) => {
               <Col span={1} />
               <Col span={11}>
                 <div>
-                  {post.waveSize && 'waveSize: ' + post.waveSize + '/5'}
+                  {post.waveSize && 'Wave Size: '}
+                  <strong>{post.waveSize && post.waveSize + ' ft'}</strong>
                 </div>
-                <div>{post.drive && 'drive: ' + post.drive + '/5'}</div>
+                <div>
+                  {post.drive && 'Drive & Speed: '}
+                  <strong>{post.drive && post.drive + '/5'}</strong>
+                </div>
               </Col>
               <Col span={12}>
                 <div>
-                  {post.paddlePower &&
-                    'paddlePower: ' + post.paddlePower + '/5'}
+                  {post.paddlePower && 'Paddle Power: '}
+                  <strong>{post.paddlePower && post.paddlePower + '/5'}</strong>
                 </div>
                 <div>
-                  {post.movability && 'movability: ' + post.movability + '/5'}
+                  {post.movability && 'Movability: '}
+                  <strong>{post.movability && post.movability + '/5'}</strong>
                 </div>
               </Col>
             </Row>
