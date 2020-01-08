@@ -91,8 +91,13 @@
   margin-top: 10px;
 }
 
+.br-post-modal-timeViewsFavorites {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 10px 0px;
+}
+
 .br-post-modal-detail-box-outline {
-  border: 1px solid rgba(0, 0, 0, 0.15);
   border-top: 2px solid #00458a;
   padding: 5px;
 }

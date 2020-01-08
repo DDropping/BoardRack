@@ -9,10 +9,9 @@ const PostModalDetails = ({ post }) => {
   return (
     <div className="br-post-modal-details-wrapper">
       <PostModalUserBox user={post.user} location={post.location} />
-
-      {/* TIME VIEWS FAVORITES */}
       <div className="br-post-modal-details">
-        <div>
+        {/* TIME VIEWS FAVORITES */}
+        <div className="br-post-modal-timeViewsFavorites">
           <Row>
             <Col style={{ textAlign: 'center' }} span={8}>
               <div>Listed</div>
