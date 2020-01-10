@@ -5,7 +5,32 @@ const axios = require('axios');
 const config = require('config');
 const HERE_REST_APP_ID = config.get('here_REST_App_Id');
 const HERE_REST_APP_CODE = config.get('here_REST_App_Code');
+const HERE_API_KEY = config.get('here_API_Key');
 const IPSTACK_ACCESS_KEY = config.get('ipstack_access_key');
+
+// @route   GET api/externalAPI/map
+// @desc    Get picture of location of map given coords
+// @access  Public
+router.get('/map', async (req, res) => {
+  try {
+    // const lat = req.body.lat;
+    // const lng = req.body.lng;
+    console.log('sending request');
+    var locationImg = await axios.get(
+      `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=37.7552896,-122.503168&u=1m&z=12`
+    );
+    console.log('finished request');
+
+    if (!locationImg) {
+      return res.status(400).json({ msg: 'Could not retrieve location map' });
+    }
+
+    res.send(locationImg);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 // @route   GET api/externalAPI/getApproximateLocation
 // @desc    Get user Location with user IP address
