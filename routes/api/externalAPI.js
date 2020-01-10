@@ -16,8 +16,8 @@ router.get('/map', async (req, res) => {
     // const lat = req.body.lat;
     // const lng = req.body.lng;
     console.log('sending request');
-    var locationImg = await axios.get(
-      `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=37.7552896,-122.503168&u=1m&z=12`
+    const locationImg = await axios.get(
+      `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=37.7552896,-122.503168&z=12`
     );
     console.log('finished request');
 
