@@ -1,12 +1,41 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+const request = require('request');
+const AWS = require('aws-sdk');
+//const fs = require('fs');
 
 const config = require('config');
 const HERE_REST_APP_ID = config.get('here_REST_App_Id');
 const HERE_REST_APP_CODE = config.get('here_REST_App_Code');
 const HERE_API_KEY = config.get('here_API_Key');
 const IPSTACK_ACCESS_KEY = config.get('ipstack_access_key');
+const S3_KEY = config.get('S3_Access_Key_Id');
+const S3_SECRET = config.get('S3_Secret_Acess_Key');
+const S3_REGION = config.get('S3_Region');
+const S3_BUCKET = config.get('S3_Bucket');
+
+var s3 = new AWS.S3({
+  accessKeyId: S3_KEY,
+  secretAccessKey: S3_SECRET
+});
+
+// @route   GET api/externalAPI/map
+// @desc    Get picture of location of map given coords
+// @access  Public
+router.get('/uploadMap', async (req, res) => {
+  var url = `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=37.7552896,-122.503168&z=12`;
+  request({ url, encoding: null }, (err, resp, buffer) => {
+    s3.upload({
+      Bucket: S3_BUCKET,
+      ACL: 'public-read',
+      Key: Date.now().toString(),
+      Body: buffer
+    })
+      .promise()
+      .then(data => res.send(data.Location));
+  });
+});
 
 // @route   GET api/externalAPI/map
 // @desc    Get picture of location of map given coords
