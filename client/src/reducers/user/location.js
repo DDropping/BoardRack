@@ -7,7 +7,8 @@ import {
   SAVING_USER_LOCATION,
   SAVING_USER_LOCATION_DONE,
   DISPLAY_LOCATION_FORM,
-  HIDE_LOCATION_FORM
+  HIDE_LOCATION_FORM,
+  UPDATE_LOCATION_IMAGE
 } from '../../actions/types';
 
 const initialState = {
@@ -20,12 +21,20 @@ const initialState = {
     country: null,
     state: 'CA',
     city: 'San Francisco',
-    postalCode: '94122'
+    postalCode: '94122',
+    locationImage: null
   }
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case UPDATE_LOCATION_IMAGE:
+      return {
+        ...state,
+        location: {
+          locationImage: action.payload
+        }
+      };
     //set user's location state with ip location services with IpStack API
     case UPDATE_USER_LOCATION_WITH_IP:
       //set if location has not been already set. To prevent 'set saved default user's location' overwrite by 'set ip location'

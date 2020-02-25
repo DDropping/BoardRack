@@ -20,10 +20,10 @@ var s3 = new AWS.S3({
   secretAccessKey: S3_SECRET
 });
 
-// @route   GET api/externalAPI/uploadMap
+// @route   GET api/externalAPI/locationMap
 // @desc    Get picture of location of map given coords
 // @access  Public
-router.get('/uploadMap', async (req, res) => {
+router.get('/locationMap', async (req, res) => {
   try {
     var lat = req.body.lat.toFixed(2);
     var lng = req.body.lng.toFixed(2);

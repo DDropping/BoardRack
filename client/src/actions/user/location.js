@@ -11,8 +11,37 @@ import {
   SAVING_USER_LOCATION,
   SAVING_USER_LOCATION_DONE,
   DISPLAY_LOCATION_FORM,
-  HIDE_LOCATION_FORM
+  HIDE_LOCATION_FORM,
+  UPDATE_LOCATION_IMAGE
 } from '../types';
+
+// GET USER'S LOCATION MAP IMAGE FROM DEVELOPER.HERE API ------------------------
+export const getLocationMap = () => async dispatch => {
+  try {
+    const lat = store.getState().location.location.lat;
+    const lng = store.getState().location.location.lng;
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    const body = JSON.stringify({
+      lat,
+      lng
+    });
+
+    const locationUrl = await axios.get(
+      '/api/externalAPI/locationMap',
+      body,
+      config
+    );
+    dispatch({ type: UPDATE_LOCATION_IMAGE, payload: locationUrl });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // GET USER'S APPROXIMATE LOCATION BASED ON IP ADDRESS --------------------------
 export const getUsersAproxLocation = () => async dispatch => {
