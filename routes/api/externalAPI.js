@@ -24,7 +24,9 @@ var s3 = new AWS.S3({
 // @desc    Get picture of location of map given coords
 // @access  Public
 router.get('/uploadMap', async (req, res) => {
-  var url = `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=37.7552896,-122.503168&z=12`;
+  var lat = req.body.lat.toFixed(2);
+  var lng = req.body.lng.toFixed(2);
+  var url = `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=${lat},${lng}&z=13&w=1920&h=1080&u=1500`;
   request({ url, encoding: null }, (err, resp, buffer) => {
     s3.upload({
       Bucket: S3_BUCKET,
