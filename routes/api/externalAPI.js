@@ -20,7 +20,7 @@ var s3 = new AWS.S3({
   secretAccessKey: S3_SECRET
 });
 
-// @route   GET api/externalAPI/map
+// @route   GET api/externalAPI/uploadMap
 // @desc    Get picture of location of map given coords
 // @access  Public
 router.get('/uploadMap', async (req, res) => {
@@ -35,128 +35,6 @@ router.get('/uploadMap', async (req, res) => {
       .promise()
       .then(data => res.send(data.Location));
   });
-});
-
-// @route   GET api/externalAPI/map
-// @desc    Get picture of location of map given coords
-// @access  Public
-router.get('/map2', async (req, res) => {
-  const fs = require('fs');
-  const Path = require('path');
-  var url = `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=37.7552896,-122.503168&z=12`;
-  const path = Path.resolve(__dirname, '00_Notes', 'img.jpeg');
-  console.log('starting download');
-  const response = axios({
-    method: 'GET',
-    url: url,
-    responseType: 'stream'
-  });
-  res.send(url);
-  console.log('starting create write stream');
-  response.data.pipe(fs.createWriteStream(path));
-  console.log('finished create write stream');
-  return new Promise((resolve, reject) => {
-    response.data.on('end', () => {
-      console.log('finshed done');
-      resolve();
-    });
-    response.data.on('error', err => {
-      reject(err);
-    });
-  });
-});
-
-// @route   GET api/externalAPI/map
-// @desc    Get picture of location of map given coords
-// @access  Public
-router.get('/map', async (req, res) => {
-  try {
-    // const lat = req.body.lat;
-    // const lng = req.body.lng;
-    console.log('sending request');
-    ///////////////////////
-
-    const uploadRemoteFileToS3 = async remoteAddr => {
-      const response = await axios({
-        method: 'get',
-        url: remoteAddr,
-        responseType: 'stream'
-      });
-      if (response.status === 200) {
-        const file_name = remoteAddr.substring(remoteAddr.lastIndexOf('/') + 1);
-        const content_type = response.headers['content-type'];
-        response.data.pipe(uploadFromStream(file_name, content_type));
-      }
-      return new Promise((resolve, reject) => {
-        response.data.on('end', response => {
-          console.log(response);
-          resolve(response);
-        });
-
-        response.data.on('error', () => {
-          console.log(response);
-          reject(response);
-        });
-      });
-    };
-
-    const uploadFromStream = (file_name, content_type) => {
-      return new Promise((resolve, reject) => {
-        const pass = new stream.PassThrough();
-        const obj_key = generateObjKey(file_name);
-        const params = {
-          bucket: S3_BUCKET,
-          acl: 'public-read',
-          Key: obj_key,
-          ContentType: content_type,
-          Body: pass
-        };
-        s3.upload(params, function(err, data) {
-          if (!err) {
-            console.log(data);
-            return resolve(data.Location);
-          } else {
-            console.log(err);
-            return reject(err);
-          }
-        });
-      });
-    };
-
-    //call uploadRemoteFileToS3
-    var remoteAddr = `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=37.7552896,-122.503168&z=12`;
-    uploadRemoteFileToS3(remoteAddr)
-      .then(finalResponse => {
-        console.log(finalResponse);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
-    ///////////////////////
-
-    // const locationImg = await axios
-    //   .get(
-    //     `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=37.7552896,-122.503168&z=12`,
-    //     {
-    //       responseType: 'arraybuffer'
-    //     }
-    //   )
-    //   .then(response =>
-    //     Buffer.from(response.data, 'binary').toString('base64')
-    //   );
-
-    console.log('finished request');
-
-    // if (!locationImg) {
-    //   return res.status(400).json({ msg: 'Could not retrieve location map' });
-    // } else {
-    res.send('locationImg');
-    // }
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
 });
 
 // @route   GET api/externalAPI/getApproximateLocation
