@@ -24,19 +24,24 @@ var s3 = new AWS.S3({
 // @desc    Get picture of location of map given coords
 // @access  Public
 router.get('/uploadMap', async (req, res) => {
-  var lat = req.body.lat.toFixed(2);
-  var lng = req.body.lng.toFixed(2);
-  var url = `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=${lat},${lng}&z=13&w=1920&h=1080&u=1500`;
-  request({ url, encoding: null }, (err, resp, buffer) => {
-    s3.upload({
-      Bucket: S3_BUCKET,
-      ACL: 'public-read',
-      Key: Date.now().toString(),
-      Body: buffer
-    })
-      .promise()
-      .then(data => res.send(data.Location));
-  });
+  try {
+    var lat = req.body.lat.toFixed(2);
+    var lng = req.body.lng.toFixed(2);
+    var url = `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=${lat},${lng}&z=13&w=1920&h=1080&u=1500`;
+    request({ url, encoding: null }, (err, resp, buffer) => {
+      s3.upload({
+        Bucket: S3_BUCKET,
+        ACL: 'public-read',
+        Key: Date.now().toString(),
+        Body: buffer
+      })
+        .promise()
+        .then(data => res.send(data.Location));
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 });
 
 // @route   GET api/externalAPI/getApproximateLocation
