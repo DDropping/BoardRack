@@ -20,7 +20,7 @@ var s3 = new AWS.S3({
 // @route   GET api/externalAPI/locationMap
 // @desc    Get picture of location of map given coords
 // @access  Public
-router.get('/locationMap', async (req, res) => {
+router.post('/locationMap', async (req, res) => {
   try {
     var lat = req.body.lat.toFixed(2);
     var lng = req.body.lng.toFixed(2);

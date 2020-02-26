@@ -16,28 +16,32 @@ import {
 } from '../types';
 
 // GET USER'S LOCATION MAP IMAGE FROM DEVELOPER.HERE API ------------------------
-export const getLocationMap = () => async dispatch => {
+export const getLocationMap = ({ lat, lng }) => async dispatch => {
   try {
-    const lat = store.getState().location.location.lat;
-    const lng = store.getState().location.location.lng;
+    //if user is logged in and lattitude and longitude are in temp location reducer in redux
+    if (store.getState().auth.isAuthenticated) {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
+      const body = {
+        lat,
+        lng
+      };
 
-    const body = JSON.stringify({
-      lat,
-      lng
-    });
-
-    const locationUrl = await axios.get(
-      '/api/externalAPI/locationMap',
-      body,
-      config
-    );
-    dispatch({ type: UPDATE_LOCATION_IMAGE, payload: locationUrl });
+      const locationUrl = await axios.post(
+        '/api/externalAPI/locationMap',
+        body,
+        config
+      );
+      //update location image in temp location reducer
+      await dispatch({
+        type: UPDATE_LOCATION_IMAGE,
+        payload: locationUrl.data
+      });
+    }
   } catch (err) {
     console.log(err);
   }
@@ -192,6 +196,8 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
     dispatch({ type: UPDATE_USER_LOCATION_WITH_GEO, payload: res.data });
     dispatch({ type: LOADING_USER_LOCATION_DONE });
 
+    await dispatch(getLocationMap({ lat, lng }));
+
     //save location as user's default location if no location exists yet
     if (store.getState().auth.isAuthenticated) {
       //if user is logged in
@@ -202,25 +208,26 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
           country: res.data.Country,
           state: res.data.State,
           city: res.data.City,
-          postalCode: res.data.PostalCode
+          postalCode: res.data.PostalCode,
+          locationImage: store.getState().location.location.locationImage
         }
       };
       if (!store.getState().auth.user.location) {
         //if user doesn't have a saved location yet
         dispatch(updateUserLocation(body));
-      }
-
-      //if new location is greater than 1 mile(0.014degrees) away, ask if user wants to save new location as default
-      var latDistance = Math.abs(
-        Math.abs(store.getState().auth.user.location.lat) -
-          Math.abs(store.getState().location.location.lat)
-      );
-      var lngDistance = Math.abs(
-        Math.abs(store.getState().auth.user.location.lng) -
-          Math.abs(store.getState().location.location.lng)
-      );
-      if (latDistance > 0.014 && lngDistance > 0.014) {
-        UpdateDefaultLocationNotification(body);
+      } else if (store.getState().auth.user.location) {
+        //if new location is greater than 1 mile(0.014degrees) away, ask if user wants to save new location as default
+        var latDistance = Math.abs(
+          Math.abs(store.getState().auth.user.location.lat) -
+            Math.abs(store.getState().location.location.lat)
+        );
+        var lngDistance = Math.abs(
+          Math.abs(store.getState().auth.user.location.lng) -
+            Math.abs(store.getState().location.location.lng)
+        );
+        if (latDistance > 0.014 && lngDistance > 0.014) {
+          UpdateDefaultLocationNotification(body);
+        }
       }
     }
   } catch (err) {

@@ -32,6 +32,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         location: {
+          ...state.location,
           locationImage: action.payload
         }
       };
