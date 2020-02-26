@@ -115,7 +115,7 @@ router.post('/getCoords', async (req, res) => {
   const { address, city, state, postalCode } = req.body;
   try {
     const location = await axios.get(
-      `https://geocoder.api.here.com/6.2/geocode.json?apiKey=${HERE_API_KEY}&searchtext=${address}+${city}+${state}+${postalCode}`
+      `https://geocoder.ls.hereapi.com/6.2/geocode.json?apiKey=${HERE_API_KEY}&searchtext=${address}+${city}+${state}+${postalCode}`
     );
 
     //setup response
