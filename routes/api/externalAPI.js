@@ -88,7 +88,7 @@ router.post('/getAddress', async (req, res) => {
   const { lat, lng } = req.body;
   try {
     const location = await axios.get(
-      `https://reverse.geocoder.api.here.com/6.2/reversegeocode.json?apiKey=${HERE_API_KEY}&mode=retrieveAddresses&prox=${lat},${lng}`
+      `https://reverse.geocoder.ls.hereapi.com/6.2/reversegeocode.json?prox=${lat},${lng}&mode=retrieveAddresses&maxresults=1&gen=9&apiKey=${HERE_API_KEY}`
     );
 
     //setup response
