@@ -31,7 +31,7 @@ export const getLocationMap = ({ lat, lng }) => async dispatch => {
         lng
       };
 
-      const locationUrl = await axios.post(
+      const locationImage = await axios.post(
         '/api/externalAPI/locationMap',
         body,
         config
@@ -39,7 +39,7 @@ export const getLocationMap = ({ lat, lng }) => async dispatch => {
       //update location image in temp location reducer
       await dispatch({
         type: UPDATE_LOCATION_IMAGE,
-        payload: locationUrl.data
+        payload: locationImage.data
       });
     }
   } catch (err) {
