@@ -6,13 +6,10 @@ const AWS = require('aws-sdk');
 //const fs = require('fs');
 
 const config = require('config');
-const HERE_REST_APP_ID = config.get('here_REST_App_Id');
-const HERE_REST_APP_CODE = config.get('here_REST_App_Code');
 const HERE_API_KEY = config.get('here_API_Key');
 const IPSTACK_ACCESS_KEY = config.get('ipstack_access_key');
 const S3_KEY = config.get('S3_Access_Key_Id');
 const S3_SECRET = config.get('S3_Secret_Acess_Key');
-const S3_REGION = config.get('S3_Region');
 const S3_BUCKET = config.get('S3_Bucket');
 
 var s3 = new AWS.S3({
@@ -91,7 +88,7 @@ router.post('/getAddress', async (req, res) => {
   const { lat, lng } = req.body;
   try {
     const location = await axios.get(
-      `https://reverse.geocoder.api.here.com/6.2/reversegeocode.json?app_id=${HERE_REST_APP_ID}&app_code=${HERE_REST_APP_CODE}&mode=retrieveAddresses&prox=${lat},${lng}`
+      `https://reverse.geocoder.api.here.com/6.2/reversegeocode.json?apiKey=${HERE_API_KEY}&mode=retrieveAddresses&prox=${lat},${lng}`
     );
 
     //setup response
@@ -118,7 +115,7 @@ router.post('/getCoords', async (req, res) => {
   const { address, city, state, postalCode } = req.body;
   try {
     const location = await axios.get(
-      `https://geocoder.api.here.com/6.2/geocode.json?app_id=${HERE_REST_APP_ID}&app_code=${HERE_REST_APP_CODE}&searchtext=${address}+${city}+${state}+${postalCode}`
+      `https://geocoder.api.here.com/6.2/geocode.json?apiKey=${HERE_API_KEY}&searchtext=${address}+${city}+${state}+${postalCode}`
     );
 
     //setup response
