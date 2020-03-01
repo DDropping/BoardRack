@@ -17,6 +17,8 @@ import {
 
 // GET USER'S LOCATION MAP IMAGE FROM DEVELOPER.HERE API ------------------------
 export const getLocationMap = ({ lat, lng }) => async dispatch => {
+  console.log('lat1: ' + lat);
+  console.log('lng1: ' + lng);
   try {
     //if user is logged in and lattitude and longitude are in temp location reducer in redux
     if (store.getState().auth.isAuthenticated) {
@@ -30,6 +32,9 @@ export const getLocationMap = ({ lat, lng }) => async dispatch => {
         lat,
         lng
       };
+
+      console.log('lat2: ' + body.lat);
+      console.log('lng2: ' + body.lng);
 
       const locationUrl = await axios.post(
         '/api/externalAPI/locationMap',
@@ -160,8 +165,8 @@ export const saveLocation = formProps => async dispatch => {
 
 // GET USER'S LOCATION WITH GEOCODE ---------------------------------------------
 export const getUserAddress = ({ lat, lng }) => async dispatch => {
-  console.log('lat: ' + lat);
-  console.log('lng: ' + lng);
+  console.log('lat3: ' + lat);
+  console.log('lng3: ' + lng);
   //set headers for request
   const config = {
     headers: {
@@ -191,7 +196,9 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
 
 // CHECK TO UPDATE USER'S LOCATION IN DB / UPDATE USER'S LOCATION IN DB ----------------
 //save location as user's default location if no location exists yet
-export const checkToUpdateUserLocation = locationData => async dispatch => {
+export const checkToUpdateUserLocation = ({
+  locationData
+}) => async dispatch => {
   try {
     //check if it's required to retrieve image of user's location from developer.here API
     var lat = locationData.lat;
@@ -201,16 +208,11 @@ export const checkToUpdateUserLocation = locationData => async dispatch => {
     if (!store.getState().auth.user.location) {
       await dispatch(getLocationMap({ lat, lng }));
     }
-
     //if user does have a location saved in db
-    if (!store.getState().auth.user.location) {
+    if (store.getState().auth.user.location) {
       //if new location is greater than 1 mile(0.014degrees) away, retrieve new location image
-      var latDistance = Math.abs(
-        store.getState().auth.user.location.lat - locationData.lat
-      );
-      var lngDistance = Math.abs(
-        store.getState().auth.user.location.lng - locationData.lng
-      );
+      var latDistance = Math.abs(store.getState().auth.user.location.lat - lat);
+      var lngDistance = Math.abs(store.getState().auth.user.location.lng - lng);
       if (latDistance > 0.014 && lngDistance > 0.014) {
         await dispatch(getLocationMap({ lat, lng }));
       }
@@ -232,7 +234,7 @@ export const checkToUpdateUserLocation = locationData => async dispatch => {
       dispatch(updateUserLocation(body));
     }
     //if user does have a location saved in db
-    if (!store.getState().auth.user.location) {
+    if (store.getState().auth.user.location) {
       //if new location is greater than 1 mile(0.014degrees) away, ask if user wants to save new location as default
       if (latDistance > 0.014 && lngDistance > 0.014) {
         UpdateDefaultLocationNotification(body);
