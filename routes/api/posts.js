@@ -105,6 +105,8 @@ router.post(
     if (location.city) postFields.location.city = location.city;
     if (location.postalCode)
       postFields.location.postalCode = location.postalCode;
+    if (location.locationImage)
+      postFields.location.locationImage = location.locationImage;
 
     try {
       let post = new Post(postFields);

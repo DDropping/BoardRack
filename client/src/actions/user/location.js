@@ -17,8 +17,6 @@ import {
 
 // GET USER'S LOCATION MAP IMAGE FROM DEVELOPER.HERE API ------------------------
 export const getLocationMap = ({ lat, lng }) => async dispatch => {
-  console.log('lat1: ' + lat);
-  console.log('lng1: ' + lng);
   try {
     //if user is logged in and lattitude and longitude are in temp location reducer in redux
     if (store.getState().auth.isAuthenticated) {
@@ -32,9 +30,6 @@ export const getLocationMap = ({ lat, lng }) => async dispatch => {
         lat,
         lng
       };
-
-      console.log('lat2: ' + body.lat);
-      console.log('lng2: ' + body.lng);
 
       const locationUrl = await axios.post(
         '/api/externalAPI/locationMap',
@@ -165,8 +160,6 @@ export const saveLocation = formProps => async dispatch => {
 
 // GET USER'S LOCATION WITH GEOCODE ---------------------------------------------
 export const getUserAddress = ({ lat, lng }) => async dispatch => {
-  console.log('lat3: ' + lat);
-  console.log('lng3: ' + lng);
   //set headers for request
   const config = {
     headers: {
