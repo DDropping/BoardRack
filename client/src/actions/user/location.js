@@ -31,7 +31,7 @@ export const getLocationMap = ({ lat, lng }) => async dispatch => {
         lng
       };
 
-      const locationImage = await axios.post(
+      const locationUrl = await axios.post(
         '/api/externalAPI/locationMap',
         body,
         config
@@ -39,8 +39,9 @@ export const getLocationMap = ({ lat, lng }) => async dispatch => {
       //update location image in temp location reducer
       await dispatch({
         type: UPDATE_LOCATION_IMAGE,
-        payload: locationImage.data
+        payload: locationUrl.data
       });
+      return locationUrl.data;
     }
   } catch (err) {
     console.log(err);
@@ -58,6 +59,8 @@ export const getUsersAproxLocation = () => async dispatch => {
 };
 
 // GET USER'S LOCATION WITH ONLY ZIP CODE ---------------------------------------
+// required state and country in redux store
+// get state and country from default programmed as united state, california or ip location service will overwrite with user's approximate loaction
 export const getUsersLocationWithPostalCode = postalCode => async dispatch => {
   const state = store.getState().location.location.state;
   const country = store.getState().location.location.Country;
@@ -142,35 +145,11 @@ export const saveLocation = formProps => async dispatch => {
     dispatch({ type: SAVING_USER_LOCATION_DONE });
     dispatch({ type: HIDE_LOCATION_FORM });
 
-    //save location as user's default location if no location exists yet
+    //update user's location in db if needed
+    //check if user is logged in
     if (store.getState().auth.isAuthenticated) {
-      //if user is logged in
-      const body = {
-        location: {
-          lat: res.data.lat,
-          lng: res.data.lng,
-          country: res.data.Country,
-          state: res.data.State,
-          city: res.data.City,
-          postalCode: res.data.PostalCode
-        }
-      };
-      if (!store.getState().auth.user.location) {
-        //if user doesn't have a saved location yet
-        dispatch(updateUserLocation(body));
-      }
-      //if new location is greater than 1 mile(0.014degrees) away, ask if user wants to save new location as default
-      var latDistance = Math.abs(
-        Math.abs(store.getState().auth.user.location.lat) -
-          Math.abs(store.getState().location.location.lat)
-      );
-      var lngDistance = Math.abs(
-        Math.abs(store.getState().auth.user.location.lng) -
-          Math.abs(store.getState().location.location.lng)
-      );
-      if (latDistance > 0.014 && lngDistance > 0.014) {
-        UpdateDefaultLocationNotification(body);
-      }
+      var locationData = res.data;
+      dispatch(checkToUpdateUserLocation({ locationData }));
     }
   } catch (err) {
     console.log(err);
@@ -181,6 +160,8 @@ export const saveLocation = formProps => async dispatch => {
 
 // GET USER'S LOCATION WITH GEOCODE ---------------------------------------------
 export const getUserAddress = ({ lat, lng }) => async dispatch => {
+  console.log('lat: ' + lat);
+  console.log('lng: ' + lng);
   //set headers for request
   const config = {
     headers: {
@@ -196,43 +177,69 @@ export const getUserAddress = ({ lat, lng }) => async dispatch => {
     dispatch({ type: UPDATE_USER_LOCATION_WITH_GEO, payload: res.data });
     dispatch({ type: LOADING_USER_LOCATION_DONE });
 
-    await dispatch(getLocationMap({ lat, lng }));
-
-    //save location as user's default location if no location exists yet
+    //update user's default location if needed
+    //check if user is logged in
     if (store.getState().auth.isAuthenticated) {
-      //if user is logged in
-      const body = {
-        location: {
-          lat: res.data.lat,
-          lng: res.data.lng,
-          country: res.data.Country,
-          state: res.data.State,
-          city: res.data.City,
-          postalCode: res.data.PostalCode,
-          locationImage: store.getState().location.location.locationImage
-        }
-      };
-      if (!store.getState().auth.user.location) {
-        //if user doesn't have a saved location yet
-        dispatch(updateUserLocation(body));
-      } else if (store.getState().auth.user.location) {
-        //if new location is greater than 1 mile(0.014degrees) away, ask if user wants to save new location as default
-        var latDistance = Math.abs(
-          Math.abs(store.getState().auth.user.location.lat) -
-            Math.abs(store.getState().location.location.lat)
-        );
-        var lngDistance = Math.abs(
-          Math.abs(store.getState().auth.user.location.lng) -
-            Math.abs(store.getState().location.location.lng)
-        );
-        if (latDistance > 0.014 && lngDistance > 0.014) {
-          UpdateDefaultLocationNotification(body);
-        }
-      }
+      var locationData = res.data;
+      dispatch(checkToUpdateUserLocation({ locationData }));
     }
   } catch (err) {
     console.log(err);
     dispatch({ type: LOADING_USER_LOCATION_DONE });
+  }
+};
+
+// CHECK TO UPDATE USER'S LOCATION IN DB / UPDATE USER'S LOCATION IN DB ----------------
+//save location as user's default location if no location exists yet
+export const checkToUpdateUserLocation = locationData => async dispatch => {
+  try {
+    //check if it's required to retrieve image of user's location from developer.here API
+    var lat = locationData.lat;
+    var lng = locationData.lng;
+
+    //if user doesnt have a location saved, retrieve location image
+    if (!store.getState().auth.user.location) {
+      await dispatch(getLocationMap({ lat, lng }));
+    }
+
+    //if user does have a location saved in db
+    if (!store.getState().auth.user.location) {
+      //if new location is greater than 1 mile(0.014degrees) away, retrieve new location image
+      var latDistance = Math.abs(
+        store.getState().auth.user.location.lat - locationData.lat
+      );
+      var lngDistance = Math.abs(
+        store.getState().auth.user.location.lng - locationData.lng
+      );
+      if (latDistance > 0.014 && lngDistance > 0.014) {
+        await dispatch(getLocationMap({ lat, lng }));
+      }
+    }
+
+    const body = {
+      location: {
+        lat: locationData.lat,
+        lng: locationData.lng,
+        country: locationData.Country,
+        state: locationData.State,
+        city: locationData.City,
+        postalCode: locationData.PostalCode,
+        locationImage: store.getState().location.location.locationImage
+      }
+    };
+    //if user doesn't have a saved location yet, save their current location to db
+    if (!store.getState().auth.user.location) {
+      dispatch(updateUserLocation(body));
+    }
+    //if user does have a location saved in db
+    if (!store.getState().auth.user.location) {
+      //if new location is greater than 1 mile(0.014degrees) away, ask if user wants to save new location as default
+      if (latDistance > 0.014 && lngDistance > 0.014) {
+        UpdateDefaultLocationNotification(body);
+      }
+    }
+  } catch (err) {
+    console.log(err);
   }
 };
 
