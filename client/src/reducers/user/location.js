@@ -85,7 +85,8 @@ export default function(state = initialState, action) {
           country: action.payload.country,
           state: action.payload.state,
           city: action.payload.city,
-          postalCode: action.payload.postalCode
+          postalCode: action.payload.postalCode,
+          locationImage: action.payload.locationImage
         }
       };
     case SAVING_USER_LOCATION:
