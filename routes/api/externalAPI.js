@@ -24,7 +24,7 @@ router.post('/locationMap', async (req, res) => {
   try {
     var lat = req.body.lat.toFixed(2);
     var lng = req.body.lng.toFixed(2);
-    var url = `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=${lat},${lng}&z=13&w=1920&h=1080&u=1500`;
+    var url = `https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=${HERE_API_KEY}&c=${lat},${lng}&z=13&w=800&h=400&u=1500`;
     request({ url, encoding: null }, (err, resp, buffer) => {
       s3.upload({
         Bucket: S3_BUCKET,

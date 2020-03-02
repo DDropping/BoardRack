@@ -72,7 +72,8 @@
 .br-post-modal-images-wrapper {
   display: inline-block;
   width: 50%;
-  padding: 10px 5px 0px 10px;
+  margin-top: 10px;
+  padding: 0px 5px 0px 10px;
   height: calc(100% - 110px);
   overflow-y: auto;
 }
@@ -89,13 +90,10 @@
   display: inline-block;
   vertical-align: top;
   width: 50%;
-  padding: 10px 10px 0px 5px;
+  margin-top: 10px;
+  padding: 0px 10px 0px 5px;
   height: calc(100% - 109px);
   overflow-y: auto;
-}
-
-.br-post-modal-details {
-  margin-top: 10px;
 }
 
 .br-post-modal-timeViewsFavorites {
@@ -127,14 +125,23 @@
 
 /* USER BOX */
 .post-modal-user-box {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
   width: 100%;
   padding: 10px;
   transition: box-shadow 0.3s;
   box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
+  border-top: 2px solid #00458a;
+  background-color: #ffffff;
 }
 
 .post-modal-user-box:hover {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.4);
+  border-top: 3px solid #00458a;
+  padding: 10px 10px 9px 10px;
 }
 
 @media screen and (max-width: 1100px) {
