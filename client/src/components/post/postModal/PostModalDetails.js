@@ -3,6 +3,7 @@ import { Row, Col } from 'antd';
 
 import './postModal.css';
 import PostModalUserBox from './PostModalUserBox';
+import PostModalMap from './PostModalMap';
 
 const PostModalDetails = ({ post }) => {
   console.log(post);
@@ -191,6 +192,9 @@ const PostModalDetails = ({ post }) => {
           post.drive ||
           post.paddlePower ||
           post.movability) && <br />}
+
+        {/* MAP */}
+        <PostModalMap map={post.location.locationImage} />
       </div>
     </div>
   );
