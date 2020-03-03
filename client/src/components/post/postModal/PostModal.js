@@ -13,7 +13,7 @@ import './postModal.css';
 import { addView } from '../../../actions/post/post';
 import PostModalToolBar from './PostModalToolBar';
 import PostModalImages from './PostModalImages';
-import PostModalDetails from './PostModalDetails';
+import PostModalDetails from './PostModalDetails/PostModalDetails';
 
 const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
   const dispatch = useDispatch();

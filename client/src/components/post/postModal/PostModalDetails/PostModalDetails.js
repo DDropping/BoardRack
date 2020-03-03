@@ -1,10 +1,11 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 
-import './postModal.css';
+import '../postModal.css';
 import PostModalUserBox from './PostModalUserBox';
 import PostModalMap from './PostModalMap';
 import PostModalOtherBoards from './PostModalOtherBoards';
+import PostModalFooter from './PostModalFooter';
 
 const PostModalDetails = ({ post }) => {
   console.log(post);
@@ -198,6 +199,7 @@ const PostModalDetails = ({ post }) => {
         <br />
       )}
       <PostModalOtherBoards />
+      <PostModalFooter />
     </div>
   );
 };
