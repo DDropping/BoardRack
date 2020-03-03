@@ -4,6 +4,7 @@ import { Row, Col } from 'antd';
 import './postModal.css';
 import PostModalUserBox from './PostModalUserBox';
 import PostModalMap from './PostModalMap';
+import PostModalOtherBoards from './PostModalOtherBoards';
 
 const PostModalDetails = ({ post }) => {
   console.log(post);
@@ -196,6 +197,7 @@ const PostModalDetails = ({ post }) => {
       {(post.waveSize || post.drive || post.paddlePower || post.movability) && (
         <br />
       )}
+      <PostModalOtherBoards />
     </div>
   );
 };
