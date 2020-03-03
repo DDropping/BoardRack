@@ -98,8 +98,19 @@
 
 .br-post-modal-timeViewsFavorites {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   padding: 10px 0px;
+}
+
+.br-post-modal-timeViewsFavorites-border-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 96px;
+  z-index: 1;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  background: #ffffff;
 }
 
 .br-post-modal-detail-box-outline {
@@ -128,7 +139,7 @@
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 3;
 
   width: 100%;
   padding: 10px;
