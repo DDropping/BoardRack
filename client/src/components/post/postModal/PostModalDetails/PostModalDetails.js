@@ -8,12 +8,10 @@ import PostModalOtherBoards from './PostModalOtherBoards';
 import PostModalFooter from './PostModalFooter';
 
 const PostModalDetails = ({ post }) => {
-  console.log(post);
   return (
     <div className="br-post-modal-details-wrapper">
       {/* USER INFORMATION BOX*/}
       <PostModalUserBox user={post.user} location={post.location} />
-      <br />
 
       {/* TIME VIEWS FAVORITES */}
       <div className="br-post-modal-timeViewsFavorites">
@@ -33,7 +31,6 @@ const PostModalDetails = ({ post }) => {
         </Row>
       </div>
       <div className="br-post-modal-timeViewsFavorites-border-bottom" />
-      <br />
 
       {/* DESCRIPTION */}
       {post.description && (

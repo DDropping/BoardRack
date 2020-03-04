@@ -1,7 +1,10 @@
-import React from 'react';
-import { Avatar, Button } from 'antd';
+import React, { useState } from 'react';
+import { Avatar, Button, Icon } from 'antd';
+
+import PostModalContact from './PostModalContact';
 
 const PostModalUserBox = ({ user, location }) => {
+  const [isContact, setIsContact] = useState(false);
   return (
     <div className="post-modal-user-box">
       <div style={{ display: 'inline-block', marginRight: '10px' }}>
@@ -23,10 +26,18 @@ const PostModalUserBox = ({ user, location }) => {
           textAlign: 'right'
         }}
       >
-        <Button>Contact</Button>
+        <Button onClick={() => setIsContact(!isContact)}>Contact</Button>
+        {isContact ? (
+          <div>
+            <Icon type="phone" /> (831) 535-3535
+            <br />
+            <Icon type="mail" /> boards@boardrack.com
+          </div>
+        ) : null}
       </div>
-      <span style={{ clear: 'both', display: 'block' }} />{' '}
+      <span style={{ clear: 'both', display: 'block' }} />
       {/* clear fix for float */}
+      {isContact ? <PostModalContact user={user} /> : null}
     </div>
   );
 };
