@@ -98,7 +98,8 @@
 
 .br-post-modal-timeViewsFavorites {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 10px 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 5px 0px;
 }
 
 .br-post-modal-timeViewsFavorites-border-bottom {

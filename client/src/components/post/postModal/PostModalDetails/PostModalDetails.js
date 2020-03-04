@@ -30,7 +30,7 @@ const PostModalDetails = ({ post }) => {
           </Col>
         </Row>
       </div>
-      <div className="br-post-modal-timeViewsFavorites-border-bottom" />
+      <br />
 
       {/* DESCRIPTION */}
       {post.description && (
