@@ -9,7 +9,6 @@ const FavoriteCounter = ({ favorites, isFavorite, setIsFavorite, _id }) => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
-  console.log('favorite: ' + isFavorite);
   return (
     <div style={{ display: 'inline-block' }}>
       <div

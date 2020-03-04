@@ -59,7 +59,9 @@ const PostModalToolBar = ({
 
       <div
         className="br-post-modal-toolbar-button"
-        onClick={() => console.log('click favorite postmodaltoolbar')}
+        onClick={() =>
+          console.log('click favorite postmodaltoolbar contact button')
+        }
       >
         <Icon type="mail" /> Contact
       </div>
