@@ -17,11 +17,13 @@ const PostModalUserBox = ({ user, location }) => {
         <br />
         {location.city + ', ' + location.state}
       </div>
-      <div style={{ float: 'right', textAlign: 'right' }}>
-        username@boardrack.com <br />
-        (831)556-6778
-        <br />
-        <Button>Message</Button>
+      <div
+        style={{
+          float: 'right',
+          textAlign: 'right'
+        }}
+      >
+        <Button>Contact</Button>
       </div>
       <span style={{ clear: 'both', display: 'block' }} />{' '}
       {/* clear fix for float */}

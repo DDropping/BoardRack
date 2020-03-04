@@ -126,7 +126,7 @@ const PostModalDetails = ({ post }) => {
         post.width ||
         post.depth ||
         post.volume) && (
-        <div className="br-post-modal-detail-box-outline">
+        <div>
           <div className="br-post-modal-details-title">Dimensions</div>
           <Row>
             <Col span={1} />
@@ -168,7 +168,7 @@ const PostModalDetails = ({ post }) => {
 
       {/* SURFERS OPINION */}
       {(post.waveSize || post.drive || post.paddlePower || post.movability) && (
-        <div className="br-post-modal-detail-box-outline">
+        <div>
           <div className="br-post-modal-details-title">Surfer's Opinion</div>
           <Row>
             <Col span={1} />
@@ -198,7 +198,9 @@ const PostModalDetails = ({ post }) => {
       {(post.waveSize || post.drive || post.paddlePower || post.movability) && (
         <br />
       )}
-      <PostModalOtherBoards />
+      <div className="br-post-modal-detail-box-outline">
+        <PostModalOtherBoards />
+      </div>
       <PostModalFooter />
     </div>
   );
