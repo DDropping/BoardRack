@@ -198,7 +198,7 @@ const PostModalDetails = ({ post }) => {
       <div className="br-post-modal-detail-box-outline">
         <PostModalOtherBoards />
       </div>
-      <PostModalFooter />
+      <PostModalFooter post={post} />
     </div>
   );
 };

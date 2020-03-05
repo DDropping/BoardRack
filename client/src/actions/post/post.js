@@ -24,7 +24,7 @@ export const addFavorite = id => async dispatch => {
   const postid = { id: id };
   const body = JSON.stringify(postid);
 
-  //post new account to DB
+  //update post to DB
   try {
     await axios.put('/api/posts/favorite', body, config);
     successNotification(
@@ -51,7 +51,7 @@ export const removeFavorite = id => async dispatch => {
   const postid = { id: id };
   const body = JSON.stringify(postid);
 
-  //post new account to DB
+  //update post to DB
   try {
     await axios.put('/api/posts/unFavorite', body, config);
     successNotification(
@@ -78,7 +78,7 @@ export const addView = id => async dispatch => {
   const postid = { id: id };
   const body = JSON.stringify(postid);
 
-  //post new account to DB
+  //update post to DB
   try {
     dispatch({ type: POST_VIEWED, payload: id });
     await axios.put('/api/posts/addView', body, config);

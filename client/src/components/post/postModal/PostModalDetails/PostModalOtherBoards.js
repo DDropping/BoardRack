@@ -2,7 +2,7 @@ import React from 'react';
 
 import PostModalOtherBoardsCard from './PostModalOtherBoardsCard';
 
-const PostModalOtherBoards = () => {
+const PostModalOtherBoards = ({ post }) => {
   return (
     <div>
       <div className="br-post-modal-details-title">People Also Viewed</div>
