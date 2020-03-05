@@ -18,6 +18,10 @@ const Home = () => {
   const layout = useSelector(state => state.filters.layout);
 
   useEffect(() => {
+    document.title = 'BoardRack | Home';
+  }, []);
+
+  useEffect(() => {
     dispatch(loadPosts());
   }, [dispatch]);
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import './createPost.css';
@@ -10,6 +10,10 @@ import CreatePostButtons from './CreatePostButtons';
 import { Redirect } from 'react-router-dom';
 
 const CreatePost = () => {
+  useEffect(() => {
+    document.title = 'BoardRack | Create Post';
+  }, []);
+
   const redirectToHome = useSelector(state => state.createPost.redirectToHome);
   const isStepOneVisible = useSelector(
     state => state.postSteps.isStepOneVisible
