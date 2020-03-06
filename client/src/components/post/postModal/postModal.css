@@ -141,13 +141,35 @@
 .br-post-modal-similar-post-card-wrapper {
   display: inline-block;
   margin: 10px;
-  width: 100px;
+  width: 130px;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
+}
+
+.br-post-modal-similar-post-card-wrapper:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.4);
 }
 
 .br-post-modal-similar-post-card {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 150px;
   background: #f3f7f9;
+}
+
+.br-post-modal-similar-post-card-img-wrapper {
+  text-align: center; /* needed to allow vertical centering */
+  line-height: 150px; /* overall post card height - post header height | used to center photo in white space*/
+  height: 150px; /* overall post card height - post header height | used to center photo in white space*/
+  width: 130px;
+  background-color: #f3f7f9;
+}
+
+.br-post-modal-similar-post-card-img {
+  max-height: 100%; /* overall post card height - post header height | used to center photo in white space*/
+  max-width: 100%;
+  vertical-align: middle; /* center vertically */
+  margin: 0 auto; /* center horizontally */
+  position: relative;
 }
 
 /* USER BOX */

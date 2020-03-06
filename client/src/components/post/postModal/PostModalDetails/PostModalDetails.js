@@ -8,7 +8,6 @@ import FetchSimilarPosts from './FetchSimilarPosts';
 import PostModalFooter from './PostModalFooter';
 
 const PostModalDetails = ({ post }) => {
-  console.log('inside post id: ' + post._id);
   return (
     <div className="br-post-modal-details-wrapper">
       {/* USER INFORMATION BOX*/}

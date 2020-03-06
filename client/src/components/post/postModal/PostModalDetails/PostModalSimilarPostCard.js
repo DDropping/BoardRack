@@ -4,17 +4,24 @@ const PostModalSimilarPostCard = ({ post }) => {
   return (
     <div className="br-post-modal-similar-post-card-wrapper">
       <div className="br-post-modal-similar-post-card">
-        <div>image</div>
+        <div className="br-post-modal-similar-post-card-img-wrapper">
+          <img
+            className="br-post-modal-similar-post-card-img"
+            alt=""
+            src={post.images[0].thumbnail}
+          ></img>
+        </div>
       </div>
       <div
         style={{
           whiteSpace: 'nowrap',
           overflow: 'hidden',
-          textOverflow: 'ellipsis'
+          textOverflow: 'ellipsis',
+          padding: '5px'
         }}
       >
         {post.title}
-        <br /> 5'8x20"x2.375"
+        <br /> {post.lengthFt}'{post.lengthIn}"x{post.width}"x{post.depth}"
       </div>
     </div>
   );
