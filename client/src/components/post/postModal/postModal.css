@@ -66,6 +66,8 @@
   font-weight: bold;
   border-bottom: 2px solid rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* IMAGES */
@@ -133,6 +135,19 @@
 .br-post-modal-details-item-ans {
   font-size: 15px;
   font-weight: bold;
+}
+
+/* SIMILAR POSTS */
+.br-post-modal-similar-post-card-wrapper {
+  display: inline-block;
+  margin: 10px;
+  width: 100px;
+}
+
+.br-post-modal-similar-post-card {
+  width: 100px;
+  height: 100px;
+  background: #f3f7f9;
 }
 
 /* USER BOX */

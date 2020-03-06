@@ -4,10 +4,11 @@ import { Row, Col } from 'antd';
 import '../postModal.css';
 import PostModalUserBox from './PostModalUserBox';
 import PostModalMap from './PostModalMap';
-import PostModalOtherBoards from './PostModalOtherBoards';
+import FetchSimilarPosts from './FetchSimilarPosts';
 import PostModalFooter from './PostModalFooter';
 
 const PostModalDetails = ({ post }) => {
+  console.log('inside post id: ' + post._id);
   return (
     <div className="br-post-modal-details-wrapper">
       {/* USER INFORMATION BOX*/}
@@ -196,9 +197,9 @@ const PostModalDetails = ({ post }) => {
         <br />
       )}
       <div className="br-post-modal-detail-box-outline">
-        <PostModalOtherBoards />
+        <FetchSimilarPosts postId={post._id} />
       </div>
-      <PostModalFooter post={post} />
+      <PostModalFooter />
     </div>
   );
 };
