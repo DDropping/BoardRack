@@ -11,7 +11,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  layout: 'Thumb',
+  layout: 'Gallery',
   sort: 'Newest',
   distance: 25,
   anyPrice: true, // any price

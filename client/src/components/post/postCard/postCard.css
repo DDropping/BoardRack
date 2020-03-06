@@ -14,32 +14,14 @@
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.4);
 }
 
+/* POST CARD HEADER */
 .br-post-card-header {
   z-index: 2;
-  position: absolute;
   width: 100%;
-  height: 40px;
+  height: 32px;
   padding: 5px;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+75,0+100 */
-  background: -moz-linear-gradient(
-    top,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 75%,
-    rgba(255, 255, 255, 0) 100%
-  ); /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    top,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 75%,
-    rgba(255, 255, 255, 0) 100%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 75%,
-    rgba(255, 255, 255, 0) 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.4);
 }
 
 .br-post-card-header:hover {
@@ -50,18 +32,38 @@
   cursor: pointer;
 }
 
+/* POST CARD IMAGE */
 .br-post-card-img-wrapper {
+  position: relative;
   text-align: center; /* needed to allow vertical centering */
-  line-height: 340px; /* overall post card height - post header height | used to center photo in white space*/
+  line-height: 268px; /* overall post card height - post header height | used to center photo in white space*/
+  height: 268px;
+  width: 250px;
   background-color: #f3f7f9;
+  overflow: hidden;
+}
+
+.br-post-card-img-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  opacity: 1;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-position: center;
 }
 
 .br-post-card-img {
-  max-height: 340px; /* overall post card height - post header height | used to center photo in white space*/
-  max-width: 250px;
+  max-height: 100%; /* overall post card height - post header height | used to center photo in white space*/
+  max-width: 100%;
   vertical-align: middle; /* center vertically */
   margin: 0 auto; /* center horizontally */
   position: relative;
+  border: 1px solid rgb(255, 255, 255);
+  margin-top: -3px; /* fix margin issue */
 }
 
 .br-post-card-img:hover {
