@@ -9,6 +9,10 @@
   box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
 }
 
+.br-postThumb-container:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.4);
+}
+
 .br-postThumb-img-container {
   position: relative;
   text-align: center; /* needed to allow vertical centering */
