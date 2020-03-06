@@ -310,12 +310,13 @@ router.get('/filter', async (req, res) => {
   }
 });
 
-// @route   GET api/posts/postId/:id
+// @route   GET api/posts/similarPosts/:id
 // @desc    Get specific post
 // @access  Public
-router.get('loadSimilarPosts/:id', async (req, res) => {
+router.get('/similarPosts/:id', async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
+    console.log(post);
 
     if (!post) {
       return res.status(400).json({ msg: 'There is no post with this id' });
