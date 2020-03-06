@@ -55,7 +55,8 @@ const PostList = ({ post }) => {
             display: 'inline-block',
             width: 'calc(100% - 225px)',
             whiteSpace: 'nowrap',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            textOverflow: 'ellipsis'
           }}
         >
           <strong>{post.title}</strong>

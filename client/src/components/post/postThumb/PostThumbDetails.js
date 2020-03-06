@@ -15,7 +15,8 @@ const PostThumbDetails = ({ post, isFavorite, setIsFavorite }) => {
           display: 'inline-block',
           width: 'calc(100% - 125px)',
           whiteSpace: 'nowrap',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          textOverflow: 'ellipsis'
         }}
       >
         <strong>{'$' + post.price + ' ' + post.title}</strong>
