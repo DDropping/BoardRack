@@ -12,7 +12,7 @@ function FetchSimilarPosts({ postId }) {
       setSimilarPosts(result.data);
     };
     fetchSimilarPosts();
-  }, []);
+  }, [postId]);
 
   return (
     <div>

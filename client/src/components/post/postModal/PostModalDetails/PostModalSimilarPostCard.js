@@ -3,14 +3,16 @@ import React from 'react';
 const PostModalSimilarPostCard = ({ post }) => {
   return (
     <div className="br-post-modal-similar-post-card-wrapper">
-      <div className="br-post-modal-similar-post-card">
-        <div className="br-post-modal-similar-post-card-img-wrapper">
-          <img
-            className="br-post-modal-similar-post-card-img"
-            alt=""
-            src={post.images[0].thumbnail}
-          ></img>
-        </div>
+      <div className="br-post-modal-similar-post-card-img-wrapper">
+        <div
+          className="br-post-modal-similar-post-img-background"
+          style={{ backgroundImage: 'url(' + post.images[0].thumbnail + ')' }}
+        />
+        <img
+          className="br-post-modal-similar-post-card-img"
+          alt=""
+          src={post.images[0].thumbnail}
+        ></img>
       </div>
       <div
         style={{
