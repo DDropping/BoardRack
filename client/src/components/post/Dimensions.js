@@ -5,10 +5,10 @@ const Dimensions = ({ lengthFt, lengthIn, width, depth, volume }) => {
   const layout = useSelector(state => state.filters.layout);
 
   return (
-    <div style={{ fontStyle: 'italic', display: 'inline-block' }}>
+    <div style={{ display: 'inline-block' }}>
       <div style={{ display: 'inline-block' }}>
         {layout !== 'Gallery' && lengthFt && 'Dims: '}
-        {lengthFt && lengthFt + "' "}
+        {lengthFt && lengthFt + "'"}
         {lengthIn && lengthIn + '" '}
         {(lengthFt || lengthIn) && 'x '}
         {width && width + '" x '}
