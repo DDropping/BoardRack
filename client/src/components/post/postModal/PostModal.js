@@ -20,8 +20,8 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
   const dispatch = useDispatch();
   const viewedPosts = useSelector(state => state.post.viewedPosts);
 
+  //increase post viewCount if this is first time user is viewing post
   useEffect(() => {
-    //increase post viewCount if this is first time user is viewing post
     if (
       viewedPosts.filter(postId => postId.toString() === post._id.toString())
         .length === 0
@@ -30,15 +30,18 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
     }
   }, [post._id, dispatch, viewedPosts]);
 
+  //disable scrolling on main page below post modal
   useEffect(() => {
-    showTargetElement();
+    disableScroll();
   }, []);
 
-  const showTargetElement = () => {
+  //disable scrolling on main page below post modal
+  const disableScroll = () => {
     disableBodyScroll(postRef.current);
   };
 
-  const hideTargetElement = () => {
+  //enable scrolling on main page below post modal
+  const enableScroll = () => {
     enableBodyScroll(postRef.current);
     clearAllBodyScrollLocks();
   };
@@ -48,7 +51,7 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
       <div
         className="br-post-modal-grey"
         onClick={() => {
-          hideTargetElement();
+          enableScroll();
           hidePostModal();
         }}
       />
@@ -57,7 +60,7 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
         <PostModalToolBar
           post={post}
           hidePostModal={hidePostModal}
-          hideTargetElement={hideTargetElement}
+          enableScroll={enableScroll}
           isFavorite={isFavorite}
           setIsFavorite={setIsFavorite}
         />

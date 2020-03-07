@@ -323,7 +323,8 @@ router.get('/similarPosts/:id', async (req, res) => {
 
     const similarPosts = await Post.find({ volume: post.volume })
       .sort({ _id: -1 })
-      .limit(3);
+      .limit(3)
+      .populate('user', 'username');
 
     res.json(similarPosts);
   } catch (err) {

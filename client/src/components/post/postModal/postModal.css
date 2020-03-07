@@ -35,7 +35,6 @@
   box-shadow: 0 3px 0.125rem 0 rgba(0, 0, 0, 0.075);
   position: -webkit-sticky;
   position: sticky;
-  top: 0px;
   font-size: 16px;
   color: #f3f7f9;
 }
@@ -139,7 +138,7 @@
 
 /* SIMILAR POSTS */
 .br-post-modal-similar-post-card-wrapper {
-  display: inline-block;
+  cursor: pointer;
   margin: 10px;
   width: 130px;
   transition: box-shadow 0.3s;

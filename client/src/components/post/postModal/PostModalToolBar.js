@@ -8,7 +8,7 @@ import { addFavorite, removeFavorite } from '../../../actions/post/post';
 const PostModalToolBar = ({
   post,
   hidePostModal,
-  hideTargetElement,
+  enableScroll,
   isFavorite,
   setIsFavorite
 }) => {
@@ -71,7 +71,7 @@ const PostModalToolBar = ({
         className="br-post-modal-toolbar-exit-button"
         onClick={() => {
           hidePostModal();
-          hideTargetElement();
+          enableScroll();
         }}
       >
         <Icon type="close-circle" /> Close
