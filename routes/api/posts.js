@@ -490,6 +490,7 @@ router.put('/addView', async (req, res) => {
     //increment post viewCount and save
     post.viewCount++;
     await post.save();
+    res.send('Post ' + req.body.id + ' opened.');
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
