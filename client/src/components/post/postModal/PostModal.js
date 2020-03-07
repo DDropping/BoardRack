@@ -49,8 +49,8 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
       <div
         className="br-post-modal-grey"
         onClick={() => {
-          hidePostModal();
           hideTargetElement();
+          hidePostModal();
         }}
       />
 
@@ -58,6 +58,7 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
         <PostModalToolBar
           post={post}
           hidePostModal={hidePostModal}
+          hideTargetElement={hideTargetElement}
           hideTargetElement={hideTargetElement}
           isFavorite={isFavorite}
           setIsFavorite={setIsFavorite}
