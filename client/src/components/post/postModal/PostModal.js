@@ -1,6 +1,6 @@
 /* Displays postModal if isPostModalVisible === true */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Fade from 'react-reveal/Fade';
 import {
@@ -16,9 +16,9 @@ import PostModalImages from './PostModalImages';
 import PostModalDetails from './PostModalDetails/PostModalDetails';
 
 const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
+  const postRef = useRef(document.querySelector('.br-post-modal-wrapper'));
   const dispatch = useDispatch();
   const viewedPosts = useSelector(state => state.post.viewedPosts);
-  var targetElement = null;
 
   useEffect(() => {
     //increase post viewCount if this is first time user is viewing post
@@ -31,16 +31,15 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
   }, [post._id, dispatch, viewedPosts]);
 
   useEffect(() => {
-    targetElement = document.querySelector('.br-post-modal-wrapper');
     showTargetElement();
   }, []);
 
   const showTargetElement = () => {
-    disableBodyScroll(targetElement);
+    disableBodyScroll(postRef.current);
   };
 
   const hideTargetElement = () => {
-    enableBodyScroll(targetElement);
+    enableBodyScroll(postRef.current);
     clearAllBodyScrollLocks();
   };
 
@@ -58,7 +57,6 @@ const PostModal = ({ post, hidePostModal, isFavorite, setIsFavorite }) => {
         <PostModalToolBar
           post={post}
           hidePostModal={hidePostModal}
-          hideTargetElement={hideTargetElement}
           hideTargetElement={hideTargetElement}
           isFavorite={isFavorite}
           setIsFavorite={setIsFavorite}
