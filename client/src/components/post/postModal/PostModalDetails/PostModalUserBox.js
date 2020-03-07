@@ -6,7 +6,7 @@ import PostModalContact from './PostModalContact';
 const PostModalUserBox = ({ user, location }) => {
   const [isContact, setIsContact] = useState(false);
   return (
-    <div className="post-modal-user-box">
+    <div className="br-post-modal-user-box">
       <div style={{ display: 'inline-block', marginRight: '10px' }}>
         <Avatar size={64} icon="user" />
       </div>
@@ -26,7 +26,9 @@ const PostModalUserBox = ({ user, location }) => {
           textAlign: 'right'
         }}
       >
-        <Button onClick={() => setIsContact(!isContact)}>Contact</Button>
+        <Button type="primary" onClick={() => setIsContact(!isContact)}>
+          Contact
+        </Button>
         {isContact ? (
           <div>
             <Icon type="phone" /> (831) 535-3535

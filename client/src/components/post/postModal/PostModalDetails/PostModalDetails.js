@@ -45,10 +45,6 @@ const PostModalDetails = ({ post }) => {
       )}
       {post.description && <br />}
 
-      {/* MAP */}
-      <PostModalMap map={post.location.locationImage} />
-      <br />
-
       {/* DETAILS */}
       {(post.shaper ||
         post.model ||
@@ -195,6 +191,11 @@ const PostModalDetails = ({ post }) => {
       {(post.waveSize || post.drive || post.paddlePower || post.movability) && (
         <br />
       )}
+
+      {/* MAP */}
+      <PostModalMap map={post.location.locationImage} />
+      <br />
+
       <div className="br-post-modal-detail-box-outline">
         <FetchSimilarPosts postId={post._id} />
       </div>
