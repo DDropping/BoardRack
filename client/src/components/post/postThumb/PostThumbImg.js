@@ -7,12 +7,24 @@ const PostThumbImg = ({ post }) => {
     <div className="br-postThumb-img-container">
       <div
         className="br-postThumb-img-background"
-        style={{ backgroundImage: 'url(' + post.images[0].thumbnail + ')' }}
+        style={
+          post.images[0]
+            ? { backgroundImage: 'url(' + post.images[0].thumbnail + ')' }
+            : {
+                backgroundImage:
+                  process.env.PUBLIC_URL +
+                  '/images/br-placeholder-shortboard.png'
+              }
+        }
       />
       <img
         className="br-postThumb-img"
         alt="surfboard"
-        src={post.images[0].thumbnail}
+        src={
+          post.images[0]
+            ? post.images[0].thumbnail
+            : process.env.PUBLIC_URL + '/images/br-placeholder-shortboard.png'
+        }
       />
     </div>
   );

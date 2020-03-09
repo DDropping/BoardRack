@@ -28,12 +28,25 @@ const PostModalSimilarPostCard = ({ post }) => {
         <div className="br-post-modal-similar-post-card-img-wrapper">
           <div
             className="br-post-modal-similar-post-img-background"
-            style={{ backgroundImage: 'url(' + post.images[0].thumbnail + ')' }}
+            style={
+              post.images[0]
+                ? { backgroundImage: 'url(' + post.images[0].thumbnail + ')' }
+                : {
+                    background:
+                      process.env.PUBLIC_URL +
+                      '/images/br-placeholder-shortboard.png'
+                  }
+            }
           />
           <img
             className="br-post-modal-similar-post-card-img"
             alt=""
-            src={post.images[0].thumbnail}
+            src={
+              post.images[0]
+                ? post.images[0].thumbnail
+                : process.env.PUBLIC_URL +
+                  '/images/br-placeholder-shortboard.png'
+            }
           ></img>
         </div>
         <div
