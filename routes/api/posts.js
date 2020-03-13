@@ -4,6 +4,7 @@
 // - GET api/posts/postId/:id (retrieve post given id)
 // - GET api/posts (retrieve all posts)
 // - GET api/posts/filter (retrieve filtered posts)
+// - GET api/posts/loadSimilarPosts (retrieve posts similar to currentPost)
 // - DELETE api/posts/delete/:postId (delete post given id)
 // - PUT api/posts/like (like post)
 // - PUT api/posts/unlike (like post)
@@ -105,6 +106,8 @@ router.post(
     if (location.city) postFields.location.city = location.city;
     if (location.postalCode)
       postFields.location.postalCode = location.postalCode;
+    if (location.locationImage)
+      postFields.location.locationImage = location.locationImage;
 
     try {
       let post = new Post(postFields);
@@ -254,7 +257,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-//TODO      Check if in filters{} the json formats should be like if(height) filters.dimensions.height = height
+//TODO      Check if in filters{} the json formats should be, like if(height) filters.dimensions.height = height
 // @route   GET api/posts/filter
 // @desc    Get filtered posts
 // @access  Public
@@ -303,6 +306,32 @@ router.get('/filter', async (req, res) => {
     res.json(posts);
   } catch {
     console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   GET api/posts/similarPosts/:id
+// @desc    Get specific post
+// @access  Public
+router.get('/similarPosts/:id', async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) {
+      return res.status(400).json({ msg: 'There is no post with this id' });
+    }
+
+    const similarPosts = await Post.find({ volume: post.volume })
+      .sort({ _id: -1 })
+      .limit(3)
+      .populate('user', 'username');
+
+    res.json(similarPosts);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Post Not Found' });
+    }
     res.status(500).send('Server Error');
   }
 });
@@ -462,6 +491,7 @@ router.put('/addView', async (req, res) => {
     //increment post viewCount and save
     post.viewCount++;
     await post.save();
+    res.send('Post ' + req.body.id + ' opened.');
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');

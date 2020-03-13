@@ -1,12 +1,12 @@
 import React from 'react';
 
-import './postCard.css';
+import './postThumb.css';
 
-const PostCardImg = ({ post }) => {
+const PostThumbImg = ({ post }) => {
   return (
-    <div className="br-post-card-img-wrapper">
+    <div className="br-postThumb-img-container">
       <div
-        className="br-post-card-img-background"
+        className="br-postThumb-img-background"
         style={
           post.images[0]
             ? { backgroundImage: 'url(' + post.images[0].thumbnail + ')' }
@@ -18,8 +18,8 @@ const PostCardImg = ({ post }) => {
         }
       />
       <img
-        className="br-post-card-img"
-        alt=""
+        className="br-postThumb-img"
+        alt="surfboard"
         src={
           post.images[0]
             ? post.images[0].thumbnail
@@ -30,4 +30,4 @@ const PostCardImg = ({ post }) => {
   );
 };
 
-export default PostCardImg;
+export default PostThumbImg;

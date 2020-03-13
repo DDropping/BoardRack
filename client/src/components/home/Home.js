@@ -18,6 +18,10 @@ const Home = () => {
   const layout = useSelector(state => state.filters.layout);
 
   useEffect(() => {
+    document.title = 'BoardRack | Home';
+  }, []);
+
+  useEffect(() => {
     dispatch(loadPosts());
   }, [dispatch]);
 
@@ -36,16 +40,16 @@ const Home = () => {
       >
         <ResultsBar />
         {layout === 'List' &&
-          posts.map(post => {
-            return <PostList key={post._id} post={post} />;
+          posts.map((post, index) => {
+            return <PostList key={index} post={post} />;
           })}
         {layout === 'Thumb' &&
-          posts.map(post => {
-            return <PostThumb key={post._id} post={post} />;
+          posts.map((post, index) => {
+            return <PostThumb key={index} post={post} />;
           })}
         {layout === 'Gallery' &&
-          posts.map(post => {
-            return <PostCard key={post._id} post={post} />;
+          posts.map((post, index) => {
+            return <PostCard key={index} post={post} />;
           })}
       </div>
     </div>

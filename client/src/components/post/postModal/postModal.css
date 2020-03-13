@@ -1,25 +1,11 @@
-.br-post-modal-toolbar {
-  padding: 15px;
-}
-
-.br-post-modal-toolbar-wrapper {
-  max-width: 100%;
-  height: 50px;
-  background-color: #0058b0;
-  box-shadow: 0 3px 0.125rem 0 rgba(0, 0, 0, 0.075);
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
-}
-
-/*POST MODAL WRAPPER / GREY*/
+/* WRAPPER */
 .br-post-modal-wrapper {
   top: 0px;
   right: 0px;
   left: 0px;
   position: fixed;
   margin: 0 auto;
-  height: 100vh;
+  height: 100%;
   max-width: 1000px;
   background: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -39,14 +25,177 @@
   z-index: 11;
 }
 
+/* TOOLBAR */
+.br-post-modal-toolbar-wrapper {
+  z-index: 1;
+  max-width: 100%;
+  height: 50px;
+  line-height: 50px; /* vertically align text */
+  background-color: #0058b0;
+  box-shadow: 0 3px 0.125rem 0 rgba(0, 0, 0, 0.075);
+  position: -webkit-sticky;
+  position: sticky;
+  font-size: 16px;
+  color: #f3f7f9;
+}
+
+.br-post-modal-toolbar-button {
+  display: inline-block;
+  padding: 0px 20px;
+  cursor: pointer;
+  border-right: 2px solid white;
+}
+
+.br-post-modal-toolbar-exit-button {
+  float: right;
+  padding: 0px 20px;
+  cursor: pointer;
+  border-left: 2px solid white;
+}
+.br-post-modal-toolbar-button:hover,
+.br-post-modal-toolbar-exit-button:hover {
+  background-color: #00458a;
+}
+
+/* HEADER */
+.br-post-modal-header {
+  height: 40px;
+  margin: 10px 10px 0px 10px;
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* IMAGES */
 .br-post-modal-images-wrapper {
   display: inline-block;
   width: 50%;
+  margin-top: 10px;
+  padding: 0px 5px 0px 10px;
+  height: calc(100% - 110px);
+  overflow-y: auto;
 }
 
+/* MAP IMAGE */
+.br-post-modal-map-wrapper {
+}
+
+.br-post-modal-map {
+}
+
+/* DETAILS */
 .br-post-modal-details-wrapper {
   display: inline-block;
+  vertical-align: top;
   width: 50%;
+  margin-top: 10px;
+  padding: 0px 10px 0px 5px;
+  height: calc(100% - 109px);
+  overflow-y: auto;
+}
+
+.br-post-modal-timeViewsFavorites {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 5px 0px;
+}
+
+.br-post-modal-timeViewsFavorites-border-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 86px;
+  z-index: 1;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  background: #ffffff;
+}
+
+.br-post-modal-detail-box-outline {
+  border-top: 2px solid #00458a;
+  padding: 5px;
+}
+
+.br-post-modal-details-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00458a;
+}
+
+.br-post-modal-details-item {
+  font-size: 15px;
+  text-indent: 10px;
+}
+
+.br-post-modal-details-item-ans {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* SIMILAR POSTS */
+.br-post-modal-similar-post-card-wrapper {
+  cursor: pointer;
+  margin: 10px;
+  width: 130px;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
+}
+
+.br-post-modal-similar-post-card-wrapper:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.4);
+}
+
+.br-post-modal-similar-post-card-img-wrapper {
+  position: relative;
+  text-align: center; /* needed to allow vertical centering */
+  line-height: 150px; /* overall post card height - post header height | used to center photo in white space*/
+  height: 150px; /* overall post card height - post header height | used to center photo in white space*/
+  width: 130px;
+  background-color: #f3f7f9;
+  overflow: hidden;
+}
+
+.br-post-modal-similar-post-img-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: opacity(0.2);
+  -webkit-filter: opacity(0.2);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+}
+
+.br-post-modal-similar-post-card-img {
+  max-height: 100%; /* overall post card height - post header height | used to center photo in white space*/
+  max-width: 100%;
+  vertical-align: middle; /* center vertically */
+  margin: 0 auto; /* center horizontally */
+  position: relative;
+  box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
+  border: 1px solid rgb(255, 255, 255);
+  margin-top: -2px;
+}
+
+/* USER BOX */
+.br-post-modal-user-box {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 3;
+
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 11px rgba(83, 68, 68, 0.4);
+  border-top: 2px solid #00458a;
+  background-color: #f2f5f9;
 }
 
 @media screen and (max-width: 1100px) {

@@ -11,7 +11,8 @@ const PostCardContent = ({ post }) => {
           fontSize: '18px',
           width: '100% ',
           whiteSpace: 'nowrap',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          textOverflow: 'ellipsis'
         }}
       >
         <strong>{post.title}</strong>
