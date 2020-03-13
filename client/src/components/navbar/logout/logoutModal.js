@@ -24,7 +24,6 @@ const LogoutModal = () => {
           extra={[
             <Button
               onClick={() => {
-                console.log('cancel logout clicked');
                 dispatch({ type: TOGGLE_LOGOUT_MODAL });
               }}
               type="primary"
@@ -35,7 +34,6 @@ const LogoutModal = () => {
             </Button>,
             <Button
               onClick={() => {
-                console.log('logout clicked');
                 dispatch(logoutUser());
               }}
               type="default"

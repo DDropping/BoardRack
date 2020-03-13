@@ -167,6 +167,7 @@ router.delete('/myAccount', auth, async (req, res) => {
 router.put('/updateLocation', auth, async (req, res) => {
   try {
     //update account
+    console.log(req.body);
     await User.updateOne({ _id: req.user.id }, req.body);
     res.json({ msg: 'Account Updated' });
   } catch (err) {

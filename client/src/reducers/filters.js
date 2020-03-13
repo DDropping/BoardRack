@@ -1,17 +1,19 @@
 import {
+  UPDATE_LAYOUT,
+  UPDATE_SORT,
   UPDATE_CONDITION,
   UPDATE_BOARD_TYPE,
   UPDATE_PRICE_HIGH,
   UPDATE_PRICE_LOW,
   UPDATE_ANY_PRICE,
   UPDATE_DISTANCE,
-  //UPDATE_POSTAL_CODE,
   DELETE_PRICE
 } from '../actions/types';
 
 const initialState = {
+  layout: 'Gallery',
+  sort: 'Newest',
   distance: 25,
-  //postalCode: uses state.location value
   anyPrice: true, // any price
   priceLow: null,
   priceHigh: null,
@@ -21,6 +23,16 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case UPDATE_LAYOUT:
+      return {
+        ...state,
+        layout: action.payload
+      };
+    case UPDATE_SORT:
+      return {
+        ...state,
+        sort: action.payload
+      };
     case UPDATE_CONDITION:
       return {
         ...state,
@@ -51,11 +63,6 @@ export default function(state = initialState, action) {
         ...state,
         distance: action.payload
       };
-    // case UPDATE_POSTAL_CODE:
-    //   return {
-    //     ...state,
-    //     postalCode: action.payload
-    //   };
     case DELETE_PRICE:
       return {
         ...state,

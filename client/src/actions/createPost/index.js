@@ -30,6 +30,7 @@ export const createPost = (formProps, imgList, location) => async dispatch => {
   postItems.location.state = location.state;
   postItems.location.city = location.city;
   postItems.location.postalCode = location.postalCode;
+  postItems.location.locationImage = location.locationImage;
 
   //set headers for request
   const config = {

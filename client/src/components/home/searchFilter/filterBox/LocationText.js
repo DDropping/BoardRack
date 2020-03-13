@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Icon, Tooltip, Input, Row, Col, Button } from 'antd';
+import { Icon, Input, Row, Col, Button } from 'antd';
 
 import { getUsersLocationWithCityStateZip } from '../../../../actions/user/location';
 
@@ -22,14 +22,16 @@ const LocationText = () => {
         {location.state + ' '}
 
         {!isLocationForm ? (
-          <Tooltip title="Edit Location">
-            <Icon
-              onClick={() => {
-                setIsLocationForm(true);
-              }}
-              type="edit"
-            />
-          </Tooltip>
+          <Button
+            onClick={() => {
+              setIsLocationForm(true);
+            }}
+            type="primary"
+            ghost
+            block
+          >
+            Change Location
+          </Button>
         ) : (
           <Icon
             onClick={() => {
