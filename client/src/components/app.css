@@ -1,0 +1,18 @@
+.wrapperApp {
+  min-height: calc(100vh - 100px);
+}
+
+.wrapperNavbar {
+  min-height: 63px;
+  background-color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+}
+
+.wrapperBody {
+  min-height: calc(100vh - 163px);
+  background-color: #f3f7f9;
+  padding: 0px 0px 30px 0px;
+}

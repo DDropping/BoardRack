@@ -1,5 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/DB');
+const cors = require('cors');
+//const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -7,7 +9,14 @@ const app = express();
 connectDB();
 
 //init middleware
-app.use(express.json({ extended: false }));
+// parse body
+app.use(express.json({ extended: true })); //app.use(bodyParser.json({ type: '*/*' }));
+// cross origin resource sharing
+app.use(
+  cors({
+    origin: 'http://104.248.186.12'
+  })
+);
 
 app.get('/', (req, res) => res.send('API running'));
 
@@ -19,7 +28,9 @@ app.use('/api/shapers', require('./routes/api/shapers'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/messages', require('./routes/api/messages'));
+app.use('/api/upload', require('./routes/api/upload'));
+app.use('/api/externalAPI', require('./routes/api/externalAPI'));
 
+//Server setup
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, () => console.log(`Server connected to port: ${PORT}`));

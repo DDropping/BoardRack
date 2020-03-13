@@ -6,8 +6,7 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   email: {
     type: String,
@@ -27,6 +26,15 @@ const UserSchema = new mongoose.Schema({
     default: 'user',
     required: true
   },
+  location: {
+    lat: { type: Number },
+    lng: { type: Number },
+    country: { type: String },
+    state: { type: String },
+    city: { type: String },
+    postalCode: { type: String },
+    locationImage: { type: String }
+  },
   messageThreads: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -39,16 +47,12 @@ const UserSchema = new mongoose.Schema({
       ref: 'post'
     }
   ],
-
-  //user account (likedPost, messageThreads, posts)
-  userInfo: {
-    likedPosts: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'post'
-      }
-    ]
-  },
+  favorites: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'post'
+    }
+  ],
 
   //shop account (address, storeHours, website, contactInfo, messageThreads, posts)
   shopInfo: {
@@ -62,7 +66,7 @@ const UserSchema = new mongoose.Schema({
       city: {
         type: String
       },
-      zip: {
+      postalCode: {
         type: String
       },
       address: {
@@ -117,7 +121,7 @@ const UserSchema = new mongoose.Schema({
       city: {
         type: String
       },
-      zip: {
+      postalCode: {
         type: String
       },
       address: {

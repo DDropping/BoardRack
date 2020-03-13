@@ -1,0 +1,25 @@
+.br-banner-container {
+  height: 90px;
+  width: 1200px;
+}
+
+.br-banner-img {
+  max-height: 100%;
+  margin: auto;
+  display: block;
+  position: relative;
+  text-align: center;
+}
+
+.br-banner-img-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 520px) {
+  .br-banner-carousel {
+    display: none;
+  }
+}

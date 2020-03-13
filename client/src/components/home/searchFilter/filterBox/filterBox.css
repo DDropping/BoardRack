@@ -1,0 +1,18 @@
+.br-filterBox-container {
+  vertical-align: top;
+  position: relative;
+  width: 260px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  background: #fff;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
+}
+
+@media (max-width: 520px) {
+  .br-filterBox-container {
+    display: block;
+    width: 100%;
+  }
+}

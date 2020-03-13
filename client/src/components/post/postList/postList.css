@@ -1,0 +1,10 @@
+.br-postList-container {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  background-color: #fff;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 11px rgba(83, 68, 68, 0.2);
+}

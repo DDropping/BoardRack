@@ -1,0 +1,15 @@
+.br-search-bar {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: calc(100% - 600px);
+  max-width: 400px;
+  position: relative;
+  top: -7px;
+}
+
+@media (max-width: 900px) {
+  .br-search-bar {
+    width: calc(100% - 160px);
+  }
+}
