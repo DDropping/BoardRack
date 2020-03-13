@@ -1,11 +1,6 @@
 .br-filterBox-container {
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 70px;
-  z-index: 1;
-
   vertical-align: top;
-  /* position: relative; */
+  position: relative;
   width: 260px;
   padding: 10px;
   margin-bottom: 10px;
