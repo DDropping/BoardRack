@@ -16,15 +16,6 @@ primary grey: `#f3f7f9`
 primary green: `#52c41a`
 compress image options: client/src/actions/imageUpload.js
 
-## Production checklist
-
-- Change db location in config/DB.js
-- Change proxy in client/package.json, to connect to express server (not sure if this is actually required)
-- configure /api/externalAPI/getApproximateLocation route to make sure correct ip address is retreived from user
-  - ^ might require bypass caused from proxy / nginx
-  - app.set('trust proxy', true) //for proxy
-  - proxy_set_header X-Real-IP \$remote_addr; //for nginx
-
 ## How to run (deployed in production)
 
 - Start express server with pm2 with `$ npm start pro` or `$ pm2 start server.js --env production`
