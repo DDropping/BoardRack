@@ -1,4 +1,4 @@
-# BOARDRACK (PRIVATE)
+# BOARDRACK
 
 ### Classified Advertisement Website for New / Used / Custom Suftboards
 
