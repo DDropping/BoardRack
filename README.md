@@ -4,8 +4,6 @@
 
 #### Built Using MongoDB, Express.js, React/Redux, Node.js with Ant design UI framework
 
-\*\*\* If need to make public, check config/default.json (DB admin uName/pwd visible)
-
 ## Dev Notes
 
 Update AntD default variables in /client/public/config-overrides.js
