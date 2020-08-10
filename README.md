@@ -1,20 +1,20 @@
-# BOARDRACK
+![screenshot](https://github.com/DDropping/portfolio/blob/master/src/images/project-boardrack.png)
 
-### Classified Advertisement Website for New / Used / Custom Suftboards
+# BoardRack
 
-#### Built Using MongoDB, Express.js, React/Redux, Node.js with Ant design UI framework
+### Project has been discontinued. Updated version 2 repository can be found [here](https://github.com/DDropping/BoardRack_v2)
 
-## Dev Notes
+Classified Advertisement Website for New / Used / Custom Suftboards
 
-Update AntD default variables in /client/public/config-overrides.js
-primary blue: `#00458a`  
-secondary blue: `#4878a9`  
-primary white: `#ffffff`  
-primary grey: `#f3f7f9`  
-primary green: `#52c41a`
-compress image options: client/src/actions/imageUpload.js
+---
 
-## How to run (deployed in production)
+### Clone
+
+- Clone this repo to your local machine using `https://github.com/DDropping/BoardRack.git`
+
+### Setup
+
+#### How to run (deployed in production)
 
 - Start express server with pm2 with `$ npm start pro` or `$ pm2 start server.js --env production`
 - Start react client with `$ npm run deploy-production` or build react app with `$ react-app-rewired build`, remove current build from nginx selected folder with `$ rm -r /var/www/boardrack.org/html/*`, move current build to nginx folder with `$ cp -r ./build/* /var/www/boardrack.org/html`
@@ -37,57 +37,66 @@ compress image options: client/src/actions/imageUpload.js
 - `$ pm2 stop 0` stop pm2 process with id == 0
 - `$ pm2 delete 0` delete pm2 process with id == 0
 
-## Scripts
+---
 
-### From /BoardRack
+## Technologies
 
-    "prod": "NODE_ENV=production pm2 start server.js",
-    "start": "node server",
-    "server": "nodemon server",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+- Create-React-App
 
-### From /BoardRack/client
+- Custom Express 
 
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-scripts eject",
-    "deploy-production": "react-app-rewired build && rm -r /var/www/boardrack.org/html/* && cp -r ./build/* /var/www/boardrack.org/html"
+- [Here API](https://developer.here.com/) integration for location based services.
 
-    //deploy-production must be ran from remote server in ~/BoardRack/client directory
+- [IPStack API](https://ipstack.com/) integration for IP location based services.
 
-## Dependencies
+- [Ant Design](https://ant.design/components/overview/) component library used for rich ui elements.
 
-### Frontend
+- [Redux](https://redux.js.org/) used for application state management.
 
-- "antd": "^3.21.2",
-- "axios": "^0.19.0",
-- "babel-plugin-import": "^1.12.0",
-- "customize-cra": "^0.4.1",
-- "less": "^3.9.0",
-- "less-loader": "^5.0.0",
-- "react": "^16.8.6",
-- "react-app-rewired": "^2.1.3",
-- "react-dom": "^16.8.6",
-- "react-redux": "^7.1.0",
-- "react-router-dom": "^5.0.1",
-- "react-scripts": "3.0.1",
-- "redux": "^4.0.4",
-- "redux-devtools-extension": "^2.13.8",
-- "redux-form": "^8.2.6",
-- "redux-thunk": "^2.3.0",
-- "uuid": "^3.3.2"
+- [JWT](https://jwt.io/) used for authorization.
 
-### Backend
+---
 
-- bcryptjs: ^2.4.3,
-- config: ^3.1.0,
-- express: ^4.17.1,
-- express-validator: ^5.3.1,
-- jsonwebtoken: ^8.5.1,
-- mongoose: ^5.5.11
+## Developer Notes
+
+Update AntD default variables in /client/public/config-overrides.js
+primary blue: `#00458a`  
+secondary blue: `#4878a9`  
+primary white: `#ffffff`  
+primary grey: `#f3f7f9`  
+primary green: `#52c41a`
+compress image options: client/src/actions/imageUpload.js
+
+## Production Notes
+
+change base url: utils/baseUrl
+
+## Other Notes
+
+- fix: pre-load antd library styles into \_app.js
+- note: any antd components used need to be pre-loaded into \_app.js
+
+---
+
+## Support
+
+Reach out to me at one of the following places!
+
+- Website at <a href="http://ddropping.com" target="_blank">`ddropping.com`</a>
+- LinkedIn at <a href="https://www.linkedin.com/in/ddropping/" target="_blank">`@ddropping`</a>
+- Email at <a href="mailto:ddropping@gmail.com" target="_blank">`ddropping@gmail.com`</a>
+
+---
 
 ## Authors
 
 - **David Dropping** - [ddropping](https://github.com/ddropping)
+
+---
+
+## License
+
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- Copyright 2020 © <a href="http://ddropping.com" target="_blank">David Dropping</a>
